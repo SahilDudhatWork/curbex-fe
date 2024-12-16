@@ -1,0 +1,75 @@
+
+@font-face {
+    font-family: "fantasy";
+    src: url(../fonts/FontsFree-Net-CodeProBold.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url(../fonts/Montserrat-Medium.ttf);
+}
+@font-face {
+    font-family: "Montserrat-Bold";
+    src: url(../fonts/Montserrat-Bold.ttf);
+}
+.font-fantasy{
+    font-family: "fantasy";
+}
+body{
+    font-family: "Montserrat-Regular";
+    line-height: 1.5;
+}
+.font-Montserrat-Medium{
+    font-family: "Montserrat-Medium";
+}
+.font-Montserrat-Bold{
+    font-family: "Montserrat-Bold";
+}
+
+.VueCarousel-wrapper{
+    border-radius: 25px;
+    overflow: hidden;
+} 
+.VueCarousel-pagination{
+    display: none;
+}
+.gradient-background {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 18.04%, rgba(0, 0, 0, 0.87) 100%);
+}
+.hidden-important {
+    display: none !important;
+}
+.rent-produt:hover .hidden-important {
+    display: block !important; 
+}
+.rent-produt:hover .description {
+    color: #121212;
+}
+
+/* Add these new styles for the accordion */
+.accordion-open svg {
+    transform: rotate(180deg);
+}
+
+svg {
+    transition: transform 0.3s ease;
+}
+.accordion-color{
+    color: #121212 !important;
+}
+.accordion-open {
+    background-color: #8D54FF !important; 
+    color: #ffffff !important;
+}
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .medium-s-section{
+    max-width: 100%;
+    }    
+}
+.menu-scroll{
+    height: calc(100vh - 30px);
+    overflow: auto;
+}
