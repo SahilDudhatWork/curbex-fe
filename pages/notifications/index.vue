@@ -17,7 +17,7 @@
           <p class="text-[14px] text-[#949494] py-[6px] hidden md:block">Your order is on the way from Barrie to Waterloo</p>
           <p class="text-[12px] text-[#949494]">March 1, 2023</p>
         </div>
-        <button class="ml-auto text-[#949494] hover:text-black">
+        <button  class="ml-auto text-[#949494] hover:text-black">
           <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1.48438L12 12.4844" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M1 1.48438L12 12.4844" stroke="black" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
