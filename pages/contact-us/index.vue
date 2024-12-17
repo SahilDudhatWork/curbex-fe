@@ -2,7 +2,7 @@
   <div class="container mx-auto px-6 lg:p-[3rem_10rem_3rem_6rem] mb-5">
     <div class="flex gap-12 mb-5 flex-wrap lg:flex-nowrap">
       <!-- Left Column -->
-      <div class="order-2 lg:order-1 lg:bg-gray-50 py-[3rem] lg:p-[4rem_2rem_1.7rem] rounded-t-[16px] w-full lg:max-w-[450px]">
+      <div class="order-2 lg:order-1 lg:bg-[#FCFCFC] py-[3rem] lg:p-[4rem_2rem_1.7rem] rounded-[18px_0px_0px_18px] w-full lg:max-w-[452px]">
         <h2 class="text-[16px] lg:text-[24px] font-Montserrat-Bold mb-2">Other ways to connect</h2>
         <p class="text-gray-600 mb-[3.5rem] text-[16px]">
           We' love to hear from you. Our friendly team is always here to chat.
@@ -118,7 +118,7 @@
             <textarea v-model="form.message" rows="6" class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]" placeholder="Tell us about your project"></textarea>
           </div>
 
-          <button type="submit" class="px-6 py-3 bg-[#8D54FF] text-white rounded-md hover:bg-purple-700 flex items-center justify-center w-full lg:w-fit">
+          <button type="submit" class="px-6 py-3 bg-[#8D54FF] text-white rounded-md hover:bg-[#121212] flex items-center justify-center w-full lg:w-fit">
             Send
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

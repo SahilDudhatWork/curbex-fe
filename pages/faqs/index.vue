@@ -10,19 +10,19 @@
           :key="index" 
           :class="[
               'flex items-center p-5 cursor-pointer transition-all duration-300 border',
-              { 'text-[#FFA900]': selectedCategory === category.id },
+              { 'text-[#FFA900]': selectedCategory === category.id, },
               { 'border-[#FFA900]': selectedCategory === category.id, 'border-[#C3C3C3]': selectedCategory !== category.id },
               'rounded-[20px] mr-2 mb-2 lg:m-0 p-[8px] lg:border-0 lg:text-inherit lg:rounded-none lg:p-4 lg:w-auto w-[95px]'
           ]" 
           @click="selectedCategory = category.id">
           <p class="hidden lg:block w-[63px] h-[2px] rounded-[8px] mr-[10px]"
             :class="[selectedCategory === category.id ? 'bg-[#FFA900]' : 'bg-[#FFA90000]']"></p>
-          <p class="text-[14px] lg:text-[16px] font-Montserrat-Medium m-auto">{{ category.name }}</p>
+          <p class="text-[14px] lg:text-[16px] font-Montserrat-Medium m-auto" :class="{'text-[#FFA900]': selectedCategory === category.id}">{{ category.name }}</p>
       </div>
       </div>
 
       <!-- FAQ Content -->
-      <div class="flex-grow w-full lg:w-auto">
+      <div class="flex-grow w-full lg:w-auto lg:pt-[4rem]">
         <div class="relative mb-8">
           <input type="text" 
                  class="w-full p-2 md:p-3 border border-gray-300 rounded-lg pr-10 text-[16px] text-[#949494] bg-[#FCFCFC]" 

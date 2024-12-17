@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="bg-[#121212] h-[49px] w-full"></div>
     <header class="bg-[#FFFFFF80] backdrop-blur-md sticky top-0 left-0 right-0 z-50">
         <div class="p-[22px]">
           <div class="container mx-auto">

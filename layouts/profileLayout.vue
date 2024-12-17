@@ -10,7 +10,7 @@
                     <div class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem]">
                         <img src="/Images/Profile/Avatar.png" alt="Profile" class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"/>
                         <div>
-                            <span class="font-Montserrat-Bold text-[20px]">Ryan Reynolds</span>
+                            <span class="font-Montserrat-Medium text-[20px]">Ryan Reynolds</span>
                             <p class="flex items-center text-[12px] md:hidden">
                                 Ryan@gmail.com 
                                 <span class="ml-1">
