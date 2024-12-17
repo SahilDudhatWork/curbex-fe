@@ -6,16 +6,16 @@
           <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/1.png);"></div>
         </Slide>
         <Slide class="h-[439px] md:h-[483px]">
-          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/2.webp);"></div>
+          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/2.png);"></div>
         </Slide>
         <Slide class="h-[439px] md:h-[483px]">
-          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/4.webp);"></div>
+          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/4.png);"></div>
         </Slide>
         <Slide class="h-[439px] md:h-[483px]">
-          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[94%_100%] md:bg-[99%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/5.webp);"></div>
+          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[94%_100%] md:bg-[99%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/5.png);"></div>
         </Slide>
         <Slide class="h-[439px] md:h-[483px]">
-          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/6.webp);"></div>
+          <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/6.png);"></div>
         </Slide>
         <Slide class="h-[439px] md:h-[483px]">
           <div class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover" style="background-image: url(/Images/7.webp);"></div>
@@ -26,13 +26,13 @@
       </Carousel>
     </div>
     <div class="container px-6 lg:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212]">
-      <h2 class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[77px] capitalize py-[2rem] leading-[normal]">
+      <h2 class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal]">
         your brand, <p class="lg:hidden"></p> anytime, anywhere
       </h2>
     </div>
     <div class="container medium-s-section mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]" >
       <div class="lg:text-center text-[#121212] lg:bg-[#F3F3F3] rounded-[20px] ">
-        <h2 class="md:max-w-[768px] lg:max-w-full md:mx-auto px-6 text-[#121212] leading-[normal] text-[17px] md:text-[29px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] lg:px-0 ml-[10px]">
+        <h2 class="md:max-w-[768px] lg:max-w-full md:mx-auto px-6 text-[#121212] leading-[normal] text-[17px] md:text-[27px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] lg:px-0 ml-[10px]">
           <p class="md:inline bg-[#F3F3F3] md:bg-[#F3F3F300] p-[18px_18px] rounded-[20px] mb-10 md:p-0 md:mb-0 ml-[-10px]">Curbside Express Advertising in your community. </p>
           Help us create your customer journey
         </h2>
@@ -41,25 +41,25 @@
           <div class="flex flex-wrap justify-between items-center" >
             <NuxtLink to="/small-business-franchise" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
               <video src="/Videos/1.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[26px] lg:text-[28px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
                 Small Business & Franchise 
               </div>
             </NuxtLink>
-            <NuxtLink to="/government-non-profits" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[410px] transition-all duration-300">
-              <video src="/Videos/2.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[410px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[26px] lg:text-[28px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+            <NuxtLink to="/government-non-profits" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
+              <video src="/Videos/2.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
                 Government & Non-Profit
               </div>
             </NuxtLink>
-            <NuxtLink to="/media-buyers-agencies" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[410px] transition-all duration-300">
-              <video src="/Videos/3.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[410px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[26px] lg:text-[28px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+            <NuxtLink to="/media-buyers-agencies" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
+              <video src="/Videos/3.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
                 Media Buyers/ Agencies
               </div>
             </NuxtLink>
-            <NuxtLink to="/commercial-property-owners" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[410px] transition-all duration-300">
-              <video src="/Videos/4.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[410px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[26px] lg:text-[28px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+            <NuxtLink to="/commercial-property-owners" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
+              <video src="/Videos/4.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
                 Commercial Property Owners
               </div>
             </NuxtLink>
