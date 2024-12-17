@@ -46,7 +46,7 @@
                     </div>
                     <form class="flex mt-4 md:mt-0">
                         <input type="email" placeholder="Enter your email" class="text-[12px] md:text-[14px] p-[9px_15px] w-full md:w-[60%] rounded-md bg-black text-white border border-[#FFFFFF] focus:outline-none mr-3">
-                        <button type="submit" class="px-3 md:px-6 py-2 bg-[#FFA900] text-white text-[14px] rounded-md hover:bg-orange-600">Subscribe</button>
+                        <button type="submit" class="px-3 md:px-6 py-2 bg-[#FFA900] text-white text-[14px] rounded-md hover:bg-[#8D54FF]">Subscribe</button>
                     </form>
                 </div>
             </div>

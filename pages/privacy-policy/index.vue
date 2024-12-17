@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-6 py-8 max-w-[1300px] md:w-[95%]">
+  <div class="container mx-auto px-6 py-8 md:py-[7rem] max-w-[1300px] md:w-[95%]">
     <h1 class="text-[24px] font-Montserrat-Bold mb-8">Privacy Policy</h1>
     
     <section v-for="(section, index) in sections" :key="index" class="mb-8">

@@ -14,9 +14,9 @@
               <div class="w-full h-[100px] bg-contain bg-no-repeat grayscale group-hover:grayscale-[0]"          :style="{ backgroundImage: `url(${item.image})` }"
               ></div>
               <div class="text pl-4 ">
-                  <p class=" md:text-[20px] font-Montserrat-Medium font-bold py-[8px] text-[#121212]">{{item.title}}</p>
-                  <span class="text-[#8D54FF] text-[12px] md:text-[16px] pb-[10px] block max-w-[360px]">{{item.shortTitle}}</span>
-                  <p class="text-[10px] lg:text-[14px] md:text-[13px] tracking-[0px] leading-normal max-w-[380px]">{{ item.description }}</p>
+                  <p class=" md:text-[20px] font-Montserrat-Medium font-bold py-[5px] text-[#121212]">{{item.title}}</p>
+                  <span class="text-[#8D54FF] text-[12px] md:text-[16px] pb-[5px] block max-w-[360px]">{{item.shortTitle}}</span>
+                  <p class="text-[10px] lg:text-[14px] md:text-[13px] tracking-[0px] leading-[17px] max-w-[380px]">{{ item.description }}</p>
               </div>
             </div>
           </div>
