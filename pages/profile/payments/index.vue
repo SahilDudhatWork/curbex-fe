@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[1200px] md:p-6 space-y-8">
+  <div class="max-w-[1200px] md:p-6 space-y-8 lg:pb-[4rem]">
     <!-- My Cards Section -->
     <div>
       <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6 md:pt-[3rem]">My Cards</h2>
