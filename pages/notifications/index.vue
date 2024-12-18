@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto container px-10 md:px-0 md:max-w-[597px] lg:max-w-5xl py-[4rem]">
+  <div class="mx-auto container px-10 md:px-0 md:max-w-[597px] lg:max-w-5xl py-[4rem] lg:py-[10rem]">
     <h1 class="text-[20px] md;text-[25px] font-bold mb-4 text-[#121212]">Notifications</h1>
     <div class="md:space-y-4">
       <div class="flex items-center md:items-start py-4 px-0 pr-3 md:p-4 bg-white border-b border-[#E0E0E0]">
@@ -18,7 +18,7 @@
           <p class="text-[12px] text-[#949494]">March 1, 2023</p>
         </div>
         <button class="ml-auto text-[#949494] hover:text-black flex items-center">
-          <span class="bg-[#FF364A] w-[9px] h-[9px] block rounded-[10px]"></span>
+          <span class="bg-[#FF364A] w-[9px] h-[9px] block rounded-[10px] md:hidden"></span>
           <span class="block md:hidden">
             <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10.5 10.5L16 16L10.5 21.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>

@@ -80,26 +80,22 @@
             class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
           >
         </div>
-  
         <div class="mb-4 relative">
-          <input 
-            :type="showPassword ? 'text' : 'password'" 
-            v-model="password" 
-            placeholder="Password"
-            class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-          >
-          <button 
-          @click="showPassword = !showPassword" 
-          class="absolute right-3 top-[11px] md:top-[21px] bg-transparent border-none cursor-pointer w-[17px] h-[17px] md:w-[24px] md:h-[24px]"
-          type="button"
-        >
-          <!-- <Icon :name="showPassword ? 'ph:eye-slash' : 'ph:eye'" /> -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="block w-full">
-            <path d="M11.9841 5.25C8.33067 5.25 4.58301 7.36453 1.6327 11.5936C1.54849 11.7156 1.50234 11.8599 1.50009 12.0082C1.49783 12.1564 1.53958 12.302 1.62004 12.4266C3.88692 15.975 7.58442 18.75 11.9841 18.75C16.336 18.75 20.1094 15.9666 22.3805 12.4102C22.4591 12.2881 22.5009 12.1459 22.5009 12.0007C22.5009 11.8555 22.4591 11.7134 22.3805 11.5912C20.1043 8.07562 16.3032 5.25 11.9841 5.25Z" stroke="#C3C3C3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75Z" stroke="#C3C3C3" stroke-width="1.5" stroke-miterlimit="10"/>
-          </svg>
-
-        </button>
+          <input :type="isNewPasswordVisible ? 'text' : 'password'" class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]" placeholder="Password"/>
+          <div class="absolute top-[18px] right-[13px] cursor-pointer" @click="togglePasswordVisibility('new')">
+            <span v-if="isNewPasswordVisible">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="black"/>
+                <path d="M23.0091 11.1844C21.7687 9.26625 20.1595 7.63688 18.3558 6.47203C16.3603 5.18203 14.1572 4.5 11.985 4.5C9.99187 4.5 8.03203 5.06953 6.15984 6.19266C4.25062 7.33781 2.52093 9.01078 1.01859 11.1647C0.84899 11.4081 0.755584 11.6965 0.750243 11.9931C0.744901 12.2897 0.827865 12.5813 0.988591 12.8306C2.22656 14.768 3.81984 16.3997 5.59547 17.5486C7.59468 18.8438 9.74625 19.5 11.985 19.5C14.1745 19.5 16.3823 18.8236 18.3694 17.5444C20.1722 16.3833 21.7781 14.7478 23.0137 12.8137C23.1689 12.5702 23.251 12.2872 23.2502 11.9984C23.2493 11.7096 23.1656 11.4271 23.0091 11.1844ZM12.0009 16.5C11.1109 16.5 10.2409 16.2361 9.50087 15.7416C8.76085 15.2471 8.18407 14.5443 7.84348 13.7221C7.50288 12.8998 7.41377 11.995 7.5874 11.1221C7.76103 10.2492 8.18962 9.44736 8.81895 8.81802C9.44829 8.18868 10.2501 7.7601 11.123 7.58647C11.9959 7.41283 12.9007 7.50195 13.723 7.84254C14.5453 8.18314 15.2481 8.75991 15.7425 9.49993C16.237 10.24 16.5009 11.11 16.5009 12C16.4996 13.1931 16.025 14.3369 15.1814 15.1805C14.3378 16.0241 13.194 16.4986 12.0009 16.5Z" fill="black"/>
+              </svg>
+            </span>
+            <span v-else>
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.9841 6.17383C8.33067 6.17383 4.58301 8.28836 1.6327 12.5174C1.54849 12.6395 1.50234 12.7837 1.50009 12.932C1.49783 13.0802 1.53958 13.2258 1.62004 13.3504C3.88692 16.8988 7.58442 19.6738 11.9841 19.6738C16.336 19.6738 20.1094 16.8904 22.3805 13.334C22.4591 13.2119 22.5009 13.0697 22.5009 12.9245C22.5009 12.7793 22.4591 12.6372 22.3805 12.5151C20.1043 8.99945 16.3032 6.17383 11.9841 6.17383Z" stroke="#C3C3C3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 16.6738C14.0711 16.6738 15.75 14.9949 15.75 12.9238C15.75 10.8528 14.0711 9.17383 12 9.17383C9.92893 9.17383 8.25 10.8528 8.25 12.9238C8.25 14.9949 9.92893 16.6738 12 16.6738Z" stroke="#C3C3C3" stroke-width="1.5" stroke-miterlimit="10"/>
+              </svg>
+            </span>
+          </div>
         </div>
   
         <p class="text-[8px] md:text-[12px] text-[#121212] mb-4 font-Montserrat-Medium mt-[-10px]">
@@ -142,20 +138,23 @@
     </div>
   </template>
   
-  <script setup>
-  import { ref } from 'vue'
-  
-  const email = ref('')
-  const LastName = ref('')
-  const password = ref('')
-  const showPassword = ref(false)
-  const keepLoggedIn = ref(false)
-  
-  const handleLogin = () => {
-    // Implement your login logic here
-    console.log('Login attempted', { email: email.value, password: password.value })
-  }
+  <script>
+    export default {
+      data() {
+        return {
+          isNewPasswordVisible: false,
+        };
+      },
+      methods: {
+        togglePasswordVisibility(field) {
+          if (field === "new") {
+            this.isNewPasswordVisible = !this.isNewPasswordVisible;
+          }
+        },
+      },
+    };
   </script>
+
   <style scoped>
   .styled-checkbox {
     position: absolute;

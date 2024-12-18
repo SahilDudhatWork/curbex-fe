@@ -5,7 +5,7 @@
       <h1 class="text-[18px] md:text-[20px] font-semibold md:mb-6">Track</h1>
       <div class="relative">
         <!-- Progress Line -->
-        <div class="statusbar absolute top-[44px] left-0 w-full h-1 bg-gray-200 mx-[50px]">
+        <div class="statusbar absolute top-[48px] left-0 w-full h-1 bg-gray-200 mx-[50px]">
             <div class="w-1/2 h-full bg-[#8D54FF] fill-statusbar"></div>
         </div>
         
@@ -58,8 +58,8 @@
             <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
         </div>
         <div class="flex justify-end lg:justify-center items-end w-full lg:w-auto mt-5 lg:mt-0">
-            <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[50%] lg:w-auto mr-4">Download Invoice</button>
-            <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[50%] lg:w-auto">Details</button>
+          <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
+          <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto">Details</button>
         </div>
       </div>
     </div>
@@ -224,11 +224,11 @@
           </div>
         </div>
         <div class="flex flex-wrap gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem]">
-            <button class="order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                Change Ad                                      
-            </button>
-            <button class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition">
-                Order Again
+          <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
+            Change Ad                                       
+          </button>
+            <button class="min-w-[133px] order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition">
+              Order Again
             </button>
         </div>
       </div>
@@ -255,11 +255,11 @@
         ></textarea>
       </div>
       <div class="flex justify-end gap-4">
-        <button class="order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-          Cancel
+        <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
+            Cancel                                      
         </button>
-        <button class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition">
-          Submit
+        <button class="min-w-[133px] order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition">
+            Sumbit
         </button>
       </div>
     </div>
@@ -290,7 +290,7 @@
 
 <style scoped>
 .statusbar{
-  width: calc(100% - 124px);
+  width: calc(100% - 126px);
 }
 @media screen and (max-width:1024px) {  
   .track-section{

@@ -20,8 +20,14 @@
         </div>
 
         <!-- Search Bar -->
-        <div class="mb-6">
+        <div class="mb-6 relative">
             <input type="text" placeholder="Search your order" class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-3 border border-[#121212] bg-[transparent] rounded-[25px]  lg:rounded-[8px] focus:outline-none focus:border-[#000000]">
+            <span class="absolute right-[14px] top-[17px]">
+                <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z" stroke="#949494" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path d="M15 14.6631L20 20.6631" stroke="#949494" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
+                </svg>
+            </span>
         </div>
 
         <!-- Active Orders -->
@@ -38,8 +44,8 @@
                     <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
                 </div>
                 <div class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto">
-                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
-                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[48%] md:w-[150px] lg:w-auto">Details</button>
+                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
+                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto">Details</button>
                 </div>
             </div>
         </div>
@@ -58,9 +64,9 @@
                     <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
                 </div>
                 <div class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto">
-                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
-                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-fit md:w-[150px] lg:w-auto">Details</button>
-                    <NuxtLink to="/profile/trackOrder" class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#8D54FF] text-[#FFFFFF] rounded-lg bg-[#8D54FF] w-fit md:w-[150px] lg:w-auto text-center">Track it</NuxtLink>
+                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
+                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto lg:mr-4">Details</button>
+                    <NuxtLink to="/profile/trackOrder" class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#8D54FF] text-[#FFFFFF] rounded-lg bg-[#8D54FF] hover:bg-[#121212] hover:border-[#121212] w-fit md:w-[150px] lg:w-auto text-center">Track it</NuxtLink>
                 </div>
             </div>
         </div>
@@ -79,8 +85,8 @@
                     <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
                 </div>
                 <div class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto">
-                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
-                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] rounded-lg w-[48%] md:w-[150px] lg:w-auto">Details</button>
+                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
+                    <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto">Details</button>
                 </div>
             </div>
         </div>
