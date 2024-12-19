@@ -2,7 +2,7 @@
   <div class="max-w-[1200px] md:p-6 space-y-8 lg:pb-[4rem]">
     <!-- My Cards Section -->
     <div>
-      <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6 md:pt-[3rem]">My Cards</h2>
+      <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6">My Cards</h2>
       <div class="flex gap-6 overflow-auto">
         <!-- Card 1 -->
         <div class="min-w-[270px] md:min-w-[340px] p-3 md:p-6 rounded-xl text-white w-[100%] h-[175px] md:h-[225px] max-w-[357px] flex flex-col justify-between" style="background: url('/Images/Profile/CardBG.png') no-repeat center center / cover">
@@ -47,11 +47,11 @@
     <!-- Saved Payment Options -->
     <div class="pb-[2rem] pt-[1rem] lg:py-[2rem]">
       <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6">Saved Payment Options</h2>
-      <div class="flex gap-4">
-        <img src="/Images/Profile/Visa.png" alt="Visa" class=" h-8 w-12 md:w-[4rem] md:h-auto lg:h-8 lg:w-12 object-contain" />
-        <img src="/Images/Profile/Mastercard.png" alt="Mastercard" class=" h-8 w-12 md:w-[4rem] md:h-auto lg:h-8 lg:w-12 object-contain" />
-        <img src="/Images/Profile/PayPal.png" alt="PayPal" class=" h-8 w-12 md:w-[4rem] md:h-auto lg:h-8 lg:w-12 object-contain" />
-        <img src="/Images/Profile/AddButton.png" alt="Add" class=" h-8 w-12 md:w-[4rem] md:h-auto lg:h-8 lg:w-12 object-contain" />
+      <div class="flex gap-2">
+        <img src="/Images/Profile/Visa.png" alt="Visa" class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain" />
+        <img src="/Images/Profile/Mastercard.png" alt="Mastercard" class=" h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain" />
+        <img src="/Images/Profile/PayPal.png" alt="PayPal" class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain" />
+        <img src="/Images/Profile/AddButton.png" alt="Add" class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain" />
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[32rem] space-y-8 md:pt-[4.6rem] w-full md:w-[90%]">
+  <div class="max-w-[32rem] space-y-8 w-full md:w-[90%] md:p-8">
     <!-- Notifications Section -->
     <div>
         <h2 class="text-[18px] md:text-[20px] lg:text-[24px] font-semibold mb-6">Notifications</h2>
@@ -15,7 +15,7 @@
                 <p class="pl-[25px] md:pl-[30px] text-[12px] md:text-[16px] text-[#121212] md:pt-2">You will be notified with sound when a new notification.</p>
             </div>
         </div>
-        <div class="flex gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem] flex-wrap">
+        <div class="flex gap-3 md:gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem] flex-wrap">
             <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
                 Cancel
                 <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@
                 <p class="text-[12px] text-[#121212] mt-1">Minimum 8 characters with at least one uppercase, one special character and a number</p>
             </div>
         </div>
-        <div class="flex gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem] flex-wrap">
+        <div class="flex gap-3 md:gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem] flex-wrap">
             <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
                 Cancel
                 <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">

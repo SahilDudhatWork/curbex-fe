@@ -9,7 +9,7 @@
       <div class="flex items-center gap-2 lg:gap-4 mb-[3.5rem] md:mb-[4.5rem] flex-wrap">
         <!-- Product Type Filter -->
         <div class="relative order-2 lg:order-1">
-          <button class="flex items-center gap-2 px-3 lg:px-4 py-2 lg:py-3 bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
+          <button class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
             Product type
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -19,7 +19,7 @@
 
         <!-- Price Filter -->
         <div class="relative order-3 lg:order-2">
-          <button class="flex items-center gap-2 px-3 lg:px-4 py-2 lg:py-3 bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
+          <button class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
             Price
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -29,7 +29,7 @@
 
         <!-- Review Filter -->
         <div class="relative order-4 lg:order-3">
-          <button class="flex items-center gap-2 px-3 lg:px-4 py-2 lg:py-3 bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
+          <button class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
             Review
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -39,7 +39,7 @@
 
         <!-- Location Filter -->
         <div class="relative order-5 lg:order-4">
-          <button class="flex items-center gap-2 px-3 lg:px-4 py-2 lg:py-3 bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
+          <button class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
             Location
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -49,7 +49,7 @@
 
         <!-- Offer Filter -->
         <div class="relative order-6 lg:order-5">
-          <button class="flex items-center gap-2 px-3 lg:px-4 py-2 lg:py-3 bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
+          <button class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
             Offer
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -59,7 +59,7 @@
 
         <!-- For Purchase Button -->
         <div class="lg:ml-auto order-1 lg:order-6">
-          <button class="flex items-center gap-2 px-3 lg:px-4 py-2 lg:py-3 bg-[#FFA900] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
+          <button class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#FFA900] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200">
             For Purchase
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -79,8 +79,8 @@
             </svg>
           </span>
         </div>
-        <div class="bg-[#F3F3F3] rounded-b-[10px] p-2 lg:p-5">
-          <div class="flex items-start justify-between pb-[5px]">
+        <div class="bg-[#F3F3F3] rounded-b-[10px] p-2 md:p-3 lg:p-5">
+          <div class="flex items-start justify-between pb-[5px] md:pb-[0] lg:pb-[5px]">
             <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold">Mini B</p>
             <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold">$209</p>
           </div>
