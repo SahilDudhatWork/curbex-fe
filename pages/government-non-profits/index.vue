@@ -151,7 +151,7 @@
                             <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                             <div class="ml-[-20px]">
                                 <div class="flex">
-                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Affordable</p>
+                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Affordable</p>
                                 </div>
                                 <p class="text-[#000000] font-normal text-[15px] mt-2">Budget-friendly signage solutions for public organizations.</p>
                             </div>
@@ -160,7 +160,7 @@
                             <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                             <div class="ml-[-20px]">
                                 <div class="flex">
-                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Hassle-Free</p>
+                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Hassle-Free</p>
                                 </div>
                                 <p class="text-[#000000] font-normal text-[15px] mt-2">Signs that inspire participation and action</p>
                             </div>
@@ -169,7 +169,7 @@
                             <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                             <div class="ml-[-20px]">
                                 <div class="flex">
-                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">High Impact</p>
+                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">High Impact</p>
                                 </div>
                                 <p class="text-[#000000] font-normal text-[15px] mt-2">Professional-quality signs designed for visibility</p>
                             </div>
@@ -178,7 +178,7 @@
                             <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                             <div class="ml-[-20px]">
                                 <div class="flex">
-                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Measurable Impact</p>
+                                    <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Measurable Impact</p>
                                 </div>
                                 <p class="text-[#000000] font-normal text-[15px] mt-2">Easy ordering with full-service support</p>
                             </div>
@@ -224,7 +224,7 @@
         <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mb-[25px]">FAQ</p>
         <div id="accordion-color" data-accordion="collapse">
             <!-- First Accordion -->
-            <h2 id="accordion-color-heading-1" class="mb-2">
+            <h2 id="accordion-color-heading-1" class="mb-4">
                 <button type="button"
                 class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                 :class="{ 'accordion-open': activeAccordion === 1 }"
@@ -239,14 +239,14 @@
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-color-body-1" class="mb-2" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
+            <div id="accordion-color-body-1" class="mb-4" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
                 <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                     <p class="text-gray-500 dark:text-gray-400">Absolutely. We offer full customization options while maintaining uniformity across all properties.</p>
                 </div>
             </div>
 
             <!-- Second Accordion -->
-            <h2 id="accordion-color-heading-2" class="mb-2">
+            <h2 id="accordion-color-heading-2" class="mb-4">
                 <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                 :class="{ 'accordion-open': activeAccordion === 2 }" :aria-expanded="activeAccordion === 2" @click="toggleAccordion(2)">
                 <span class="text-left font-bold font-Montserrat-Medium">How quickly can we receive our signs?</span>
@@ -256,13 +256,13 @@
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-color-body-2" class="mb-2" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
+            <div id="accordion-color-body-2" class="mb-4" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
                 <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                 <p class="text-gray-500 dark:text-gray-400">The signs will be shipped within 5-7 business days after your order is confirmed.</p>
                 </div>
             </div>
             <!-- Second Accordion -->
-            <h2 id="accordion-color-heading-3" class="mb-2">
+            <h2 id="accordion-color-heading-3" class="mb-4">
                 <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                 :class="{ 'accordion-open': activeAccordion === 3 }" :aria-expanded="activeAccordion === 3" @click="toggleAccordion(3)">
                 <span class="text-left font-bold font-Montserrat-Medium">Can we order signs for short-term campaigns?</span>
@@ -272,7 +272,7 @@
                     </svg>
                 </button>
             </h2>
-            <div id="accordion-color-body-3" class="mb-2" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
+            <div id="accordion-color-body-3" class="mb-4" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
                 <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                 <p class="text-gray-500 dark:text-gray-400">Yes, we do offer options for both short-term and long-term signage needs, depending on your requirements.</p>
                 </div>

@@ -3,14 +3,14 @@
         <div class="sticky top-0 z-50">
             <Header />
         </div>
-        <div class="container px-6 lg:px-0 mx-auto py-8 h-auto">
+        <div class="container px-6 md:px-0 lg:px-6 mx-auto py-8 h-auto">
             <div class="flex flex-col md:flex-row gap-8">
                 <div class="md:max-w-[300px] md:bg-[#FCFCFC] rounded-[16px] md:p-[1.5rem] h-fit md:sticky top-[108px] mb-[40px]">
                     <!-- Profile Header -->
                     <div class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem]">
                         <img src="/Images/Profile/Avatar.png" alt="Profile" class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"/>
                         <div>
-                            <span class="font-Montserrat-Medium text-[20px]">Ryan Reynolds</span>
+                            <span class="font-Montserrat-Medium text-[20px] user-name">Ryan Reynolds</span>
                             <p class="flex items-center text-[12px] md:hidden">
                                 Ryan@gmail.com 
                                 <span class="ml-1">
@@ -338,11 +338,15 @@
         padding: 0 10px;
         height: 33px;
         margin-left: 117px;
-        margin-top: -13px;
+        margin-top: -38px;
         position: absolute;
         overflow: hidden;
         z-index: 9;
         background-color: #FFFFFF;
+    }
+    .user-name{
+        margin-top: -50px;
+        display: block;
     }
     .sidemenu-sm-active{
         height: auto;
