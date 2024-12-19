@@ -8,8 +8,8 @@
         <Slide v-for="(item, index) in testiminoalSlider"
         :key="index"
         class="relative">
-          <div class="item relative p-[9px] md:p-[20px]">
-            <div class="group block relative p-[5px_12px_23px] md:p-[30px_20px] bg-[#FCFCFC] border-[2px] border-[#F3F3F3] hover:border-[#8D54FF] rounded-[59px_25px_1px_25px]  ">
+          <div class="item relative p-[9px] md:p-[20px] h-[100%]">
+            <div class="group block relative p-[5px_12px_23px] md:p-[30px_20px] bg-[#FCFCFC] border-[2px] border-[#F3F3F3] hover:border-[#8D54FF] rounded-[59px_25px_1px_25px] h-[100%]">
               <div class="block bg-[#8D54FF] w-[128px] h-[128px] absolute rounded-[64px_8px_8px_8px] left-[-9px] top-[-9px] z-[-1]"></div>
               <div class="w-full h-[100px] bg-contain bg-no-repeat grayscale group-hover:grayscale-[0]"          :style="{ backgroundImage: `url(${item.image})` }"
               ></div>

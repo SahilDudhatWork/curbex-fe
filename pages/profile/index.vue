@@ -20,38 +20,38 @@
                 <h2 class="text-[16px] md:text-[20px] font-semibold mb-3 md:mb-6">Account Info</h2>
                 <div class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-6">
                     <!-- First Name -->
-                    <div class="flex flex-col gap-1 w-full md:w-auto">
+                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">First Name</label>
-                        <input type="text" v-model="firstName" placeholder="First Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                        <input type="text" v-model="firstName" placeholder="First Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div>
 
                     <!-- Last Name -->
-                    <div class="flex flex-col gap-1 w-full md:w-auto">
+                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Last Name</label>
-                        <input type="text" v-model="lastName" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                        <input type="text" v-model="lastName" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div>
 
                     <h2 class="text-[16px] md:text-[20px] font-semibold mt-3 md:hidden">Account Data</h2>
                     <!-- Username -->
-                    <div class="flex flex-col gap-1 w-full md:w-auto">
+                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Username</label>
-                        <input type="text" v-model="username" placeholder="Username" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                        <input type="text" v-model="username" placeholder="Username" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div>
 
                     <!-- Phone Number -->
-                    <div class="flex flex-col gap-1 w-full md:w-auto">
+                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Phone Number</label>
-                        <input type="tel" v-model="phoneNumber" placeholder="E.g. (123) 456-7890" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                        <input type="tel" v-model="phoneNumber" placeholder="E.g. (123) 456-7890" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         <span class="text-[12px] text-gray-500">E.g. (123) 456-7890</span>
                     </div>
 
                     <!-- Email Address - Full Width -->
                     <h2 class="text-[16px] md:text-[20px] font-semibold mt-3 md:hidden">Email</h2>
-                    <div class="flex flex-col gap-1  w-full md:w-auto lg:mt-[-20px]">
+                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:mt-[-20px] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Email Address</label>
-                        <input type="email" v-model="email" placeholder="Email" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                        <input type="email" v-model="email" placeholder="Email" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div>
-                    <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[89%] lg:w-auto">
+                    <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[92%] lg:w-auto">
                         <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
                             Cancel
                             <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">

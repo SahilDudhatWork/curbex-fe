@@ -166,7 +166,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Impactful Designs</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Impactful Designs</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Eye-catching signage that draws attention and drives attendance.</p>
                                 </div>
@@ -175,7 +175,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Quick Turnaround</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Quick Turnaround</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Fast delivery and installation to meet your event’s schedule.</p>
                                 </div>
@@ -184,7 +184,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Adaptable Solutions</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Adaptable Solutions</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Flexible signage for any event size, location, or need.</p>
                                 </div>
@@ -193,7 +193,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Professional Aesthetic</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Professional Aesthetic</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Signs that reflect your brand and elevate your event’s experience</p>
                                 </div>
@@ -202,7 +202,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Hassle-Free Management</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Hassle-Free Management</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Full-service support to keep your event running smoothly.</p>
                                 </div>
@@ -240,7 +240,7 @@
             <p class="text-[#FCFCFC] font-medium text-[16px] sm:text-[17px] md:text-[24px] bg-[#121212] rounded-full py-[7px] md:py-[11px] px-7 w-fit text-center m-auto mb-[-26px]">What costumers think about us</p>
         </div>
         <div class="container mx-auto px-6 md:px-0">
-            <Testimonial/>
+            <Testimonial :testiminoalSlider="testiminoalSlider"/>
         </div>
         <!------------------------------------------------->
         <div class="mt-20 bg-[#121212]">
@@ -257,7 +257,7 @@
             <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mb-[25px]">FAQ</p>
             <div id="accordion-color" data-accordion="collapse">
                 <!-- First Accordion -->
-                <h2 id="accordion-color-heading-1" class="mb-2">
+                <h2 id="accordion-color-heading-1" class="mb-4">
                     <button type="button"
                     class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                     :class="{ 'accordion-open': activeAccordion === 1 }"
@@ -272,14 +272,14 @@
                         </svg>
                     </button>
                 </h2>
-                <div id="accordion-color-body-1" class="mb-2" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
+                <div id="accordion-color-body-1" class="mb-4" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
                     <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                         <p class="text-gray-500 dark:text-gray-400">Absolutely. We offer full customization options while maintaining uniformity across all properties.</p>
                     </div>
                 </div>
     
                 <!-- Second Accordion -->
-                <h2 id="accordion-color-heading-2" class="mb-2">
+                <h2 id="accordion-color-heading-2" class="mb-4">
                     <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                     :class="{ 'accordion-open': activeAccordion === 2 }" :aria-expanded="activeAccordion === 2" @click="toggleAccordion(2)">
                     <span class="text-left font-bold font-Montserrat-Medium">Do you offer custom signage for event sponsors?</span>
@@ -289,13 +289,13 @@
                         </svg>
                     </button>
                 </h2>
-                <div id="accordion-color-body-2" class="mb-2" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
+                <div id="accordion-color-body-2" class="mb-4" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
                     <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                     <p class="text-gray-500 dark:text-gray-400">We place signage in strategic locations on your properties, and a portion of the revenue generated goes back to you.</p>
                     </div>
                 </div>
                 <!-- Second Accordion -->
-                <h2 id="accordion-color-heading-3" class="mb-2">
+                <h2 id="accordion-color-heading-3" class="mb-4">
                     <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                     :class="{ 'accordion-open': activeAccordion === 3 }" :aria-expanded="activeAccordion === 3" @click="toggleAccordion(3)">
                     <span class="text-left font-bold font-Montserrat-Medium"> How durable are your signs for outdoor events?</span>
@@ -305,7 +305,7 @@
                         </svg>
                     </button>
                 </h2>
-                <div id="accordion-color-body-3" class="mb-2" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
+                <div id="accordion-color-body-3" class="mb-4" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
                     <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                     <p class="text-gray-500 dark:text-gray-400">Yes. Our team is equipped to handle emergency signage requirements with rapid turnaround times.</p>
                     </div>
@@ -320,7 +320,7 @@
                 <div class="mt-10">
                     <Carousel :perPage="3" :autoplay="true" :autoplayTimeout="3000" loop :nav="false" :dots="false">
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
                                 <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
@@ -336,7 +336,7 @@
                             </div>
                         </Slide>   
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
                                 <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
@@ -352,7 +352,7 @@
                             </div>
                         </Slide>   
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
                                 <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
@@ -374,10 +374,36 @@
     </div>
   </template>
   <script>
+    import fmi from "@/static/Images/Testimonial/fmi.png";
+    import Panera from "@/static/Images/Testimonial/Panera.png";
+    import Tim from "@/static/Images/Testimonial/Tim.png";
     export default {
         data() {
         return {
-            activeAccordion: null // Track which accordion is currently open
+            activeAccordion: null, // Track which accordion is currently open
+            testiminoalSlider: [
+                {
+                    id:1,
+                    title:'Sydney Henderson',
+                    shortTitle:'Marketing Specialist at FMI Group',
+                    description:'The signage has been incredibly beneficial in bringing brand awareness, promoting our offers, and getting more local exposure. The design team is always quick to send along proofs, which makes the process even smoother. Curbex and the entire team have been wonderful to work with-10/10, would recommend!', 
+                    image:fmi
+                }, 
+                {
+                    id:2,
+                    title:'Heather Greenly',
+                    shortTitle:'VP Marketing at Panera Bread',
+                    description:'The signage has been incredibly beneficial in bringing brand awareness, promoting our offers, and getting more local exposure. The design team is always quick to send along proofs, which makes the process even smoother. Curbex and the entire team have been wonderful to work with-10/10, would recommend!', 
+                    image:Panera
+                }, 
+                {
+                    id:3,
+                    title:'Ashley Hum ',
+                    shortTitle:'Marketing Manager at Tim Hortons',
+                    description:'Managing signage for multiple locations can be challenging, but Curbex makes it easy. They handle every detail-including navigating the permit process-ensuring that our signs are installed on time and to code. We’ve seen a great response from customers at each location, and we appreciate how effortless Curbex makes the whole process.', 
+                    image:Tim
+                }, 
+            ],
         }
         },
         methods: {
@@ -390,7 +416,7 @@
         }
         }
     };
-  </script>
+  </script>  
   <style scoped>
     body{
         background-color: white;

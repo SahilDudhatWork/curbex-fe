@@ -167,7 +167,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Uniform, High-Quality Designs</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Uniform, High-Quality Designs</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Consistent signage that enhances property aesthetics.</p>
                                 </div>
@@ -176,7 +176,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Revenue Sharing</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Revenue Sharing</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Generate additional income from signage opportunities.</p>
                                 </div>
@@ -185,7 +185,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Emergency Services</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Emergency Services</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Fast, reliable response for urgent signage needs.</p>
                                 </div>
@@ -194,7 +194,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Dedicated Account Manager</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Dedicated Account Manager</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">One point of contact for all signage services.</p>
                                 </div>
@@ -203,7 +203,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[23px] bg-[#121212] rounded-full py-[8px] px-7">Liability Insurance</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Liability Insurance</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Proper insurance coverage for peace of mind.</p>
                                 </div>
@@ -230,7 +230,7 @@
             <CarouselSlider/>
         </div>
         <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
-            <div class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[2rem] md:p-[2rem] max-w-[986px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0">
+            <div class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[2rem] md:p-[2rem] max-w-[930px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0">
                 <p class="font-bold text-[30px] md:text-[50px] text-[#8D54FF] text-center font-Montserrat-Bold pb-[25px]">Get Started with Curbex Today</p>
                 <p class="text-[#000000] font-normal text-[16px] md:text-[26px] text-center pb-[10px] leading-[31px]">Keep your properties looking professional and well-managed with Curbex signage. From revenue sharing to rapid response services, we provide everything you need to enhance tenant visibility, streamline operations, and generate value</p>
                 <p class="text-[#000000] font-bold text-[16px] md:text-[26px] text-center leading-[31px] font-Montserrat-Medium"> Let us be your signage partner – reliable, professional, and always out front.</p>
@@ -258,7 +258,7 @@
             <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mb-[25px]">FAQ</p>
             <div id="accordion-color" data-accordion="collapse">
                 <!-- First Accordion -->
-                <h2 id="accordion-color-heading-1" class="mb-2">
+                <h2 id="accordion-color-heading-1" class="mb-4">
                     <button type="button"
                     class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                     :class="{ 'accordion-open': activeAccordion === 1 }"
@@ -273,14 +273,14 @@
                         </svg>
                     </button>
                 </h2>
-                <div id="accordion-color-body-1" class="mb-2" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
+                <div id="accordion-color-body-1" class="mb-4" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
                     <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                         <p class="text-gray-500 dark:text-gray-400">Absolutely. We offer full customization options while maintaining uniformity across all properties.</p>
                     </div>
                 </div>
     
                 <!-- Second Accordion -->
-                <h2 id="accordion-color-heading-2" class="mb-2">
+                <h2 id="accordion-color-heading-2" class="mb-4">
                     <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                     :class="{ 'accordion-open': activeAccordion === 2 }" :aria-expanded="activeAccordion === 2" @click="toggleAccordion(2)">
                     <span class="text-left font-bold font-Montserrat-Medium">How does the revenue-sharing program work?</span>
@@ -290,13 +290,13 @@
                         </svg>
                     </button>
                 </h2>
-                <div id="accordion-color-body-2" class="mb-2" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
+                <div id="accordion-color-body-2" class="mb-4" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
                     <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                     <p class="text-gray-500 dark:text-gray-400">We place signage in strategic locations on your properties, and a portion of the revenue generated goes back to you.</p>
                     </div>
                 </div>
                 <!-- Second Accordion -->
-                <h2 id="accordion-color-heading-3" class="mb-2">
+                <h2 id="accordion-color-heading-3" class="mb-4">
                     <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                     :class="{ 'accordion-open': activeAccordion === 3 }" :aria-expanded="activeAccordion === 3" @click="toggleAccordion(3)">
                     <span class="text-left font-bold font-Montserrat-Medium">Do you offer support for emergency signage needs?</span>
@@ -306,7 +306,7 @@
                         </svg>
                     </button>
                 </h2>
-                <div id="accordion-color-body-3" class="mb-2" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
+                <div id="accordion-color-body-3" class="mb-4" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
                     <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
                     <p class="text-gray-500 dark:text-gray-400">Yes. Our team is equipped to handle emergency signage requirements with rapid turnaround times.</p>
                     </div>
@@ -321,7 +321,7 @@
                 <div class="mt-10">
                     <Carousel :perPage="3" :autoplay="true" :autoplayTimeout="3000" loop :nav="false" :dots="false">
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
                                 <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
@@ -337,7 +337,7 @@
                             </div>
                         </Slide>   
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
                                 <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
@@ -353,7 +353,7 @@
                             </div>
                         </Slide>   
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
                                 <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">

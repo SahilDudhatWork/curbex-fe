@@ -14,7 +14,7 @@
       
                   <!-- Navigation Links for Desktop -->
                   <div class="hidden md:flex">
-                      <ul class="flex items-center gap-8">
+                      <ul class="flex items-center gap-8 md:gap-6 lg:gap-8">
                           <NuxtLink to="/product" class="text-gray-800 font-Montserrat-Medium text-[15px] cursor-pointer hover:scale-110">Products</NuxtLink>
                           <NuxtLink to="/about-us" class="text-gray-800 font-Montserrat-Medium text-[15px] cursor-pointer hover:scale-110">About us</NuxtLink>
                           <NuxtLink to="/news" class="text-gray-800 font-Montserrat-Medium text-[15px] cursor-pointer hover:scale-110">News</NuxtLink>

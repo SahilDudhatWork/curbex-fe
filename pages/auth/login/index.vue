@@ -43,7 +43,7 @@
           <label for="keepLoggedIn">Keep me logged in <span class="hidden md:inline-block lg:hidden"> - applies to all log in options below. <span class="underline pointer">More info</span></span> </label>
       </div>
 
-      <button @click="handleLogin" class="w-full p-3 px-5 bg-black text-white rounded-lg text-[12px] md:text-base cursor-pointer flex items-center justify-between gap-2">
+      <button @click="handleLogin" class="w-full p-3 px-5 bg-black hover:bg-[#8D54FF] text-white rounded-lg text-[12px] md:text-base cursor-pointer flex items-center justify-between gap-2">
         Login
         <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.875 4.20703L13.375 8.70703L8.875 13.207M12.75 8.70703H3.625" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
