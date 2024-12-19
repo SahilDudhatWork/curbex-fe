@@ -1,6 +1,6 @@
 <template>
-  <div class="p-4 lg:pb-[4rem]">
-    <h1 class="text-2xl font-bold mb-6">My Promotions</h1>
+  <div class="md:p-4 lg:pb-[4rem]">
+    <h1 class="text-[18px] md:text-[20px] font-semibold mb-3 pt-[1rem]">My Promotions</h1>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <!-- First row -->

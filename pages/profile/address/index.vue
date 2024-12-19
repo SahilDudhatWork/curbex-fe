@@ -17,11 +17,11 @@
                     <div class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
                         <div class="flex flex-col gap-1 w-full md:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Business Address Line 1</label>
-                            <input type="text" placeholder="Address" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Address Line 1" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                         <div class="flex flex-col gap-1 w-full md:w-auto relative">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Business Address Line 2</label>
-                            <input type="text" placeholder="Address" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Address Line 2" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             <button class="hidden md:block absolute right-[-50px] top-9">
                                 <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M20.4999 13.6673C16.7245 13.6673 13.6666 16.7252 13.6666 20.5007C13.6666 24.2761 16.7245 27.334 20.4999 27.334C24.2753 27.334 27.3333 24.2761 27.3333 20.5007C27.3333 16.7252 24.2753 13.6673 20.4999 13.6673ZM35.7724 18.7923C35.3855 15.328 33.832 12.0983 31.3671 9.63342C28.9023 7.16856 25.6725 5.61511 22.2083 5.22815V3.41732C22.2083 2.47773 21.4395 1.70898 20.4999 1.70898C19.5603 1.70898 18.7916 2.47773 18.7916 3.41732V5.22815C15.3273 5.61511 12.0975 7.16856 9.63269 9.63342C7.16783 12.0983 5.61438 15.328 5.22742 18.7923H3.41659C2.477 18.7923 1.70825 19.5611 1.70825 20.5007C1.70825 21.4402 2.477 22.209 3.41659 22.209H5.22742C5.61438 25.6733 7.16783 28.903 9.63269 31.3679C12.0975 33.8327 15.3273 35.3862 18.7916 35.7732V37.584C18.7916 38.5236 19.5603 39.2923 20.4999 39.2923C21.4395 39.2923 22.2083 38.5236 22.2083 37.584V35.7732C25.6725 35.3862 28.9023 33.8327 31.3671 31.3679C33.832 28.903 35.3855 25.6733 35.7724 22.209H37.5833C38.5228 22.209 39.2916 21.4402 39.2916 20.5007C39.2916 19.5611 38.5228 18.7923 37.5833 18.7923H35.7724ZM20.4999 32.459C13.8887 32.459 8.54158 27.1119 8.54158 20.5007C8.54158 13.8894 13.8887 8.54232 20.4999 8.54232C27.1112 8.54232 32.4583 13.8894 32.4583 20.5007C32.4583 27.1119 27.1112 32.459 20.4999 32.459Z" fill="#8D54FF"/>
@@ -35,13 +35,13 @@
                         <div class="flex flex-col gap-1 w-full md:w-[69%] lg:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Province</label>
                             <select class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
-                                <option value="">Select Province</option>
+                                <option value="">Province</option>
                             </select>
                         </div>
                         <div class="flex flex-col gap-1 w-full md:w-[69%] lg:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">City</label>
                             <select class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
-                                <option value="">Select City</option>
+                                <option value="">City</option>
                             </select>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
                         <div class="flex flex-col gap-1 w-full md:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Postal Code</label>
-                            <input type="text" placeholder="Enter ZIP" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Postal Code" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                     </div>
                     <button class="block md:hidden bg-[#121212] text-[#FCFCFC] text-[12px] p-[0.60rem] rounded-[6px]">Mark On Map</button>
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Shipping Address Section -->
-            <div class="mt-8 pt-8">
+            <div class="mt-8 md:pt-8">
                 <h1 class="text-[16px] md:text-[20px] font-semibold mb-3 md:mb-6">Shipping Address</h1>
                 <div class="flex justify-between items-center mb-6">
                     <input class="styled-checkbox" id="sameAddress" type="checkbox" value="value1">
@@ -110,8 +110,8 @@
                     <div class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
                         <div class="flex flex-col gap-1 w-full md:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Phone Number</label>
-                            <input type="text" placeholder="Enter ZIP" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
-                            <p class="text-xs text-gray-500">E.g. (123) 456-7890</p>
+                            <input type="text" placeholder="Phone Number" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <p class="text-xs text-gray-500 hidden md:block">E.g. (123) 456-7890</p>
                         </div>
                     </div>
                     <button class="block md:hidden bg-[#121212] text-[#FCFCFC] text-[12px] p-[0.60rem] rounded-[6px]">Mark On Map</button>
@@ -120,7 +120,7 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[89%] lg:w-full pt-[2rem]">
+            <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[89%] lg:w-full pt-[2rem] pb-[2rem] md:pb-0">
                 <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
                     Cancel
                     <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">

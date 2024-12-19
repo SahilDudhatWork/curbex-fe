@@ -5,7 +5,7 @@
         </div>
         <div class="container px-6 md:px-0 lg:px-6 mx-auto py-8 h-auto">
             <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:max-w-[300px] md:bg-[#FCFCFC] rounded-[16px] md:p-[1.5rem] h-fit md:sticky top-[108px] mb-[40px]">
+                <div class="md:max-w-[300px] md:bg-[#FCFCFC] rounded-[16px] md:p-[1.5rem] h-fit md:sticky top-[108px] mb-[10px] md:mb-[40px]">
                     <!-- Profile Header -->
                     <div class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem]">
                         <img src="/Images/Profile/Avatar.png" alt="Profile" class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"/>
@@ -32,9 +32,12 @@
                                 <path d="M3 19V16.7C3 15.1883 3.7375 13.7384 5.05025 12.6695C6.36301 11.6005 8.14348 11 10 11C11.8565 11 13.637 11.6005 14.9497 12.6695C16.2625 13.7384 17 15.1883 17 16.7V19M3 19H17Z" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <span class="text-[20px]">{{pageTitle}}</span>
+                            <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0.75L6.5 6.25L1 0.75" stroke="#8D54FF" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
                         </div>
                     </div>
-                    <div v-else @click="dropdownToggle" :class="showDropdown ? 'sidemenu-sm-active' : ''" class="flex flex-col md:gap-7 sidemenu-sm md:hidden">
+                    <div v-else @click="dropdownToggle" :class="showDropdown ? 'sidemenu-sm-active' : ''" class="flex flex-col md:gap-7 sidemenu-sm md:hidden w-[176px]">
                         <NuxtLink to="/profile" class="flex items-center gap-3 text-[#121212] cursor-pointer">
                             <svg class="hidden md:block" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.2666 16.1331V13.5664" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -122,6 +125,26 @@
                                 <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
                             </svg>
                             <span class="text-[20px]">Payments</span>
+                        </NuxtLink>
+                        <NuxtLink to="/profile/favorite-products" class="flex items-center gap-3 text-[#121212] cursor-pointer">
+                            <svg class="hidden md:block" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-[20px]">Favorite products</span>
                         </NuxtLink>
                         <NuxtLink to="/profile/settings" class="md:mt-[3rem] flex items-center gap-3 text-[#121212] cursor-pointer">
                             <svg class="hidden md:block" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,6 +259,26 @@
                             </svg>
                             <span class="text-[20px]">Payments</span>
                         </NuxtLink>
+                        <NuxtLink to="/profile/favorite-products" class="flex items-center gap-3 text-[#121212] cursor-pointer">
+                            <svg class="hidden md:block" width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <rect x="1" y="1.29492" width="19" height="13.4118" rx="2" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M20 5.76562H1" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M16.647 11.3535H13.2941" stroke="#121212" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-[20px]">Favorite products</span>
+                        </NuxtLink>
                         <NuxtLink to="/profile/settings" class="md:mt-[3rem] flex items-center gap-3 text-[#121212] cursor-pointer">
                             <svg class="hidden md:block" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.2669 13.565C11.6844 13.565 12.8335 12.4158 12.8335 10.9983C12.8335 9.58078 11.6844 8.43164 10.2669 8.43164C8.84933 8.43164 7.7002 9.58078 7.7002 10.9983C7.7002 12.4158 8.84933 13.565 10.2669 13.565Z" stroke="#121212" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -261,7 +304,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:pt-[3.4rem] lg:pt-[6.2rem] content-flex">
+                <div class="md:pt-[6.2rem] content-flex">
                     <Nuxt />
                 </div>
             </div>
@@ -295,6 +338,8 @@
                 title="Promotions"
             } else if(this.$route.fullPath == "/profile/payments") { // Added title for Payments
                 title="Payments"
+            } else if(this.$route.fullPath == "/profile/favorite-products") { // Added title for favorite-products
+                title="Favorite products"
             } else if(this.$route.fullPath == "/profile/settings") { // Added title for Payments
                 title="Settings"
             }
@@ -332,7 +377,7 @@
 @media screen and (max-width:767px) {
     .sidemenu-sm{
         border: 1px solid #8D54FF;
-        width: fit-content;
+        /* width: fit-content; */
         min-width: 139px;
         border-radius: 5px;
         padding: 0 10px;
@@ -358,6 +403,7 @@
         min-width: 129px;
         padding: 8px 0;
         color: #8D54FF;
+        width: 100%;
     }
     .content-flex{
         width: 100%;

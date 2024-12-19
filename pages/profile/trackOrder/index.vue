@@ -58,8 +58,8 @@
             <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
         </div>
         <div class="flex justify-end lg:justify-center items-end w-full lg:w-auto mt-5 lg:mt-0">
-          <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
-          <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto">Details</button>
+          <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto lg:mb-0 md:mr-4">Download Invoice</button>
+          <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto">Details</button>
         </div>
       </div>
     </div>
@@ -225,10 +225,12 @@
         </div>
         <div class="flex flex-wrap gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem]">
           <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
-            Change Ad                                       
+            <span class="block md:hidden lg:block">Change Ad</span>
+            <span class="hidden md:block lg:hidden">Order Again</span>
           </button>
             <button class="min-w-[133px] order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition">
-              Order Again
+              <span class="block md:hidden lg:block">Order Again</span>
+              <span class="hidden md:block lg:hidden">Change Ad</span>
             </button>
         </div>
       </div>
