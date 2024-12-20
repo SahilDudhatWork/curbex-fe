@@ -50,7 +50,7 @@
                     </form>
                 </div>
             </div>
-            <div class="border-t border-[#FCFCFC] pt-5 mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="border-t border-[#FCFCFC] pt-5 lg:pt-[2rem] mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Locations -->
                 <div class="order-1">
                     <h2 class="font-Montserrat-Medium font-bold text-white text-[14px]">Locations</h2>
@@ -85,7 +85,7 @@
                 </div>
             </div>  
             <!-- Footer Bottom -->
-            <div class="mt-8 text-sm text-center md:text-left sm:flex justify-between items-center border-t sm:border-t-0 border-[#FCFCFC] pt-[2rem] mt-[3rem]">
+            <div class="mt-8 text-sm text-center md:text-left sm:flex justify-between items-center border-t sm:border-t-0 border-[#FCFCFC] pt-[2rem] mt-[3rem] sm:mt-0">
                 <ul class="flex justify-center md:justify-start mt-2 space-x-4">
                     <li><a href="#" class="hover:underline text-[12px]">English</a></li>
                     <li class="list-disc list-inside"><a href="#" class="hover:underline text-[12px]">Privacy</a></li>

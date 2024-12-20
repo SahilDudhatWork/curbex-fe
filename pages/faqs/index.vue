@@ -25,7 +25,7 @@
       <div class="flex-grow w-full lg:w-auto lg:pt-[4rem]">
         <div class="relative mb-8">
           <input type="text" 
-                 class="w-full p-2 md:p-3 border border-gray-300 rounded-lg pr-10 text-[16px] text-[#949494] bg-[#FCFCFC]" 
+                 class="w-full p-2 md:p-3 lg:py-[0.50rem] border border-gray-300 rounded-lg pr-10 text-[16px] text-[#949494] bg-[#FCFCFC]" 
                  placeholder="Type Your Question" 
                  v-model="searchQuery">
           <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600">
