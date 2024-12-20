@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container mx-auto px-6 py-8 pt-[2.6rem]">
+        <div class="container mx-auto px-6 lg:px-4 py-8 pt-[2.6rem]">
             <h1 class="text-[24px] font-Montserrat-Bold md:mb-4">About Us</h1>            
             <section class="mb-8">
                 <h2 class="text-[60px] font-bold font-Montserrat-Bold md:mb-2">curbex</h2>
