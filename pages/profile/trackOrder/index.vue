@@ -224,7 +224,7 @@
           </div>
         </div>
         <div class="flex flex-wrap gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem]">
-          <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
+          <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
             <span class="block md:hidden lg:block">Change Ad</span>
             <span class="hidden md:block lg:hidden">Order Again</span>
           </button>
@@ -257,7 +257,7 @@
         ></textarea>
       </div>
       <div class="flex justify-end gap-4">
-        <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
+        <button class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
             Cancel                                      
         </button>
         <button class="min-w-[133px] order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition">
