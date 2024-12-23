@@ -11,7 +11,7 @@
                         <img src="/Images/Profile/Avatar.png" alt="Profile" class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"/>
                         <div>
                             <span class="font-Montserrat-Medium text-[20px] user-name">Ryan Reynolds</span>
-                            <p class="flex items-center text-[12px] md:hidden">
+                            <p class="flex items-center justify-between text-[12px] pt-[5px] md:hidden">
                                 Ryan@gmail.com 
                                 <span class="ml-1">
                                     <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -388,19 +388,22 @@
         overflow: hidden;
         z-index: 9;
         background-color: #FFFFFF;
+        max-width: fit-content;
     }
     .user-name{
         margin-top: -50px;
         display: block;
+        font-size: 18px;
     }
     .sidemenu-sm-active{
         height: auto;
+        max-width: fit-content;
     }
     .sidemenu-sm div span,
     .sidemenu-sm a span{
         font-size: 12px;
         border-bottom: 1px solid #C3C3C3;
-        min-width: 129px;
+        /* min-width: 129px; */
         padding: 8px 0;
         color: #8D54FF;
         width: 100%;

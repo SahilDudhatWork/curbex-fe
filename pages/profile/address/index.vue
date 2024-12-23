@@ -32,13 +32,13 @@
 
                     <!-- Province and City -->
                     <div class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
-                        <div class="flex flex-col gap-1 w-full md:w-[69%] lg:w-auto">
+                        <div class="flex flex-col gap-1 w-full md:w-[69%] md:max-w-[244px] lg:max-w-auto lg:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Province</label>
                             <select class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                                 <option value="">Province</option>
                             </select>
                         </div>
-                        <div class="flex flex-col gap-1 w-full md:w-[69%] lg:w-auto">
+                        <div class="flex flex-col gap-1 w-full md:w-[69%] md:max-w-[244px] lg:max-w-auto lg:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">City</label>
                             <select class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                                 <option value="">City</option>
@@ -86,13 +86,13 @@
 
                     <!-- Province and City -->
                     <div class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
-                        <div class="flex flex-col gap-1 w-full md:w-[69%] lg:w-auto">
+                        <div class="flex flex-col gap-1 w-full md:w-[69%] md:max-w-[244px] lg:max-w-auto lg:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">Province</label>
                             <select class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                                 <option value="">Select Province</option>
                             </select>
                         </div>
-                        <div class="flex flex-col gap-1 w-full md:w-[69%] lg:w-auto">
+                        <div class="flex flex-col gap-1 w-full md:w-[69%] md:max-w-[244px] lg:max-w-auto lg:w-auto">
                             <label class="hidden md:block font-medium text-[#121212] text-[18px]">City</label>
                             <select class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                                 <option value="">Select City</option>
@@ -121,7 +121,7 @@
 
             <!-- Action Buttons -->
             <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[89%] lg:w-full pt-[2rem] pb-[2rem] md:pb-0">
-                <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-gray-700 rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
+                <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
                     Cancel
                     <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14.2504 13.2963C14.4397 13.4856 14.5461 13.7424 14.5461 14.0101C14.5461 14.2779 14.4397 14.5347 14.2504 14.724C14.0611 14.9133 13.8043 15.0197 13.5365 15.0197C13.2688 15.0197 13.012 14.9133 12.8227 14.724L7.4905 9.39015L2.15666 14.7223C1.96733 14.9116 1.71054 15.018 1.44279 15.018C1.17504 15.018 0.918251 14.9116 0.728921 14.7223C0.539592 14.533 0.433228 14.2762 0.433228 14.0084C0.433228 13.7407 0.539592 13.4839 0.728921 13.2946L6.06277 7.96241L0.730601 2.62856C0.541271 2.43923 0.434907 2.18245 0.434907 1.9147C0.434907 1.64695 0.541271 1.39016 0.730601 1.20083C0.91993 1.0115 1.17672 0.905137 1.44447 0.905137C1.71222 0.905137 1.96901 1.0115 2.15834 1.20083L7.4905 6.53468L12.8243 1.19999C13.0137 1.01066 13.2705 0.904297 13.5382 0.904297C13.806 0.904297 14.0628 1.01066 14.2521 1.19999C14.4414 1.38932 14.5478 1.64611 14.5478 1.91386C14.5478 2.18161 14.4414 2.4384 14.2521 2.62773L8.91824 7.96241L14.2504 13.2963Z" fill="#121212" class="group-hover:fill-[#7B61FF]" />
