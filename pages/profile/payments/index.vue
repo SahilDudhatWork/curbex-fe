@@ -66,8 +66,8 @@
               <th class="p-4 font-bold text-[16px]">Product</th>
               <th class="p-4 font-bold text-[16px]">Order ID</th>
               <th class="p-4 font-bold text-[16px]">Date</th>
-              <th class="p-4 font-bold text-[16px]">Payment Method</th>
-              <th class="p-4 font-bold text-[16px]">Status</th>
+              <th class="p-4 font-bold text-[16px] text-center">Payment Method</th>
+              <th class="p-4 font-bold text-[16px] text-center">Status</th>
               <th class="p-4 font-bold text-[16px]">Amount</th>
             </tr>
           </thead>
@@ -80,8 +80,8 @@
               <td class="p-4">Downtowner</td>
               <td class="p-4">#25421</td>
               <td class="p-4">Jan 8th,2024</td>
-              <td class="p-4">PayPal</td>
-              <td class="p-4">
+              <td class="p-4 text-center">PayPal</td>
+              <td class="p-4 text-center">
                 <span class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-[#FFA900]"></span>
                   Delivered

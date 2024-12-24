@@ -51,7 +51,7 @@
               </div>
               <button
                 @click="$emit('handleClick')"
-                class="order-1 sm:mt-0 mt-4 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-[14px] py-[0.60rem] md:py-[9px] sm:font-medium sm:text-base text-sm font-normal text-[#FCFCFC] rounded-md bg-[#121212] transition"
+                class="order-1 sm:mt-0 mt-4 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-[14px] py-[0.60rem] md:py-[9px] sm:font-medium sm:text-base text-sm font-normal text-[#FCFCFC] rounded-md bg-[#121212] hover:bg-violet-500 transition"
               >
                 Confirm
                 <svg

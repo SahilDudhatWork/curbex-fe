@@ -52,12 +52,12 @@
         </div>
         <div class="flex-1">
             <h3 class="text-[14px] lg:text-[18px] text-[#121212] font-Montserrat-Medium pb-1">{{ order.name }}</h3>
-            <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-10">{{ order.dateRange }}</p>
-            <p class="text-[13px] lg:text-[16px] text-[#121212] pb-2">{{ order.location }}</p>
-            <p class="text-[13px] lg:text-[16px] text-[#121212] pb-2">${{ order.price }}</p>
-            <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
+            <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">{{ order.dateRange }}</p>
+            <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">{{ order.location }}</p>
+            <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">${{ order.price }}</p>
+            <p class="text-[13px] lg:text-[16px] text-[#949494] pb-1">Order Id : {{ order.orderId }}</p>
         </div>
-        <div class="flex justify-end lg:justify-center items-end w-full lg:w-auto mt-5 lg:mt-0">
+        <div class="flex justify-end lg:justify-center items-end w-full lg:w-auto mt-5 lg:mt-0 pb-1">
           <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto lg:mb-0 md:mr-4">Download Invoice</button>
           <button class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto">Details</button>
         </div>
