@@ -8,7 +8,7 @@
             <div class="flex space-x-4 mb-3 md:mb-6 border-b border-[#F3F3F3] pb-[16px]">
                 <button 
                     @click="currentTab = 'active'"
-                    :class="['py-1 px-4 text-[14px] lg:text-[16px]', currentTab === 'active' ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black' : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]']"
+                    :class="['py-1 lg:pl-0 px-4 text-[14px] lg:text-[16px]', currentTab === 'active' ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black' : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]']"
                 >Active</button>
                 <button 
                     @click="currentTab = 'upcoming'"
@@ -33,8 +33,8 @@
 
             <!-- Active Orders -->
             <div v-if="currentTab === 'active'" class="space-y-6">
-                <div class="flex flex-wrap py-8 border-b border-gray-200" v-for="order in activeOrders" :key="order.id">
-                    <div class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-4 border border-[#F3F3F3] rounded-[15px]">
+                <div class="flex flex-wrap py-4 md:py-8 border-b border-gray-200" v-for="order in activeOrders" :key="order.id">
+                    <div class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-6 border border-[#F3F3F3] rounded-[15px]">
                         <img :src="order.image" :alt="order.name" class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover">
                     </div>
                     <div class="flex-1">
@@ -53,8 +53,8 @@
 
             <!-- Upcoming Orders -->
             <div v-if="currentTab === 'upcoming'" class="space-y-6">
-                <div class="flex flex-wrap py-8 border-b border-gray-200" v-for="order in upcomingOrders" :key="order.id">
-                    <div class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-4 border border-[#F3F3F3] rounded-[15px]">
+                <div class="flex flex-wrap py-4 md:py-8 border-b border-gray-200" v-for="order in upcomingOrders" :key="order.id">
+                    <div class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-6 border border-[#F3F3F3] rounded-[15px]">
                         <img :src="order.image" :alt="order.name" class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover">
                     </div>
                     <div class="flex-1">
@@ -65,8 +65,8 @@
                         <p class="text-[13px] lg:text-[16px] text-[#949494] pb-2">Order Id : {{ order.orderId }}</p>
                     </div>
                     <div class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto">
-                        <button class="md:order-2 lg:order-1 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
-                        <button class="md:order-1 lg:order-2 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Details</button>
+                        <button class="md:order-2 lg:order-1 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[39%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Download Invoice</button>
+                        <button class="md:order-1 lg:order-2 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[33%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0 lg:mr-4">Details</button>
                         <NuxtLink to="/profile/trackOrder" class="md:order-3 text-[11px] lg:text-[14px] py-2 px-4 border border-[#8D54FF] text-[#FFFFFF] rounded-lg bg-[#8D54FF] hover:bg-[#121212] hover:border-[#121212] w-fit md:w-[150px] lg:w-auto text-center lg:mb-0 lg:mr-4">Track it</NuxtLink>
                     </div>
                 </div>
@@ -74,8 +74,8 @@
 
             <!-- Past Orders -->
             <div v-if="currentTab === 'past'" class="space-y-6">
-                <div class="flex flex-wrap py-8 border-b border-gray-200" v-for="order in pastOrders" :key="order.id">
-                    <div class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-4 border border-[#F3F3F3] rounded-[15px]">
+                <div class="flex flex-wrap py-4 md:py-8 border-b border-gray-200" v-for="order in pastOrders" :key="order.id">
+                    <div class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-6 border border-[#F3F3F3] rounded-[15px]">
                         <img :src="order.image" :alt="order.name" class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover grayscale">
                     </div>
                     <div class="flex-1">
