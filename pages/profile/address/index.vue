@@ -120,7 +120,7 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[89%] lg:w-full pt-[2rem] pb-[2rem] md:pb-0">
+            <div class="flex flex-col md:flex-row gap-4 md:col-span-2 mt-[10px] justify-end lg:pt-[5rem] w-full md:w-[89%] md:max-w-[244px] lg:max-w-auto lg:w-full pt-[2rem] pb-[2rem] md:pb-0">
                 <button class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition">
                     Cancel
                     <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">

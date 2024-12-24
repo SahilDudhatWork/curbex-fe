@@ -41,25 +41,25 @@
           <div class="flex flex-wrap justify-between items-center md:max-w-[768px] lg:max-w-full mx-auto" >
             <NuxtLink to="/small-business-franchise" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
               <video src="/Videos/1.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300">
                 Small Business & Franchise 
               </div>
             </NuxtLink>
             <NuxtLink to="/government-non-profits" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
               <video src="/Videos/2.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300">
                 Government & Non-Profit
               </div>
             </NuxtLink>
             <NuxtLink to="/media-buyers-agencies" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
               <video src="/Videos/3.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300">
                 Media Buyers/ Agencies
               </div>
             </NuxtLink>
             <NuxtLink to="/commercial-property-owners" class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300">
               <video src="/Videos/4.mp4" autoplay muted loop class="w-full md:h-[215px] lg:h-[420px] object-cover"></video>
-              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end group-hover:text-[32px] transition-all duration-300">
+              <div class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300">
                 Commercial Property Owners
               </div>
             </NuxtLink>
