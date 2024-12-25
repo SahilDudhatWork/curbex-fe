@@ -43,7 +43,7 @@
         </div>
         <div class="mt-[-37px] sm:mt-[-27px] container mx-auto px-6 md:px-0">
             <div class="flex">
-                <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0">
+                <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0 md:text-center lg:text-left md:w-full lg:w-auto">
                     Why Curbex Works for Commercial Property Groups
                 </p>
             </div>
@@ -313,16 +313,16 @@
                 </div>
             </div>      
         </div>
-        <div class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] md:mb-[4rem]">
+        <div class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] mb-[4rem]">
             <div class="container mx-auto">
-                <p class="w-fit bg-[#FFFFFF] border-[2px] border-[#F3F3F3] md:border-none md:bg-[#FFA900] font-Montserrat-Medium text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mt-[-55px] mb-[10px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-auto md:mx-0">
+                <p class="w-fit border-[2px] border-[#F3F3F3] md:border-none bg-[#FFA900] font-Montserrat-Medium text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mt-[-55px] mb-[10px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px]">
                     projects on social media
                 </p>
                 <div class="mt-10">
                     <Carousel :perPage="3" :autoplay="true" :autoplayTimeout="3000" loop :nav="false" :dots="false">
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
-                                <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px] md:min-w-[390px]">
+                                <div class="bg-[#FFFFFF] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
                                         <div>
@@ -337,8 +337,8 @@
                             </div>
                         </Slide>   
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
-                                <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px] md:min-w-[390px]">
+                                <div class="bg-[#FFFFFF] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
                                         <div>
@@ -353,8 +353,8 @@
                             </div>
                         </Slide>   
                         <Slide class="relative m-2">
-                            <div class="item transition-all duration-300 rent-produt min-w-[300px]">
-                                <div class="bg-[#F3F3F3] rounded-t-[20px] p-2 md:p-5">
+                            <div class="item transition-all duration-300 rent-produt min-w-[300px] md:min-w-[390px]">
+                                <div class="bg-[#FFFFFF] rounded-t-[20px] p-2 md:p-5">
                                     <div class="flex items-center pb-[5px]">
                                         <img src="/Images/small-business-franchise/social-image.png" alt="" class="w-[46px] h-[46px] rounded-full mr-[10px]">
                                         <div>

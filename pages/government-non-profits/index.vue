@@ -19,7 +19,7 @@
                 <p class="text-[#000000] font-semibold text-[18px] font-Montserrat-Medium md:text-[23px] md:max-w-[600px] lg:max-w-full lg:text-[33px] text-center">High-Impact, Cost-Effective Signage for Municipalities & Non-Profits</p>
             </div>
             <div class="flex justify-center pt-[1rem] md:pt-0">
-                <p class="text-[#000000] font-normal text-[16px] md:text-[23px] lg:text-[33px] pt-3 text-center">Because Being Noticed Is Kind of a Big Deal</p>
+                <p class="text-[#000000] font-normal text-[16px] md:text-[23px] lg:text-[33px] pt-3 text-center max-w-[200px] md:max-w-full">Because Being Noticed Is Kind of a Big Deal</p>
             </div>
         </div>
         <!------------------------------------------------->
@@ -43,7 +43,7 @@
     </div>
     <div class="mt-[-37px] sm:mt-[-27px] container mx-auto px-6 md:px-0">
         <div class="flex">
-            <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0">
+            <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0 md:text-center lg:text-left md:w-full lg:w-auto">
                 Why Curbex Works for Municipalities & Non-Profits
             </p>
         </div>
@@ -99,29 +99,30 @@
                 </div>
                 <div class="lg:flex items-center gap-3 mt-4">
                     <p class="w-fit block text-[#121212] font-Montserrat-Medium font-semibold text-[16px] md:text-[18px] lg:text-[21px] bg-[#EAEAEA] group-hover:bg-[#D1BAFF] rounded-[34px] px-4 py-[5px]">Community Events</p>
-                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px]">Promote festivals, fairs, or farmers' markets.</span>
+                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px] block md:pt-[11px] lg:pt-0">Promote festivals, fairs, or farmers' markets.</span>
                 </div>
                 <div class="lg:flex items-center gap-3 mt-4">
                     <p class="w-fit block text-[#121212] font-Montserrat-Medium font-semibold text-[16px] md:text-[18px] lg:text-[21px] bg-[#EAEAEA] group-hover:bg-[#D1BAFF] rounded-[34px] px-4 py-[5px]">Public Announcements</p>
-                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px]">Spread the word about municipal services, programs, and updates.</span>
+                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px] block md:pt-[11px] lg:pt-0">Spread the word about municipal services, programs, and updates.</span>
                 </div>
                 <div class="lg:flex items-center gap-3 mt-4">
                     <p class="w-fit block text-[#121212] font-Montserrat-Medium font-semibold text-[16px] md:text-[18px] lg:text-[21px] bg-[#EAEAEA] group-hover:bg-[#D1BAFF] rounded-[34px] px-4 py-[5px]">Recreational Programs</p>
-                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px]">Advertise summer camps, classes, and seasonal activities.</span>
+                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px] block md:pt-[11px] lg:pt-0">Advertise summer camps, classes, and seasonal activities.</span>
                 </div>
                 <div class="lg:flex items-center gap-3 mt-4">
                     <p class="w-fit block text-[#121212] font-Montserrat-Medium font-semibold text-[16px] md:text-[18px] lg:text-[21px] bg-[#EAEAEA] group-hover:bg-[#D1BAFF] rounded-[34px] px-4 py-[5px]">Non-Profit Fundraisers</p>
-                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px]">Raise awareness and funds for charitable events.</span>
+                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px] block md:pt-[11px] lg:pt-0">Raise awareness and funds for charitable events.</span>
                 </div>
                 <div class="lg:flex items-center gap-3 mt-4">
                     <p class="w-fit block text-[#121212] font-Montserrat-Medium font-semibold text-[16px] md:text-[18px] lg:text-[21px] bg-[#EAEAEA] group-hover:bg-[#D1BAFF] rounded-[34px] px-4 py-[5px]">Safety Campaigns</p>
-                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px]">Share important messages on road safety or emergency preparedness.</span>
+                    <span class="text-[#000000] font-normal text-[16px] md:text-[18px] lg:text-[21px] block md:pt-[11px] lg:pt-0">Share important messages on road safety or emergency preparedness.</span>
                 </div>
             </div>
         </div>
 
         <div class="mt-14">
-            <img src="/Images/government-non-profits/public-servey.webp" alt="" class="w-full h-[182px] md:h-[340px] lg:h-auto object-cover rounded-[20px]">
+            <div class="w-full bg-no-repeat bg-[10%_100%] md:bg-[10%_180%] lg:bg-center bg-cover md:h-[435px] h-[182px] rounded-[20px]" style="background-image: url(/Images/government-non-profits/public-servey.webp);"></div>
+            <!-- <img src="/Images/government-non-profits/public-servey.webp" alt="" class="w-full h-[182px] md:h-[340px] lg:h-auto object-cover rounded-[20px]"> -->
         </div>
 
         <div class="mt-20">
@@ -206,9 +207,9 @@
     </div>
     <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
         <div class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[2rem] md:p-[2rem] max-w-[986px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0">
-            <p class="font-bold text-[30px] md:text-[50px] text-[#8D54FF] text-center font-Montserrat-Bold pb-[25px]">Get Started with Curbex Today</p>
-            <p class="text-[#000000] font-normal text-[16px] md:text-[26px] text-center pb-[10px]">Maximize the reach of your public messages with high-impact, cost-effective signage from Curbex.</p>
-            <p class="text-[#000000] font-normal text-[16px] md:text-[26px] text-center">Our signs help you communicate effectively with your community <b>without exceeding your budget.</b></p>
+            <p class="font-bold text-[30px] md:text-[50px] text-[#8D54FF] text-center font-Montserrat-Bold pb-[25px]">Get Started <br class="lg:hidden"> with Curbex Today</p>
+            <p class="text-[#000000] font-normal text-[16px] md:text-[26px] text-center pb-[10px] md:max-w-[590px] lg:max-w-full mx-auto">Maximize the reach of your public messages with high-impact, cost-effective signage from Curbex.</p>
+            <p class="text-[#000000] font-normal text-[16px] md:text-[26px] text-center md:max-w-[590px] lg:max-w-full mx-auto">Our signs help you communicate effectively with your community <b>without exceeding your budget.</b></p>
         </div>
     </div>
     <!------------------What costumers think about us------------------------------->
@@ -279,7 +280,7 @@
             </div>
         </div>      
     </div>
-    <div class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] md:mb-[4rem]">
+    <div class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] mb-[4rem]">
         <div class="container mx-auto">
             <p class="w-fit bg-[#FFFFFF] border-[2px] border-[#F3F3F3] md:border-none md:bg-[#FFA900] font-Montserrat-Medium text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mt-[-55px] mb-[10px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-auto md:mx-0">
                 Curbex products in action

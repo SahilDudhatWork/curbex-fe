@@ -43,7 +43,7 @@
         </div>
         <div class="mt-[-37px] sm:mt-[-27px] container mx-auto px-6 md:px-0">
             <div class="flex">
-                <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0">
+                <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0 md:text-center lg:text-left md:w-full lg:w-auto">
                     Why Curbex Works for Agencies & Media Buyers
                 </p>
             </div>
@@ -162,7 +162,7 @@
                     </p>
                 </div>
                 <div class="flex items-end lg:items-center relative">
-                    <div class="lg:grid w-[100%] sm:w-[60%] mt-10 lg:mt-0">
+                    <div class="lg:grid w-[100%] sm:w-[60%] mt-10">
                         <div class="flex flex-wrap lg:gap-6 lg:gap-x-7">
                             <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
@@ -316,9 +316,9 @@
                 </div>
             </div>      
         </div>
-        <div class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] md:mb-[4rem]">
+        <div class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] mb-[4rem]">
             <div class="container mx-auto">
-                <p class="w-fit bg-[#FFFFFF] border-[2px] border-[#F3F3F3] md:border-none md:bg-[#FFA900] font-Montserrat-Medium text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mt-[-55px] mb-[10px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-auto md:mx-0">
+                <p class="w-fit border-[2px] border-[#F3F3F3] md:border-none bg-[#FFA900] font-Montserrat-Medium text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mt-[-55px] mb-[10px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px]">
                     projects on social media
                 </p>
                 <div class="mt-10">
