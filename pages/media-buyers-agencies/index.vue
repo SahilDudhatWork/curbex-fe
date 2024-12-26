@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px]  md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">2</p>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">3</p>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">4</p>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">5</p>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">6</p>
@@ -120,7 +120,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="group border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">7</p>

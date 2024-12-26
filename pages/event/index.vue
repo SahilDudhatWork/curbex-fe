@@ -43,7 +43,7 @@
         </div>
         <div class="mt-[-37px] sm:mt-[-27px] container mx-auto px-6 md:px-0">
             <div class="flex">
-                <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:mx-auto lg:mx-0 md:text-center lg:text-left md:w-full lg:w-auto">
+                <p class="bg-[#8D54FF] text-[#FCFCFC] font-semibold font-Montserrat-Medium text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[8px] px-6 md:px-8 md:text-center lg:text-left">
                     Why Curbex Works for Events
                 </p>
             </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center md:items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px]  md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">2</p>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center md:items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">3</p>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center md:items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">4</p>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center md:items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">5</p>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>           
-            <div class="mt-8 md:mt-14">
+            <div class="mt-8 md:mt-8">
                 <div class="group border-[2px] border-[#F3F3F3] rounded-[21px] px-4 sm:px-7 py-6 hover:border-[#8D54FF]">
                     <div class="flex items-center md:items-center gap-4 pb-5">
                         <p class="text-[#8D54FF] text-[80px] md:text-[111px] font-normal leading-[80px] tracking-[-0.02em] text-center font-fantasy">6</p>
@@ -141,7 +141,7 @@
             </div>
             <div class="mt-20">
                 <div class="flex">
-                    <p class="bg-[#FFA900] text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[7px] px-6">
+                    <p class="bg-[#FFA900] text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-[17px] md:rounded-full py-[7px] px-6 md:w-full lg:w-auto text-center">
                         Trusted by Event Planners Across Canada
                     </p>
                 </div>
@@ -202,7 +202,7 @@
                                 <div class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"></div>
                                 <div class="ml-[-20px]">
                                     <div class="flex">
-                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Hassle-Free Management</p>
+                                        <p class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] lg:text-[22px] bg-[#121212] rounded-full py-[8px] px-7">Hassle-Free Management</p>
                                     </div>
                                     <p class="text-[#000000] font-normal text-[15px] mt-2">Full-service support to keep your event running smoothly.</p>
                                 </div>
@@ -236,14 +236,14 @@
             </div>
         </div>
         <!------------------What costumers think about us------------------------------->
-        <div class="border-b border-[#F3F3F3] md:mb-[7rem] mb-[4rem]">
+        <div class="border-b border-[#F3F3F3] md:mb-[5rem] mb-[4rem]">
             <p class="text-[#FCFCFC] font-medium text-[16px] sm:text-[17px] md:text-[24px] bg-[#121212] rounded-full py-[7px] md:py-[11px] px-7 w-fit text-center m-auto mb-[-26px]">What costumers think about us</p>
         </div>
         <div class="container mx-auto px-6 md:px-0">
             <Testimonial :testiminoalSlider="testiminoalSlider"/>
         </div>
         <!------------------------------------------------->
-        <div class="mt-20 bg-[#121212]">
+        <div class="mt-10 bg-[#121212]">
             <div class="container mx-auto mt-[1.5rem] md:mt-10">                  
                 <p class="text-[#FFFFFF] font-bold p-[2rem] text-[28px]">
                     At Curbex, we help event organizers create memorable experiences with impactful, professional signage. Whether you’re running a festival, trade show, or fundraiser, we’ll make sure your message is Always Out Front.
