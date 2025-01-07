@@ -50,7 +50,7 @@
         </svg>
       </button>
 
-      <div class="mt-6 flex gap-4">
+      <!-- <div class="mt-6 flex gap-4">
         <button class="flex-1 p-[0.15rem] md:p-3 bg-white border border-[#121212] rounded-lg cursor-pointer flex items-center justify-center">
           <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_4782_61047)">
@@ -88,7 +88,7 @@
             </defs>
           </svg>
         </button>
-      </div>
+      </div> -->
 
       <p class="mt-6 text-[8px] md:text-[16px] text-[#121212] font-bold">
         By clicking 'Log In' you agree to our website 

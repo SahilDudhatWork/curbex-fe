@@ -2,7 +2,7 @@
     <div>
         <div class="container mx-auto">
             <div class="flex">
-                <div class="w-[50%] pr-[4rem] mb-[35px]">
+                <div class="w-[50%] mr-[4rem] mb-[35px] border border-[#F5F5F5] rounded-[20px] p-5">
                     <div class="overflow-hidden rounded-[8px] relative">
                         <img src="/Images/Product/product-1.png" alt="" class="object-contain max-h-[560px] mx-auto">
                         <div class="absolute top-[15px] right-[15px]">
@@ -28,20 +28,37 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="flex justify-between mt-[20px]">
-                        <img src="/Images/Product/1.png" alt="" >
-                        <img src="/Images/Product/2.png" alt="" >
-                        <img src="/Images/Product/3.png" alt="" >
-                        <img src="/Images/Product/4.png" alt="" >
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="group">
+                                <path d="M11 20.9405C5.4746 20.9405 0.999999 16.4741 1 10.9703C1 5.46639 5.4746 0.999999 11 1C16.5254 1 21 5.46639 21 10.9703C21 16.4741 16.5254 20.9405 11 20.9405Z" stroke="#F5F5F5" stroke-width="2" class="group-hover:stroke-[#121212]"/>
+                                <path d="M12.0996 15.3582L8.40959 11.6782C8.01779 11.2875 8.01779 10.6528 8.40959 10.2621L12.0996 6.58203" stroke="#F5F5F5" stroke-width="2" stroke-linecap="round" class="group-hover:stroke-[#121212]"/>
+                            </svg>
+                        </div>
+                        <div class="flex justify-between mt-[20px] w-[85%]">
+                            <img src="/Images/Product/new.png" alt="" class="w-[122px] h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]" >
+                            <img src="/Images/Product/new.png" alt="" class="w-[122px] h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]" >
+                            <img src="/Images/Product/new.png" alt="" class="w-[122px] h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]" >
+                            <img src="/Images/Product/new.png" alt="" class="w-[122px] h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]" >
+                        </div>
+                        <div>
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="group">
+                                <path d="M11 0.999889C16.5254 0.999889 21 5.46628 21 10.9702C21 16.474 16.5254 20.9404 11 20.9404C5.4746 20.9404 1 16.474 1 10.9702C0.999999 5.46628 5.4746 0.999889 11 0.999889Z" stroke="#F5F5F5" stroke-width="2" class="group-hover:stroke-[#121212]"/>
+                                <path d="M9.90039 6.58218L13.5904 10.2622C13.9822 10.653 13.9822 11.2876 13.5904 11.6784L9.90039 15.3584" stroke="#F5F5F5" stroke-width="2" stroke-linecap="round" class="group-hover:stroke-[#121212]"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <div class="w-[50%] pl-[2rem]">
-                    <h3 class="text-[#000000] text-[34px] font-Montserrat-Bold pb-[20px]">Downtowner</h3>
-                    <p class="text-[#000000] text-[26px] font-Montserrat-Medium font-bold pb-[20px]">$209 <span class="text-[#A0A0A0] ml-2">$250</span></p>
-                    <p class="border-[1px] border-[#D5D5D5] text-[13px] text-[#6C6C6C] rounded-[8px] p-[10px_20px_10px_20px] w-fit mb-[20px]">Setup Fee: $59</p>
-                    <p class="text-[13px] text-[#949494]">*Permit Fee may be required based on location</p>
-                    <div class="flex py-[20px]">
-                        <div class="bg-[#F4F4F4] flex items-center py-3 px-4 rounded-[6px] w-[30%] mr-5">
+                    <h3 class="text-[#000000] text-[34px] font-Montserrat-Bold pb-[10px]">Downtowner <span class="bg-[#FFEBC3] rounded-[5px] text-[#121212] text-[14px] font-normal font-Montserrat-Medium p-[2px_8px]">Retail</span></h3>
+                    <p class="text-[#000000] text-[26px] font-Montserrat-Medium pb-[20px]">$209 <span class="text-[#A0A0A0] ml-2 line-through">$250</span> <span class="ml-3 bg-[#29CC6A] rounded-[5px] text-[#FFFFFF] text-[14px] font-normal font-Montserrat-Medium p-[2px_8px]">Save 18%</span></p>
+                    <div class="border-t border-b border-[#D5D5D5] p-[10px_0px]">
+                        <p class=" text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]">Setup Fee: $59</p>
+                        <p class=" text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]">Ad design Fee: $10</p>
+                        <p class="text-[#A0A0A0] text-[14px] font-Montserrat-Medium">*Permit Fee may be required based on location</p>
+                    </div>
+                    <div class="flex py-[20px] border-b border-[#D5D5D5]">
+                        <div class="flex items-center pr-8 mr-5 border-r border-[#121212]">
                             <div class="mr-2">
                                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M18.1522 3.90332C18.4276 3.90318 18.6934 4.00473 18.8985 4.18849C19.1036 4.37224 19.2337 4.62527 19.2637 4.89903L19.2698 5.02096V7.96745H20.2859C21.0633 7.96741 21.8115 8.26446 22.3771 8.79784C22.9428 9.33121 23.2833 10.0606 23.3289 10.8367L23.334 11.0156V18.1278C23.3341 18.6404 23.1405 19.1342 22.7919 19.5101C22.4433 19.8861 21.9655 20.1163 21.4543 20.1548L21.3019 20.1598H19.2698V22.0903C19.27 22.3657 19.1684 22.6315 18.9847 22.8366C18.8009 23.0417 18.5479 23.1718 18.2741 23.2018L18.1522 23.2079H8.19507C7.91967 23.2081 7.65391 23.1065 7.44878 22.9228C7.24364 22.739 7.11358 22.486 7.08353 22.2122L7.07744 22.0903V20.1598H5.04537C4.53271 20.16 4.03892 19.9664 3.66301 19.6178C3.2871 19.2692 3.05684 18.7914 3.01839 18.2802L3.01331 18.1278V11.0156C3.01326 10.2381 3.31032 9.48996 3.84369 8.92429C4.37707 8.35862 5.10644 8.01814 5.88258 7.97253L6.0614 7.96745H7.07744V5.02096C7.0773 4.74555 7.17884 4.47979 7.3626 4.27466C7.54636 4.06953 7.79939 3.93946 8.07315 3.90942L8.19507 3.90332H18.1522ZM17.2378 17.1117H9.1095V21.1759H17.2378V17.1117ZM20.2859 9.99952H6.0614C5.81254 9.99955 5.57235 10.0909 5.38638 10.2563C5.20041 10.4217 5.0816 10.6495 5.05248 10.8967L5.04537 11.0156V18.1278H7.07744V16.1973C7.0773 15.9219 7.17884 15.6562 7.3626 15.451C7.54636 15.2459 7.79939 15.1158 8.07315 15.0858L8.19507 15.0797H18.1522C18.4276 15.0795 18.6934 15.1811 18.8985 15.3648C19.1036 15.5486 19.2337 15.8016 19.2637 16.0754L19.2698 16.1973V18.1278H21.3019V11.0156C21.3019 10.7461 21.1949 10.4876 21.0043 10.2971C20.8138 10.1066 20.5553 9.99952 20.2859 9.99952ZM18.2538 11.0156C18.5128 11.0158 18.7618 11.115 18.9502 11.2928C19.1385 11.4705 19.2518 11.7135 19.267 11.972C19.2821 12.2306 19.198 12.4851 19.0318 12.6837C18.8656 12.8823 18.6298 13.0099 18.3727 13.0405L18.2538 13.0476H16.2217C15.9628 13.0473 15.7137 12.9482 15.5254 12.7704C15.3371 12.5926 15.2238 12.3496 15.2086 12.0911C15.1934 11.8326 15.2775 11.578 15.4437 11.3795C15.6099 11.1809 15.8457 11.0532 16.1029 11.0227L16.2217 11.0156H18.2538ZM17.2378 5.93539H9.1095V7.96745H17.2378V5.93539Z" fill="#121212"/>
@@ -52,11 +69,11 @@
                                 </svg>
                             </div>
                             <div class="text-[12px]">
-                                <p class="text-[#C4C4C4]">Digital Print</p>
-                                <p class="text-[#121212]">Full color</p>
+                                <p class="text-[#121212] text-[14px] pb-[3px] font-Montserrat-Bold">Digital Print</p>
+                                <p class="text-[#A0A0A0] text-[12px]">Full color</p>
                             </div>
                         </div>
-                        <div class="bg-[#F4F4F4] flex items-center py-3 px-4 rounded-[6px] w-[30%] mr-5">
+                        <div class="flex items-center pr-8 mr-5 border-r border-[#121212]">
                             <div class="mr-2">
                                 <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1.84697" y="1.76781" width="16.0059" height="11.4601" rx="2.39493" stroke="#121212" stroke-width="2.17721"/>
@@ -69,11 +86,11 @@
                                 </svg>
                             </div>
                             <div class="text-[12px]">
-                                <p class="text-[#C4C4C4]">Topper Board</p>
-                                <p class="text-[#121212]">1' (h) x 5' (w)</p>
+                                <p class="text-[#121212] text-[14px] pb-[3px] font-Montserrat-Bold">Topper Board</p>
+                                <p class="text-[#A0A0A0] text-[12px]">1' (h) x 5' (w)</p>
                             </div>
                         </div>
-                        <div class="bg-[#F4F4F4] flex items-center py-3 px-4 rounded-[6px] w-[30%] mr-5">
+                        <div class="flex items-center pr-8 mr-5">
                             <div class="mr-2">
                                 <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1.62431" y="1.29759" width="18.724" height="13.4987" rx="2.39493" stroke="#121212" stroke-width="2.17721"/>
@@ -86,31 +103,22 @@
                                 </svg>
                             </div>
                             <div class="text-[12px]">
-                                <p class="text-[#C4C4C4]">Main Board </p>
-                                <p class="text-[#121212]">5' (h) x 8' (w)</p>
+                                <p class="text-[#121212] text-[14px] pb-[3px] font-Montserrat-Bold">Main Board </p>
+                                <p class="text-[#A0A0A0] text-[12px]">5' (h) x 8' (w)</p>
                             </div>
                         </div>
                     </div>
-                    <div class="flex pb-[20px]">
-                        <div class="bg-[#F4F4F4] flex items-center justify-center py-4 px-4 rounded-[6px] w-[30%] mr-5 border-[1px] border-[#000000]">                      
-                            <p class="text-[13px] text-[##212121] text-center">10$  AD Design</p>
-                        </div>
-                        <div class="bg-[#F4F4F4] flex items-center justify-center py-4 px-4 rounded-[6px] w-[30%] mr-5 border-[1px] border-[#000000]">                      
-                            <p class="text-[13px] text-[##212121] text-center">Double Sided</p>
-                        </div>
-                        <div class="bg-[#F4F4F4] flex items-center justify-center py-4 px-4 rounded-[6px] w-[30%] mr-5 border-[1px] border-[#000000]">                      
-                            <p class="text-[13px] text-[##212121] text-center">Changeable Graphic Inserts</p>
-                        </div>
+                    <div class="border-b border-[#D5D5D5] p-[10px_0px] mb-5 pb-4">
+                        <p class=" text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]">Double Sided</p>
+                        <p class=" text-[16px] text-[#121212] font-Montserrat-Medium mb-[10px]">Changeable Graphic Inserts</p>
+                        <p class="text-[#A0A0A0] text-[14px] font-Montserrat-Medium mb-[5px]">*Bylaw restrictions may apply</p>
+                        <p class="text-[#A0A0A0] text-[14px] font-Montserrat-Medium">*While supplies last. Subject to change without notice.</p>
                     </div>
-                    <p class="text-[#949494] text-[13px] font-Montserrat-Medium pb-5">
-                        Bylaw restrictions may apply <br>
-                        *While supplies last. Subject to change without notice.
-                    </p>
-                    <div class="flex flex-wrap justify-between">
-                        <button class="bg-[#FFA900] w-full text-[22px] text-center py-4 rounded-[7px] font-Montserrat-Bold mb-[20px]">BUY NOW</button>
-                        <button class="bg-[#ffffff] text-[14px] border-[1px] border-[#000000] w-[49%] rounded-[7px] py-4 mb-[20px]">Add to Favorites </button>
-                        <button class="bg-[#121212] text-[14px] text-white border-[1px] border-[#000000] w-[49%] rounded-[7px] py-4 mb-[20px]">Add to Cart</button>
-                        <button class="bg-[#F3F3F3] text-[14px] w-[100%] rounded-[7px] py-2 mb-[20px]">Download Artwork Specs</button>
+                   
+                    <div class="flex flex-wrap justify-between border-b border-[#D5D5D5] mb-5">
+                        <button class="bg-[#FFA900] text-[18px] text-center py-[11px] rounded-[7px] w-[49%] font-Montserrat-Medium mb-[20px]">Add to cart</button>
+                        <button class="bg-[#121212] text-[18px] text-white border-[1px] border-[#000000] w-[49%] rounded-[7px] py-[11px] mb-[20px]">Select Design Method</button>
+                        <button class="bg-[#ffffff] text-[14px] border-[1px] border-[#000000]  w-full rounded-[7px] py-[11px] mb-[20px]">Download Artwork Specs </button>
                     </div>
                     <div class="flex">
                         <div class=" flex items-center w-[30%] mr-5">
@@ -127,8 +135,8 @@
                                 </svg>
                             </div>
                             <div class="text-[12px]">
-                                <p class="text-[#C4C4C4] pb-1">Free Delivery</p>
-                                <p class="text-[#121212]">1-2 day </p>
+                                <p class="text-[#121212] text-[14px] font-Montserrat-Bold pb-1">Free Delivery</p>
+                                <p class="text-[#121212] text-[12px] font-Montserrat-Bold">1-2 day </p>
                             </div>
                         </div>
                         <div class=" flex items-center w-[30%] mr-5">
@@ -138,8 +146,8 @@
                                 </svg>
                             </div>
                             <div class="text-[12px]">
-                                <p class="text-[#C4C4C4] pb-1">In Stock</p>
-                                <p class="text-[#121212]">Today</p>
+                                <p class="text-[#121212] text-[14px] font-Montserrat-Bold pb-1">In Stock</p>
+                                <p class="text-[#121212] text-[12px] font-Montserrat-Bold">Today</p>
                             </div>
                         </div>
                         <div class=" flex items-center w-[30%] mr-5">
@@ -150,8 +158,8 @@
 
                             </div>
                             <div class="text-[12px]">
-                                <p class="text-[#C4C4C4] pb-1">Guaranteed</p>
-                                <p class="text-[#121212]">30 Day</p>
+                                <p class="text-[#121212] text-[14px] font-Montserrat-Bold pb-1">Guaranteed</p>
+                                <p class="text-[#121212] text-[12px] font-Montserrat-Bold">30 Day</p>
                             </div>
                         </div>
                     </div>
@@ -160,66 +168,61 @@
         </div>
         <div class="container mx-auto">
             <div class="flex pt-[50px]">
-                <div class="w-[50%]">                    
-                    <div id="accordion-flush" data-accordion="collapse">
-                        <div class="border-b border-gray-200">
-                            <h2 id="accordion-flush-heading-1">
-                                <button type="button" class="flex items-center justify-between w-full py-5 font-Montserrat-Medium text-[16px] text-left text-[#000000]" data-accordion-target="#accordion-flush-body-1" aria-expanded="false" aria-controls="accordion-flush-body-1">
-                                    <span>How does Curbex work?</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
-                                <div class="pb-5 border-gray-200 text-[16px] text-[#000000]">
-                                    <p>Curbex connects businesses with unique advertising opportunities through curb addresses and eye-catching designs. Simply contact us, discuss your requirements, and let us handle the rest.</p>
-                                </div>
+                <div class="w-[50%]"> 
+                    <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mb-[25px]">FAQ</p>
+                    <div id="accordion-color" data-accordion="collapse">
+                        <!-- First Accordion -->
+                        <h2 id="accordion-color-heading-1" class="mb-4">
+                            <button type="button"
+                            class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
+                            :class="{ 'accordion-open': activeAccordion === 1 }"
+                            :aria-expanded="activeAccordion === 1" @click="toggleAccordion(1)">
+                                <span class="text-left font-bold font-Montserrat-Medium">Can we launch nationwide campaigns with Curbex signage?</span>
+                                <svg data-accordion-icon
+                                    class="shrink-0 transition-transform duration-300 transform"
+                                    :class="{ 'rotate-180': activeAccordion === 1 }"
+                                    width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="2" />
+                                    <path d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-color-body-1" class="mb-4" :class="{ 'hidden': activeAccordion !== 1 }" aria-labelledby="accordion-color-heading-1" >
+                            <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
+                                <p class="text-gray-500 dark:text-gray-400">Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.</p>
                             </div>
                         </div>
-                        <div class="border-b border-gray-200">
-                            <h2 id="accordion-flush-heading-2">
-                                <button type="button" class="flex items-center justify-between w-full py-5 font-Montserrat-Medium text-[16px] text-left text-[#000000]" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
-                                    <span>How does Curbex work?</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-                                <div class="pb-5 border-gray-200 text-[16px] text-[#000000]">
-                                    <p>Curbex connects businesses with unique advertising opportunities through curb addresses and eye-catching designs. Simply contact us, discuss your requirements, and let us handle the rest.</p>
-                                </div>
+
+                        <!-- Second Accordion -->
+                        <h2 id="accordion-color-heading-2" class="mb-4">
+                            <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
+                            :class="{ 'accordion-open': activeAccordion === 2 }" :aria-expanded="activeAccordion === 2" @click="toggleAccordion(2)">
+                            <span class="text-left font-bold font-Montserrat-Medium">How do Curbex signs fit into multi-channel campaigns?</span>
+                                <svg data-accordion-icon class="shrink-0 transition-transform duration-300 transform" :class="{ 'rotate-180': activeAccordion === 2 }" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                    <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="2" />
+                                    <path d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-color-body-2" class="mb-4" :class="{ 'hidden': activeAccordion !== 2 }" aria-labelledby="accordion-color-heading-2">
+                            <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
+                            <p class="text-gray-500 dark:text-gray-400">Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.</p>
                             </div>
                         </div>
-                        <div class="border-b border-gray-200">
-                            <h2 id="accordion-flush-heading-3">
-                                <button type="button" class="flex items-center justify-between w-full py-5 font-Montserrat-Medium text-[16px] text-left text-[#000000]" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
-                                    <span>How does Curbex work?</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
-                                <div class="pb-5 border-gray-200 text-[16px] text-[#000000]">
-                                    <p>Curbex connects businesses with unique advertising opportunities through curb addresses and eye-catching designs. Simply contact us, discuss your requirements, and let us handle the rest.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="border-b border-gray-200">
-                            <h2 id="accordion-flush-heading-4">
-                                <button type="button" class="flex items-center justify-between w-full py-5 font-Montserrat-Medium text-[16px] text-left text-[#000000]" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
-                                    <span>How does Curbex work?</span>
-                                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
-                                    </svg>
-                                </button>
-                            </h2>
-                            <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
-                                <div class="pb-5 border-gray-200 text-[16px] text-[#000000]">
-                                    <p>Curbex connects businesses with unique advertising opportunities through curb addresses and eye-catching designs. Simply contact us, discuss your requirements, and let us handle the rest.</p>
-                                </div>
+                        <!-- Second Accordion -->
+                        <h2 id="accordion-color-heading-3" class="mb-4">
+                            <button type="button" class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
+                            :class="{ 'accordion-open': activeAccordion === 3 }" :aria-expanded="activeAccordion === 3" @click="toggleAccordion(3)">
+                            <span class="text-left font-bold font-Montserrat-Medium">Can we place signage directly at the business location?</span>
+                                <svg data-accordion-icon class="shrink-0 transition-transform duration-300 transform" :class="{ 'rotate-180': activeAccordion === 3 }" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                    <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="2" />
+                                    <path d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </h2>
+                        <div id="accordion-color-body-3" class="mb-4" :class="{ 'hidden': activeAccordion !== 3 }" aria-labelledby="accordion-color-heading-3">
+                            <div class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]">
+                            <p class="text-gray-500 dark:text-gray-400">Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.</p>
                             </div>
                         </div>
                     </div>
@@ -230,11 +233,13 @@
             </div>
         </div>
         <div class="container mx-auto">
-            <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">You might also like</p>
+            <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">You might also like</p> -->
+            <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mb-[25px]">You might also like</p>
             <CarouselSlider/>
         </div>
         <div class="container mx-auto">
-            <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">Downtowner in practice</p>
+            <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold  pb-[2rem]">Downtowner in practice</p> -->
+            <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] mt-[5rem] px-6 mb-[25px]">Downtowner in practice</p>
             <Carousel :perPage="4" :autoplay="true" :autoplayTimeout="3000" loop :nav="false" :dots="false">
                 <Slide class="relative m-2">
                     <div class="relative">
@@ -270,8 +275,9 @@
             
         </div>
         <div class="container mx-auto pb-[4rem]">
-            <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">From our costumers</p>
-            <Testimonial/>
+            <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">From our costumers</p> -->
+            <p class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] mt-[5rem] px-6 mb-[25px]">From our costumers</p>
+            <Testimonial :testiminoalSlider="testiminoalSlider"/>
         </div>
         <div class="bg-[#FCFCFC]">
             <div class="container mx-auto py-5">
@@ -303,35 +309,35 @@
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">First Name
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="Ryan" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Ryan" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Last Name
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="Reynolds" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Reynolds" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Business Name
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="Hello" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Hello" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Phone Number
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="tel" placeholder="555 555 5555" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="tel" placeholder="555 555 5555" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Email
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="email" placeholder="Ryan@gmail.com" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="email" placeholder="Ryan@gmail.com" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-8 pt-[2rem]">
@@ -339,7 +345,7 @@
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Landlord/Property Owner Name
                                 <!-- <span class="text-[#FF0000]">*</span> -->
                             </label>
-                            <input type="text" placeholder="Blake Lively" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Blake Lively" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-8 pt-[2rem]">
@@ -347,62 +353,55 @@
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">When do you need a sign?
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="10/Feb/2025" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
-                        </div>
-
-                        <div class="relative">
-                            <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Last Name
-                                <span class="text-[#FF0000]">*</span>
-                            </label>
-                            <input type="text" placeholder="Reynolds" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="10/Feb/2025" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Rental Duration
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="3 weeks" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="3 weeks" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                     </div>
-                    <p class="text-[18px] font-Montserrat-Medium mb-4 pt-[2rem]">Your Business Address</p>
+                    <p class="text-[20px] font-Montserrat-Medium mb-4 pt-[2rem]">Your Business Address</p>
                     <div class="grid grid-cols-3 gap-8 pt-[1rem]">
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Address Line 1
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="123 Maplewood Lane" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="123 Maplewood Lane" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
-                            <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Address Line 2
-                                <span class="text-[#FF0000]">*</span>
+                            <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Unit Number
+                                <!-- <span class="text-[#FF0000]">*</span> -->
                             </label>
-                            <input type="text" placeholder="123 Maplewood Lane" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="123 Maplewood Lane" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
 
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">City
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="Toronto" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Toronto" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Province
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="ON" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="ON" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Postal Code
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="M4B 1B3" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="M4B 1B3" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                         <div class="relative">
                             <label class="text-[#000000] text-[18px] font-Montserrat-Medium">Country
                                 <span class="text-[#FF0000]">*</span>
                             </label>
-                            <input type="text" placeholder="Canada" class="w-full mt-2 px-4 py-4 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                            <input type="text" placeholder="Canada" class="w-full mt-2 px-4 py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                         </div>
                         <label class="flex items-center cursor-pointer">
                             <input type="radio" name="rental_history" value="no" class="hidden"v-model="rentalHistory">
@@ -424,7 +423,11 @@
     </div>
 </template>
 <script>
-import { onMounted } from 'vue';
+    import { onMounted } from 'vue';
+    import trff from "@/static/Images/Testimonial/trff-1.png";
+    import cl from "@/static/Images/Testimonial/cl-1.png";
+    import cbs from "@/static/Images/Testimonial/cbs-1.png";
+    import Pizza from "@/static/Images/Testimonial/pizza.png";
 
 export default {
     data() {
@@ -436,7 +439,38 @@ export default {
                 businessName: '',
                 phoneNumber: '',
                 email: ''
-            }
+            },
+            activeAccordion: null,
+            testiminoalSlider: [
+                {
+                    id:1,
+                    title:'Janie Houghton',
+                    shortTitle:'PR Specialist at York Region',
+                    description:'We’ve worked with Curbex for signage across several locations, and their expertise and professionalism have been exceptional. They manage the entire process, which saves us time and hassle. The signs have made a noticeable difference with our events and notices, and we couldn’t be happier with the results. Curbex is a true partner!', 
+                    image:trff
+                }, 
+                {
+                    id:2,
+                    title:'Adam Palmieri',
+                    shortTitle:'Supervisor Animal Services at City of Burlington',
+                    description:'The City of Burlington found Curbex signage highly effective for communicating key messages. Curbex provided reliable service, placing signs on time and exactly where needed. The clear, colorful signs boosted visibility, and Rachel’s professionalism exceeded expectations.', 
+                    image:cl
+                }, 
+                {
+                    id:3,
+                    title:'Julia Hance',
+                    shortTitle:'Enterprise Risk Specialist at Canadian Blood Services',
+                    description:'it has been an absolute pleasure working with you! Your creative problem solving and attention to detail have been a huge support to me, Canadian Blood Services, and to the patients in need. You help in finding ways to get signs out has helped us recruit more blood donors and new blood donors – literally saving lives across Canada!', 
+                    image:cbs
+                }, 
+                {
+                    id:4,
+                    title:'AshElizabeth Janik',
+                    shortTitle:'Marketing Manager at Pizza Nova',
+                    description:'Working with Curbex Media has been fantastic for Pizza Nova. Their efficient team supports us with bookings, quotes, and creative changes. The signage has been great for promoting specials and driving more traffic to our locations. Curbex consistently exceeds our expectations, making them a reliable advertising partner.', 
+                    image:Pizza
+                }, 
+            ],
         }
     },
     setup() {
@@ -449,5 +483,14 @@ export default {
             });
         });
     },
+    methods: {
+        toggleAccordion(accordionId) {
+            if (this.activeAccordion === accordionId) {
+                this.activeAccordion = null;
+            } else {
+                this.activeAccordion = accordionId;
+            }
+        }
+    }
 };
 </script>

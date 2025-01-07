@@ -70,6 +70,10 @@
     </div>
     <div class="container mx-auto px-6 md:px-0 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-6">
       <NuxtLink  v-for="index in 10" :key="index" to="/product-view" class="item transition-all duration-300 rent-produt">
+        <p class="bg-[#FFA900] lg:bg-[#FF364A] mb-[-15px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]">
+          <span class="hidden lg:block">Trending</span>
+          <span class="lg:hidden">Best Seller</span>
+        </p>
         <div class="border-2 border-[#F3F3F3] rounded-t-[10px] relative">
           <img src="/Images/Product/product.png" alt="" class="rounded-t-[10px] first-image">
           <img src="/Images/Product/product-1.png" alt="" class="rounded-t-[10px] hidden-important absolute inset-0 transition-opacity duration-300">
@@ -80,12 +84,16 @@
           </span>
         </div>
         <div class="bg-[#F3F3F3] rounded-b-[10px] p-2 md:p-3 lg:p-5">
+          <p class="text-[10px] lg:text-[12px] text-[#121212] bg-[#DAC8FF] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF]">Rental</p>
           <div class="flex items-start justify-between pb-[5px] md:pb-[0] lg:pb-[5px]">
             <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold">Mini B</p>
-            <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold">$209</p>
+            <div>
+              <p class="text-[7px] text-[#121212] hidden lg:block">Per Month</p>
+              <p class="text-[14px] text-[#121212] font-semibold">$209</p>
+            </div>
           </div>
           <p class="text-[#C3C3C3] text-[10px] description hidden lg:block">The billboard that's always out front</p>
-          <button class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] lg:text-[12px] w-full mt-3 text-center p-1 lg:p-2 font-semibold">Add To Cart</button>
+          <button class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] lg:text-[12px] w-full mt-3 text-center p-1 lg:p-2 font-semibold">Customize it</button>
         </div>
       </NuxtLink>  
     </div>
