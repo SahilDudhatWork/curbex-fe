@@ -171,7 +171,7 @@
               <div class="flex items-end justify-between pb-[5px]">
                 <p class="text-[14px] text-[#121212] font-semibold">Mini B</p>
                 <div>
-                  <p class="text-[14px] text-[#121212] font-semibold">Per Month</p>
+                  <p class="text-[14px] text-[#121212] font-semibold hidden lg:block">Per Month</p>
                   <p class="text-[14px] text-[#121212] font-semibold">$209</p>
                 </div>
               </div>
