@@ -31,12 +31,12 @@
                         <input type="text" v-model="lastName" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div>
 
-                    <h2 class="text-[16px] md:text-[20px] font-semibold mt-3 md:hidden">Account Data</h2>
+                    <!-- <h2 class="text-[16px] md:text-[20px] font-semibold mt-3 md:hidden">Account Data</h2> -->
                     <!-- Username -->
-                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
+                    <!-- <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Username</label>
                         <input type="text" v-model="username" placeholder="Username" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
-                    </div>
+                    </div> -->
 
                     <!-- Phone Number -->
                     <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
@@ -47,7 +47,7 @@
 
                     <!-- Email Address - Full Width -->
                     <h2 class="text-[16px] md:text-[20px] font-semibold mt-3 md:hidden">Email</h2>
-                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:mt-[-20px] lg:w-auto">
+                    <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Email Address</label>
                         <input type="email" v-model="email" placeholder="Email" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div>

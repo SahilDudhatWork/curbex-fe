@@ -377,6 +377,7 @@
     import fmi from "@/static/Images/Testimonial/fmi.png";
     import Panera from "@/static/Images/Testimonial/Panera.png";
     import Tim from "@/static/Images/Testimonial/Tim.png";
+    import Pizza from "@/static/Images/Testimonial/pizza.png";
     export default {
         data() {
         return {
@@ -402,6 +403,13 @@
                     shortTitle:'Marketing Manager at Tim Hortons',
                     description:'Managing signage for multiple locations can be challenging, but Curbex makes it easy. They handle every detail-including navigating the permit process-ensuring that our signs are installed on time and to code. We’ve seen a great response from customers at each location, and we appreciate how effortless Curbex makes the whole process.', 
                     image:Tim
+                }, 
+                {
+                    id:4,
+                    title:'AshElizabeth Janik',
+                    shortTitle:'Marketing Manager at Pizza Nova',
+                    description:'Working with Curbex Media has been fantastic for Pizza Nova. Their efficient team supports us with bookings, quotes, and creative changes. The signage has been great for promoting specials and driving more traffic to our locations. Curbex consistently exceeds our expectations, making them a reliable advertising partner.', 
+                    image:Pizza
                 }, 
             ],
         }

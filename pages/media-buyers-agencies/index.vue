@@ -381,6 +381,7 @@
    import trff from "@/static/Images/Testimonial/trff-1.png";
     import cl from "@/static/Images/Testimonial/cl-1.png";
     import cbs from "@/static/Images/Testimonial/cbs-1.png";
+    import Pizza from "@/static/Images/Testimonial/pizza.png";
     export default {
         data() {
             return {
@@ -406,6 +407,13 @@
                         shortTitle:'Enterprise Risk Specialist at Canadian Blood Services',
                         description:'it has been an absolute pleasure working with you! Your creative problem solving and attention to detail have been a huge support to me, Canadian Blood Services, and to the patients in need. You help in finding ways to get signs out has helped us recruit more blood donors and new blood donors – literally saving lives across Canada!', 
                         image:cbs
+                    }, 
+                    {
+                        id:4,
+                        title:'AshElizabeth Janik',
+                        shortTitle:'Marketing Manager at Pizza Nova',
+                        description:'Working with Curbex Media has been fantastic for Pizza Nova. Their efficient team supports us with bookings, quotes, and creative changes. The signage has been great for promoting specials and driving more traffic to our locations. Curbex consistently exceeds our expectations, making them a reliable advertising partner.', 
+                        image:Pizza
                     }, 
                 ],
             }
