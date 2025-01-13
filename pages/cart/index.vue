@@ -3,12 +3,12 @@
         <div class="container mx-auto px-6 lg:px-0 my-[2rem]">
             <div class="bg-[#121212] rounded-[20px] h-[126px]"></div>
             <p class="text-[20px] text-[#121212] font-bold pt-[2rem]">Your Cart</p>
-            <p class="text-[16px] text-[#121212]">Items in your bag not reserved- check out now to make them yours.</p>
+            <p class="text-[12px] md:text-[16px] text-[#121212]">Items in your bag not reserved- check out now to make them yours.</p>
         </div>
         <div class="container mx-auto px-6 lg:px-0 flex justify-between flex-wrap lg:flex-nowrap">
             <div class="w-full lg:w-[60%]">
-                <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px] flex items-start mb-5">
-                    <div class="border-2 border-[#F3F3F3] rounded-[20px] relative max-w-[143px] md:max-w-[250px] mr-3 md:mr-5">
+                <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px] flex items-start mb-5 flex-wrap md:flex-nowrap">
+                    <div class="border-2 border-[#F3F3F3] rounded-[20px] relative max-w-[100%] md:max-w-[250px] mr-0 mb-5 md:mb-0 md:mr-5">
                         <img src="/Images/Product/product-1.png" alt="" class="rounded-[20px]  transition-opacity duration-300">
                         <span class="border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[40px] h-[40px] block absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer scale-75 lg:scale-100">
                             <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="w-full flex flex-col justify-between min-h-[248px]">
+                    <div class="w-full flex flex-col justify-between md:min-h-[248px]">
                         <div>
                             <div class="flex items-center justify-between">
                                 <p class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium font-bold">Mini B</p>
@@ -171,8 +171,8 @@
                     </div>
                     <button class="bg-[#8D54FF] rounded-[42px] text-[12px] md:text-[14px] text-[#FFFFFF] p-[4px_15px]">Upload your artwork instead</button>
                 </div>
-                <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px] flex items-start mb-5">
-                    <div class="border-2 border-[#F3F3F3] rounded-[20px] relative max-w-[143px] md:max-w-[250px] mr-3 md:mr-5">
+                <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px] flex items-start mb-5 flex-wrap md:flex-nowrap">
+                    <div class="border-2 border-[#F3F3F3] rounded-[20px] relative max-w-[100%] md:max-w-[250px] mr-0 mb-5 md:mb-0 md:mr-5">
                         <img src="/Images/Product/product-1.png" alt="" class="rounded-[20px]  transition-opacity duration-300">
                         <span class="border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[40px] h-[40px] block absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer scale-75 lg:scale-100">
                             <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +180,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="w-full flex flex-col justify-between min-h-[248px]">
+                    <div class="w-full flex flex-col justify-between md:min-h-[248px]">
                         <div>
                             <div class="flex items-center justify-between">
                                 <p class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium font-bold">Pedestal</p>
@@ -291,37 +291,37 @@
             </div>
             <div class="w-full lg:w-[35%]">
                 <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[25px] mb-5">
-                    <p class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium pb-[1.7rem]">Order Summary</p>
+                    <p class="text-[14px] md:text-[18px] text-[#121212] font-Montserrat-Medium pb-[1.7rem]">Order Summary</p>
                     <div class="flex justify-between items-center pb-[1rem]">
-                        <p class="text-[16px] font-Montserrat-Medium">3 Items</p>
-                        <p class="text-[16px] font-Montserrat-Medium">$2347</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">3 Items</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$2347</p>
                     </div>
                     <div class="flex justify-between items-center pb-[1rem]">
-                        <p class="text-[16px] font-Medium">Estimated Tax</p>
-                        <p class="text-[16px] font-Montserrat-Medium">$50</p>
+                        <p class="text-[12px] md:text-[16px] font-Medium">Estimated Tax</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$50</p>
                     </div>
                     <div class="flex justify-between items-center pb-[1rem]">
-                        <p class="text-[16px] font-Medium">Estimated shipping & Handling</p>
-                        <p class="text-[16px] font-Montserrat-Medium">$29</p>
+                        <p class="text-[12px] md:text-[16px] font-Medium">Estimated shipping & Handling</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$29</p>
                     </div>
                     <div class="flex justify-between items-center pb-[1rem]">
-                        <p class="text-[16px] font-Montserrat-Medium">Total</p>
-                        <p class="text-[16px] font-Montserrat-Medium">$2426</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">Total</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$2426</p>
                     </div>
                     <p class="text-[12px] md:text-[14px] font-Montserrat-Medium pb-3">Discount code / Promo code</p>
                     <input type="text" placeholder="Code" class="text-[12px] md:text-[14px] bg-[#FFFFFF] border border-[#C3C3C3] rounded-[8px] w-full p-[17px] mb-[1.5rem]">
 
                     <div class="flex justify-between items-center pb-[1.5rem]">
-                        <p class="text-[16px] font-Montserrat-Medium">Total after discount</p>
-                        <p class="text-[16px] font-Montserrat-Medium">$2426</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">Total after discount</p>
+                        <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$2426</p>
                     </div>
-                    <button class="text-[16px] md:text-[18px] bg-[#FFA900] rounded-[8px] w-full p-[13px] mb-[1.5rem] hover:bg-[#8D54FF] hover:text-[#FFFFFF]">Checkout</button>
+                    <button class="text-[12px] md:text-[18px] bg-[#FFA900] rounded-[8px] w-full p-[13px] md:mb-[1.5rem] hover:bg-[#8D54FF] hover:text-[#FFFFFF]">Checkout</button>
                 </div>
-                <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[35px] mb-5 flex justify-between items-start">
+                <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[25px] md:p-[35px] mb-5 flex justify-between items-start">
                     <img src="/Images/Product/vanIcon.png" alt="" class="w-[40px] h-auto mr-[20px]">
                     <div>
-                        <p class="text-[16px] md:text-[18px] font-Montserrat-Medium pb-[10px]">We deliver, setup, then pick up</p>
-                        <p class="text-[16px] pr-[40px]">Our expert installers are thoroughly instructed by your account manager on where and how your sign needs to be installed.</p>
+                        <p class="text-[12px] md:text-[18px] font-Montserrat-Medium pb-[10px]">We deliver, setup, then pick up</p>
+                        <p class="text-[12px] md:text-[16px] md:pr-[40px]">Our expert installers are thoroughly instructed by your account manager on where and how your sign needs to be installed.</p>
                     </div>
                 </div>
             </div>
