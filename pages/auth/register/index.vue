@@ -109,9 +109,9 @@
         
       </div>
   
-      <div class="lg:max-w-[640px] w-full p-6 mx-auto order-1 lg:order-2 md:mb-[4rem]">
+      <div class="lg:max-w-[640px] w-full p-6 mx-auto order-1 lg:order-2 md:mb-[1rem]">
         <!-- Image will be handled via background image -->
-         <img src="/Images/auth/account-details.png" alt="register" class="w-full lg:h-auto md:h-[478px] h-[308px] object-cover rounded-[20px]">
+         <img src="/Images/auth/account-details.png" alt="register" class="w-full lg:h-[100%] md:h-[478px] h-[308px] object-cover rounded-[20px]">
       </div>
     </div>
   </template>
