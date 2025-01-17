@@ -1,3 +1,5 @@
+import local_en from "./config/lang/en.json";
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -24,14 +26,36 @@ export default {
   plugins: [
     { src: "~/plugins/vue-carousel.js", mode: "client" },
     { src: "~/plugins/vue2-google-maps.js", ssr: false },
+    { src: "~/plugins/toast-notification.js", mode: "client" },
+    "~/plugins/js-cookie.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [{ path: "~/components/", pathPrefix: false }],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
-
+  buildModules: [
+    "@nuxtjs/dotenv",
+    [
+      "nuxt-i18n",
+      {
+        vueI18nLoader: true,
+        defaultLocale: "en",
+        locales: [
+          {
+            code: "en",
+            name: "English",
+          },
+        ],
+        globalInjection: true,
+        vueI18n: {
+          locale: "en",
+          fallbackLocale: "en",
+          messages: { en: { ...local_en } },
+        },
+      },
+    ],
+  ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
