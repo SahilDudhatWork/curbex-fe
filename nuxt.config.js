@@ -28,6 +28,7 @@ export default {
     { src: "~/plugins/vue2-google-maps.js", ssr: false },
     { src: "~/plugins/toast-notification.js", mode: "client" },
     "~/plugins/js-cookie.js",
+    "~/plugins/validation.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

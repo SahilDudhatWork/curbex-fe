@@ -18,16 +18,18 @@ export default {
   },
   computed: {
     ...mapGetters({
-      productData: "product/getProductData",
+      rentalProductData: "product/getRentalProductData",
     }),
   },
   methods: {
     ...mapActions({
-      fetchProducts: "product/fetchProducts",
+      fetchRentalProducts: "product/fetchRentalProducts",
+      fetchRetailProducts: "product/fetchRetailProducts",
     }),
-    async getProducts() {
+    async getRentalProducts() {
       let payload = {
         where: {
+          type: "rental",
           // "isBestSeller":1
           // "name": {
           //     "operator": "Like",
@@ -37,12 +39,31 @@ export default {
         skip: 0,
         take: 10,
         order: { id: "ASC" },
+        relations: ["images"],
       };
-      await this.fetchProducts(payload);
+      await this.fetchRentalProducts(payload);
+    },
+    async getRetailProducts() {
+      let payload = {
+        where: {
+          type: "retail",
+          // "isBestSeller":1
+          // "name": {
+          //     "operator": "Like",
+          //     "value": "%mini%"
+          // }
+        },
+        skip: 0,
+        take: 10,
+        order: { id: "ASC" },
+        relations: ["images"],
+      };
+      await this.fetchRetailProducts(payload);
     },
   },
   async mounted() {
-    await this.getProducts();
+    await this.getRentalProducts();
+    await this.getRetailProducts();
   },
 };
 </script>

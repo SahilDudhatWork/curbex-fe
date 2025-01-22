@@ -2,7 +2,7 @@
   <div class="flex-1">
     <div class="max-w-3xl md:p-8">
       <!-- Profile Header -->
-      <div class="mb-8 hidden md:block">
+      <!-- <div class="mb-8 hidden md:block">
         <h1 class="text-[16px] md:text-[20px] font-semibold mb-3 md:mb-6">
           Profile Picture
         </h1>
@@ -27,7 +27,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Account Info Form -->
       <div class="md:mt-12">

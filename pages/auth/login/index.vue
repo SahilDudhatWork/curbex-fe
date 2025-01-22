@@ -24,8 +24,12 @@
           type="email"
           v-model="formData.email"
           placeholder="Email"
+          :class="{ 'border-[red]': errors?.email }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
+        <span v-if="errors?.email" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.email
+        }}</span>
       </div>
 
       <div class="mb-4 relative">
@@ -33,8 +37,12 @@
           :type="isPasswordVisible ? 'text' : 'password'"
           v-model="formData.password"
           placeholder="Password"
+          :class="{ 'border-[red]': errors?.password }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
+        <span v-if="errors?.password" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.password
+        }}</span>
         <button
           @click="isPasswordVisible = !isPasswordVisible"
           class="absolute right-3 top-[11px] md:top-[21px] bg-transparent border-none cursor-pointer w-[17px] h-[17px] md:w-[24px] md:h-[24px]"
@@ -188,6 +196,7 @@ export default {
         email: "",
         password: "",
       },
+      errors: {},
       isPasswordVisible: false,
     };
   },
@@ -197,6 +206,16 @@ export default {
     }),
     async handleLogin() {
       try {
+        this.errors = await this.$validateLoginFormData({
+          form: this.formData,
+        });
+        if (Object.keys(this.errors).length > 0) {
+          this.$toast.open({
+            message: "Please fix the errors before submitting.",
+            type: "error",
+          });
+          return;
+        }
         await this.userLogin(this.formData);
         this.$router.push("/profile");
         this.$toast.open({

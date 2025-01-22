@@ -1124,7 +1124,12 @@ Design a clean and eye-catching physical banner that highlights the key message 
         You might also like
       </p>
       <CarouselSlider
-        :data="productData && productData?.records ? productData?.records : []"
+        :data="
+          rentalProductData && rentalProductData?.records
+            ? rentalProductData?.records
+            : []
+        "
+        type="rental"
       />
     </div>
   </div>
@@ -1142,7 +1147,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      productData: "product/getProductData",
+      rentalProductData: "product/getRentalProductData",
     }),
   },
   methods: {

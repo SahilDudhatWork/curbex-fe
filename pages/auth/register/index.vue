@@ -21,8 +21,14 @@
           type="text"
           v-model="formData.firstName"
           placeholder="First Name"
+          :class="{ 'border-[red]': errors?.firstName }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
+        <span
+          v-if="errors?.firstName"
+          class="text-[red] text-[12px] pl-[3px]"
+          >{{ errors?.firstName }}</span
+        >
       </div>
 
       <div class="mb-4 relative">
@@ -31,7 +37,11 @@
           v-model="formData.lastName"
           placeholder="Last Name"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+          :class="{ 'border-[red]': errors?.lastName }"
         />
+        <span v-if="errors?.lastName" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.lastName
+        }}</span>
       </div>
       <h1
         class="text-[16px] mb-3 md:text-[20px] text-[#121212] font-Montserrat-Medium md:font-bold pb-[2px]"
@@ -43,8 +53,12 @@
           type="text"
           v-model="formData.company"
           placeholder="Business Name"
+          :class="{ 'border-[red]': errors?.company }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
+        <span v-if="errors?.company" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.company
+        }}</span>
       </div>
 
       <h1
@@ -58,16 +72,27 @@
           type="Email"
           v-model="formData.email"
           placeholder="Email"
+          :class="{ 'border-[red]': errors?.email }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
+        <span v-if="errors?.email" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.email
+        }}</span>
       </div>
       <div class="mb-6 pb-1">
         <input
           type="text"
           v-model="formData.phoneNumber"
+          @input="validatePhoneNumberInput"
           placeholder="Phone Number"
+          :class="{ 'border-[red]': errors?.phoneNumber }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
+        <span
+          v-if="errors?.phoneNumber"
+          class="text-[red] text-[12px] pl-[3px]"
+          >{{ errors?.phoneNumber }}</span
+        >
       </div>
 
       <h1
@@ -79,9 +104,13 @@
         <input
           :type="isPasswordVisible ? 'text' : 'password'"
           class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+          :class="{ 'border-[red]': errors?.password }"
           placeholder="Password"
           v-model="formData.password"
         />
+        <span v-if="errors?.password" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.password
+        }}</span>
         <div
           @click="isPasswordVisible = !isPasswordVisible"
           class="absolute top-[18px] right-[13px] cursor-pointer"
@@ -133,9 +162,15 @@
         <input
           :type="isConfirmPasswordVisible ? 'text' : 'password'"
           class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+          :class="{ 'border-[red]': errors?.confirmPassword }"
           placeholder="Confirm Password"
           v-model="formData.confirmPassword"
         />
+        <span
+          v-if="errors?.confirmPassword"
+          class="text-[red] text-[12px] pl-[3px]"
+          >{{ errors?.confirmPassword }}</span
+        >
         <div
           @click="isConfirmPasswordVisible = !isConfirmPasswordVisible"
           class="absolute top-[18px] right-[13px] cursor-pointer"
@@ -185,13 +220,15 @@
       </div>
 
       <div
-        class="flex items-center gap-2 mb-6 text-[12px] md:text-[14px] lg:text-[16px] md:font-bold lg:font-normal text-[#121212] py-"
+        class="flex flex-wrap items-center gap-2 mb-6 text-[12px] md:text-[14px] lg:text-[16px] md:font-bold lg:font-normal text-[#121212] py-"
       >
         <input
           class="styled-checkbox"
           id="terms"
           type="checkbox"
           value="value1"
+          v-model="formData.terms"
+          :class="{ 'border-[red]': errors?.terms }"
         />
         <label for="terms" class="flex">
           <span class="block mt-[-4px]" style="width: calc(100% - 25px)">
@@ -208,6 +245,11 @@
             >.
           </span>
         </label>
+        <span
+          v-if="errors?.terms"
+          class="text-[red] text-[12px] pl-[3px] block w-full"
+          >{{ errors?.terms }}</span
+        >
       </div>
 
       <button
@@ -257,9 +299,10 @@ export default {
         email: "",
         password: "",
         company: "",
-        terms: true,
+        terms: false,
+        confirmPassword: "",
       },
-      confirmPassword: "",
+      errors: {},
       isPasswordVisible: false,
       isConfirmPasswordVisible: false,
     };
@@ -268,8 +311,24 @@ export default {
     ...mapActions({
       userRegister: "auth/userRegister",
     }),
+    async validatePhoneNumberInput(event) {
+      this.formData.phoneNumber = await this.$validateNumber(
+        event.target.value
+      );
+    },
     async handleRegister() {
       try {
+        this.errors = await this.$validateRegisterFormData({
+          form: this.formData,
+        });
+        if (Object.keys(this.errors).length > 0) {
+          this.$toast.open({
+            message: "Please fix the errors before submitting.",
+            type: "error",
+          });
+          return;
+        }
+
         this.formData.username = this.formData.firstName.concat(
           " ",
           this.formData.lastName

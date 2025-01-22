@@ -426,7 +426,12 @@
         For Rent
       </p>
       <CarouselSlider
-        :data="productData && productData?.records ? productData?.records : []"
+        :data="
+          rentalProductData && rentalProductData?.records
+            ? rentalProductData?.records
+            : []
+        "
+        type="rental"
       />
     </div>
     <div
@@ -438,7 +443,12 @@
         For Purchase
       </p>
       <CarouselSlider
-        :data="productData && productData?.records ? productData?.records : []"
+        :data="
+          retailProductData && retailProductData?.records
+            ? retailProductData?.records
+            : []
+        "
+        type="retail"
       />
     </div>
     <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
@@ -834,7 +844,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      productData: "product/getProductData",
+      rentalProductData: "product/getRentalProductData",
+      retailProductData: "product/getRetailProductData",
     }),
   },
   methods: {

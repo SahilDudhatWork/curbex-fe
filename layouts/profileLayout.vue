@@ -13,18 +13,18 @@
             class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem]"
           >
             <img
-              src="/Images/Profile/Avatar.png"
+              src="/Images/Profile/DeafultAvatar.png"
               alt="Profile"
               class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"
             />
             <div>
               <span class="font-Montserrat-Medium text-[20px] user-name"
-                >Ryan Reynolds</span
+                >{{ userProfile?.firstName }} {{ userProfile?.lastName }}</span
               >
               <p
                 class="flex items-center justify-between text-[12px] pt-[5px] md:hidden"
               >
-                Ryan@gmail.com
+                {{ userProfile?.email }}
                 <span class="ml-1">
                   <svg
                     width="15"
@@ -1807,6 +1807,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   middleware: "auth",
 
@@ -1817,6 +1819,9 @@ export default {
     };
   },
   computed: {
+    ...mapGetters({
+      userProfile: "auth/getUserProfile",
+    }),
     pageTitle() {
       let title = "Profile";
       if (this.$route.fullPath == "/profile/address") {
@@ -1842,9 +1847,9 @@ export default {
   },
   methods: {
     handleLogout() {
-      // Logic for logging out the user
       this.showLogoutModal = false;
-      // Redirect or perform logout action
+      this.$cookies.remove("token");
+      this.$router.push("/auth/login");
     },
     dropdownToggle() {
       this.showDropdown = !this.showDropdown;

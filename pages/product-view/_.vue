@@ -7,7 +7,7 @@
         >
           <div class="overflow-hidden rounded-[8px] relative">
             <img
-              src="/Images/Product/product-1.png"
+              :src="heroImage ? heroImage : '/Images/Product/product-1.png'"
               alt=""
               class="object-contain max-h-[560px] mx-auto"
             />
@@ -43,15 +43,17 @@
                 viewBox="0 0 27 28"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="border border-[#F3F3F3] p-[0.425rem] md:p-2.5 block w-[33px] md:w-[45px] h-[33px] md:h-[45px] rounded-full bg-[#FCFCFC] mb-3"
+                class="cursor-pointer border border-[#F3F3F3] p-[0.425rem] md:p-2.5 block w-[33px] md:w-[45px] h-[33px] md:h-[45px] rounded-full bg-[#FCFCFC] mb-3"
+                @click="toggleFavorite"
               >
                 <g clip-path="url(#clip0_4949_3589)">
                   <path
                     d="M23.2248 5.65198C22.6576 5.08445 21.984 4.63424 21.2427 4.32708C20.5014 4.01991 19.7069 3.86182 18.9044 3.86182C18.102 3.86182 17.3074 4.01991 16.5661 4.32708C15.8248 4.63424 15.1513 5.08445 14.584 5.65198L13.4067 6.82927L12.2295 5.65198C11.0836 4.50614 9.52952 3.86241 7.90905 3.86241C6.28858 3.86241 4.73449 4.50614 3.58864 5.65198C2.4428 6.79783 1.79907 8.35192 1.79907 9.97239C1.79907 11.5929 2.4428 13.147 3.58864 14.2928L4.76593 15.4701L13.4067 24.1109L22.0476 15.4701L23.2248 14.2928C23.7924 13.7255 24.2426 13.052 24.5497 12.3107C24.8569 11.5694 25.015 10.7748 25.015 9.97239C25.015 9.16996 24.8569 8.3754 24.5497 7.63409C24.2426 6.89278 23.7924 6.21925 23.2248 5.65198V5.65198Z"
-                    stroke="#C3C3C3"
+                    :stroke="product?.isFavorite ? '#FF364A' : '#C3C3C3'"
                     stroke-width="1.64535"
                     stroke-linecap="round"
                     stroke-linejoin="round"
+                    :fill="product?.isFavorite ? '#FF364A' : ''"
                   />
                 </g>
                 <defs>
@@ -93,27 +95,15 @@
               </svg>
             </div>
             <div
+              v-if="product.images && product.images.length"
               class="flex justify-between mt-[20px] w-full md:w-[85%] px-6 md:px-0 mb-2 md:mb-0"
             >
               <img
-                src="/Images/Product/new.png"
+                v-for="(item, index) in product.images"
+                :src="item.imageUrl"
                 alt=""
                 class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                @click="heroImage = item.imageUrl"
               />
             </div>
             <div class="hidden md:block">
@@ -147,17 +137,23 @@
             <h3
               class="text-[#000000] text-[20px] md:text-[30px] font-Montserrat-Bold pb-[10px]"
             >
-              Downtowner
+              {{ product?.name }}
               <span
-                class="bg-[#FFEBC3] rounded-[5px] text-[#121212] text-[14px] font-normal font-Montserrat-Medium p-[2px_8px]"
-                >Retail</span
+                class="bg-[#FFEBC3] rounded-[5px] text-[#121212] text-[14px] font-normal font-Montserrat-Medium p-[2px_8px] capitalize"
+                >{{ product?.type }}</span
               >
             </h3>
             <p
               class="text-[#000000] text-[18px] md:text-[25px] font-Montserrat-Medium pb-[20px]"
             >
-              $209 <span class="text-[#A0A0A0] ml-2 line-through">$250</span>
+              ${{ product?.price }}
               <span
+                class="text-[#A0A0A0] ml-2 line-through"
+                v-if="product?.discount > 0"
+                >${{ product?.price }}</span
+              >
+              <span
+                v-if="product?.discount > 0"
                 class="ml-3 bg-[#29CC6A] rounded-[5px] text-[#FFFFFF] text-[14px] font-normal font-Montserrat-Medium p-[2px_8px]"
                 >Save 18%</span
               >
@@ -306,7 +302,10 @@
                   >
                     Topper Board
                   </p>
-                  <p class="text-[#A0A0A0] text-[12px]">1' (h) x 5' (w)</p>
+                  <p class="text-[#A0A0A0] text-[12px]">
+                    {{ product?.length || 0 }}' (l) x
+                    {{ product?.weight || 0 }}' (w)
+                  </p>
                 </div>
               </div>
               <div
@@ -389,7 +388,10 @@
                   >
                     Main Board
                   </p>
-                  <p class="text-[#A0A0A0] text-[12px]">5' (h) x 8' (w)</p>
+                  <p class="text-[#A0A0A0] text-[12px]">
+                    {{ product?.height || 0 }}' (h) x {{ product?.width || 0 }}'
+                    (w)
+                  </p>
                 </div>
               </div>
             </div>
@@ -804,333 +806,20 @@
       </p>
       <Testimonial :testiminoalSlider="testiminoalSlider" />
     </div>
-    <!-- <div class="bg-[#FCFCFC]">
-      <div class="container mx-auto px-6 md:px-0 py-5">
-        <p
-          class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[20px] rounded-full py-[8px] mt-[1.5rem] px-6 mb-[25px]"
-        >
-          Order now
-        </p>
-        <form action="">
-          <p class="text-[16px] font-Montserrat-Medium mb-4">
-            Have you rented from Curbex before?
-          </p>
-          <div class="">
-            <label class="flex items-center cursor-pointer mb-[1rem]">
-              <input
-                type="radio"
-                name="rental_history"
-                value="yes"
-                class="hidden"
-                v-model="rentalHistory"
-              />
-              <span
-                class="w-5 h-5 border-2 border-black rounded-sm flex items-center justify-center mr-2"
-              >
-                <svg
-                  class="w-3 h-3"
-                  v-show="rentalHistory === 'yes'"
-                  viewBox="0 0 12 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 4L4.5 7.5L11 1"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="text-[16px] text-[#121212]">Yes</span>
-            </label>
-            <label class="flex items-center cursor-pointer">
-              <input
-                type="radio"
-                name="rental_history"
-                value="no"
-                class="hidden"
-                v-model="rentalHistory"
-              />
-              <span
-                class="w-5 h-5 border-2 border-black rounded-sm flex items-center justify-center mr-2"
-              >
-                <svg
-                  class="w-3 h-3"
-                  v-show="rentalHistory === 'no'"
-                  viewBox="0 0 12 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 4L4.5 7.5L11 1"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="text-[16px] text-[#121212]">No</span>
-            </label>
-          </div>
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 pt-[4rem]"
-          >
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >First Name
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Ryan"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Last Name
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Reynolds"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Business Name
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Hello"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Phone Number
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="tel"
-                placeholder="555 555 5555"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Email
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="email"
-                placeholder="Ryan@gmail.com"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-            <div class="md:hidden lg:block"></div>
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Landlord/Property Owner Name
-              </label>
-              <input
-                type="text"
-                placeholder="Blake Lively"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 pt-[2rem]"
-          >
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >When do you need a sign?
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="10/Feb/2025"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Rental Duration
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="3 weeks"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-          </div>
-          <p class="text-[20px] font-Montserrat-Medium mb-4 pt-[2rem]">
-            Your Business Address
-          </p>
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 pt-[1rem]"
-          >
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Address Line 1
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="123 Maplewood Lane"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Unit Number
-              </label>
-              <input
-                type="text"
-                placeholder="123 Maplewood Lane"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >City
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Toronto"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Province
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="ON"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Postal Code
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="M4B 1B3"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-            <div class="relative">
-              <label
-                class="text-[#000000] text-[14px] md:text-[16px] font-Montserrat-Medium"
-                >Country
-                <span class="text-[#FF0000]">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Canada"
-                class="w-full mt-2 px-4 py-[0.49rem] md:py-[0.69rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
-              />
-            </div>
-            <label
-              class="flex items-center cursor-pointer w-full md:min-w-[440px]"
-            >
-              <input
-                type="radio"
-                name="rental_history"
-                value="no"
-                class="hidden"
-                v-model="rentalHistory"
-              />
-              <span
-                class="w-5 h-5 border-2 border-black rounded-sm flex items-center justify-center mr-2"
-              >
-                <svg
-                  class="w-3 h-3"
-                  v-show="rentalHistory === 'no'"
-                  viewBox="0 0 12 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 4L4.5 7.5L11 1"
-                    stroke="black"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="text-[12px] md:text-[16px] text-[#121212]"
-                >I have read and agree to the <a
-                  href="#"
-                  class="text-[#000000] underline"
-                  >Terms and Conditions</a
-                >
-              </span>
-            </label>
-          </div>
-          <button
-            class="mt-[2rem] w-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-[16px] md:text-lg font-medium py-[0.65rem] rounded-[6px] transition duration-200 ease-in-out shadow-lg hover:shadow-xl"
-          >
-            Submit Order Request
-          </button>
-        </form>
-      </div>
-    </div> -->
     <DesignMethod :isVisible="showDesignModal" />
   </div>
 </template>
 <script>
-import { onMounted } from "vue";
 import trff from "@/static/Images/Testimonial/trff-1.png";
 import cl from "@/static/Images/Testimonial/cl-1.png";
 import cbs from "@/static/Images/Testimonial/cbs-1.png";
 import Pizza from "@/static/Images/Testimonial/pizza.png";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       rentalHistory: "",
-      formData: {
-        firstName: "",
-        lastName: "",
-        businessName: "",
-        phoneNumber: "",
-        email: "",
-      },
       showDesignModal: false,
       activeAccordion: null,
       testiminoalSlider: [
@@ -1172,32 +861,53 @@ export default {
         [768, 1.5], // Show 3 slides if width >= 768px
         [1024, 4], // Show 5 slides if width >= 1024px
       ],
+
+      productId: null,
+      heroImage: null,
     };
   },
   computed: {
     ...mapGetters({
       rentalProductData: "product/getRentalProductData",
+      product: "product/getSingleProductData",
     }),
   },
-  setup() {
-    onMounted(() => {
-      // Ensure Flowbite initializes the accordion
-      const accordionElements = document.querySelectorAll("[data-accordion]");
-      accordionElements.forEach((accordion) => {
-        // Reinitialize Flowbite accordion
-        import("flowbite").then(
-          ({ default: Flowbite }) => new Flowbite(accordion)
-        );
-      });
+  async mounted() {
+    const accordionElements = document.querySelectorAll("[data-accordion]");
+    accordionElements.forEach((accordion) => {
+      // Reinitialize Flowbite accordion
+      import("flowbite").then(
+        ({ default: Flowbite }) => new Flowbite(accordion)
+      );
     });
+    await this.getSingleProduct();
+    this.heroImage =
+      this.product.images && this.product.images.length
+        ? this.product.images[0].imageUrl
+        : null;
+  },
+  async asyncData({ params }) {
+    return {
+      productId: params.pathMatch,
+    };
   },
   methods: {
+    ...mapActions({
+      fetchSingleProductDetail: "product/fetchSingleProductDetail",
+      toggleFavoriteProduct: "product/toggleFavoriteProduct",
+    }),
     toggleAccordion(accordionId) {
       if (this.activeAccordion === accordionId) {
         this.activeAccordion = null;
       } else {
         this.activeAccordion = accordionId;
       }
+    },
+    async toggleFavorite() {
+      await this.toggleFavoriteProduct({ id: this.productId });
+    },
+    async getSingleProduct() {
+      await this.fetchSingleProductDetail({ id: this.productId });
     },
   },
 };
