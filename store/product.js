@@ -2,6 +2,7 @@ import $axios from "@/plugins/axios";
 
 export const state = () => ({
   rentalProducts: {},
+  allProductsData: [],
   retailProducts: {},
   singleProductData: {},
   productData: {},
@@ -20,6 +21,9 @@ export const getters = {
   getProductData(state) {
     return state.productData;
   },
+  getAllProductData(state) {
+    return state.allProductsData;
+  },
 };
 
 export const mutations = {
@@ -34,6 +38,9 @@ export const mutations = {
   },
   setProductData(state, payload) {
     state.productData = payload;
+  },
+  setAllProductData(state, payload) {
+    state.allProductsData = payload;
   },
 
   setFavoriteRentalProduct(state, payload) {
@@ -82,6 +89,15 @@ export const actions = {
     try {
       const response = await $axios.post("/products", payload);
       ctx.commit("setRetailProductData", response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async fetchProducts(ctx, payload) {
+    try {
+      const response = await $axios.post("/products", payload);
+      ctx.commit("setAllProductData", response);
       return response;
     } catch (error) {
       throw error;
