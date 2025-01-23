@@ -82,9 +82,32 @@ export default async (ctx, inject) => {
 
     return errors;
   };
+  const validateAddressFormData = async ({ form }) => {
+    const errors = {};
+    const isEmpty = (value) => {
+      return typeof value === "string" ? value.trim() === "" : !value;
+    };
+    const setError = (fieldName, message) => {
+      errors[fieldName] = message;
+    };
+
+    const validateField = (field, fieldName, errorLabel) => {
+      if (isEmpty(field)) {
+        setError(fieldName, `${errorLabel} is required`);
+      }
+    };
+
+    validateField(form.street, "street", "street");
+    validateField(form.province, "province", "province");
+    validateField(form.postal, "postal", "postal");
+    validateField(form.city, "city", "city");
+
+    return errors;
+  };
 
   inject("validateRegisterFormData", validateRegisterFormData);
   inject("validateLoginFormData", validateLoginFormData);
   inject("validateNumber", validateNumber);
   inject("validateAddressDetail", validateAddressDetail);
+  inject("validateAddressFormData", validateAddressFormData);
 };

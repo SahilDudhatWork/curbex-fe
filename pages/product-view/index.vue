@@ -68,77 +68,63 @@
             </div>
           </div>
           <div class="flex items-center justify-between">
-            <div class="hidden md:block">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="group"
+            <div class="w-[90%] mx-auto">
+              <VueSlickCarousel
+                v-bind="carouselSettings"
+                class="section788777887"
               >
-                <path
-                  d="M11 20.9405C5.4746 20.9405 0.999999 16.4741 1 10.9703C1 5.46639 5.4746 0.999999 11 1C16.5254 1 21 5.46639 21 10.9703C21 16.4741 16.5254 20.9405 11 20.9405Z"
-                  stroke="#F5F5F5"
-                  stroke-width="2"
-                  class="group-hover:stroke-[#121212]"
-                />
-                <path
-                  d="M12.0996 15.3582L8.40959 11.6782C8.01779 11.2875 8.01779 10.6528 8.40959 10.2621L12.0996 6.58203"
-                  stroke="#F5F5F5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  class="group-hover:stroke-[#121212]"
-                />
-              </svg>
-            </div>
-            <div
-              class="flex justify-between mt-[20px] w-full md:w-[85%] px-6 md:px-0 mb-2 md:mb-0"
-            >
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-              <img
-                src="/Images/Product/new.png"
-                alt=""
-                class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
-              />
-            </div>
-            <div class="hidden md:block">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="group"
-              >
-                <path
-                  d="M11 0.999889C16.5254 0.999889 21 5.46628 21 10.9702C21 16.474 16.5254 20.9404 11 20.9404C5.4746 20.9404 1 16.474 1 10.9702C0.999999 5.46628 5.4746 0.999889 11 0.999889Z"
-                  stroke="#F5F5F5"
-                  stroke-width="2"
-                  class="group-hover:stroke-[#121212]"
-                />
-                <path
-                  d="M9.90039 6.58218L13.5904 10.2622C13.9822 10.653 13.9822 11.2876 13.5904 11.6784L9.90039 15.3584"
-                  stroke="#F5F5F5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  class="group-hover:stroke-[#121212]"
-                />
-              </svg>
+                <div class="section1321231321">
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div>
+
+                <div>
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div>
+
+                <!-- <div>
+                  <img
+                    src="/Images/Product/new.png"
+                    alt="Carousel Image"
+                    class="w-[68px] md:w-[122px] h-[68px] md:h-[122px] object-contain border border-[#F5F5F5] rounded-[12px] mr-[5px]"
+                  />
+                </div> -->
+              </VueSlickCarousel>
             </div>
           </div>
         </div>
@@ -1172,6 +1158,16 @@ export default {
         [768, 1.5], // Show 3 slides if width >= 768px
         [1024, 4], // Show 5 slides if width >= 1024px
       ],
+      carouselSettings: {
+        dots: false,
+        infinite: false,
+        nav: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        centerMode: true,
+      },
     };
   },
   computed: {
@@ -1202,3 +1198,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+::v-deep .slick-prev:before,
+::v-deep .slick-next:before {
+  color: #000000;
+}
+</style>

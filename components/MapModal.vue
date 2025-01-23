@@ -46,7 +46,7 @@
               <div class="flex items-center gap-2.5">
                 <img src="@/static/svg/location.svg" alt="" />
                 <h1 class="text-[#121212] font-medium text-base">
-                  {{ location.address }}
+                  {{ location?.street || "" }}
                 </h1>
               </div>
               <button

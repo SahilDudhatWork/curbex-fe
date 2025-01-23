@@ -9,15 +9,20 @@ export const mutations = {};
 export const actions = {
   async createAddress(ctx, payload) {
     try {
-      const response = await $axios.put("/customers/1/address", payload);
+      let { customerId } = payload;
+      const response = await $axios.put(
+        `/customers/${customerId}/address`,
+        payload
+      );
       return response;
     } catch (error) {
       throw error;
     }
   },
-  async fetchAddress(ctx, payload) {
+  async setDefaultAddress(ctx, payload) {
     try {
-      const response = await $axios.get("/customers/address/4", payload);
+      let { id } = payload;
+      const response = await $axios.get(`/customers/address/${id}`);
       return response;
     } catch (error) {
       throw error;

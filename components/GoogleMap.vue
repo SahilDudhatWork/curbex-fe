@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      marker: { position: { lat: 40.73061, lng: -73.935242 } },
+      marker: { position: { lat: 45.4215, lng: -75.6972 } }, // Ottawa's coordinates
       mapOptions: {
         disableDefaultUI: false,
         streetViewControl: false,
@@ -54,8 +54,8 @@ export default {
       },
       address: "",
       geocoder: null,
-      getMapLocation: { lat: 40.73061, lng: -73.935242 },
-      latLng: "",
+      getMapLocation: { lat: 45.4215, lng: -75.6972 }, // Default location set to Ottawa, Canada
+      latLng: { lat: 45.4215, lng: -75.6972 }, // Default latLng for Canada
     };
   },
   watch: {
@@ -79,9 +79,9 @@ export default {
     },
   },
   mounted() {
-    this.getAddress(false);
     setTimeout(() => {
       this.geocoder = new google.maps.Geocoder();
+      this.getAddress();
     }, 1000);
   },
   methods: {
@@ -130,22 +130,43 @@ export default {
                 break;
               }
             }
+
             if (!formattedAddress || !addressComponents) {
               formattedAddress = results[0].formatted_address;
               addressComponents = results[0].address_components;
             }
+
             if (setAddress) {
+              // Extract specific address components
+              const street =
+                addressComponents.find((component) =>
+                  component.types.includes("route")
+                )?.long_name || "";
+
+              const city =
+                addressComponents.find((component) =>
+                  component.types.includes("locality")
+                )?.long_name || "";
+
+              const province =
+                addressComponents.find((component) =>
+                  component.types.includes("administrative_area_level_1")
+                )?.short_name || "";
+
               const postalCode =
                 addressComponents.find((component) =>
                   component.types.includes("postal_code")
                 )?.long_name || "";
 
               this.address = formattedAddress;
+              // Emit the full address details
               this.$emit("updateAddress", {
-                address: this.address,
-                postalCode: postalCode,
-                lat: this.marker.position.lat,
-                long: this.marker.position.lng,
+                street: this.address,
+                city: city,
+                province: province,
+                postal: postalCode,
+                // lat: this.marker.position.lat,
+                // long: this.marker.position.lng,
               });
             } else {
               this.address = "";

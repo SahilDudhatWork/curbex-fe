@@ -29,6 +29,7 @@ export default {
     { src: "~/plugins/toast-notification.js", mode: "client" },
     "~/plugins/js-cookie.js",
     "~/plugins/validation.js",
+    { src: "~/plugins/vue-slick-carousel.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

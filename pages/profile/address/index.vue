@@ -6,15 +6,23 @@
         <h1 class="text-[16px] md:text-[20px] font-semibold mb-3 md:mb-6">
           My Addresses
         </h1>
-        <div class="mb-3 address-tab-Active">
-          <div class="flex items-center flex-wrap lg:flex-row">
+        <div
+          v-for="(address, index) in customerAddress"
+          :key="index"
+          class="mb-3"
+          :class="index == 0 ? 'address-tab-Active' : 'address-tab'"
+        >
+          <div
+            @click="defaultAddress(address.id)"
+            class="flex items-center flex-wrap lg:flex-row"
+          >
             <div
               class="radio-section bg-[#E3E3E3] text-[#121212] flex item-center w-fit p-[15px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
             >
               <span
                 class="w-[22px] h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px]"
               ></span>
-              <p>Toronto- Yonge</p>
+              <p>{{ address.city }}- {{ address.country }}</p>
             </div>
             <div
               class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
@@ -108,7 +116,7 @@
                 </svg>
               </span>
               <p class="p-[0px_10px]">
-                1234 Yonge Street, Suite 567, Toronto, ON, M4T 1W3, Canada
+                {{ address.street }}
               </p>
               <span>
                 <svg
@@ -143,146 +151,10 @@
               </span>
             </div>
           </div>
-          <p class="text-[12px] p-[3px_2rem]">Default Address</p>
-        </div>
-        <div class="mb-3 address-tab">
-          <div class="flex items-center flex-wrap lg:flex-row">
-            <div
-              class="radio-section bg-[#E3E3E3] text-[#121212] flex item-center w-fit p-[15px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
-            >
-              <span
-                class="w-[22px] h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px]"
-              ></span>
-              <p>Toronto- Yonge</p>
-            </div>
-            <div
-              class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
-            >
-              <span>
-                <svg
-                  width="23"
-                  height="23"
-                  viewBox="0 0 23 23"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18.8929 8.21415C18.8929 12.3049 11.5 22.1784 11.5 22.1784C11.5 22.1784 4.10718 12.3049 4.10718 8.21415C4.10718 6.25344 4.88607 4.37304 6.2725 2.98661C7.65892 1.60018 9.53933 0.821289 11.5 0.821289C13.4607 0.821289 15.3411 1.60018 16.7276 2.98661C18.114 4.37304 18.8929 6.25344 18.8929 8.21415V8.21415Z"
-                    stroke="#C3C3C3"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M18.8929 8.21415C18.8929 12.3049 11.5 22.1784 11.5 22.1784C11.5 22.1784 4.10718 12.3049 4.10718 8.21415C4.10718 6.25344 4.88607 4.37304 6.2725 2.98661C7.65892 1.60018 9.53933 0.821289 11.5 0.821289C13.4607 0.821289 15.3411 1.60018 16.7276 2.98661C18.114 4.37304 18.8929 6.25344 18.8929 8.21415V8.21415Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M18.8929 8.21415C18.8929 12.3049 11.5 22.1784 11.5 22.1784C11.5 22.1784 4.10718 12.3049 4.10718 8.21415C4.10718 6.25344 4.88607 4.37304 6.2725 2.98661C7.65892 1.60018 9.53933 0.821289 11.5 0.821289C13.4607 0.821289 15.3411 1.60018 16.7276 2.98661C18.114 4.37304 18.8929 6.25344 18.8929 8.21415V8.21415Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M18.8929 8.21415C18.8929 12.3049 11.5 22.1784 11.5 22.1784C11.5 22.1784 4.10718 12.3049 4.10718 8.21415C4.10718 6.25344 4.88607 4.37304 6.2725 2.98661C7.65892 1.60018 9.53933 0.821289 11.5 0.821289C13.4607 0.821289 15.3411 1.60018 16.7276 2.98661C18.114 4.37304 18.8929 6.25344 18.8929 8.21415V8.21415Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M18.8929 8.21415C18.8929 12.3049 11.5 22.1784 11.5 22.1784C11.5 22.1784 4.10718 12.3049 4.10718 8.21415C4.10718 6.25344 4.88607 4.37304 6.2725 2.98661C7.65892 1.60018 9.53933 0.821289 11.5 0.821289C13.4607 0.821289 15.3411 1.60018 16.7276 2.98661C18.114 4.37304 18.8929 6.25344 18.8929 8.21415V8.21415Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M11.4999 10.6786C12.8609 10.6786 13.9642 9.57527 13.9642 8.21429C13.9642 6.8533 12.8609 5.75 11.4999 5.75C10.1389 5.75 9.03564 6.8533 9.03564 8.21429C9.03564 9.57527 10.1389 10.6786 11.4999 10.6786Z"
-                    stroke="#C3C3C3"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M11.4999 10.6786C12.8609 10.6786 13.9642 9.57527 13.9642 8.21429C13.9642 6.8533 12.8609 5.75 11.4999 5.75C10.1389 5.75 9.03564 6.8533 9.03564 8.21429C9.03564 9.57527 10.1389 10.6786 11.4999 10.6786Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M11.4999 10.6786C12.8609 10.6786 13.9642 9.57527 13.9642 8.21429C13.9642 6.8533 12.8609 5.75 11.4999 5.75C10.1389 5.75 9.03564 6.8533 9.03564 8.21429C9.03564 9.57527 10.1389 10.6786 11.4999 10.6786Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M11.4999 10.6786C12.8609 10.6786 13.9642 9.57527 13.9642 8.21429C13.9642 6.8533 12.8609 5.75 11.4999 5.75C10.1389 5.75 9.03564 6.8533 9.03564 8.21429C9.03564 9.57527 10.1389 10.6786 11.4999 10.6786Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M11.4999 10.6786C12.8609 10.6786 13.9642 9.57527 13.9642 8.21429C13.9642 6.8533 12.8609 5.75 11.4999 5.75C10.1389 5.75 9.03564 6.8533 9.03564 8.21429C9.03564 9.57527 10.1389 10.6786 11.4999 10.6786Z"
-                    stroke="#C3C3C3"
-                    stroke-opacity="0.2"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <p class="p-[0px_10px]">
-                1234 Yonge Street, Suite 567, Toronto, ON, M4T 1W3, Canada
-              </p>
-              <span>
-                <svg
-                  width="19"
-                  height="19"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_6742_73450)">
-                    <path
-                      d="M9.83765 11.8054L5.90259 12.5137L6.55843 8.52617L14.0744 1.03643C14.1963 0.91349 14.3414 0.815908 14.5013 0.749315C14.6611 0.682723 14.8325 0.648437 15.0057 0.648438C15.1789 0.648437 15.3503 0.682723 15.5101 0.749315C15.67 0.815908 15.8151 0.91349 15.937 1.03643L17.3274 2.42682C17.4503 2.54876 17.5479 2.69384 17.6145 2.85368C17.6811 3.01352 17.7154 3.18496 17.7154 3.35812C17.7154 3.53128 17.6811 3.70272 17.6145 3.86257C17.5479 4.02241 17.4503 4.16748 17.3274 4.28942L9.83765 11.8054Z"
-                      stroke="#C3C3C3"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M15.7402 12.4617V16.3967C15.7402 16.7446 15.602 17.0783 15.356 17.3243C15.11 17.5702 14.7764 17.7084 14.4285 17.7084H1.96745C1.61957 17.7084 1.28594 17.5702 1.03995 17.3243C0.793957 17.0783 0.655762 16.7446 0.655762 16.3967V3.93571C0.655762 3.58783 0.793957 3.2542 1.03995 3.00821C1.28594 2.76222 1.61957 2.62402 1.96745 2.62402H5.90251"
-                      stroke="#C3C3C3"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_6742_73450">
-                      <rect width="18.3636" height="18.3636" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </span>
-            </div>
-          </div>
-          <p class="hover-active text-[12px] p-[3px_2rem] opacity-0">
+          <p v-if="index == 0" class="text-[12px] p-[3px_2rem]">
+            Default Address
+          </p>
+          <p v-else class="hover-active text-[12px] p-[3px_2rem] opacity-0">
             Make it your Default Address
           </p>
         </div>
@@ -326,7 +198,13 @@
                   placeholder="Address Line 1"
                   v-model="formData.street"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  :class="{ 'border-[red]': errors?.street }"
                 />
+                <span
+                  v-if="errors?.street"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ errors?.street }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full relative">
                 <label
@@ -338,7 +216,13 @@
                   placeholder="Province"
                   v-model="formData.province"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  :class="{ 'border-[red]': errors?.province }"
                 />
+                <span
+                  v-if="errors?.province"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ errors?.province }}</span
+                >
                 <button
                   class="hidden md:block absolute right-[-50px] top-9"
                   @click="openMapModal"
@@ -401,7 +285,13 @@
                   placeholder="City"
                   v-model="formData.city"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  :class="{ 'border-[red]': errors?.city }"
                 />
+                <span
+                  v-if="errors?.city"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ errors?.city }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full">
                 <label
@@ -413,7 +303,13 @@
                   placeholder="Postal Code"
                   v-model="formData.postal"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  :class="{ 'border-[red]': errors?.postal }"
                 />
+                <span
+                  v-if="errors?.postal"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ errors?.postal }}</span
+                >
               </div>
             </div>
 
@@ -519,7 +415,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   layout: "profileLayout",
   data() {
@@ -532,12 +428,25 @@ export default {
         city: "",
         postal: "",
       },
+      errors: {},
     };
+  },
+  computed: {
+    ...mapGetters({
+      userProfile: "auth/getUserProfile",
+    }),
+    customerAddress() {
+      return this.userProfile.customerAddress &&
+        this.userProfile.customerAddress.length
+        ? this.userProfile.customerAddress
+        : [];
+    },
   },
   methods: {
     ...mapActions({
       createAddress: "profile/createAddress",
-      fetchAddress: "profile/fetchAddress",
+      setDefaultAddress: "profile/setDefaultAddress",
+      profile: "auth/profile",
     }),
     closeModal() {
       this.isVisible = false;
@@ -553,9 +462,20 @@ export default {
     },
     async handleSaveAddress() {
       try {
+        this.errors = await this.$validateAddressFormData({
+          form: this.formData,
+        });
+        if (Object.keys(this.errors).length > 0) {
+          this.$toast.open({
+            message: "Please fix the errors before submitting.",
+            type: "error",
+          });
+          return;
+        }
         this.formData.country = "CA";
+        this.formData.customerId = this.userProfile.id;
         const res = await this.createAddress(this.formData);
-        console.log(res, "res");
+        await this.profile();
       } catch (error) {
         console.log(error, "error");
         this.$toast.open({
@@ -565,42 +485,18 @@ export default {
         });
       }
     },
-    async getProfileAddress() {
+    async defaultAddress(id) {
       try {
-        const res = await this.fetchAddress();
-        console.log(res, "res");
+        await this.setDefaultAddress({ id: id });
       } catch (error) {
         console.log(error);
       }
     },
     getAddress(item) {
-      this.formData.street = item.address;
-      this.formData.postal = item.postalCode;
-      // const address = item?.address;
-      // if (address) {
-      //   const parts = address.split(",").map((part) => part.trim());
-      //   this.formData.street = parts[0] || "";
-      //   this.formData.city = parts[1] || "";
-
-      //   if (parts[2]) {
-      //     const provinceAndPostal = parts[2].split(" ");
-      //     this.formData.province = provinceAndPostal[0] || "";
-      //     this.formData.postal = provinceAndPostal.slice(1).join(" ") || "";
-      //   } else {
-      //     this.formData.province = "";
-      //     this.formData.postal = "";
-      //   }
-      // } else {
-      //   this.formData.street = "";
-      //   this.formData.city = "";
-      //   this.formData.province = "";
-      //   this.formData.postal = "";
-      // }
+      this.formData = item;
     },
   },
-  mounted() {
-    this.getProfileAddress();
-  },
+  mounted() {},
 };
 </script>
 <style scoped>
