@@ -61,7 +61,8 @@ export const mutations = {
       !state.productData.records[productIndex].isFavorite;
   },
   updateSingleProduct(state, payload) {
-    if (state.singleProductData) {
+    let { id } = payload;
+    if (state.singleProductData.id == id) {
       state.singleProductData.isFavorite = !state.singleProductData.isFavorite;
     }
   },
@@ -108,7 +109,7 @@ export const actions = {
     try {
       let { id, type = "" } = payload;
       const response = await $axios.post(`/products/${id}/favourite`);
-      ctx.commit("updateSingleProduct");
+      ctx.commit("updateSingleProduct", { id: id });
 
       // if (type == "rental") {
       //   ctx.commit("setFavoriteRentalProduct", { id: id });
