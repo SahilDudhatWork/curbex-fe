@@ -46,7 +46,7 @@
               <div class="flex items-center gap-2.5">
                 <img src="@/static/svg/location.svg" alt="" />
                 <h1 class="text-[#121212] font-medium text-base">
-                  {{ location }}
+                  {{ location.address }}
                 </h1>
               </div>
               <button
@@ -85,12 +85,13 @@ export default {
   },
   data() {
     return {
-      location: "",
+      location: {},
     };
   },
   methods: {
     getAddress(item) {
-      this.location = item.address;
+      this.location = item;
+      this.$emit("getAddress", this.location);
     },
   },
 };
