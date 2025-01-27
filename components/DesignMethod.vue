@@ -101,7 +101,10 @@
           </div>
         </div>
       </div>
-      <p class="text-center mb-[14px] text-[12px] underline cursor-pointer">
+      <p
+        @click="$emit('close')"
+        class="text-center mb-[14px] text-[12px] underline cursor-pointer"
+      >
         Skip for now
       </p>
     </div>

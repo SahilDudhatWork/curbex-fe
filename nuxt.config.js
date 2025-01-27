@@ -30,6 +30,7 @@ export default {
     "~/plugins/js-cookie.js",
     "~/plugins/validation.js",
     { src: "~/plugins/vue-slick-carousel.js", mode: "client" },
+    "~/plugins/downloadFile.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

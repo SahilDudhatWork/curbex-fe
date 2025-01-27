@@ -8,6 +8,7 @@
     "fileSizeErrorMessage":"File size must be less than 2MB.",
 
     "adminVerificationErrorMessage":"You are not verified by the admin. Please contact the admin for assistanc",
+    "authFavoriteErrorMessage":"Please log in to add or remove items from your favorites",
 
     "registerMessage":"Successfully Registered.",
     "profileUpdateOKMessage":"Profile updated successfully."

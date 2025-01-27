@@ -6,6 +6,8 @@ export const state = () => ({
   retailProducts: {},
   singleProductData: {},
   productData: {},
+  cartItemCount: 0,
+  cartItem: {},
 });
 
 export const getters = {
@@ -23,6 +25,12 @@ export const getters = {
   },
   getAllProductData(state) {
     return state.allProductsData;
+  },
+  getCartItemCount(state) {
+    return state.cartItemCount;
+  },
+  getCartItem(state) {
+    return state.cartItem;
   },
 };
 
@@ -72,6 +80,12 @@ export const mutations = {
     if (state.singleProductData.id == id) {
       state.singleProductData.isFavorite = !state.singleProductData.isFavorite;
     }
+  },
+  setCartItemCount(state, payload) {
+    state.cartItemCount = payload;
+  },
+  setCartItem(state, payload) {
+    state.cartItem = payload;
   },
 };
 
@@ -133,6 +147,48 @@ export const actions = {
       // if (type == "retail") {
       //   ctx.commit("setFavoriteRetailProduct", { id: id });
       // }
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async addToCart(ctx, payload) {
+    try {
+      const response = await $axios.post(`/cart`, payload);
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async updateCartItem(ctx, payload) {
+    try {
+      let { id } = payload;
+      const response = await $axios.post(`/cart/item/${id}`, payload);
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async fetchCartItems(ctx, payload) {
+    try {
+      const response = await $axios.get(`/cart`);
+      let totalQuantity = response.cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+      ctx.commit("setCartItem", response);
+      ctx.commit("setCartItemCount", totalQuantity);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async removeCartItem(ctx, payload) {
+    try {
+      let { id } = payload;
+      const response = await $axios.delete(`/cart/item/${id}`);
       return response;
     } catch (error) {
       throw error;

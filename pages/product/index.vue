@@ -338,7 +338,18 @@ export default {
       }
     },
     async toggleFavorite(product) {
-      await this.toggleFavoriteProduct({ id: product.id, type: this.type });
+      try {
+        await this.toggleFavoriteProduct({ id: product.id, type: this.type });
+      } catch (error) {
+        console.log(error, "error");
+        if (error.status == 401) {
+          this.$toast.open({
+            message: this.$i18n.t("authFavoriteErrorMessage"),
+            type: "warning",
+          });
+          this.$router.push(`/auth/login`);
+        }
+      }
     },
     changePage(page) {
       if (page > 0 && page <= this.totalPages) {

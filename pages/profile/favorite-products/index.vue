@@ -93,8 +93,19 @@ export default {
       await this.fetchFavoriteProducts();
     },
     async removeFromFavorite(id) {
-      await this.toggleFavoriteProduct({ id: id });
-      await this.getFavoriteProducts();
+      try {
+        await this.toggleFavoriteProduct({ id: id });
+        await this.getFavoriteProducts();
+      } catch (error) {
+        console.log(error, "error");
+        if (error.status == 401) {
+          this.$toast.open({
+            message: this.$i18n.t("authFavoriteErrorMessage"),
+            type: "warning",
+          });
+          this.$router.push(`/auth/login`);
+        }
+      }
     },
   },
   async mounted() {

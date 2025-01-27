@@ -141,7 +141,21 @@ export default {
       this.$router.push(`/product-view/${id}`);
     },
     async toggleFavorite(product) {
-      await this.toggleFavoriteProduct({ id: product.id, type: this.type });
+      try {
+        await this.toggleFavoriteProduct({ id: product.id, type: this.type });
+        // this.$toast.open({
+        //     message: "Please log in to add or remove items from your favorites",
+        //   });
+      } catch (error) {
+        console.log(error, "error");
+        if (error.status == 401) {
+          this.$toast.open({
+            message: this.$i18n.t("authFavoriteErrorMessage"),
+            type: "warning",
+          });
+          this.$router.push(`/auth/login`);
+        }
+      }
     },
   },
 };

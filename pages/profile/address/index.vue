@@ -7,10 +7,14 @@
           My Addresses
         </h1>
         <div
-          v-for="(address, index) in customerAddress"
+          v-for="(address, index) in sortedAddresses"
           :key="index"
           class="mb-3"
-          :class="index == 0 ? 'address-tab-Active' : 'address-tab'"
+          :class="
+            address.id == userProfile.defaultShippingAddressId
+              ? 'address-tab-Active'
+              : 'address-tab'
+          "
         >
           <div
             @click="defaultAddress(address.id)"
@@ -151,7 +155,10 @@
               </span>
             </div>
           </div>
-          <p v-if="index == 0" class="text-[12px] p-[3px_2rem]">
+          <p
+            v-if="address.id == userProfile.defaultShippingAddressId"
+            class="text-[12px] p-[3px_2rem]"
+          >
             Default Address
           </p>
           <p v-else class="hover-active text-[12px] p-[3px_2rem] opacity-0">
@@ -199,6 +206,7 @@
                   v-model="formData.street"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   :class="{ 'border-[red]': errors?.street }"
+                  @keyup="initAutocomplete"
                 />
                 <span
                   v-if="errors?.street"
@@ -441,24 +449,61 @@ export default {
         ? this.userProfile.customerAddress
         : [];
     },
+    sortedAddresses() {
+      // Clone the array to avoid mutating the original
+      const addresses = [...this.userProfile.customerAddress];
+
+      // Sort with the default shipping address at the top
+      addresses.sort((a, b) => {
+        if (a.id === this.userProfile.defaultShippingAddressId) return -1; // Move to top
+        if (b.id === this.userProfile.defaultShippingAddressId) return 1;
+        return 0; // Maintain order otherwise
+      });
+
+      return addresses;
+    },
   },
   methods: {
     ...mapActions({
       createAddress: "profile/createAddress",
       setDefaultAddress: "profile/setDefaultAddress",
       profile: "auth/profile",
+      fetchAddressFromCoordinates: "auth/fetchAddressFromCoordinates",
+      fetchAutocomplete: "auth/fetchAutocomplete",
     }),
     closeModal() {
       this.isVisible = false;
     },
     openMapModal() {
       this.isVisible = true;
+      this.getCurrentLocation();
     },
     handleMap() {
       this.isVisible = false;
     },
     toggleGrid() {
       this.isGridVisible = !this.isGridVisible;
+    },
+    getCurrentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.handleSuccess);
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    },
+    handleSuccess(position) {
+      this.formData.latitude = position.coords.latitude;
+      this.formData.longitude = position.coords.longitude;
+      let res = this.fetchAddressFromCoordinates(this.formData);
+      console.log("res->>", res);
+    },
+    initAutocomplete() {
+      try {
+        const input = this.formData.street;
+        // this.fetchAutocomplete({ query: input });
+      } catch (error) {
+        console.log(error, "error");
+      }
     },
     async handleSaveAddress() {
       try {
@@ -474,7 +519,8 @@ export default {
         }
         this.formData.country = "CA";
         this.formData.customerId = this.userProfile.id;
-        const res = await this.createAddress(this.formData);
+        await this.createAddress(this.formData);
+        this.formData = {};
         await this.profile();
       } catch (error) {
         console.log(error, "error");
@@ -487,7 +533,11 @@ export default {
     },
     async defaultAddress(id) {
       try {
+        if (id == this.userProfile.defaultShippingAddressId) {
+          return;
+        }
         await this.setDefaultAddress({ id: id });
+        await this.profile();
       } catch (error) {
         console.log(error);
       }

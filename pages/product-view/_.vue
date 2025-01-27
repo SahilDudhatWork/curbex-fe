@@ -116,16 +116,16 @@
                 >Save 18%</span
               >
             </p>
-            <div class="border-t border-b border-[#D5D5D5] p-[10px_0px]">
+            <div
+              v-if="product.fees && product.fees.length"
+              class="border-t border-b border-[#D5D5D5] p-[10px_0px]"
+            >
               <p
                 class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
+                v-for="(item, index) in product.fees"
+                :key="index"
               >
-                Setup Fee: $59
-              </p>
-              <p
-                class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
-              >
-                Ad design Fee: $10
+                {{ item.name }}: ${{ item.price }}
               </p>
               <p
                 class="text-[#A0A0A0] text-[12px] md:text-[14px] font-Montserrat-Medium"
@@ -353,8 +353,11 @@
                 </div>
               </div>
             </div>
-            <div class="border-b border-[#D5D5D5] p-[10px_0px] mb-5 pb-4">
-              <p
+            <div
+              class="border-b border-[#D5D5D5] p-[10px_0px] mb-5 pb-4"
+              v-html="product?.description"
+            >
+              <!-- <p
                 class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
               >
                 Double Sided
@@ -373,7 +376,7 @@
                 class="text-[#A0A0A0] text-[12px] md:text-[14px] font-Montserrat-Medium"
               >
                 *While supplies last. Subject to change without notice.
-              </p>
+              </p> -->
             </div>
           </div>
 
@@ -382,6 +385,7 @@
           >
             <button
               class="bg-[#FFA900] text-[16px] md:text-[18px] text-center py-[11px] rounded-[7px] w-full md:w-[49%] font-Montserrat-Medium mb-[20px]"
+              @click="productAddToCart"
             >
               Add to cart
             </button>
@@ -393,6 +397,7 @@
             </button>
             <button
               class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[11px] mb-[20px]"
+              @click="downloadFileItem"
             >
               Download Artwork Specs
             </button>
@@ -764,7 +769,10 @@
       </p>
       <Testimonial :testiminoalSlider="testiminoalSlider" />
     </div>
-    <DesignMethod :isVisible="showDesignModal" />
+    <DesignMethod
+      :isVisible="showDesignModal"
+      @close="showDesignModal = false"
+    />
   </div>
 </template>
 <script>
@@ -772,7 +780,7 @@ import trff from "@/static/Images/Testimonial/trff-1.png";
 import cl from "@/static/Images/Testimonial/cl-1.png";
 import cbs from "@/static/Images/Testimonial/cbs-1.png";
 import Pizza from "@/static/Images/Testimonial/pizza.png";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -837,6 +845,8 @@ export default {
     ...mapGetters({
       rentalProductData: "product/getRentalProductData",
       product: "product/getSingleProductData",
+      cartItemCount: "product/getCartItemCount",
+      cartDetail: "product/getCartItem",
     }),
     dynamicCarouselSettings() {
       // Update centerMode based on the number of product images
@@ -870,6 +880,12 @@ export default {
     ...mapActions({
       fetchSingleProductDetail: "product/fetchSingleProductDetail",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
+      addToCart: "product/addToCart",
+      updateCartItem: "product/updateCartItem",
+      fetchCartItems: "product/fetchCartItems",
+    }),
+    ...mapMutations({
+      setCartItemCount: "product/setCartItemCount",
     }),
     toggleAccordion(accordionId) {
       if (this.activeAccordion === accordionId) {
@@ -879,10 +895,52 @@ export default {
       }
     },
     async toggleFavorite() {
-      await this.toggleFavoriteProduct({ id: this.productId });
+      try {
+        await this.toggleFavoriteProduct({ id: this.productId });
+      } catch (error) {
+        if (error.status == 401) {
+          this.$toast.open({
+            message: this.$i18n.t("authFavoriteErrorMessage"),
+            type: "warning",
+          });
+          this.$router.push(`/auth/login`);
+        }
+        console.log(error, "error");
+      }
     },
     async getSingleProduct() {
       await this.fetchSingleProductDetail({ id: this.productId });
+    },
+    downloadFileItem() {
+      if (this.product.artworkSpecsURL && this.product.artworkSpecsURL != "") {
+        const fileName = this.product.artworkSpecsURL.split("/").pop();
+        this.$downloadFile({
+          src: this.product.artworkSpecsURL,
+          name: fileName,
+        });
+      }
+    },
+    async productAddToCart() {
+      try {
+        let cartData = this.cartDetail.cartItems.find(
+          (x) => x.productId == this.productId
+        );
+        if (cartData && cartData != null && cartData.id != "") {
+          await this.updateCartItem({
+            id: cartData.id,
+            quantity: cartData.quantity + 1,
+          });
+          await this.setCartItemCount(this.cartItemCount + 1);
+        } else {
+          await this.addToCart({
+            productId: this.productId,
+            quantity: 1,
+          });
+          await this.fetchCartItems();
+        }
+      } catch (error) {
+        console.log(error, "error");
+      }
     },
   },
 };
