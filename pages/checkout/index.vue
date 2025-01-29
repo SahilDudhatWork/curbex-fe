@@ -29,42 +29,42 @@
                         <div class="flex flex-wrap md:grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-5">
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">First Name</label>
-                                <input type="text" placeholder="First Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="First Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px] opacity-0">Last Name</label>
-                                <input type="text" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">Company</label>
-                                <input type="email" placeholder="Curbex" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="email" placeholder="Curbex" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">Phone Number</label>
-                                <input type="tel" placeholder="E.g. (123) 456-7890" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="tel" placeholder="E.g. (123) 456-7890" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>                    
                         </div>
                         <div class="flex flex-wrap md:grid grid-cols-1 lg:grid-cols-1 gap-3 md:gap-3 mb-5">
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">Address</label>
-                                <input type="text" placeholder="Address Line 1" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Address Line 1" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="text" placeholder="Address Line 2" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Address Line 2" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                         </div>
                         <div class="flex flex-wrap md:grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-3 mb-5">
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="email" placeholder="Apt, Suite,Unit" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="email" placeholder="Apt, Suite,Unit" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="tel" placeholder="City" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="tel" placeholder="City" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>                    
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="email" placeholder="Province" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="email" placeholder="Province" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="tel" placeholder="Postal Code" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="tel" placeholder="Postal Code" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>                    
                         </div>
                         <div class="flex justify-between items-center">
@@ -102,42 +102,42 @@
                         <div class="flex flex-wrap md:grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-5">
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">First Name</label>
-                                <input type="text" placeholder="First Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="First Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px] opacity-0">Last Name</label>
-                                <input type="text" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Last Name" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">Company</label>
-                                <input type="email" placeholder="Curbex" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="email" placeholder="Curbex" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">Phone Number</label>
-                                <input type="tel" placeholder="E.g. (123) 456-7890" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="tel" placeholder="E.g. (123) 456-7890" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>                    
                         </div>
                         <div class="flex flex-wrap md:grid grid-cols-1 md:grid-cols-1 gap-3 md:gap-3 mb-5">
                             <div class="flex flex-col gap-1 w-full md:w-auto">
                                 <label class="hidden md:block font-bold text-[#121212] text-[18px]">Address</label>
-                                <input type="text" placeholder="Address Line 1" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Address Line 1" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="text" placeholder="Address Line 2" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Address Line 2" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                         </div>
                         <div class="flex flex-wrap md:grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-3 mb-5">
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="email" placeholder="Apt, Suite,Unit" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="email" placeholder="Apt, Suite,Unit" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="tel" placeholder="City" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="tel" placeholder="City" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>                    
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="email" placeholder="Province" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="email" placeholder="Province" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full md:w-auto">
-                                <input type="tel" placeholder="Postal Code" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="tel" placeholder="Postal Code" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>                    
                         </div>
                         <div class="flex justify-between items-center">
@@ -148,7 +148,7 @@
                 </div>
                 <div class="w-full lg:w-[48%]">
                     <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[25px] mb-5">
-                        <p class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium md:py-[1.7rem] lg:opacity-0">Order Summary</p>
+                        <p class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium md:pb-[1.7rem] md:pt-[1rem]">Order Summary</p>
                         <div class="flex justify-between items-center pb-[2rem]">
                             <p class="text-[16px] font-Montserrat-Medium">3 Items</p>
                             <p class="text-[16px] font-Montserrat-Medium">$2347</p>
@@ -266,7 +266,7 @@
                                     <p class="bg-[#FFEBC3] rounded-[5px] p-[2px_6px] text-[12px] md:text-[14px] w-fit">Retail</p>
                                 </div>
                                 <div>                            
-                                    <div class="flex justify-between items-center">
+                                    <div class="flex justify-between items-center pb-[5px]">
                                         <div class="flex items-center p-[2px_6px] text-[12px] md:text-[14px] w-fit bg-[#F5F5F5] rounded-[4px]">
                                             <button @click="decrementQuantity" class="bg-[#FFFFFF] border border-[#121212] rounded-[6px] w-[18px] h-[18px] flex items-center justify-center">
                                                 <span class="text-[#000]">-</span>
@@ -315,29 +315,29 @@
                         <div class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px] mb-5">
                             <div class="flex flex-col gap-1 w-full mb-5">
                                 <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Name on the card</label>
-                                <input type="text" placeholder="Ryan Reynolds" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Ryan Reynolds" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full mb-5">
                                 <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Card number</label>
-                                <input type="text" placeholder="1234 1234 1234 1234" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="1234 1234 1234 1234" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex items-center justify-between mb-5">
                                 <div class="flex flex-col gap-1 w-[49%]">
                                     <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Expiration Date</label>
-                                    <input type="text" placeholder="MM / YY" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                    <input type="text" placeholder="MM / YY" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                                 </div>
                                 <div class="flex flex-col gap-1 w-[49%]">
                                     <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">CVV</label>
-                                    <input type="text" placeholder="665" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                    <input type="text" placeholder="665" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                                 </div>
                             </div>
                             <div class="flex flex-col gap-1 w-full mb-5">
                                 <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Country</label>
-                                <input type="text" placeholder="Canada" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="Canada" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex flex-col gap-1 w-full mb-5">
                                 <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">ZIP Code</label>
-                                <input type="text" placeholder="A1B 2C3" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                                <input type="text" placeholder="A1B 2C3" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]">
                             </div>
                             <div class="flex items-center gap-2 mb-2 text-[12px] md:text-[14px] lg:text-[16px] md:font-bold lg:font-normal text-[#121212] py-2">
                                 <input class="styled-checkbox" id="keepLoggedIn" type="checkbox" value="value1">
@@ -399,10 +399,10 @@
 <style scoped>
     .sidemenu-sm{
         border: 1px solid #8D54FF;
-        min-width: 139px;
+        min-width: 193px;
         border-radius: 5px;
         padding: 0 10px;
-        height: 33px;
+        height: 48px;
         overflow: hidden;
         background-color: #FFFFFF;
         max-width: fit-content;
@@ -413,10 +413,10 @@
     }
     .sidemenu-sm div span,
     .sidemenu-sm p span{
-        font-size: 12px;
+        font-size: 16px;
         border-bottom: 1px solid #C3C3C3;
         /* min-width: 129px; */
-        padding: 8px 0;
+        padding: 11px 0;
         color: #8D54FF;
         width: 100%;
     }

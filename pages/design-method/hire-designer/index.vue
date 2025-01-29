@@ -110,7 +110,7 @@
                 
                 <p class="text-[#121212] text-[14px]">Add reference links </p>
                 <div class="flex items-center py-2">
-                    <input type="url" class="border border-[#F5F5F5] bg-[#FCFCFC] rounded-[18px] w-full p-[7px_15px] text-[12px] mr-4" rows="4" placeholder="https://">
+                    <input type="url" class="border border-[#F5F5F5] bg-[#FCFCFC] rounded-[18px] w-full p-[7px_15px] text-[12px] mr-4 focus:border-[#4F8DFF] outline-none" rows="4" placeholder="https://">
                     <span>
                         <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg" class="group">
                             <rect x="0.5" y="0.5" width="29" height="28" rx="14" fill="#F5F5F5" stroke="#C3C3C3" class="group-hover:stroke-[#DAC8FF] group-hover:fill-[#DAC8FF]"/>
@@ -119,8 +119,8 @@
                         </svg>
                     </span>
                 </div>
-
-                <button class="bg-[#C3C3C3] text-[#FFFFFF] rounded-[6px] w-full text-[18px] p-[9px]">Add to cart</button>                
+                <p class="border-b border-[#F5F5F5] my-4"></p>
+                <button class="bg-[#FFA900] text-[#121212] rounded-[6px] w-full text-[18px] p-[9px]">Add to cart</button>                
             </div>
         </div>
     </div>

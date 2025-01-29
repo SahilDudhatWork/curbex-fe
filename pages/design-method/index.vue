@@ -186,7 +186,7 @@
                         <li>Product will be printed after your approval (if opted on cart)</li>
                     </ul>
                 </div>
-                <button class="bg-[#C3C3C3] text-[#FFFFFF] rounded-[6px] w-full text-[18px] p-[9px]">Add to cart</button>                
+                <button class="bg-[#C3C3C3] hover:bg-[#8D54FF] text-[#FFFFFF] rounded-[6px] w-full text-[18px] p-[9px]">Add to cart</button>                
             </div>
         </div>
     </div>
