@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mx-auto px-6 md:px-0">
+    <div class="container mx-auto px-6 md:px-0 pt-[3rem]">
       <div class="flex flex-wrap lg:flex-nowrap">
         <div
           class="w-full lg:w-[50%] lg:mr-[4rem] mb-[35px] border border-[#F5F5F5] rounded-[20px] p-[0.25rem] md:p-5"
@@ -71,7 +71,7 @@
             <div class="w-[90%] mx-auto">
               <VueSlickCarousel
                 v-bind="carouselSettings"
-                class="section788777887"
+                class="section"
               >
                 <div class="section1321231321">
                   <img
@@ -148,7 +148,7 @@
                 >Save 18%</span
               >
             </p>
-            <div class="border-t border-b border-[#D5D5D5] p-[10px_0px]">
+            <div class="border-t border-b border-[#F5F5F5] p-[10px_0px]">
               <p
                 class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
               >
@@ -165,7 +165,7 @@
                 *Permit Fee may be required based on location
               </p>
             </div>
-            <div class="flex py-[20px] border-b border-[#D5D5D5] flex-wrap">
+            <div class="flex py-[20px] border-b border-[#F5F5F5] flex-wrap">
               <div
                 class="flex items-center m-[5px] md:m-0 md:mr-5 border md:border-0 md:border-r border-[#F5F5F5] md:border-[#121212] min-w-[150px] rounded-[5px] md:rounded-[0px] p-[10px] md:p-0 md:pr-8"
               >
@@ -379,7 +379,7 @@
                 </div>
               </div>
             </div>
-            <div class="border-b border-[#D5D5D5] p-[10px_0px] mb-5 pb-4">
+            <div class="border-b border-[#F5F5F5] p-[10px_0px] mb-5 pb-4">
               <p
                 class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
               >
@@ -404,7 +404,7 @@
           </div>
 
           <div
-            class="flex flex-wrap justify-between border-b border-[#D5D5D5] mb-5"
+            class="flex flex-wrap justify-between border-b border-[#F5F5F5] mb-5"
           >
             <button
               class="bg-[#FFA900] text-[16px] md:text-[18px] text-center py-[11px] rounded-[7px] w-full md:w-[49%] font-Montserrat-Medium mb-[20px]"
@@ -423,7 +423,7 @@
               Download Artwork Specs
             </button>
           </div>
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap lg:flex-nowrap">
             <div
               class="flex items-center w-[47%] md:w-[30%] md:mr-5 border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
@@ -713,12 +713,12 @@
           <img
             src="/Images/Product/5.jpg"
             alt=""
-            class="w-full lg:w-[80%] md:h-[354px] lg:h-auto mx-auto object-cover rounded-[28px]"
+            class="w-full lg:w-[90%] md:h-[354px] lg:h-[512px] mx-auto object-cover rounded-[28px]"
           />
         </div>
       </div>
     </div>
-    <div class="container mx-auto px-6 md:px-0">
+    <div class="container mx-auto px-6 md:px-0 pt-[4rem]">
       <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">You might also like</p> -->
       <p
         class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[20px] rounded-full py-[8px] px-6 mb-[25px]"
@@ -1164,7 +1164,7 @@ export default {
         nav: false,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 2,
         initialSlide: 0,
         centerMode: true,
       },

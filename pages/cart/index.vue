@@ -2,7 +2,7 @@
   <div>
     <div class="container mx-auto px-6 lg:px-0 my-[2rem]">
       <div class="bg-[#121212] rounded-[20px] h-[126px]"></div>
-      <p class="text-[20px] text-[#121212] font-bold pt-[2rem]">Your Cart</p>
+      <p class="text-[20px] text-[#121212] font-bold pt-[4rem]">Your Cart</p>
       <p class="text-[12px] md:text-[16px] text-[#121212]">
         Items in your bag not reserved- check out now to make them yours.
       </p>
@@ -1541,6 +1541,8 @@ export default {
   position: relative;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 .styled-checkbox + label:before {
   content: "";

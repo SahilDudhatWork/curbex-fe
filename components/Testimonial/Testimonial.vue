@@ -15,7 +15,7 @@
               ></div>
               <div class="text pl-4 ">
                   <p class=" md:text-[20px] font-Montserrat-Medium font-bold py-[5px] text-[#121212]">{{item.title}}</p>
-                  <span class="text-[#8D54FF] text-[12px] md:text-[16px] pb-[5px] block max-w-[360px]">{{item.shortTitle}}</span>
+                  <span class="text-[#949494] group-hover:text-[#8D54FF] text-[12px] md:text-[16px] pb-[5px] block max-w-[360px]">{{item.shortTitle}}</span>
                   <p class="text-[10px] lg:text-[14px] md:text-[13px] tracking-[0px] leading-[17px] max-w-[380px]">{{ item.description }}</p>
               </div>
             </div>

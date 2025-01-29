@@ -30,23 +30,23 @@
           >
             <span class="hidden lg:block">Best Seller</span>
           </p> -->
-          <div class="border-2 border-[#F3F3F3] rounded-t-[10px] relative">
+          <div class="border-2 border-[#F3F3F3] rounded-t-[20px] relative">
             <img
               src="/Images/Product/product.png"
               alt=""
-              class="rounded-t-[10px] first-image"
+              class="rounded-t-[20px] first-image"
             />
             <img
               v-if="item.images && item.images.length"
               :src="item.images[0].imageUrl"
               alt=""
-              class="rounded-t-[10px] hidden-important absolute inset-0 transition-opacity duration-300"
+              class="rounded-t-[20px] hidden-important absolute inset-0 transition-opacity duration-300"
             />
             <img
               v-else
               src="/Images/Product/product-1.png"
               alt=""
-              class="rounded-t-[10px] hidden-important absolute inset-0 transition-opacity duration-300"
+              class="rounded-t-[20px] hidden-important absolute inset-0 transition-opacity duration-300"
             />
             <span
               @click="toggleFavorite(item)"
@@ -70,9 +70,9 @@
               </svg>
             </span>
           </div>
-          <div class="bg-[#F3F3F3] rounded-b-[10px] p-2 md:p-5">
+          <div class="bg-[#F3F3F3] rounded-b-[20px] p-2 md:p-5">
             <p
-              class="capitalize text-[10px] lg:text-[12px] text-[#121212] bg-[#DAC8FF] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF]"
+              class="capitalize text-[10px] lg:text-[12px] text-[#121212] bg-[#DAC8FF] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"
             >
               {{ item?.type }}
             </p>
