@@ -73,7 +73,7 @@
         </button>
       </div>
       <NuxtLink
-        to="/auth/register"
+        to="/auth/forgot-password"
         class="underline inline-block text-black mb-4 text-[12px] md:text-[16px] text-[#121212] font-Montserrat-Medium"
       >
         Forgot your password?
