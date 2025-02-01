@@ -20,6 +20,15 @@ export const actions = {
   async userLogin(ctx, payload) {
     try {
       const response = await $axios.post("auth/login/customer", payload);
+      // this.$cookies.set("token", response.access_token);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async userLoginConfirmation(ctx, payload) {
+    try {
+      const response = await $axios.post("/auth/login/customer/2fa", payload);
       this.$cookies.set("token", response.access_token);
       return response;
     } catch (error) {

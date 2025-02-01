@@ -105,9 +105,38 @@ export default async (ctx, inject) => {
     return errors;
   };
 
+  const formatExpiryDate = async (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    if (value.length >= 2) {
+      value = value.slice(0, 2) + " / " + value.slice(2);
+    }
+    return value;
+  };
+  const formatCardNumber = async (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    let formattedValue = "";
+
+    // Add space after every 4 digits
+    for (let i = 0; i < value.length; i++) {
+      if (i > 0 && i % 4 === 0) {
+        formattedValue += " ";
+      }
+      formattedValue += value[i];
+    }
+
+    return formattedValue;
+  };
+  const formatCVV = async (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    return value;
+  };
+
   inject("validateRegisterFormData", validateRegisterFormData);
   inject("validateLoginFormData", validateLoginFormData);
   inject("validateNumber", validateNumber);
   inject("validateAddressDetail", validateAddressDetail);
   inject("validateAddressFormData", validateAddressFormData);
+  inject("formatExpiryDate", formatExpiryDate);
+  inject("formatCardNumber", formatCardNumber);
+  inject("formatCVV", formatCVV);
 };

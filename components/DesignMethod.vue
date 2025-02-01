@@ -8,6 +8,7 @@
       <div class="p-5">
         <div class="flex items-center">
           <div
+            @click="hireDesigner"
             class="border border-[#F5F5F5] rounded-[20px] overflow-hidden m-2 grayscale hover:grayscale-0 cursor-pointer"
           >
             <p
@@ -54,14 +55,15 @@
             </div>
           </div>
           <div
+            @click="uploadArtwork"
             class="border border-[#F5F5F5] rounded-[20px] overflow-hidden m-2 grayscale hover:grayscale-0 cursor-pointer"
           >
             <p
               class="bg-[#121212] text-[16px] text-[#FFFFFF] p-[8px] text-center"
             >
-              Hire A Designer
+              Upload Artwork
             </p>
-            <img src="/Images/Product/designer.png" alt="" />
+            <img src="/Images/Product/artwork.png" alt="" />
             <div class="p-2 bg-[#F5F5F5]">
               <p class="text-[12px] flex items-center">
                 <span class="m-1 mr-2">
@@ -78,7 +80,7 @@
                     />
                   </svg>
                 </span>
-                1 on 1 consultations
+                Free design proofing
               </p>
               <p class="text-[12px] flex items-center">
                 <span class="m-1 mr-2">
@@ -95,7 +97,7 @@
                     />
                   </svg>
                 </span>
-                3 Revisions
+                Perfect print
               </p>
             </div>
           </div>
@@ -119,7 +121,14 @@ export default {
       required: true,
     },
   },
-  methods: {},
+  methods: {
+    hireDesigner() {
+      this.$router.push("/hire-designer");
+    },
+    uploadArtwork() {
+      this.$router.push("/upload-artwork");
+    },
+  },
 };
 </script>
 

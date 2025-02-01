@@ -107,7 +107,12 @@
                   </p>
                 </div>
                 <p
-                  class="bg-[#DAC8FF] rounded-[5px] p-[2px_6px] text-[12px] md:text-[14px] w-fit mb-3 capitalize"
+                  :class="
+                    item?.product?.type === 'rental'
+                      ? 'bg-[#DAC8FF]'
+                      : 'bg-[#FFEBC3]'
+                  "
+                  class="rounded-[5px] p-[2px_6px] text-[12px] md:text-[14px] w-fit mb-3 capitalize"
                 >
                   {{ item?.product?.type }}
                 </p>
@@ -119,7 +124,7 @@
                   {{ feeItem?.name }} : ${{ feeItem?.price }}
                 </p>
               </div>
-              <div>
+              <div v-if="item.product.type === 'rental'">
                 <p
                   class="flex p-[2px_6px] text-[12px] md:text-[14px] w-fit mb-3"
                 >
@@ -340,10 +345,37 @@
                   </p>
                 </div>
               </div>
+              <div v-else>
+                <div class="flex justify-between items-center">
+                  <div
+                    class="flex items-center p-[2px_6px] text-[12px] md:text-[14px] w-fit bg-[#F5F5F5] rounded-[4px]"
+                  >
+                    <button
+                      @click="decrementQuantity(item)"
+                      class="bg-[#FFFFFF] border border-[#121212] rounded-[6px] w-[18px] h-[18px] flex items-center justify-center"
+                    >
+                      <span class="text-[#000]">-</span>
+                    </button>
+                    <span
+                      class="mx-2 text-[12px] md:text-[14px] leading-normal"
+                      >{{ item.quantity }}</span
+                    >
+                    <button
+                      @click="incrementQuantity(item)"
+                      class="bg-[#FFFFFF] border border-[#121212] rounded-[6px] w-[18px] h-[18px] flex items-center justify-center"
+                    >
+                      <span class="text-[#000]">+</span>
+                    </button>
+                  </div>
+                  <p class="text-[14px] font-Montserrat-Bold">
+                    Total : ${{ item.totalPrice }}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div
-            v-if="index % 2 == 0"
+            v-if="item.requestedDesigner === 1"
             class="bg-[#121212] rounded-[25px] text-[14px] flex items-center justify-between flex-wrap lg:flex-nowrap p-[12px_15px] lg:p-[12px_20px] relative mb-5"
           >
             <p class="text-[#FFFFFF]">
@@ -396,24 +428,26 @@
               Instructions
             </p>
             <textarea
+              v-model="item.notes"
               class="border border-[#F5F5F5] bg-[#FFFFFF] rounded-[18px] w-full p-[15px] resize-none text-[12px]"
               rows="4"
               placeholder="Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance."
             >
-  Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance.</textarea
-            >
+            </textarea>
             <p class="my-4 text-[#121212] text-[12px] md:text-[14px] my-4">
               Reference images
             </p>
             <div class="flex items-start">
               <div
+                v-for="(file, index) in item.images"
+                :key="index"
                 class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3"
               >
                 <div
                   class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px]"
                 >
                   <img
-                    src="/Images/design-method/2.jpg"
+                    :src="file.imageUrl"
                     alt=""
                     class="w-full object-cover h-full"
                   />
@@ -494,6 +528,7 @@
                 </p>
               </div>
               <div
+                v-if="item.images.length < 5"
                 class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 opacity-[0.5] hover:opacity-[1]"
               >
                 <p
@@ -691,13 +726,15 @@
             </p>
             <div class="flex items-start">
               <div
+                v-for="(file, index) in item.images"
+                :key="index"
                 class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3"
               >
                 <div
                   class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px]"
                 >
                   <img
-                    src="/Images/design-method/2.jpg"
+                    :src="file.imageUrl"
                     alt=""
                     class="w-full object-cover h-full"
                   />
@@ -778,6 +815,7 @@
                 </p>
               </div>
               <div
+                v-if="item.images.length < 5"
                 class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 opacity-[0.5] hover:opacity-[1]"
               >
                 <p
@@ -909,12 +947,11 @@
               Your notes
             </p>
             <textarea
+              v-model="item.notes"
               class="border border-[#F5F5F5] bg-[#FFFFFF] rounded-[18px] w-full p-[15px] resize-none text-[12px]"
               rows="4"
               placeholder="Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance."
-            >
-Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance.</textarea
-            >
+            ></textarea>
 
             <div class="flex items-center mb-6 text-[12px] text-[#121212] py-2">
               <input
@@ -1336,28 +1373,32 @@ Design a clean and eye-catching physical banner that highlights the key message 
           </p>
           <div class="flex justify-between items-center pb-[1rem]">
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
-              {{ productsWithTotalPrice.length }} Items
+              {{ cartItemCount }} Items
             </p>
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
               ${{ cartTotal }}
             </p>
           </div>
           <div class="flex justify-between items-center pb-[1rem]">
-            <p class="text-[12px] md:text-[16px] font-Medium">Estimated Tax</p>
-            <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$0</p>
+            <p class="text-[12px] md:text-[16px] font-Medium">
+              {{ taxes?.type || "Estimated Tax" }}
+            </p>
+            <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
+              ${{ taxes?.rate || 0 }}
+            </p>
           </div>
-          <div class="flex justify-between items-center pb-[1rem]">
+          <!-- <div class="flex justify-between items-center pb-[1rem]">
             <p class="text-[12px] md:text-[16px] font-Medium">
               Estimated shipping & Handling
             </p>
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">$0</p>
-          </div>
+          </div> -->
           <div class="flex justify-between items-center pb-[1rem]">
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
               Total
             </p>
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
-              ${{ cartTotal }}
+              ${{ cartTotal + taxes?.rate || 0 }}
             </p>
           </div>
           <p class="text-[12px] md:text-[14px] font-Montserrat-Medium pb-3">
@@ -1374,10 +1415,11 @@ Design a clean and eye-catching physical banner that highlights the key message 
               Total after discount
             </p>
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
-              ${{ cartTotal }}
+              ${{ cartTotal + taxes?.rate || 0 }}
             </p>
           </div>
           <button
+            @click="checkout"
             class="text-[12px] md:text-[18px] bg-[#FFA900] rounded-[8px] w-full p-[13px] md:mb-[1.5rem] hover:bg-[#8D54FF] hover:text-[#FFFFFF]"
           >
             Checkout
@@ -1417,7 +1459,7 @@ Design a clean and eye-catching physical banner that highlights the key message 
       <p
         class="font-Montserrat-Bold w-fit text-[#121212] md:font-bold text-[16px] md:text-[20px] rounded-full py-[8px] mb-[29px]"
       >
-        You might also like {{ cartTotal }}
+        You might also like
       </p>
       <CarouselSlider
         :data="
@@ -1434,6 +1476,7 @@ Design a clean and eye-catching physical banner that highlights the key message 
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  middleware: "auth",
   data() {
     return {
       isHireDesigner: false,
@@ -1447,6 +1490,9 @@ export default {
     ...mapGetters({
       rentalProductData: "product/getRentalProductData",
       cartDetail: "product/getCartItem",
+      cartItemCount: "product/getCartItemCount",
+      taxes: "product/getTaxes",
+      profile: "auth/getUserProfile",
     }),
     productsWithTotalPrice() {
       if (this.cartDetail.cartItems && this.cartDetail.cartItems.length) {
@@ -1456,8 +1502,12 @@ export default {
             (sum, fee) => sum + fee.price,
             0
           );
-          // Add the total price (base price + total fees) for the product
-          const totalPrice = item.price + totalFees;
+
+          // Calculate the base price multiplied by the quantity
+          const basePriceTotal = item.price * item.quantity;
+
+          // Add the total price (base price total + total fees) for the product
+          const totalPrice = basePriceTotal + totalFees;
 
           // Return a new object with the total price included
           return {
@@ -1478,12 +1528,30 @@ export default {
       console.log("total", total);
       return total;
     },
+    getDefaultShippingAddress() {
+      if (!this.profile?.customerAddress) {
+        return null;
+      }
+
+      const addresses = this.profile.customerAddress;
+      const defaultAddressId = this.profile.defaultShippingAddressId;
+
+      if (defaultAddressId) {
+        return (
+          addresses.find((addr) => addr.id === defaultAddressId) || addresses[0]
+        );
+      }
+
+      return addresses[0] || null;
+    },
   },
   methods: {
     ...mapActions({
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
       removeCartItem: "product/removeCartItem",
       fetchCartItems: "product/fetchCartItems",
+      updateCartItem: "product/updateCartItem",
+      fetchTaxes: "product/fetchTaxes",
     }),
     toggleTab(index) {
       // this.isHireDesigner = !this.isHireDesigner;
@@ -1493,6 +1561,9 @@ export default {
       this.productArtworkIndex = index;
 
       // this.isArtWork = !this.isArtWork;
+    },
+    async checkout() {
+      this.$router.push(`/checkout`);
     },
     async toggleFavorite(product) {
       try {
@@ -1511,24 +1582,54 @@ export default {
         }
       }
     },
-    incrementQuantity() {
-      this.quantity++;
+    async incrementQuantity(item) {
+      try {
+        item.quantity++;
+        await this.updateCartItem({
+          id: item.id,
+          quantity: item.quantity,
+        });
+        await this.fetchCartItems();
+      } catch (error) {
+        console.log("error", error);
+      }
     },
-    decrementQuantity() {
-      if (this.quantity > 1) {
-        this.quantity--;
+    async decrementQuantity(item) {
+      try {
+        if (item.quantity > 1) {
+          item.quantity--;
+          await this.updateCartItem({
+            id: item.id,
+            quantity: item.quantity,
+          });
+          await this.fetchCartItems();
+        }
+      } catch (error) {
+        console.log("error", error);
       }
     },
     async removeItem(cart) {
-      await this.removeCartItem({ id: cart.id });
-      await this.fetchCartItems();
+      try {
+        await this.removeCartItem({ id: cart.id });
+        await this.fetchCartItems();
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
+    async fetchTaxesByProvince() {
+      try {
+        if (this.getDefaultShippingAddress) {
+          await this.fetchTaxes({
+            province: this.getDefaultShippingAddress.province,
+          });
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
     },
   },
-  async created() {
-    setTimeout(async () => {
-      let data = await this.cartDetail;
-      console.log("cartDetail", data);
-    }, 3000);
+  async mounted() {
+    await this.fetchTaxesByProvince();
   },
 };
 </script>

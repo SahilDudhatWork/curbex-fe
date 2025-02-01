@@ -19,6 +19,17 @@ export const actions = {
       throw error;
     }
   },
+  async updateAddress(ctx, payload) {
+    try {
+      const response = await $axios.patch(
+        `/customers/address/${payload.id}`,
+        payload
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
   async setDefaultAddress(ctx, payload) {
     try {
       let { id } = payload;

@@ -390,7 +390,7 @@
               Add to cart
             </button>
             <button
-              @click="showDesignModal = true"
+              @click="selectDesignMethod"
               class="bg-[#121212] text-[16px] md:text-[18px] text-white border-[1px] border-[#000000] w-full md:w-[49%] rounded-[7px] py-[11px] mb-[20px]"
             >
               Select Design Method
@@ -783,6 +783,8 @@ import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
+  middleware: "auth",
+
   data() {
     return {
       rentalHistory: "",
@@ -920,11 +922,18 @@ export default {
         });
       }
     },
+    selectDesignMethod() {
+      this.$cookies.set("productId", this.productId);
+      this.showDesignModal = true;
+    },
     async productAddToCart() {
       try {
-        let cartData = this.cartDetail.cartItems.find(
-          (x) => x.productId == this.productId
-        );
+        let cartData = null;
+        if (this.cartDetail && this.cartDetail.cartItems) {
+          cartData = this.cartDetail.cartItems.find(
+            (x) => x.productId == this.productId
+          );
+        }
         if (cartData && cartData != null && cartData.id != "") {
           await this.updateCartItem({
             id: cartData.id,
@@ -936,8 +945,10 @@ export default {
             productId: this.productId,
             quantity: 1,
           });
-          await this.fetchCartItems();
         }
+        this.$cookies.set("productId", this.productId);
+        this.showDesignModal = true;
+        await this.fetchCartItems();
       } catch (error) {
         console.log(error, "error");
       }

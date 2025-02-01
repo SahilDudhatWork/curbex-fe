@@ -217,9 +217,10 @@ export default {
           return;
         }
         await this.userLogin(this.formData);
-        this.$router.push("/profile");
+        this.$cookies.set("email", this.formData.email);
+        this.$router.push("/auth/confirmation-code");
         this.$toast.open({
-          message: this.$i18n.t("loginMessage"),
+          message: this.$i18n.t("loginOTPMessage"),
         });
       } catch (error) {
         console.log(error);

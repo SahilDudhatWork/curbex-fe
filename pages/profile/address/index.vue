@@ -122,7 +122,7 @@
               <p class="p-[0px_10px]">
                 {{ address.street }}
               </p>
-              <span>
+              <span @click.stop="editAddress(address)">
                 <svg
                   width="19"
                   height="19"
@@ -348,10 +348,10 @@
             class="flex flex-col gap-4 md:col-span-2 mt-[10px] justify-end w-full lg:max-w-[100%] lg:w-full pb-[2rem] md:pb-0"
           >
             <button
-              @click="handleSaveAddress"
+              @click="handleSaveAddress()"
               class="w-full flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-[#121212] text-white rounded-lg hover:bg-violet-500 transition"
             >
-              Save
+              {{ formData && formData.id ? "Update" : "Save" }}
               <svg
                 width="18"
                 height="14"
@@ -466,6 +466,7 @@ export default {
   methods: {
     ...mapActions({
       createAddress: "profile/createAddress",
+      updateAddress: "profile/updateAddress",
       setDefaultAddress: "profile/setDefaultAddress",
       profile: "auth/profile",
       fetchAddressFromCoordinates: "auth/fetchAddressFromCoordinates",
@@ -483,6 +484,10 @@ export default {
     },
     toggleGrid() {
       this.isGridVisible = !this.isGridVisible;
+    },
+    async editAddress(address) {
+      this.formData = { ...address };
+      this.isGridVisible = true;
     },
     getCurrentLocation() {
       if (navigator.geolocation) {
@@ -519,7 +524,11 @@ export default {
         }
         this.formData.country = "CA";
         this.formData.customerId = this.userProfile.id;
-        await this.createAddress(this.formData);
+        if (this.formData.id) {
+          await this.updateAddress(this.formData);
+        } else {
+          await this.createAddress(this.formData);
+        }
         this.formData = {};
         await this.profile();
       } catch (error) {

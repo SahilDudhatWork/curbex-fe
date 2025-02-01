@@ -677,7 +677,11 @@ export default {
   },
   async mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    await this.fetchCartItems();
+    try {
+      await this.fetchCartItems();
+    } catch (error) {
+      console.log("error", error);
+    }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);

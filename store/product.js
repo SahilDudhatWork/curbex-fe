@@ -8,6 +8,7 @@ export const state = () => ({
   productData: {},
   cartItemCount: 0,
   cartItem: {},
+  taxes: {},
 });
 
 export const getters = {
@@ -31,6 +32,9 @@ export const getters = {
   },
   getCartItem(state) {
     return state.cartItem;
+  },
+  getTaxes(state) {
+    return state.taxes;
   },
 };
 
@@ -86,6 +90,9 @@ export const mutations = {
   },
   setCartItem(state, payload) {
     state.cartItem = payload;
+  },
+  setTaxes(state, payload) {
+    state.taxes = payload;
   },
 };
 
@@ -155,7 +162,7 @@ export const actions = {
   async addToCart(ctx, payload) {
     try {
       const response = await $axios.post(`/cart`, payload);
-
+      console.log(response, "response");
       return response;
     } catch (error) {
       throw error;
@@ -163,7 +170,13 @@ export const actions = {
   },
   async updateCartItem(ctx, payload) {
     try {
-      let { id } = payload;
+      console.log(payload, "payload");
+      let id;
+      if (payload instanceof FormData) {
+        id = payload.get("id");
+      } else {
+        id = payload.id;
+      }
       const response = await $axios.post(`/cart/item/${id}`, payload);
 
       return response;
@@ -189,6 +202,17 @@ export const actions = {
     try {
       let { id } = payload;
       const response = await $axios.delete(`/cart/item/${id}`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async fetchTaxes(ctx, payload) {
+    try {
+      let { province } = payload;
+      const response = await $axios.get(`/taxes/${province}`);
+      ctx.commit("setTaxes", response);
       return response;
     } catch (error) {
       throw error;

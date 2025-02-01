@@ -31,6 +31,7 @@ export default {
     "~/plugins/validation.js",
     { src: "~/plugins/vue-slick-carousel.js", mode: "client" },
     "~/plugins/downloadFile.js",
+    { src: "~/plugins/vClickOutside.js", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
