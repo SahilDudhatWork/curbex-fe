@@ -33,6 +33,7 @@ export default {
     "~/plugins/downloadFile.js",
     { src: "~/plugins/vClickOutside.js", ssr: false },
     "~/plugins/lodash.js",
+    "~/plugins/moment.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

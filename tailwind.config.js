@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './components/**/*.{vue,js}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
+    "./components/**/*.{vue,js}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
   ],
   theme: {
     // screens: {
@@ -22,7 +22,7 @@ module.exports = {
         dark: "#C0C6F4",
         darkText: "#5B638B",
         blue: "#7700D2",
-        green: "#23DC9B",
+        green: "#29CC6A",
         darkBlue: "#8E00BE",
         textColor: "#B391CC",
         lightPink: "#F4E7FF",

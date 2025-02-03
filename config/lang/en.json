@@ -24,5 +24,6 @@
     "addressSetAsDefaultSuccessfully":"Address set as default successfully",
     "fileNotImageMessage":"File is not an image",
     "forgotPasswordSuccessMessage":"Reset password email sent",
-    "resetPasswordSuccessMessage":"Password reset successfully"
+    "resetPasswordSuccessMessage":"Password reset successfully",
+    "orderPlacedSuccessfully":"Order placed successfully"
 }

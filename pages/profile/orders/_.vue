@@ -42,17 +42,13 @@
     <!-- My Orders Section -->
     <h1 class="text-[18px] md:text-[20px] font-semibold md:mb-6">My Orders</h1>
     <div class="mb-8">
-      <div
-        class="flex flex-wrap py-8"
-        v-for="order in activeOrders"
-        :key="order.id"
-      >
+      <div class="flex flex-wrap py-8">
         <div
           class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-4 border border-[#F3F3F3] rounded-[15px]"
         >
           <img
-            :src="order.image"
-            :alt="order.name"
+            :src="heroImage || '/Images/Profile/16.png'"
+            :alt="orderDetails?.product?.name"
             class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
           />
         </div>
@@ -60,19 +56,19 @@
           <h3
             class="text-[14px] lg:text-[18px] text-[#121212] font-Montserrat-Medium pb-1"
           >
-            {{ order.name }}
+            {{ orderDetails?.product?.name }}
           </h3>
-          <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">
+          <!-- <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">
             {{ order.dateRange }}
+          </p> -->
+          <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">
+            {{ orderDetails?.shippingStreet }}
           </p>
           <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">
-            {{ order.location }}
-          </p>
-          <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">
-            ${{ order.price }}
+            ${{ orderDetails?.total }}
           </p>
           <p class="text-[13px] lg:text-[16px] text-[#949494] pb-1">
-            Order Id : {{ order.orderId }}
+            Order Id : {{ orderDetails?.id }}
           </p>
         </div>
         <div
@@ -83,11 +79,11 @@
           >
             Download Invoice
           </button>
-          <button
+          <!-- <button
             class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto"
           >
             Details
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -481,19 +477,21 @@
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Total MRP</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">$200</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]"
+              >${{ orderDetails?.total }}</span
+            >
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Discount on MRP</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">-$91</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]">-$0</span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Setup Fees</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">$59</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]">$0</span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
@@ -509,7 +507,7 @@
             >Total Amount</span
           >
           <span class="font-semibold text-[#121212] text-[12px] md:text-[18px]"
-            >$168</span
+            >${{ orderDetails?.total }}</span
           >
         </div>
       </div>
@@ -528,48 +526,47 @@
               >Property Owner</span
             >
             <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >Ryan Reynolds</span
+              >{{ orderDetails?.customer?.firstName }}
+              {{ orderDetails?.customer?.lastName }}</span
             >
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Order Status</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >Active</span
-            >
+            <span class="text-[#949494] text-[12px] md:text-[18px]">{{
+              orderDetails?.status
+            }}</span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Order Date</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >15 Sep 2023</span
-            >
+            <span class="text-[#949494] text-[12px] md:text-[18px]">{{
+              $moment.formatDate(orderDetails?.createdAt)
+            }}</span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Order Time</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >10:50 am</span
-            >
+            <span class="text-[#949494] text-[12px] md:text-[18px]">{{
+              $moment.formatTime(orderDetails?.createdAt)
+            }}</span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Order Number</span
             >
             <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >#121541368431</span
+              >#{{ orderDetails.id }}</span
             >
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Expected Delivery Date</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >18 Sep</span
-            >
+            <span class="text-[#949494] text-[12px] md:text-[18px]">N/A</span>
           </div>
         </div>
 
@@ -579,7 +576,7 @@
             >Total Amount</span
           >
           <span class="font-semibold text-[#121212] text-[12px] md:text-[18px]"
-            >$168</span
+            >${{ orderDetails?.total }}</span
           >
         </div>
       </div>
@@ -670,11 +667,14 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   layout: "profileLayout",
   data() {
     return {
       currentTab: "active",
+      orderId: null,
+      heroImage: null,
       activeOrders: [
         {
           id: 1,
@@ -687,6 +687,43 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    ...mapGetters({
+      orderDetails: "order/getOrderDetails",
+    }),
+  },
+  async asyncData({ params }) {
+    return {
+      orderId: params.pathMatch,
+    };
+  },
+
+  async mounted() {
+    await this.getOrderDetails();
+    this.heroImage =
+      this.orderDetails?.product?.images &&
+      this.orderDetails?.product?.images.length
+        ? this.orderDetails?.product?.images[0].imageUrl
+        : null;
+  },
+
+  methods: {
+    ...mapActions({
+      fetchOrderDetails: "order/fetchOrderDetails",
+    }),
+    async getOrderDetails() {
+      try {
+        const response = await this.fetchOrderDetails({ id: this.orderId });
+        console.log(response);
+      } catch (error) {
+        this.$toast.open({
+          message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
   },
 };
 </script>

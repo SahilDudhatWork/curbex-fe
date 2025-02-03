@@ -104,7 +104,28 @@ export default async (ctx, inject) => {
 
     return errors;
   };
+  const validatePaymentFormData = async ({ form }) => {
+    const errors = {};
+    const isEmpty = (value) => {
+      return typeof value === "string" ? value.trim() === "" : !value;
+    };
+    const setError = (fieldName, message) => {
+      errors[fieldName] = message;
+    };
 
+    const validateField = (field, fieldName, errorLabel) => {
+      if (isEmpty(field)) {
+        setError(fieldName, `${errorLabel} is required`);
+      }
+    };
+
+    validateField(form.nameOnCard, "nameOnCard", "card-holder-name");
+    validateField(form.card, "card", "card-number");
+    validateField(form.expiry, "expiry", "expiration-date");
+    validateField(form.cvv, "cvv", "cvv");
+
+    return errors;
+  };
   const formatExpiryDate = async (e) => {
     let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
     if (value.length >= 2) {
@@ -139,4 +160,5 @@ export default async (ctx, inject) => {
   inject("formatExpiryDate", formatExpiryDate);
   inject("formatCardNumber", formatCardNumber);
   inject("formatCVV", formatCVV);
+  inject("validatePaymentFormData", validatePaymentFormData);
 };

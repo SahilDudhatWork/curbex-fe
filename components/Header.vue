@@ -435,7 +435,7 @@
             </div>
 
             <NuxtLink
-              to="/"
+              to="/cart"
               class="py-[12px] flex items-center border-b border-[#FCFCFC]"
             >
               <span class="block mr-2 w-[25px] h-[25px]">
