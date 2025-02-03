@@ -451,7 +451,6 @@
               </p>
             </div>
             <div
-              v-if="uploadedFiles.length < 5"
               class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 opacity-[0.5] hover:opacity-[1]"
             >
               <p
@@ -642,14 +641,6 @@ export default {
       fetchCartItems: "product/fetchCartItems",
     }),
     async uploadArtwork() {
-      if (this.uploadedFiles.length >= 5) {
-        this.$toast.open({
-          message: this.$i18n.t("maximumFilesAllowed"),
-          type: "error",
-        });
-        return;
-      }
-
       const fileInput = document.createElement("input");
       fileInput.type = "file";
       fileInput.accept = "image/*";
@@ -674,13 +665,11 @@ export default {
           // Create preview URL
           const reader = new FileReader();
           reader.onload = (e) => {
-            if (this.uploadedFiles.length < 5) {
-              this.uploadedFiles.push({
-                file: file,
-                name: file.name,
-                preview: e.target.result,
-              });
-            }
+            this.uploadedFiles.push({
+              file: file,
+              name: file.name,
+              preview: e.target.result,
+            });
           };
           reader.readAsDataURL(file);
         });
@@ -700,6 +689,7 @@ export default {
             await this.updateCartItem({
               id: cartData.id,
               quantity: cartData.quantity + 1,
+              requestedDesigner: cartData.requestedDesigner,
             });
             this.$toast.open({
               message: this.$i18n.t("productQuantityIncreasedMessage"),

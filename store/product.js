@@ -207,6 +207,14 @@ export const actions = {
       throw error;
     }
   },
+  async removeCart(ctx, payload) {
+    try {
+      const response = await $axios.delete(`/cart`);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 
   async fetchTaxes(ctx, payload) {
     try {

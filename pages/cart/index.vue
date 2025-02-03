@@ -429,6 +429,7 @@
             </p>
             <textarea
               v-model="item.notes"
+              @keyup="updateNotes(item)"
               class="border border-[#F5F5F5] bg-[#FFFFFF] rounded-[18px] w-full p-[15px] resize-none text-[12px]"
               rows="4"
               placeholder="Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance."
@@ -437,11 +438,11 @@
             <p class="my-4 text-[#121212] text-[12px] md:text-[14px] my-4">
               Reference images
             </p>
-            <div class="flex items-start">
+            <div class="flex flex-wrap items-start">
               <div
                 v-for="(file, index) in item.images"
                 :key="index"
-                class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3"
+                class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 mb-3"
               >
                 <div
                   class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px]"
@@ -528,10 +529,10 @@
                 </p>
               </div>
               <div
-                v-if="item.images.length < 5"
                 class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 opacity-[0.5] hover:opacity-[1]"
               >
                 <p
+                  @click="uploadFileItem(item)"
                   class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px] border border-[#121212] flex items-center justify-center"
                 >
                   <svg
@@ -656,7 +657,7 @@
               </div>
             </div>
 
-            <p class="text-[#121212] text-[12px] md:text-[14px] my-4 mb-0">
+            <!-- <p class="text-[#121212] text-[12px] md:text-[14px] my-4 mb-0">
               Reference link
             </p>
             <div class="flex items-center py-2">
@@ -699,7 +700,7 @@
                   />
                 </svg>
               </span>
-            </div>
+            </div> -->
             <div class="flex items-center mb-6 text-[12px] text-[#121212] py-2">
               <input
                 class="styled-checkbox"
@@ -712,6 +713,7 @@
               >
             </div>
             <button
+              @click="uploadArtwork(item, index)"
               class="bg-[#8D54FF] rounded-[42px] text-[12px] md:text-[14px] text-[#FFFFFF] p-[4px_15px]"
             >
               Upload your artwork instead
@@ -724,11 +726,11 @@
             <p class="my-4 text-[#121212] text-[12px] md:text-[14px] my-4">
               Uploaded Artworks
             </p>
-            <div class="flex items-start">
+            <div class="flex flex-wrap items-start">
               <div
                 v-for="(file, index) in item.images"
                 :key="index"
-                class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3"
+                class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 mb-3"
               >
                 <div
                   class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px]"
@@ -815,10 +817,10 @@
                 </p>
               </div>
               <div
-                v-if="item.images.length < 5"
                 class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 opacity-[0.5] hover:opacity-[1]"
               >
                 <p
+                  @click="uploadFileItem(item)"
                   class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px] border border-[#121212] flex items-center justify-center"
                 >
                   <svg
@@ -948,6 +950,7 @@
             </p>
             <textarea
               v-model="item.notes"
+              @keyup="updateNotes(item)"
               class="border border-[#F5F5F5] bg-[#FFFFFF] rounded-[18px] w-full p-[15px] resize-none text-[12px]"
               rows="4"
               placeholder="Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance."
@@ -965,6 +968,7 @@
               >
             </div>
             <button
+              @click="hireDesigner(item, index)"
               class="bg-[#8D54FF] rounded-[42px] text-[12px] md:text-[14px] text-[#FFFFFF] p-[4px_15px]"
             >
               Hire a designer instead
@@ -1484,6 +1488,7 @@ export default {
       quantity: 1, // Initialize quantity
       productHireDesignerIndex: -1,
       productArtworkIndex: -1,
+      uploadedFiles: [],
     };
   },
   computed: {
@@ -1588,6 +1593,7 @@ export default {
         await this.updateCartItem({
           id: item.id,
           quantity: item.quantity,
+          requestedDesigner: item.requestedDesigner,
         });
         await this.fetchCartItems();
       } catch (error) {
@@ -1601,6 +1607,7 @@ export default {
           await this.updateCartItem({
             id: item.id,
             quantity: item.quantity,
+            requestedDesigner: item.requestedDesigner,
           });
           await this.fetchCartItems();
         }
@@ -1608,10 +1615,101 @@ export default {
         console.log("error", error);
       }
     },
+    async uploadFileItem(item) {
+      try {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*";
+        fileInput.multiple = true;
+
+        fileInput.onchange = async (e) => {
+          const files = Array.from(e.target.files);
+          const formData = new FormData();
+
+          files.forEach(async (file, index) => {
+            if (!file.type.startsWith("image/")) {
+              this.$toast.open({
+                message: this.$i18n.t("fileNotImageMessage"),
+
+                type: "error",
+              });
+              return;
+            }
+            formData.append(`images[${index}]`, file);
+          });
+          formData.append("id", item.id);
+          formData.append("quantity", item.quantity);
+          formData.append("requestedDesigner", item.requestedDesigner);
+
+          await this.updateCartItem(formData);
+          await this.fetchCartItems();
+        };
+
+        fileInput.click();
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+      }
+    },
+    async hireDesigner(item, index) {
+      try {
+        await this.updateCartItem({
+          id: item.id,
+          quantity: item.quantity,
+          requestedDesigner: 1,
+        });
+        await this.fetchCartItems();
+        this.productArtworkIndex = -1;
+        this.productHireDesignerIndex = index;
+        this.$toast.open({
+          message: this.$i18n.t("designerAddedToProductMessage"),
+          type: "success",
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+
+    async uploadArtwork(item, index) {
+      try {
+        await this.updateCartItem({
+          id: item.id,
+          quantity: item.quantity,
+          requestedDesigner: 0,
+        });
+        await this.fetchCartItems();
+        this.productHireDesignerIndex = -1;
+        this.productArtworkIndex = index;
+        this.$toast.open({
+          message: this.$i18n.t("artworkUploadedMessage"),
+          type: "success",
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+
     async removeItem(cart) {
       try {
         await this.removeCartItem({ id: cart.id });
         await this.fetchCartItems();
+        this.$toast.open({
+          message: this.$i18n.t("removeItemSuccessMessage"),
+          type: "success",
+        });
       } catch (error) {
         console.log("error", error);
       }
@@ -1627,9 +1725,27 @@ export default {
         console.log("error", error);
       }
     },
+    async updateCartNotes(item) {
+      try {
+        await this.updateCartItem({
+          id: item.id,
+          quantity: item.quantity,
+          notes: item.notes,
+          requestedDesigner: item.requestedDesigner,
+        });
+      } catch (error) {
+        console.log("error", error);
+      }
+    },
   },
   async mounted() {
     await this.fetchTaxesByProvince();
+  },
+  async created() {
+    this.updateNotes = this.$lodash.debounce(async (payload) => {
+      console.log("payload", payload);
+      await this.updateCartNotes(payload);
+    }, 1000);
   },
 };
 </script>

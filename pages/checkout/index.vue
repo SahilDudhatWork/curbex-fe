@@ -48,7 +48,7 @@
             </div>
             <div
               :class="showDropdown ? 'sidemenu-sm-active' : ''"
-              class="flex flex-col sidemenu-sm w-[176px] absolute top-0"
+              class="flex flex-col sidemenu-sm w-[176px] absolute top-0 max-h-[250px] !overflow-y-auto scrollbar"
             >
               <p
                 v-for="(address, index) in sortedAddresses"
@@ -141,8 +141,14 @@
                   :readonly="isInputShippingDisabled"
                   type="text"
                   placeholder="Address Line 1"
+                  :class="{ 'border-[red]': addressError?.street }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="addressError?.street"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ addressError?.street }}</span
+                >
               </div>
               <!-- <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
@@ -161,8 +167,14 @@
                   :readonly="isInputShippingDisabled"
                   type="text"
                   placeholder="Apt, Suite,Unit"
+                  :class="{ 'border-[red]': addressError?.street }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="addressError?.street"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ addressError?.street }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
@@ -170,8 +182,14 @@
                   :readonly="isInputShippingDisabled"
                   type="tel"
                   placeholder="City"
+                  :class="{ 'border-[red]': addressError?.city }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="addressError?.city"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ addressError?.city }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
@@ -179,8 +197,14 @@
                   :readonly="isInputShippingDisabled"
                   type="text"
                   placeholder="Province"
+                  :class="{ 'border-[red]': addressError?.province }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="addressError?.province"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ addressError?.province }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
@@ -188,8 +212,14 @@
                   :readonly="isInputShippingDisabled"
                   type="text"
                   placeholder="Postal Code"
+                  :class="{ 'border-[red]': addressError?.postal }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="addressError?.postal"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ addressError?.postal }}</span
+                >
               </div>
             </div>
             <div
@@ -199,6 +229,7 @@
               class="flex justify-between items-center"
             >
               <input
+                v-model="isShippingDefaultAddress"
                 class="styled-checkbox"
                 id="sameAddress"
                 type="checkbox"
@@ -253,7 +284,7 @@
             </div>
             <div
               :class="showBillingDropdown ? 'sidemenu-sm-active' : ''"
-              class="flex flex-col sidemenu-sm w-[176px] absolute top-0"
+              class="flex flex-col sidemenu-sm w-[176px] absolute top-0 max-h-[250px] !overflow-y-auto scrollbar"
             >
               <p
                 v-for="(address, index) in sortedAddresses"
@@ -356,13 +387,21 @@
                 >
                 <input
                   v-model="billingAddressData.street"
+                  :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Address Line 1"
+                  :class="{ 'border-[red]': billingError?.street }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="billingError?.street"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ billingError?.street }}</span
+                >
               </div>
               <!-- <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
+
                   type="text"
                   placeholder="Address Line 2"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -375,34 +414,62 @@
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.street"
+                  :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Apt, Suite,Unit"
+                  :class="{ 'border-[red]': billingError?.street }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="billingError?.street"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ billingError?.street }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.city"
+                  :readonly="isInputBillingDisabled"
                   type="tel"
                   placeholder="City"
+                  :class="{ 'border-[red]': billingError?.city }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="billingError?.city"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ billingError?.city }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.province"
+                  :readonly="isInputBillingDisabled"
                   type="email"
                   placeholder="Province"
+                  :class="{ 'border-[red]': billingError?.province }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="billingError?.province"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ billingError?.province }}</span
+                >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.postal"
+                  :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Postal Code"
+                  :class="{ 'border-[red]': billingError?.postal }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="billingError?.postal"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ billingError?.postal }}</span
+                >
               </div>
             </div>
             <div
@@ -413,6 +480,7 @@
               class="flex justify-between items-center"
             >
               <input
+                v-model="isBillingDefaultAddress"
                 class="styled-checkbox"
                 id="BillingSameAddress"
                 type="checkbox"
@@ -926,9 +994,16 @@
                   type="text"
                   placeholder="Ryan Reynolds"
                   v-model="paymentCard.nameOnCard"
+                  :class="{ 'border-[red]': cardError?.nameOnCard }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="cardError?.nameOnCard"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ cardError?.nameOnCard }}</span
+                >
               </div>
+
               <div class="flex flex-col gap-1 w-full mb-5">
                 <label
                   class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]"
@@ -940,9 +1015,16 @@
                   v-model="paymentCard.card"
                   @input="validateCardNumber"
                   maxlength="19"
+                  :class="{ 'border-[red]': cardError?.card }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
+                <span
+                  v-if="cardError?.card"
+                  class="text-[red] text-[12px] pl-[3px]"
+                  >{{ cardError?.card }}</span
+                >
               </div>
+
               <div class="flex items-center justify-between mb-5">
                 <div class="flex flex-col gap-1 w-[49%]">
                   <label
@@ -955,8 +1037,14 @@
                     v-model="paymentCard.expiry"
                     @input="validateExpiryDate"
                     maxlength="7"
+                    :class="{ 'border-[red]': cardError?.expiry }"
                     class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   />
+                  <span
+                    v-if="cardError?.expiry"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ cardError?.expiry }}</span
+                  >
                 </div>
                 <div class="flex flex-col gap-1 w-[49%]">
                   <label
@@ -969,11 +1057,18 @@
                     v-model="paymentCard.cvv"
                     @input="validateCVV"
                     maxlength="4"
+                    :class="{ 'border-[red]': cardError?.cvv }"
                     class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   />
+                  <span
+                    v-if="cardError?.cvv"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ cardError?.cvv }}</span
+                  >
                 </div>
               </div>
-              <div class="flex flex-col gap-1 w-full mb-5">
+              <!-- <div class="flex flex-col gap-1 w-full mb-5">
+
                 <label
                   class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]"
                   >Country</label
@@ -996,7 +1091,7 @@
                   v-model="paymentCard.zip"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
-              </div>
+              </div> -->
               <!-- <div
                 class="flex items-center gap-2 mb-2 text-[12px] md:text-[14px] lg:text-[16px] md:font-bold lg:font-normal text-[#121212] py-2"
               >
@@ -1031,16 +1126,21 @@
               @click="createPaymentCard"
               class="text-[16px] md:text-[18px] bg-[#8D54FF] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
             >
-              Place order
+              Create payment method
             </button>
           </div>
         </div>
       </div>
     </div>
+    <PaymentSuccessModal
+      v-if="showPaymentSuccess"
+      :payment-details="paymentDetails"
+      @close="showPaymentSuccess = false"
+    />
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   middleware: "auth",
 
@@ -1058,8 +1158,16 @@ export default {
       profileData: {},
       isBillingSameAddress: false,
       paymentCard: {},
+      cardError: {},
+      addressError: {},
+      billingError: {},
+      isShippingDefaultAddress: false,
+      isBillingDefaultAddress: false,
+      showPaymentSuccess: false,
+      paymentDetails: {},
     };
   },
+
   computed: {
     ...mapGetters({
       cartDetail: "product/getCartItem",
@@ -1134,11 +1242,21 @@ export default {
       fetchTaxes: "product/fetchTaxes",
       createCard: "payment/createCard",
       fetchCards: "payment/fetchCards",
+      createAddress: "profile/createAddress",
+      fetchProfile: "auth/profile",
+      setDefaultAddress: "profile/setDefaultAddress",
+      createOrder: "order/createOrder",
+      removeCart: "product/removeCart",
+    }),
+    ...mapMutations({
+      setCartItemCount: "product/setCartItemCount",
+      setCartItem: "product/setCartItem",
     }),
     dropdownToggle() {
       this.showDropdown = !this.showDropdown;
       this.isNewAddress = false;
     },
+
     async validateExpiryDate(e) {
       this.paymentCard.expiry = await this.$formatExpiryDate(e);
     },
@@ -1166,11 +1284,13 @@ export default {
       this.showDropdown = false;
       this.addressData = {};
       this.isNewAddress = true;
+      this.isShippingDefaultAddress = false;
     },
     addNewBillingAddress() {
       this.showBillingDropdown = false;
       this.billingAddressData = {};
       this.isNewBillingAddress = true;
+      this.isBillingDefaultAddress = false;
     },
     dropdownBillingToggle() {
       this.showBillingDropdown = !this.showBillingDropdown;
@@ -1182,6 +1302,7 @@ export default {
         await this.updateCartItem({
           id: item.id,
           quantity: item.quantity,
+          requestedDesigner: item.requestedDesigner,
         });
         await this.fetchCartItems();
       } catch (error) {
@@ -1195,6 +1316,7 @@ export default {
           await this.updateCartItem({
             id: item.id,
             quantity: item.quantity,
+            requestedDesigner: item.requestedDesigner,
           });
           await this.fetchCartItems();
         }
@@ -1206,6 +1328,10 @@ export default {
       try {
         await this.removeCartItem({ id: cart.id });
         await this.fetchCartItems();
+        this.$toast.open({
+          message: this.$i18n.t("removeItemSuccessMessage"),
+          type: "success",
+        });
       } catch (error) {
         console.log("error", error);
       }
@@ -1232,11 +1358,21 @@ export default {
 
     async createPaymentCard() {
       try {
+        this.cardError = await this.$validatePaymentFormData({
+          form: this.paymentCard,
+        });
+        if (Object.keys(this.cardError).length > 0) {
+          this.$toast.open({
+            message: "Please fix the errors before submitting.",
+            type: "error",
+          });
+          return;
+        }
         const formattedCard = {
           nameOnCard: this.paymentCard.nameOnCard,
-          card: this.paymentCard.card.replace(/\s/g, ""), // Remove all spaces
-          expiry: this.paymentCard.expiry.replace(/\s/g, ""), // Remove spaces
+          card: this.paymentCard.card.replace(/\s/g, ""), // Remove all spacesxpiry.replace(/\s/g, ""), // Remove spaces
           cvv: this.paymentCard.cvv,
+          expiry: this.paymentCard.expiry.replace(/\s/g, ""), // Remove spaces from expiry
         };
 
         await this.createCard(formattedCard);
@@ -1255,32 +1391,119 @@ export default {
         console.log("error", error);
       }
     },
+    async handleSaveShippingAddress() {
+      try {
+        this.addressError = await this.$validateAddressFormData({
+          form: this.addressData,
+        });
+        if (Object.keys(this.addressError).length > 0) {
+          return;
+        }
+        this.addressData.country = "CA";
+        this.addressData.customerId = this.profile.id;
+
+        let res = await this.createAddress(this.addressData);
+        this.isNewAddress = false;
+        this.addressData = res;
+        if (this.isShippingDefaultAddress) {
+          await this.setDefaultAddress({
+            id: this.addressData.id,
+          });
+        }
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log(error, "error");
+      }
+    },
+    async handleSaveBillingAddress() {
+      try {
+        this.billingError = await this.$validateAddressFormData({
+          form: this.billingAddressData,
+        });
+        if (Object.keys(this.billingError).length > 0) {
+          return;
+        }
+        this.billingAddressData.country = "CA";
+        this.billingAddressData.customerId = this.profile.id;
+
+        let res = await this.createAddress(this.billingAddressData);
+        this.isNewBillingAddress = false;
+        this.billingAddressData = res;
+        if (this.isBillingDefaultAddress) {
+          await this.setDefaultAddress({
+            id: this.billingAddressData.id,
+          });
+        }
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log(error, "error");
+      }
+    },
     async placeOrder() {
       try {
-        // await this.createOrder();
+        if (this.addressData && !this.addressData.id) {
+          await this.handleSaveShippingAddress();
+        }
+        if (this.billingAddressData && !this.billingAddressData.id) {
+          await this.handleSaveBillingAddress();
+        }
+        await this.fetchProfile();
+        let data = {
+          shippingAddressId: this.addressData.id,
+          billingAddressId: this.isBillingSameAddress
+            ? this.addressData.id
+            : this.billingAddressData.id,
+          dataKeyId: this.selectedCard,
+        };
+        await this.createOrder(data);
+        this.paymentDetails = {
+          amount: this.cartTotal,
+          refNumber: "N/A",
+          paymentTime: new Date().toLocaleString(),
+          paymentMethod: "Credit card",
+          senderName: this.profile.firstName.concat(" ", this.profile.lastName),
+          taxes: this.taxes,
+        };
+        this.showPaymentSuccess = true;
+        await this.removeCart();
+        await this.setCartItemCount(0);
+        await this.setCartItem({});
+        // await this.fetchCartItems();
       } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
         console.log("error", error);
       }
     },
   },
   async mounted() {
+    if (this.profile) {
+      this.profileData = { ...this.profile };
+    }
     this.addressData =
-      this.profile?.customerAddress && this.profile?.customerAddress.length
+      this.profile?.customerAddress?.find(
+        (addr) => addr.id === this.profile?.defaultShippingAddressId
+      ) ||
+      (this.profile?.customerAddress && this.profile?.customerAddress.length
         ? this.profile?.customerAddress[0]
-        : {};
+        : {});
     if (this.addressData) {
       await this.fetchTaxes({
         province: this.addressData.province,
       });
     }
-    this.billingAddressData =
-      this.profile?.customerAddress && this.profile?.customerAddress.length
-        ? this.profile?.customerAddress[0]
-        : {};
-
-    if (this.profile) {
-      this.profileData = { ...this.profile };
-    }
+    this.billingAddressData = this.addressData;
 
     await this.fetchPaymentCards();
   },
@@ -1358,5 +1581,24 @@ export default {
 }
 .card-active .active-round div {
   background-color: #8d54ff;
+}
+
+/* Custom scrollbar styles */
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #8d54ff;
+  border-radius: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6b3cc9;
 }
 </style>

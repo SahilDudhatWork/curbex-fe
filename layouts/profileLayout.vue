@@ -12,11 +12,11 @@
           <div
             class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem]"
           >
-            <img
+            <!-- <img
               src="/Images/Profile/DeafultAvatar.png"
               alt="Profile"
               class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"
-            />
+            /> -->
             <div>
               <span class="font-Montserrat-Medium text-[20px] user-name"
                 >{{ userProfile?.firstName }} {{ userProfile?.lastName }}</span
@@ -493,7 +493,7 @@
               </svg>
               <span class="text-[20px]">Orders</span>
             </NuxtLink>
-            <NuxtLink
+            <!-- <NuxtLink
               to="/profile/promotions"
               class="flex items-center gap-3 text-[#121212] cursor-pointer"
             >
@@ -546,7 +546,7 @@
                 />
               </svg>
               <span class="text-[20px]">Promotions</span>
-            </NuxtLink>
+            </NuxtLink> -->
             <NuxtLink
               to="/profile/payments"
               class="flex items-center gap-3 text-[#121212] cursor-pointer"
@@ -1333,7 +1333,7 @@
               </svg>
               <span class="text-[20px]">Orders</span>
             </NuxtLink>
-            <NuxtLink
+            <!-- <NuxtLink
               to="/profile/promotions"
               class="flex items-center gap-3 text-[#121212] cursor-pointer"
             >
@@ -1386,7 +1386,7 @@
                 />
               </svg>
               <span class="text-[20px]">Promotions</span>
-            </NuxtLink>
+            </NuxtLink> -->
             <NuxtLink
               to="/profile/payments"
               class="flex items-center gap-3 text-[#121212] cursor-pointer"
