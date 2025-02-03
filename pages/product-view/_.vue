@@ -938,12 +938,20 @@ export default {
           await this.updateCartItem({
             id: cartData.id,
             quantity: cartData.quantity + 1,
+            requestedDesigner: cartData.requestedDesigner,
           });
           await this.setCartItemCount(this.cartItemCount + 1);
+          this.$toast.open({
+            message: this.$i18n.t("productQuantityIncreasedMessage"),
+          });
         } else {
           await this.addToCart({
             productId: this.productId,
+
             quantity: 1,
+          });
+          this.$toast.open({
+            message: this.$i18n.t("productAddedToCartMessage"),
           });
         }
         this.$cookies.set("productId", this.productId);

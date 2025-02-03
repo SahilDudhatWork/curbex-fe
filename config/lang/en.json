@@ -17,5 +17,12 @@
     "productAddedToCartMessage":"Product added to cart successfully",
     "productQuantityIncreasedMessage":"You have this product in your cart and we have increased the quantity by 1",
     "maximumFilesAllowed":"Maximum 5 files allowed",
-    "paymentCardCreatedSuccessfully":"Payment card created successfully"
+    "paymentCardCreatedSuccessfully":"Payment card created successfully",
+    "removeItemSuccessMessage":"Item removed from cart successfully",
+    "addressUpdatedSuccessfully":"Address updated successfully",
+    "addressCreatedSuccessfully":"Address created successfully",
+    "addressSetAsDefaultSuccessfully":"Address set as default successfully",
+    "fileNotImageMessage":"File is not an image",
+    "forgotPasswordSuccessMessage":"Reset password email sent",
+    "resetPasswordSuccessMessage":"Password reset successfully"
 }

@@ -356,6 +356,7 @@
                 >
                 <input
                   v-model="billingAddressData.street"
+                  :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Address Line 1"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -375,6 +376,7 @@
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.street"
+                  :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Apt, Suite,Unit"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -383,6 +385,7 @@
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.city"
+                  :readonly="isInputBillingDisabled"
                   type="tel"
                   placeholder="City"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -391,6 +394,7 @@
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.province"
+                  :readonly="isInputBillingDisabled"
                   type="email"
                   placeholder="Province"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -399,6 +403,7 @@
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
                   v-model="billingAddressData.postal"
+                  :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Postal Code"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -973,7 +978,7 @@
                   />
                 </div>
               </div>
-              <div class="flex flex-col gap-1 w-full mb-5">
+              <!-- <div class="flex flex-col gap-1 w-full mb-5">
                 <label
                   class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]"
                   >Country</label
@@ -996,7 +1001,7 @@
                   v-model="paymentCard.zip"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
-              </div>
+              </div> -->
               <!-- <div
                 class="flex items-center gap-2 mb-2 text-[12px] md:text-[14px] lg:text-[16px] md:font-bold lg:font-normal text-[#121212] py-2"
               >
@@ -1182,6 +1187,7 @@ export default {
         await this.updateCartItem({
           id: item.id,
           quantity: item.quantity,
+          requestedDesigner: item.requestedDesigner,
         });
         await this.fetchCartItems();
       } catch (error) {
@@ -1195,6 +1201,7 @@ export default {
           await this.updateCartItem({
             id: item.id,
             quantity: item.quantity,
+            requestedDesigner: item.requestedDesigner,
           });
           await this.fetchCartItems();
         }
@@ -1206,6 +1213,10 @@ export default {
       try {
         await this.removeCartItem({ id: cart.id });
         await this.fetchCartItems();
+        this.$toast.open({
+          message: this.$i18n.t("removeItemSuccessMessage"),
+          type: "success",
+        });
       } catch (error) {
         console.log("error", error);
       }

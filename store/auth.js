@@ -95,4 +95,21 @@ export const actions = {
       throw error;
     }
   },
+
+  async forgotPassword(ctx, payload) {
+    try {
+      const response = await $axios.get("/auth/forgot", payload);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async resetPassword(ctx, payload) {
+    try {
+      const response = await $axios.post("/auth/reset", payload);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

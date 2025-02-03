@@ -526,11 +526,17 @@ export default {
         this.formData.customerId = this.userProfile.id;
         if (this.formData.id) {
           await this.updateAddress(this.formData);
+          this.$toast.open({
+            message: this.$i18n.t("addressUpdatedSuccessfully"),
+          });
         } else {
           await this.createAddress(this.formData);
+          this.$toast.open({
+            message: this.$i18n.t("addressCreatedSuccessfully"),
+          });
         }
+
         this.formData = {};
-        await this.profile();
       } catch (error) {
         console.log(error, "error");
         this.$toast.open({
@@ -547,6 +553,9 @@ export default {
         }
         await this.setDefaultAddress({ id: id });
         await this.profile();
+        this.$toast.open({
+          message: this.$i18n.t("addressSetAsDefaultSuccessfully"),
+        });
       } catch (error) {
         console.log(error);
       }

@@ -27,11 +27,11 @@
                   class="text-gray-800 font-Montserrat-Medium text-[15px] cursor-pointer hover:scale-110"
                   >About us</NuxtLink
                 >
-                <NuxtLink
+                <!-- <NuxtLink
                   to="/news"
                   class="text-gray-800 font-Montserrat-Medium text-[15px] cursor-pointer hover:scale-110"
                   >News</NuxtLink
-                >
+                > -->
                 <NuxtLink
                   to="/contact-us"
                   class="text-gray-800 font-Montserrat-Medium text-[15px] cursor-pointer hover:scale-110"
@@ -47,13 +47,13 @@
 
             <!-- Icons Section for Desktop -->
             <div class="hidden md:flex items-center gap-4">
-              <NuxtLink to="/notifications">
+              <!-- <NuxtLink to="/notifications">
                 <img
                   src="/svg/bell.svg"
                   alt="Notifications"
                   class="block w-[20px] h-[20px] cursor-pointer"
                 />
-              </NuxtLink>
+              </NuxtLink> -->
               <NuxtLink to="/profile">
                 <img
                   src="/svg/user.svg"
@@ -370,7 +370,7 @@
                 </span>
                 Orders
               </NuxtLink>
-              <NuxtLink
+              <!-- <NuxtLink
                 to="/profile/promotions"
                 class="py-[12px] flex items-center border-b border-[#8D54FF]"
               >
@@ -393,7 +393,7 @@
                   </svg>
                 </span>
                 Promotions
-              </NuxtLink>
+              </NuxtLink> -->
               <NuxtLink
                 to="/profile/payments"
                 class="py-[12px] flex items-center border-b border-[#8D54FF]"
