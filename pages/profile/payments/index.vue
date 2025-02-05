@@ -3,9 +3,39 @@
     <!-- My Cards Section -->
     <div>
       <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6">My Cards</h2>
-      <div class="flex gap-6 overflow-auto">
+      <div class="max-w-[730px]">
+        <Carousel
+          :autoplay="false"
+          :autoplayTimeout="3000"
+          :loop="false"
+          :nav="false"
+          :dots="false"
+          :perPageCustom="perPageCustom"
+        >
+          <Slide v-for="item in cards" :key="item.id" class="relative p-2">
+            <div class="min-w-[270px] md:min-w-[340px] p-3 md:p-6 rounded-[20px] text-white w-[100%] h-[175px] md:h-[225px] max-w-[357px] flex flex-col justify-between"
+              style="background: url('/Images/Profile/CardBG.png') no-repeat center center / cover;"
+            >
+              <div class="flex justify-between items-center mb-8">
+                <img src="/Images/Profile/CardChips.png" alt="CardChips" class="h-[27px]" />
+                <img :src=" item?.type === 'Visa' ? '/Images/Profile/VisaLogo.png': '/Images/Profile/Mastercard-1.png'" alt="Visa" class="h-[17px]"/>
+              </div>
+              <div class="text-[17px] md:text-[20px] font-bold mb-4 tracking-[5px]">{{ item?.card }}</div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="text-[10px] md:text-[12px] pb-[5px]">Card Holder Name</div>
+                  <div class="text-[16px] md:text-[18px] font-bold">{{ item?.nameOnCard }}</div>
+                </div>
+                <div>
+                  <div class="text-[8px] md:text-[10px] pb-[5px]">Expiry Date</div>
+                  <div class="text-[14px] md:text-[16px]">{{ item?.expdate }}</div>
+                </div>
+              </div>
+            </div>
+          </Slide>
+        </Carousel>
         <!-- Card 1 -->
-        <div
+        <!-- <div
           v-for="item in cards"
           :key="item.id"
           class="min-w-[270px] md:min-w-[340px] p-3 md:p-6 rounded-xl text-white w-[100%] h-[175px] md:h-[225px] max-w-[357px] flex flex-col justify-between"
@@ -47,7 +77,7 @@
               <div class="text-[14px] md:text-[16px]">{{ item?.expdate }}</div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -72,13 +102,53 @@
           alt="PayPal"
           class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain"
         />
-        <img
+        <img @click="addPaymentToggle"
           src="/Images/Profile/AddButton.png"
           alt="Add"
-          class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain"
+          class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain cursor-pointer"
         />
       </div>
+      <div v-if="paymentDetailsShow" class="pt-5">
+        <p class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]">Add new payment method</p>
+        <div class="p-[15px_0px] mb-5">
+          <div class="flex flex-col gap-1 w-full mb-5">
+            <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Name on the card</label>
+            <input type="text" placeholder="Ryan Reynolds"
+              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
+            />
+            <!-- <span v-if="cardError?.nameOnCard" class="text-[red] text-[12px] pl-[3px]" >{{ cardError?.nameOnCard }}</span> -->
+          </div>
+          <div class="flex flex-col gap-1 w-full mb-5">
+            <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Card number</label>
+            <input
+              type="text" placeholder="1234 1234 1234 1234" maxlength="19" 
+              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
+            />
+            <!-- <span v-if="cardError?.card" class="text-[red] text-[12px] pl-[3px]">{{ cardError?.card }}</span> -->
+          </div>
+          <div class="flex items-center justify-between mb-5">
+            <div class="flex flex-col gap-1 w-[49%]">
+              <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">Expiration Date</label>
+              <input type="text" placeholder="MM / YY" maxlength="7" 
+                class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
+              />
+              <!-- <span v-if="cardError?.expiry" class="text-[red] text-[12px] pl-[3px]">{{ cardError?.expiry }}</span> -->
+            </div>
+            <div class="flex flex-col gap-1 w-[49%]">
+              <label class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]">CVV</label>
+              <input type="text" placeholder="665" maxlength="4" 
+                class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
+              />
+              <!-- <span v-if="cardError?.cvv" class="text-[red] text-[12px] pl-[3px]">{{ cardError?.cvv }}</span> -->
+            </div>
+          </div>
+          <div>
+            <button class="text-[16px] md:text-[18px] bg-[#8D54FF] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]">Create payment method</button>
+          </div>
+        </div>
+      </div>
     </div>
+
 
     <!-- Transactions -->
     <!-- <div>
@@ -203,7 +273,14 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   layout: "profileLayout",
   data() {
-    return {};
+    return {
+      paymentDetailsShow: false,
+      perPageCustom: [
+        [320, 2], // Show 1 slide if width >= 320px
+        [768, 3], // Show 3 slides if width >= 768px
+        [1024, 2], // Show 5 slides if width >= 1024px
+      ],
+    };
   },
   computed: {
     ...mapGetters({
@@ -221,6 +298,11 @@ export default {
         console.log("error", error);
       }
     },
+    addPaymentToggle() {
+      this.paymentDetailsShow = !this.paymentDetailsShow;
+      this.selectedCard = null;
+    },
+    
   },
   async mounted() {
     await this.fetchPaymentCards();

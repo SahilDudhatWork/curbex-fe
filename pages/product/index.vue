@@ -167,12 +167,12 @@
           "
           class="mb-[-15px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
         >
-          <span class="hidden lg:block" v-if="item.isTrending">Trending</span>
+          <span class="" v-if="item.isTrending">Trending</span>
 
-          <span class="hidden lg:block" v-else-if="item.isBestSeller"
+          <span class="" v-else-if="item.isBestSeller"
             >Best Seller</span
           >
-          <span class="hidden lg:block" v-else>{{ "\u200B" }}</span>
+          <span class="" v-else>{{ "\u200B" }}</span>
         </p>
         <div class="border-2 border-[#F3F3F3] rounded-t-[10px] relative">
           <img
@@ -223,7 +223,7 @@
           <div
             class="flex items-start justify-between pb-[5px] md:pb-[0] lg:pb-[5px]"
           >
-            <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold">
+            <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis">
               {{ item?.name }}
             </p>
             <div>

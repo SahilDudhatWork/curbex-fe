@@ -5,51 +5,43 @@
     </div>
     <div class="container px-6 md:px-0 lg:px-6 mx-auto py-8 h-auto">
       <div class="flex flex-col md:flex-row gap-8">
-        <div
-          class="md:max-w-[300px] md:bg-[#FCFCFC] rounded-[16px] md:p-[1.5rem] h-fit md:sticky top-[108px] mb-[10px] md:mb-[40px]"
-        >
+        <div class="md:max-w-[300px] md:bg-[#FCFCFC] rounded-[16px] md:p-[1.5rem] h-fit md:sticky top-[108px] mb-[30px] md:mb-[40px]">
           <!-- Profile Header -->
-          <div
-            class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem]"
-          >
-            <!-- <img
-              src="/Images/Profile/DeafultAvatar.png"
-              alt="Profile"
-              class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"
-            /> -->
-            <div>
-              <span class="font-Montserrat-Medium text-[20px] user-name"
-                >{{ userProfile?.firstName }} {{ userProfile?.lastName }}</span
-              >
-              <p
-                class="flex items-center justify-between text-[12px] pt-[5px] md:hidden"
-              >
-                {{ userProfile?.email }}
-                <span class="ml-1">
-                  <svg
-                    width="15"
-                    height="16"
-                    viewBox="0 0 15 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 8.00002C1 4.34531 3.96347 1.38184 7.61818 1.38184C11.2729 1.38184 14.2364 4.34531 14.2364 8.00002C14.2364 11.6547 11.2729 14.6182 7.61818 14.6182C3.96347 14.6182 1 11.6547 1 8.00002Z"
-                      stroke="#55AE36"
-                      stroke-width="1.41818"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M4.78173 7.6221L6.909 9.89119L10.4545 6.10938"
-                      stroke="#55AE36"
-                      stroke-width="1.41818"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </span>
-              </p>
+          <div class="flex items-center gap-3 md:mb-[2rem] md:border-b border-[#F3F3F3] md:pb-[1.5rem] sm-name-view">
+              <!-- <img
+                src="/Images/Profile/DeafultAvatar.png"
+                alt="Profile"
+                class="w-[103px] h-[103px] md:w-[46px] md:h-[46px] rounded-full"
+              /> -->
+              <div>
+                <span class="font-Montserrat-Medium text-[20px] user-name">{{ userProfile?.firstName }} {{ userProfile?.lastName }}</span>
+                <p class="flex items-center justify-between text-[12px] pt-[5px] md:hidden">
+                  {{ userProfile?.email }}
+                  <span class="ml-1">
+                    <svg
+                      width="15"
+                      height="16"
+                      viewBox="0 0 15 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 8.00002C1 4.34531 3.96347 1.38184 7.61818 1.38184C11.2729 1.38184 14.2364 4.34531 14.2364 8.00002C14.2364 11.6547 11.2729 14.6182 7.61818 14.6182C3.96347 14.6182 1 11.6547 1 8.00002Z"
+                        stroke="#55AE36"
+                        stroke-width="1.41818"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.78173 7.6221L6.909 9.89119L10.4545 6.10938"
+                        stroke="#55AE36"
+                        stroke-width="1.41818"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </p>
             </div>
           </div>
 
@@ -1872,29 +1864,31 @@ export default {
   width: calc(100% - 300px);
 }
 @media screen and (max-width: 767px) {
+  .sm-name-view{
+    margin: 0 0 20px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #F5F5F5;
+  }
   .sidemenu-sm {
     border: 1px solid #8d54ff;
-    /* width: fit-content; */
     min-width: 139px;
     border-radius: 5px;
     padding: 0 10px;
     height: 33px;
-    margin-left: 117px;
-    margin-top: -38px;
     position: absolute;
     overflow: hidden;
     z-index: 9;
     background-color: #ffffff;
-    max-width: fit-content;
+    width: calc(100% - 49px);
+    box-sizing: border-box;
   }
   .user-name {
-    margin-top: -50px;
+    /* margin-top: -50px; */
     display: block;
     font-size: 18px;
   }
   .sidemenu-sm-active {
     height: auto;
-    max-width: fit-content;
   }
   .sidemenu-sm div span,
   .sidemenu-sm a span {
