@@ -18,11 +18,11 @@
             "
             class="mb-[-15px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
           >
-            <span class="hidden lg:block" v-if="item.isTrending">Trending</span>
-            <span class="hidden lg:block" v-else-if="item.isBestSeller"
+            <span class="" v-if="item.isTrending">Trending</span>
+            <span class="" v-else-if="item.isBestSeller"
               >Best Seller</span
             >
-            <span class="hidden lg:block" v-else>{{ "\u200B" }}</span>
+            <span class="" v-else>{{ "\u200B" }}</span>
           </p>
           <!-- <p
             v-if="item.isBestSeller"
