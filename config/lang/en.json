@@ -10,11 +10,12 @@
     "adminVerificationErrorMessage":"You are not verified by the admin. Please contact the admin for assistanc",
     "authFavoriteErrorMessage":"Please log in to add or remove items from your favorites",
 
-    "registerMessage":"Successfully Registered.",
+    "registerMessage":"We sent you a verification email. Please check your inbox and verify your email address.",
     "profileUpdateOKMessage":"Profile updated successfully.",
     "artworkUploadedMessage":"Artwork uploaded successfully",
     "designerAddedToProductMessage":"Designer added to product successfully",
     "productAddedToCartMessage":"Product added to cart successfully",
+
     "productQuantityIncreasedMessage":"You have this product in your cart and we have increased the quantity by 1",
     "maximumFilesAllowed":"Maximum 5 files allowed",
     "paymentCardCreatedSuccessfully":"Payment card created successfully",

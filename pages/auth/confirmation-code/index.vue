@@ -20,7 +20,7 @@
         errors?.code
       }}</span>
       <button
-        class="w-full p-3 px-5 bg-black text-white rounded-lg text-[12px] md:text-base cursor-pointer flex items-center justify-between gap-2"
+        class="w-full hover:bg-[#8D54FF] p-3 px-5 bg-black text-white rounded-lg text-[12px] md:text-base cursor-pointer flex items-center justify-between gap-2"
       >
         Submit
         <svg
