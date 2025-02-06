@@ -12,26 +12,26 @@
         <div class="container px-6 mx-auto">
             <div class="border-b border-[#F5F5F5] mb-7 pb-3">
                 <div class="flex items-start justify-between">
-                    <div class="w-[56%]">
+                    <div class="w-[60%]">
                         <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">Signage description</p>
                         <p class="text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#FCFCFC] rounded-[20px] p-7">We’d like to order a mini B with the message “Upgrade Your Space – ABC Home Furnishings!” on a blue gradient background, featuring our logo and a living room image. Include a yellow call-to-action and external LED lighting. Installation on Downtown Main Street is needed by October 20, 2024, with 50% payment upfront.</p>
                     </div>
-                    <div class="w-[42%]">
+                    <div class="w-[38%]">
                         <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">Reference Images</p>
-                        <Carousel :autoplay="false" :autoplayTimeout="3000" :loop="false" :nav="false" :dots="false" :perPageCustom="perPageCustom">
+                        <Carousel :autoplay="false" :autoplayTimeout="3000" :loop="false" :nav="false" :dots="false" :perSecondPageCustom="perSecondPageCustom" class="rounded-none">
                             <Slide class="relative p-2">
-                                <div class="item transition-all duration-300 rent-produt w-[176px] h-[166px]">
-                                    <img src="/Images/Proof/s1.png" alt="" class="w-[176px] h-[166px] object-cover"/>
+                                <div class="item transition-all duration-300 w-[176px] h-[166px]">
+                                    <img src="/Images/Proof/s1.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
                                 </div>
                             </Slide>
                             <Slide class="relative p-2">
-                                <div class="item transition-all duration-300 rent-produt w-[176px] h-[166px]">
-                                    <img src="/Images/Proof/s2.jpg" alt="" class="w-[176px] h-[166px] object-cover"/>
+                                <div class="item transition-all duration-300 w-[176px] h-[166px]">
+                                    <img src="/Images/Proof/s2.jpg" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
                                 </div>
                             </Slide>
                             <Slide class="relative p-2">
-                                <div class="item transition-all duration-300 rent-produt w-[176px] h-[166px]">
-                                    <img src="/Images/Proof/s3.png" alt="" class="w-[176px] h-[166px] object-cover"/>
+                                <div class="item transition-all duration-300 w-[176px] h-[166px]">
+                                    <img src="/Images/Proof/s3.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
                                 </div>
                             </Slide>
                         </Carousel>
@@ -39,6 +39,109 @@
                 </div>
             </div>
         </div>
+        <div class="container px-6 mx-auto">
+            <div class="border-b border-[#F5F5F5] mb-7 pb-3">
+                <div class="flex items-start justify-between">
+                    <div class="w-[60%] ">
+                        <div class="text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#E3E3E3] rounded-[20px] mt-6">
+                            <p class="mb-[-15px] mt-[-16px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[15px] text-[#FFFFFF] bg-[#FF364A]">
+                                <span>New Proof</span>
+                            </p>
+                            <img src="/Images/Proof/newProof.png" alt="" class="rounded-[20px]">
+                        </div>
+                        <div class="flex items-center pt-6">
+                            <button class="text-[16px] bg-[#29CC6A] text-[#FFFFFF] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#29CC6A]">Approve</button>
+                            <button class="text-[16px] bg-[#FFFFFF] text-[#121212] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#121212]">Request Revision</button>
+                        </div>
+                    </div>
+                    <div class="w-[38%]">
+                        <p class="text-[16px] text-[#121212] pb-5 pt-6 font-[500] flex items-center">
+                            <span class="w-[22px] h-[22px] bg-[#DAC8FF] block mr-[10px] rounded-[50px]"></span>
+                            Curbex designer Note
+                        </p>
+                        <pre class="text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]">Hi,
+Thank you for the detailed feedback! I’ve made the requested changes:
+1.	Headline Font Size: Increased by 10% for better visibility.
+2.	Logo Placement: Centered the logo horizontally.
+3.	Color Contrast: Adjusted the purple text to a darker shade (#5A3DA1) and added a subtle white outline for contrast.</pre>
+                        <p class="text-right text-[15px] text-[#000000] py-5">10:50 AM - 2024-08-11 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container px-6 mx-auto">
+            <p class="font-Montserrat-Medium font-[600] w-fit bg-[#FFA900] text-[#121212] text-[20px] rounded-full py-[4px] px-6 mb-[29px]">For Rent</p>
+            <p class="font-Montserrat-Regular w-fit bg-[#121212] text-[#FFFFFF] text-[16px] rounded-full py-[4px] px-6 mb-[29px]">Proof 1</p>
+            <div class="mb-5 pb-3 border-seaction">
+                <p class="relative z-[5] text-[16px] text-[#121212] pb-5 pt-6 flex items-center font-[600]">
+                    <span class="w-[22px] h-[22px] bg-[#FFA900] block mr-[10px] rounded-[50px]"></span>
+                    Sent by Curbex designer
+                </p>
+                <div class="flex items-start justify-between">
+                    <div class="w-[60%]">
+                        <pre class="text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]">Hi
+Here'’'s the first proof of your signage design . I’ve attached the mockup, dimensions, and material details.
+•	Design Highlights:
+•	The color palette aligns with your branding (HEX: #8D54FF for accents).
+•	The headline font to maintain readability.
+•	Mockup showcases how the sign will appear in daylight and evening settings.
+
+Please review and let me know if there are any adjustments you’d like. I’ve included an annotation tool on the proofing page for easy feedback.</pre>
+                        <p class="text-right text-[15px] text-[#000000] py-5">10:50 AM - 2024-08-11 </p>
+                    </div>
+                    <div class="w-[38%] ">
+                        <p class="text-[16px] text-[#121212] font-[500] flex items-center">
+                            <span class="w-[22px] h-[22px] bg-[#FF364A] block mr-[10px] rounded-[50px]"></span>
+                            Only one free  revision left 
+                        </p>
+                        <div class="text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#E3E3E3] rounded-[20px] mt-5 h-[275px] overflow-hidden">
+                            <img src="/Images/Proof/OnlyOneFree.png" alt="" class="h-full w-full object-cover rounded-[20px] grayscale-[1] hover:grayscale-0">
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="mb-5 pb-3 border-seaction">
+                <p class="relative z-[3] text-[16px] text-[#121212] pb-5 pt-6 flex items-center font-[600]">
+                    <span class="w-[22px] h-[22px] bg-[#8D54FF] block mr-[10px] rounded-[50px]"></span>
+                    Sent by You
+                </p>
+                <div class="flex items-end justify-between">
+                    <div class="w-[60%]">
+                        <pre class="text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]">Hi
+Here'’'s the first proof of your signage design . I’ve attached the mockup, dimensions, and material details.
+•	Design Highlights:
+•	The color palette aligns with your branding (HEX: #8D54FF for accents).
+•	The headline font to maintain readability.
+•	Mockup showcases how the sign will appear in daylight and evening settings.
+
+Please review and let me know if there are any adjustments you’d like. I’ve included an annotation tool on the proofing page for easy feedback.</pre>
+                        <p class="text-right text-[15px] text-[#000000] py-5">10:50 AM - 2024-08-11 </p>
+                    </div>
+                    <div class="w-[38%] mb-[3.5rem]">
+                        <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">Reference Images</p>
+                        <Carousel :autoplay="false" :autoplayTimeout="3000" :loop="false" :nav="false" :dots="false" :perPageCustom="perPageCustom" class="rounded-none">
+                            <Slide class="relative p-2">
+                                <div class="item transition-all duration-300 w-[176px] h-[166px]">
+                                    <img src="/Images/Proof/s1.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
+                                </div>
+                            </Slide>
+                            <Slide class="relative p-2">
+                                <div class="item transition-all duration-300 w-[176px] h-[166px]">
+                                    <img src="/Images/Proof/s2.jpg" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
+                                </div>
+                            </Slide>
+                            <Slide class="relative p-2">
+                                <div class="item transition-all duration-300 w-[176px] h-[166px]">
+                                    <img src="/Images/Proof/s3.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
+                                </div>
+                            </Slide>
+                        </Carousel>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <!-- <ApprovedModal/> -->
+        <!-- <RequestRevisionModal/> -->
     </div>
 </template>
 <script>
@@ -56,9 +159,10 @@ export default {
   data() {
     return {
       perPageCustom: [
-        // [320, 2], // Show 1 slide if width >= 320px
-        // [768, 3], // Show 3 slides if width >= 768px
-        // [1024, 2], // Show 5 slides if width >= 1024px
+        [320, 2.5], 
+      ],
+      perSecondPageCustom: [
+        [320, 2.5], 
       ],
     };
   },
@@ -67,3 +171,32 @@ export default {
   },
 };
 </script>
+<style scoped>
+.border-seaction{
+    position: relative;
+}
+.border-seaction::after{
+    content: "";
+    width: 45px;
+    position: absolute;
+    top: 35px;
+    left: -30px;
+    height: calc(100% + 22px);
+    border: solid #C3C3C3;
+    border-width: 1px 0 1px 1px;
+    border-radius: 17px;
+    z-index: 0;
+}
+.border-seaction:last-child::after{
+    content: "";
+    width: 45px;
+    position: absolute;
+    top: 33px;
+    left: -30px;
+    height: calc(100% + 20px);
+    border: solid #C3C3C3;
+    border-width: 0px 0 0px 0px;
+    border-radius: 17px;
+    z-index: 0;
+}
+</style>
