@@ -285,6 +285,45 @@
         class="w-full lg:h-[100%] md:h-[478px] h-[308px] object-cover rounded-[20px] max-h-[849px]"
       />
     </div>
+
+    <div
+      v-if="showSuccessModal"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+        <div class="text-center">
+          <div class="mb-4">
+            <svg
+              class="mx-auto h-12 w-12 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-gray-900 mb-4">
+            Registration Successful!
+          </h3>
+          <p class="text-sm text-gray-500 mb-6">
+            {{ this.$i18n.t("registerMessage") }}
+          </p>
+          <div class="mt-6">
+            <button
+              @click="handleModalClose"
+              class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-black text-base font-medium text-white hover:bg-[#8D54FF] focus:outline-none sm:text-sm"
+            >
+              Continue to Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -305,6 +344,7 @@ export default {
       errors: {},
       isPasswordVisible: false,
       isConfirmPasswordVisible: false,
+      showSuccessModal: false,
     };
   },
   methods: {
@@ -315,6 +355,10 @@ export default {
       this.formData.phoneNumber = await this.$validateNumber(
         event.target.value
       );
+    },
+    handleModalClose() {
+      this.showSuccessModal = false;
+      this.$router.push("/auth/login");
     },
     async handleRegister() {
       try {
@@ -335,10 +379,7 @@ export default {
         );
 
         await this.userRegister(this.formData);
-        this.$router.push("/auth/login");
-        this.$toast.open({
-          message: this.$i18n.t("registerMessage"),
-        });
+        this.showSuccessModal = true;
       } catch (error) {
         console.log(error);
 
