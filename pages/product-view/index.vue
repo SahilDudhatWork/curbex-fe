@@ -1166,7 +1166,7 @@ export default {
         slidesToShow: 4,
         slidesToScroll: 2,
         initialSlide: 0,
-        centerMode: true,
+        // centerMode: true,
       },
     };
   },

@@ -77,7 +77,7 @@
               {{ item?.type }}
             </p>
             <div class="flex items-end justify-between pb-[5px]">
-              <p class="text-[14px] text-[#121212] font-semibold">
+              <p class="text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis">
                 {{ item?.name }}
               </p>
               <div>
