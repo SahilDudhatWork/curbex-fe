@@ -50,8 +50,8 @@
                             <img src="/Images/Proof/newProof.png" alt="" class="rounded-[20px]">
                         </div>
                         <div class="flex items-center pt-6">
-                            <button class="text-[12px] md:text-[16px] bg-[#29CC6A] text-[#FFFFFF] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#29CC6A]">Approve</button>
-                            <button class="text-[12px] md:text-[16px] bg-[#FFFFFF] text-[#121212] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#121212]">Request Revision</button>
+                            <button @click="isApproved = true, isRequest = false" class="text-[12px] md:text-[16px] bg-[#29CC6A] text-[#FFFFFF] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#29CC6A]">Approve</button>
+                            <button @click="isRequest = true, isApproved = false" class="text-[12px] md:text-[16px] bg-[#FFFFFF] text-[#121212] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#121212]">Request Revision</button>
                         </div>
                     </div>
                     <div class="w-full lg:w-[38%]">
@@ -82,25 +82,9 @@ Thank you for the detailed feedback! I’ve made the requested changes:
                         <img src="/Images/Proof/OnlyOneFree.png" alt="" class="h-full w-full object-cover rounded-[20px] grayscale-[1] hover:grayscale-0">
                     </div>
                 </div> 
-                <div class="w-full lg:hidden">
+                <div class="w-full lg:hidden pt-5">
                     <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">Reference Images</p>
-                    <!-- <Carousel :autoplay="false" :autoplayTimeout="3000" :loop="false" :nav="false" :dots="false" :perPageCustom="perPageCustom" class="rounded-none">
-                        <Slide class="relative p-2">
-                            <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                <img src="/Images/Proof/s1.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                            </div>
-                        </Slide>
-                        <Slide class="relative p-2">
-                            <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                <img src="/Images/Proof/s2.jpg" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                            </div>
-                        </Slide>
-                        <Slide class="relative p-2">
-                            <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                <img src="/Images/Proof/s3.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                            </div>
-                        </Slide>
-                    </Carousel> -->
+                    <ProofSlider/>
                 </div> 
             </div>
             <div class="pb-3 border-seaction">
@@ -171,38 +155,40 @@ Please review and let me know if there are any adjustments you’d like. I’ve 
                 </div>
             </div>
         </div>
-        <!-- <ApprovedModal/> -->
-        <!-- <RequestRevisionModal/> -->
+        <ApprovedModal v-if="isApproved"/>
+        <RequestRevisionModal v-if="isRequest"/>
     </div>
 </template>
 <script>
-export default {
-  props: {
-    data: {
-      type: Array,
-      default: () => [],
+    export default {
+    props: {
+        data: {
+        type: Array,
+        default: () => [],
+        },
+        type: {
+        type: String,
+        default: () => "",
+        },
     },
-    type: {
-      type: String,
-      default: () => "",
+    data() {
+        return {
+        perPageCustom: [
+            [320, 2.5], 
+        ],
+        perSecondPageCustom: [
+            [320, 2.5], 
+            [768, 4],
+            [1024, 4],
+        ],
+        isApproved:false,
+        isRequest:false,
+        };
     },
-  },
-  data() {
-    return {
-      perPageCustom: [
-        [320, 2.5], 
-      ],
-      perSecondPageCustom: [
-        [320, 2.5], 
-        [768, 4],
-        [1024, 4],
-      ],
+    methods: {
+    
+    },
     };
-  },
-  methods: {
- 
-  },
-};
 </script>
 <style scoped>
 .border-seaction{
