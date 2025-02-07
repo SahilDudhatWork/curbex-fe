@@ -218,7 +218,12 @@ export default {
         }
         await this.userLogin(this.formData);
         this.$cookies.set("email", this.formData.email);
-        this.$router.push("/auth/confirmation-code");
+        const redirectPath = this.$route.query.redirect;
+        if (redirectPath) {
+          this.$router.push(`/auth/confirmation-code?redirect=${redirectPath}`);
+        } else {
+          this.$router.push("/auth/confirmation-code");
+        }
         this.$toast.open({
           message: this.$i18n.t("loginOTPMessage"),
         });

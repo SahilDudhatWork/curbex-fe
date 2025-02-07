@@ -68,7 +68,12 @@ export default {
         this.formData.email = this.$cookies.get("email");
         await this.userLoginConfirmation(this.formData);
         this.$cookies.remove("email");
-        this.$router.push("/profile");
+        const redirectPath = this.$route.query.redirect;
+        if (redirectPath) {
+          this.$router.push(redirectPath);
+        } else {
+          this.$router.push("/profile");
+        }
         this.$toast.open({
           message: this.$i18n.t("loginMessage"),
         });
