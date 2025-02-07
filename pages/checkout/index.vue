@@ -944,16 +944,7 @@
                 <div
                   class="bg-[#FAFAFA] flex items-center justify-center w-[72px] h-[72px] rounded-[72px] mr-5"
                 >
-                  <img
-                    v-if="cardItem.type == 'Visa'"
-                    src="/Images/Profile/visa-logo.png"
-                    alt="Visa"
-                  />
-                  <img
-                    v-else
-                    src="/Images/Profile/mastercard-1.png"
-                    alt="MasterCard"
-                  />
+                  <img :src="getCardTypeImage(item?.type)" :alt="item?.type" />
                 </div>
                 <p class="text-[18px]">
                   {{ cardItem.type }} {{ cardItem.card }}
@@ -1256,7 +1247,22 @@ export default {
       this.showDropdown = !this.showDropdown;
       this.isNewAddress = false;
     },
+    getCardTypeImage(cardType) {
+      switch (cardType) {
+        case "Visa":
+          return "/Images/Profile/visaLogo.png";
 
+        case "MasterCard":
+          return "/Images/Profile/mastercard-1.png";
+        case "AmericanExpress":
+          return "/Images/Profile/AmexLogo.png";
+
+        case "Discover":
+          return "/Images/Profile/DiscoverLogo.png";
+        default:
+          return "/Images/Profile/DefaultCard.png"; // Default card image
+      }
+    },
     async validateExpiryDate(e) {
       this.paymentCard.expiry = await this.$formatExpiryDate(e);
     },

@@ -195,6 +195,9 @@ export const actions = {
       ctx.commit("setCartItemCount", totalQuantity);
       return response;
     } catch (error) {
+      ctx.commit("setCartItem", {});
+      ctx.commit("setCartItemCount", 0);
+
       throw error;
     }
   },
