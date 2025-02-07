@@ -159,7 +159,9 @@
           <ul class="flex justify-center md:justify-start mt-2 space-x-4">
             <li><a href="#" class="hover:underline text-[12px]">English</a></li>
             <li class="list-disc list-inside">
-              <a href="#" class="hover:underline text-[12px]">Privacy</a>
+              <a href="/privacy-policy" class="hover:underline text-[12px]"
+                >Privacy</a
+              >
             </li>
             <li class="list-disc list-inside">
               <a href="#" class="hover:underline text-[12px]">Legal</a>

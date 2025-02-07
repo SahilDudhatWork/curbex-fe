@@ -72,7 +72,8 @@
           </div>
           <div class="bg-[#F3F3F3] rounded-b-[20px] p-2 md:p-5">
             <p
-              class="capitalize text-[10px] lg:text-[12px] text-[#121212] bg-[#DAC8FF] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"
+              :class="item?.type == 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
+              class="capitalize text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"
             >
               {{ item?.type }}
             </p>

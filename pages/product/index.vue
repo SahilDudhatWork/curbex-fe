@@ -15,9 +15,10 @@
         <!-- Product Type Filter -->
         <div class="relative order-2 lg:order-1">
           <button
+            @click="toggleProductTypeDropdown"
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
           >
-            Product type
+            {{ selectedProductType || "Product type" }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="w-4 h-4"
@@ -33,33 +34,47 @@
               />
             </svg>
           </button>
+          <div
+            v-if="isProductTypeOpen"
+            class="absolute z-10 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200"
+          >
+            <div
+              v-for="type in productTypes"
+              :key="type"
+              @click="selectProductType(type)"
+              class="px-4 py-2 text-[12px] lg:text-[14px] hover:bg-gray-100 cursor-pointer"
+            >
+              {{ type }}
+            </div>
+          </div>
         </div>
 
         <!-- Price Filter -->
         <div class="relative order-3 lg:order-2">
           <button
+            @click="togglePriceSort"
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
           >
             Price
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="w-4 h-4"
-              fill="none"
               viewBox="0 0 24 24"
+              fill="none"
               stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
+              <path d="M7 15l5 5 5-5" v-if="priceSort === 'desc'" />
+              <path d="M7 9l5-5 5 5" v-if="priceSort === 'asc'" />
+              <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!priceSort" />
             </svg>
           </button>
         </div>
 
         <!-- Review Filter -->
-        <div class="relative order-4 lg:order-3">
+        <!-- <div class="relative order-4 lg:order-3">
           <button
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
           >
@@ -79,10 +94,10 @@
               />
             </svg>
           </button>
-        </div>
+        </div> -->
 
         <!-- Location Filter -->
-        <div class="relative order-5 lg:order-4">
+        <!-- <div class="relative order-5 lg:order-4">
           <button
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
           >
@@ -102,10 +117,10 @@
               />
             </svg>
           </button>
-        </div>
+        </div> -->
 
         <!-- Offer Filter -->
-        <div class="relative order-6 lg:order-5">
+        <!-- <div class="relative order-6 lg:order-5">
           <button
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
           >
@@ -125,10 +140,10 @@
               />
             </svg>
           </button>
-        </div>
+        </div> -->
 
         <!-- For Purchase Button -->
-        <div class="lg:ml-auto order-1 lg:order-6">
+        <!-- <div class="lg:ml-auto order-1 lg:order-6">
           <button
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#FFA900] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
           >
@@ -148,7 +163,7 @@
               />
             </svg>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
     <div
@@ -169,9 +184,7 @@
         >
           <span class="" v-if="item.isTrending">Trending</span>
 
-          <span class="" v-else-if="item.isBestSeller"
-            >Best Seller</span
-          >
+          <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
         <div class="border-2 border-[#F3F3F3] rounded-t-[10px] relative">
@@ -216,14 +229,17 @@
         </div>
         <div class="bg-[#F3F3F3] rounded-b-[10px] p-2 md:p-3 lg:p-5">
           <p
-            class="text-[10px] lg:text-[12px] text-[#121212] bg-[#DAC8FF] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF]"
+            :class="item?.type === 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
+            class="text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF] capitalize"
           >
             {{ item?.type }}
           </p>
           <div
             class="flex items-start justify-between pb-[5px] md:pb-[0] lg:pb-[5px]"
           >
-            <p class="text-[12px] lg:text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis">
+            <p
+              class="text-[12px] lg:text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis"
+            >
               {{ item?.name }}
             </p>
             <div>
@@ -260,8 +276,28 @@
       </button>
 
       <div class="flex items-center gap-2">
+        <!-- First page -->
         <button
-          v-for="page in totalPages"
+          v-if="totalPages > 0"
+          :class="[
+            'w-[28px] md:w-[40px] h-[28px] md:h-[40px] rounded-md',
+            1 === pagination.currentPage
+              ? 'bg-[#FFA900] text-[#121212]'
+              : 'hover:bg-gray-100 border border-[#F3F3F3] text-[#121212]',
+          ]"
+          @click="changePage(1)"
+        >
+          1
+        </button>
+
+        <!-- Ellipsis if needed -->
+        <span v-if="pagination.currentPage > 3" class="text-[#121212]"
+          >...</span
+        >
+
+        <!-- Current page and surrounding pages -->
+        <button
+          v-for="page in visiblePages"
           :key="page"
           :class="[
             'w-[28px] md:w-[40px] h-[28px] md:h-[40px] rounded-md',
@@ -272,6 +308,27 @@
           @click="changePage(page)"
         >
           {{ page }}
+        </button>
+
+        <!-- Ellipsis if needed -->
+        <span
+          v-if="pagination.currentPage < totalPages - 2"
+          class="text-[#121212]"
+          >...</span
+        >
+
+        <!-- Last page -->
+        <button
+          v-if="totalPages > 1"
+          :class="[
+            'w-[28px] md:w-[40px] h-[28px] md:h-[40px] rounded-md',
+            totalPages === pagination.currentPage
+              ? 'bg-[#FFA900] text-[#121212]'
+              : 'hover:bg-gray-100 border border-[#F3F3F3] text-[#121212]',
+          ]"
+          @click="changePage(totalPages)"
+        >
+          {{ totalPages }}
         </button>
       </div>
 
@@ -296,8 +353,13 @@ export default {
         limit: 10,
         total: 0,
       },
+      isProductTypeOpen: false,
+      selectedProductType: "",
+      productTypes: ["Rental", "Retail"],
+      priceSort: "", // '' for default, 'asc' for ascending, 'desc' for descending
     };
   },
+
   watch: {
     allProductData: {
       immediate: true,
@@ -315,24 +377,85 @@ export default {
     totalPages() {
       return Math.ceil(this.pagination.total / this.pagination.limit);
     },
+    visiblePages() {
+      let pages = [];
+      const current = this.pagination.currentPage;
+
+      if (this.totalPages <= 5) {
+        // If total pages are 5 or less, show all pages
+        for (let i = 2; i < this.totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        // Show pages around current page
+        if (current > 2 && current < this.totalPages - 1) {
+          pages = [current - 1, current, current + 1];
+        } else if (current <= 2) {
+          pages = [2, 3];
+        } else if (current >= this.totalPages - 1) {
+          pages = [this.totalPages - 2, this.totalPages - 1];
+        }
+      }
+
+      return pages;
+    },
   },
   methods: {
     ...mapActions({
       fetchProducts: "product/fetchProducts",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
+    toggleProductTypeDropdown() {
+      this.isProductTypeOpen = !this.isProductTypeOpen;
+    },
+    togglePriceSort() {
+      if (!this.priceSort) {
+        this.priceSort = "asc";
+      } else if (this.priceSort === "asc") {
+        this.priceSort = "desc";
+      } else {
+        this.priceSort = "";
+      }
+      console.log(this.priceSort, "priceSort");
+      this.getAllProducts();
+    },
+
+    selectProductType(type) {
+      this.isProductTypeOpen = false;
+
+      if (this.selectedProductType == type) {
+        return;
+      }
+      this.selectedProductType = type;
+      this.getAllProducts();
+    },
     async getAllProducts() {
       try {
         const { currentPage, limit } = this.pagination;
         const skip = (currentPage - 1) * limit;
 
-        let payload = {
+        let apiPayload = {
           skip,
           take: limit,
-          order: { id: "ASC" },
           relations: ["images"],
         };
-        await this.fetchProducts(payload);
+        if (this.selectedProductType) {
+          apiPayload.where = {
+            type: this.selectedProductType.toLowerCase(),
+          };
+        }
+        // Add sorting based on priceSort
+        if (this.priceSort) {
+          apiPayload.order = {
+            price: this.priceSort.toUpperCase(),
+          };
+        } else {
+          apiPayload.order = {
+            id: "ASC",
+          };
+        }
+
+        await this.fetchProducts(apiPayload);
       } catch (error) {
         console.log(error);
       }

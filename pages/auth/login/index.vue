@@ -164,7 +164,7 @@
         <NuxtLink to="/terms" class="text-black underline"
           >Terms & Conditions</NuxtLink
         >,
-        <NuxtLink to="/privacy" class="text-black underline"
+        <NuxtLink to="/privacy-policy" class="text-black underline"
           >Privacy Notice</NuxtLink
         >
         and
