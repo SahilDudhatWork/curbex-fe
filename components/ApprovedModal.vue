@@ -37,25 +37,44 @@
   
   <style scoped>
   .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99;
-  }
-  .modal {
-    background: #FCFCFC;
-    border-radius: 16px;
-    box-shadow: 0px -3px 30px -12px #0000001a;
-    max-width: 361px;
-    width: 90%;
-    position: relative;
-    overflow: hidden;
-  }
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9;
+    }
+    .modal {
+      background: #FCFCFC;
+      border-radius: 16px;
+      box-shadow: 0px -3px 30px -12px #0000001a;
+      max-width: 470px;
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+    }
+    @media screen and (max-width:767px){
+        .border-seaction::after{
+            content: "";
+            border: solid transparent;
+        }
+        .topSectionXS{
+            display: none;
+        }
+        .modal-overlay{
+            position: relative;
+            background: transparent;
+            margin: 2rem 0;
+            display: flex;
+        }
+        .modal{
+            box-shadow: none;
+            background: #FFFFFF;
+        }
+    }
   </style>
   
