@@ -69,11 +69,11 @@ export default {
           };
           this.getMapLocation = location;
           this.marker.position = location;
-
+          this.latLng = this.marker.position;
           if (this.$refs.mapRef?.panTo) {
             this.$refs.mapRef.panTo(location);
           }
-          this.getAddress(false);
+          this.getAddress();
         }
       },
     },

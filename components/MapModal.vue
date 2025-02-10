@@ -38,7 +38,11 @@
                   />
                 </div>
               </div>
-              <GoogleMap :height="343" @updateAddress="getAddress" />
+              <GoogleMap
+                :height="343"
+                :addressDetails="addressDetails"
+                @updateAddress="getAddress"
+              />
             </div>
             <div
               class="flex justify-between items-center sm:flex-row flex-col mt-6 pb-5"
@@ -82,7 +86,13 @@ export default {
       type: Boolean,
       required: true,
     },
+    addressDetails: {
+      type: Object,
+      default: () => ({}),
+      required: false,
+    },
   },
+
   data() {
     return {
       location: {},

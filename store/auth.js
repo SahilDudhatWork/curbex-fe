@@ -1,4 +1,5 @@
 import $axios from "@/plugins/axios";
+import axios from "axios";
 
 export const state = () => ({
   userData: {},
@@ -67,7 +68,7 @@ export const actions = {
   async fetchAddressFromCoordinates({ commit }, { latitude, longitude }) {
     try {
       const googlemapKey = process.env.GOOGLEMAP_KEY;
-      const response = await $axios.get(
+      const response = await axios.get(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googlemapKey}`
       );
       if (response.data.status === "OK") {

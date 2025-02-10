@@ -413,6 +413,7 @@
 
       <MapModal
         :isVisible="isVisible"
+        :addressDetails="addressDetails"
         @closeModal="closeModal"
         @openMapModal="openMapModal"
         @handleClick="handleMap"
@@ -430,6 +431,7 @@ export default {
     return {
       isVisible: false,
       isGridVisible: false,
+      addressDetails: {},
       formData: {
         street: "",
         province: "",
@@ -476,8 +478,8 @@ export default {
       this.isVisible = false;
     },
     openMapModal() {
-      this.isVisible = true;
       this.getCurrentLocation();
+      this.isVisible = true;
     },
     handleMap() {
       this.isVisible = false;
@@ -499,8 +501,21 @@ export default {
     handleSuccess(position) {
       this.formData.latitude = position.coords.latitude;
       this.formData.longitude = position.coords.longitude;
-      let res = this.fetchAddressFromCoordinates(this.formData);
-      console.log("res->>", res);
+      this.addressDetails = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude,
+      };
+    },
+    async getAddressFromCoordinates(location) {
+      try {
+        let res = await this.fetchAddressFromCoordinates({
+          latitude: location.latitude,
+          longitude: location.longitude,
+        });
+      } catch (error) {
+        console.error("Error fetching address:", error);
+      } finally {
+      }
     },
     initAutocomplete() {
       try {
