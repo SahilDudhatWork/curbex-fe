@@ -29,7 +29,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ],
   // purge: [
   //   "./components/**/*.vue",
   //   "./layouts/**/*.vue",
