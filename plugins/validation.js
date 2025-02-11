@@ -183,6 +183,41 @@ export default async (ctx, inject) => {
     return value;
   };
 
+  const passwordValidation = async ({ form }) => {
+    const errors = {};
+    const isEmpty = (value) => {
+      return typeof value === "string" ? value.trim() === "" : !value;
+    };
+    const setError = (fieldName, message) => {
+      errors[fieldName] = message;
+    };
+
+    const validateField = (field, fieldName, errorLabel) => {
+      if (isEmpty(field)) {
+        setError(fieldName, `${errorLabel} is required`);
+      }
+    };
+    if ("oldPassword" in form) {
+      validateField(form.oldPassword, "oldPassword", "current-password");
+    }
+
+    validateField(form.password, "password", "new-password");
+    validateField(form.confirmPassword, "confirmPassword", "confirm-password");
+
+    // Add password strength validation
+    if (form.password) {
+      const passwordError = validatePassword(form.password);
+      if (passwordError) {
+        setError("password", passwordError);
+      }
+    }
+    if (form.password !== form.confirmPassword) {
+      setError("confirmPassword", "Passwords do not match.");
+    }
+
+    return errors;
+  };
+
   inject("validateRegisterFormData", validateRegisterFormData);
   inject("validateLoginFormData", validateLoginFormData);
   inject("validateNumber", validateNumber);
@@ -192,4 +227,5 @@ export default async (ctx, inject) => {
   inject("formatCardNumber", formatCardNumber);
   inject("formatCVV", formatCVV);
   inject("validatePaymentFormData", validatePaymentFormData);
+  inject("passwordValidation", passwordValidation);
 };

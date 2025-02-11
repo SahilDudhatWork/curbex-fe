@@ -148,7 +148,14 @@ export default {
     async handleResetPassword() {
       try {
         this.formData.code = this.$route.query.code;
+        this.errors = await this.$passwordValidation({
+          form: this.formData,
+        });
+        if (Object.keys(this.errors).length > 0) {
+          return;
+        }
         await this.resetPassword(this.formData);
+        this.$router.push("/auth/login");
         this.$toast.open({
           message: this.$i18n.t("resetPasswordSuccessMessage"),
           type: "success",

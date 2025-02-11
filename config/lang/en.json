@@ -26,5 +26,6 @@
     "fileNotImageMessage":"File is not an image",
     "forgotPasswordSuccessMessage":"Reset password email sent",
     "resetPasswordSuccessMessage":"Password reset successfully",
+    "updatePasswordSuccessMessage":"Password updated successfully",
     "orderPlacedSuccessfully":"Order placed successfully"
 }

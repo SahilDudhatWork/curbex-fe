@@ -48,9 +48,16 @@
           >
           <input
             :type="isCurrentPasswordVisible ? 'text' : 'password'"
+            v-model="formData.oldPassword"
+            :class="{ 'border-[red]': errors?.oldPassword }"
             class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             placeholder="Password"
           />
+          <span
+            v-if="errors?.oldPassword"
+            class="text-[red] text-[12px] pl-[3px]"
+            >{{ errors?.oldPassword }}</span
+          >
           <div
             class="absolute top-[42px] right-[13px] cursor-pointer"
             @click="togglePasswordVisibility('current')"
@@ -105,9 +112,16 @@
           >
           <input
             :type="isNewPasswordVisible ? 'text' : 'password'"
+            v-model="formData.password"
+            :class="{ 'border-[red]': errors?.password }"
             class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             placeholder="Password"
           />
+          <span
+            v-if="errors?.password"
+            class="text-[red] text-[12px] pl-[3px]"
+            >{{ errors?.password }}</span
+          >
           <div
             class="absolute top-[42px] right-[13px] cursor-pointer"
             @click="togglePasswordVisibility('new')"
@@ -162,9 +176,16 @@
           >
           <input
             :type="isConfirmPasswordVisible ? 'text' : 'password'"
+            v-model="formData.confirmPassword"
+            :class="{ 'border-[red]': errors?.confirmPassword }"
             class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             placeholder="Password"
           />
+          <span
+            v-if="errors?.confirmPassword"
+            class="text-[red] text-[12px] pl-[3px]"
+            >{{ errors?.confirmPassword }}</span
+          >
           <div
             class="absolute top-[42px] right-[13px] cursor-pointer"
             @click="togglePasswordVisibility('confirm')"
@@ -263,6 +284,7 @@
           </svg>
         </button>
         <button
+          @click="changePassword"
           class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition"
         >
           Save
@@ -285,6 +307,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   layout: "profileLayout",
   data() {
@@ -292,9 +315,18 @@ export default {
       isCurrentPasswordVisible: false,
       isNewPasswordVisible: false,
       isConfirmPasswordVisible: false,
+      formData: {
+        oldPassword: "",
+        password: "",
+        confirmPassword: "",
+      },
+      errors: {},
     };
   },
   methods: {
+    ...mapActions({
+      updatePassword: "auth/updatePassword",
+    }),
     togglePasswordVisibility(field) {
       if (field === "current") {
         this.isCurrentPasswordVisible = !this.isCurrentPasswordVisible;
@@ -302,6 +334,28 @@ export default {
         this.isNewPasswordVisible = !this.isNewPasswordVisible;
       } else if (field === "confirm") {
         this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible;
+      }
+    },
+    async changePassword() {
+      try {
+        this.errors = await this.$passwordValidation({
+          form: this.formData,
+        });
+        if (Object.keys(this.errors).length > 0) {
+          return;
+        }
+        await this.updatePassword(this.formData);
+        this.$toast.open({
+          message: this.$i18n.t("updatePasswordSuccessMessage"),
+          type: "success",
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
       }
     },
   },
