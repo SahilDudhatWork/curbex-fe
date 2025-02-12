@@ -616,7 +616,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -650,8 +650,12 @@ export default {
     }),
   },
   methods: {
+    ...mapMutations({
+      setFavoriteProductIds: "product/setFavoriteProductIds",
+    }),
     ...mapActions({
       fetchCartItems: "product/fetchCartItems",
+      fetchFavoriteProductsIds: "product/fetchFavoriteProducts",
     }),
     isActive(route) {
       return this.$route.path === route;
@@ -677,10 +681,24 @@ export default {
   },
   async mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    const favoriteProductIds = this.$cookies.get("favoriteProductIds");
+    if (favoriteProductIds) {
+      let favoriteArray = favoriteProductIds
+        ? JSON.parse(favoriteProductIds)
+        : [];
+      this.setFavoriteProductIds(favoriteArray);
+    }
+
+    try {
+      await this.fetchFavoriteProductsIds();
+    } catch (error) {
+      console.log("Favorite products error:", error);
+    }
+
     try {
       await this.fetchCartItems();
     } catch (error) {
-      console.log("error", error);
+      console.log("Cart items error:", error);
     }
   },
   beforeDestroy() {

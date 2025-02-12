@@ -898,7 +898,7 @@ export default {
     },
     async toggleFavorite() {
       try {
-        await this.toggleFavoriteProduct({ id: this.productId });
+        await this.toggleFavoriteProduct({ id: this.product.id });
       } catch (error) {
         if (error.status == 401) {
           this.$toast.open({

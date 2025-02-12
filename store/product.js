@@ -9,6 +9,7 @@ export const state = () => ({
   cartItemCount: 0,
   cartItem: {},
   taxes: {},
+  favoriteProductIds: [],
 });
 
 export const getters = {
@@ -35,6 +36,9 @@ export const getters = {
   },
   getTaxes(state) {
     return state.taxes;
+  },
+  getFavoriteProductIds(state) {
+    return state.favoriteProductIds;
   },
 };
 
@@ -94,6 +98,9 @@ export const mutations = {
   setTaxes(state, payload) {
     state.taxes = payload;
   },
+  setFavoriteProductIds(state, payload) {
+    state.favoriteProductIds = payload;
+  },
 };
 
 export const actions = {
@@ -136,7 +143,10 @@ export const actions = {
   async fetchFavoriteProducts(ctx, payload) {
     try {
       const response = await $axios.get(`/products/favourites`);
-      ctx.commit("setProductData", { records: response });
+      this.$cookies.set("favoriteProductIds", JSON.stringify(response), {
+        expires: 30,
+      });
+      ctx.commit("setFavoriteProductIds", response);
       return response;
     } catch (error) {
       throw error;
@@ -146,7 +156,28 @@ export const actions = {
     try {
       let { id, type = "" } = payload;
       const response = await $axios.post(`/products/${id}/favourite`);
+
+      // Get current favorites from cookies
+      const currentFavorites = this.$cookies.get("favoriteProductIds");
+      let favoriteArray = currentFavorites ? JSON.parse(currentFavorites) : [];
+
+      // Check if ID exists in array
+      const idExists = favoriteArray.includes(id);
+
+      if (idExists) {
+        // Remove ID if it exists
+        favoriteArray = favoriteArray.filter((favId) => favId !== id);
+      } else {
+        // Add ID if it doesn't exist
+        favoriteArray.push(id);
+      }
+      // Update cookies with new array
+      this.$cookies.set("favoriteProductIds", JSON.stringify(favoriteArray), {
+        expires: 30,
+      });
+
       ctx.commit("updateSingleProduct", { id: id });
+      ctx.commit("setFavoriteProductIds", favoriteArray);
 
       // if (type == "rental") {
       //   ctx.commit("setFavoriteRentalProduct", { id: id });
@@ -170,7 +201,6 @@ export const actions = {
   },
   async updateCartItem(ctx, payload) {
     try {
-      console.log(payload, "payload");
       let id;
       if (payload instanceof FormData) {
         id = payload.get("id");

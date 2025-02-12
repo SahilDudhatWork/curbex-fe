@@ -6,11 +6,15 @@
       </h1>
     </div>
     <div
-      v-if="favoriteProducts.records && favoriteProducts.records.length"
+      v-if="
+        allProductData &&
+        allProductData.records &&
+        allProductData.records.length
+      "
       class="max-w-5xl grid grid-cols-2 lg:grid-cols-3 gap-3 md:px-6"
     >
       <div
-        v-for="(item, index) in favoriteProducts.records"
+        v-for="(item, index) in allProductData.records"
         :key="index"
         @click="viewProduct(item.id)"
         class="item transition-all duration-300 rent-produt cursor-pointer"
@@ -76,25 +80,45 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   layout: "profileLayout",
+  data() {
+    return {
+      favoriteProducts: [],
+    };
+  },
   computed: {
     ...mapGetters({
-      favoriteProducts: "product/getProductData",
+      favoriteProductIds: "product/getFavoriteProductIds",
+      allProductData: "product/getAllProductData",
     }),
   },
   methods: {
     ...mapActions({
-      fetchFavoriteProducts: "product/fetchFavoriteProducts",
+      fetchFavoriteProductsIds: "product/fetchFavoriteProducts",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
+      fetchProducts: "product/fetchProducts",
     }),
     async viewProduct(id) {
       this.$router.push(`/product-view/${id}`);
     },
     async getFavoriteProducts() {
-      await this.fetchFavoriteProducts();
+      let payload = {
+        where: {
+          id: {
+            operator: "$in",
+            value: this.favoriteProductIds,
+          },
+        },
+        skip: 0,
+        take: 100,
+        order: { id: "ASC" },
+        relations: ["images"],
+      };
+      await this.fetchProducts(payload);
     },
     async removeFromFavorite(id) {
       try {
         await this.toggleFavoriteProduct({ id: id });
+        await this.fetchFavoriteProductsIds();
         await this.getFavoriteProducts();
       } catch (error) {
         console.log(error, "error");
@@ -109,6 +133,7 @@ export default {
     },
   },
   async mounted() {
+    await this.fetchFavoriteProductsIds();
     await this.getFavoriteProducts();
   },
 };

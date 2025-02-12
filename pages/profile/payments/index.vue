@@ -207,7 +207,6 @@ export default {
       cards: "payment/getCards",
     }),
     uniqueCardTypes() {
-      console.log("this.cards", this.cards);
       if (this.cards.length > 0) {
         return [...new Set(this.cards.map((card) => card.type))];
       }
