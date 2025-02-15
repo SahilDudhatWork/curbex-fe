@@ -497,7 +497,7 @@
             class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[25px] mb-5"
           >
             <p
-              class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium md:pb-[1.7rem] md:pt-[1rem]"
+              class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium md:pb-[1.7rem]"
             >
               Order Summary
             </p>
@@ -922,7 +922,7 @@
           <div
             class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[25px] mb-5"
           >
-            <div class="flex justify-between items-center pb-[1rem]">
+            <div class="flex justify-between items-center">
               <p class="text-[18px] font-Montserrat-Medium">
                 Choose how to pay
               </p>
@@ -938,7 +938,7 @@
               v-for="cardItem in cards"
               @click="cardSelect(cardItem.id)"
               :class="selectedCard === cardItem.id ? 'card-active' : ''"
-              class="bg-[#FFFFFF] border border-[#F5F5F5] rounded-[75px_25px_25px_75px] p-[15px] mb-5 flex items-center justify-between mg-4"
+              class="bg-[#FFFFFF] border border-[#F5F5F5] rounded-[75px_25px_25px_75px] p-[15px] flex items-center justify-between mg-4 mt-[1rem]"
             >
               <div class="flex items-center">
                 <div
@@ -960,14 +960,14 @@
             </div>
             <div
               v-else
-              class="bg-[#FFFFFF] border border-[#F5F5F5] rounded-[75px_75px_75px_75px] p-[15px] mb-5 flex items-center justify-center mg-4"
+              class="bg-[#FFFFFF] border border-[#F5F5F5] rounded-[75px_75px_75px_75px] p-[15px] flex items-center justify-center mg-4 mt-[1rem]"
             >
               <p class="text-[18px]">
                 You don't have any saved payment methods
               </p>
             </div>
           </div>
-          <div v-if="paymentDetailsShow">
+          <div v-if="paymentDetailsShow" class="pt-[1rem]">
             <p
               class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]"
             >

@@ -55,27 +55,25 @@
         </Slide>
       </Carousel>
     </div>
-    <div
-      class="container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212]"
-    >
-      <h2
-        class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal]"
-      >
+    <div class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden">
+      <h2 class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal] relative h-[155px] flex items-center justify-center gap-[20px] ">
+        <span class="your-span">your </span>
+        <span class="brand-span">brand,</span>
+        <span class="anytime-span">anytime, </span>
+        <span class="anywhere-span">anywhere</span>
+      </h2>
+    </div>
+    <div class="lg:hidden container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212]">
+      <h2 class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal]">
         your brand,
         <p class="lg:hidden"></p>
         anytime, anywhere
       </h2>
     </div>
-    <div
-      class="container medium-s-section mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]"
-    >
-      <div class="lg:text-center text-[#121212] lg:bg-[#F3F3F3] rounded-[20px]">
-        <h2
-          class="md:max-w-[768px] lg:max-w-full md:mx-auto px-6 md:px-0 text-[#121212] leading-[normal] text-[17px] md:text-[27px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] ml-[10px]"
-        >
-          <p
-            class="md:inline bg-[#F3F3F3] md:bg-[#F3F3F300] p-[18px_18px] rounded-[20px] mb-10 md:p-0 md:mb-0 ml-[-10px] md:ml-0"
-          >
+    <div class="container medium-s-section mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]">
+      <div class="lg:text-center text-[#121212] lg:bg-[#121212] rounded-[20px]">
+        <h2 class="md:bg-[#121212] lg:bg-[#12121200] md:p-[20px] md:max-w-[768px] lg:max-w-full md:mx-auto px-6 md:rounded-[20px] text-[#121212] md:text-[#FFFFFF] leading-[normal] text-[17px] md:text-[27px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] ml-[10px]">
+          <p class="md:inline bg-[#121212] md:bg-[#121212] text-[#FFFFFF] p-[18px_18px] rounded-[20px] mb-6 md:p-0 md:mb-0 ml-[-10px] md:ml-0">
             Curbside Express Advertising in your community.
           </p>
           Help us create your customer journey
@@ -99,7 +97,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Small Business & Franchise 
             </div>
@@ -116,7 +114,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Government & Non-Profit
             </div>
@@ -133,7 +131,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Media Buyers/ Agencies
             </div>
@@ -150,7 +148,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[32px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Commercial Property Owners
             </div>
@@ -162,7 +160,7 @@
       class="mt-10 md:mt-[2.5rem] lg:mt-[2.5rem] container mx-auto px-6 md:px-0"
     >
       <p
-        class="font-Montserrat-Bold w-fit bg-[#FFA900] text-[#121212] md:font-bold text-[16px] md:text-[24px] rounded-full py-[8px] px-6 mb-[29px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         For Rent
       </p>
@@ -176,10 +174,10 @@
       />
     </div>
     <div
-      class="mt-10 md:mt-[2.5rem] lg:mt-[2.5rem] container mx-auto px-6 md:px-0"
+      class="mt-10 md:mt-[2.5rem] lg:mt-[3rem] container mx-auto px-6 md:px-0"
     >
       <p
-        class="font-Montserrat-Bold w-fit bg-[#FFA900] text-[#121212] md:font-bold text-[16px] md:text-[24px] rounded-full py-[8px] px-6 mb-[29px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         For Purchase
       </p>
@@ -194,7 +192,7 @@
     </div>
     <div class="container px-6 md:px-0 mx-auto my-[3rem]">
       <div
-        style="background-image: url(/Images/3.png)"
+        style="background-image: url(/Images/banner-1.png)"
         class="w-full min-h-[348px] md:min-h-[464px] bg-no-repeat bg-cover bg-[14%] rounded-[25px]"
       ></div>
       <!-- <img src="/Images/3.png" alt="" > -->
@@ -203,7 +201,7 @@
       class="mt-6 md:mt-[2.5rem] lg:mt-[2.5rem] container mx-auto px-6 md:px-0"
     >
       <p
-        class="font-Montserrat-Bold w-fit bg-[#FFA900] text-[#121212] md:font-bold text-[16px] md:text-[24px] rounded-full py-[8px] px-6 mb-[29px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         Costumer Experiences
       </p>
@@ -213,11 +211,11 @@
       class="container mx-auto px-6 md:px-0 md:mt-[3rem] mb-[5rem] mt-[4rem] md:mt-[1rem] lg:mt-[4rem]"
     >
       <div
-        style="background-image: url(/Images/B1.png)"
+        style="background-image: url(/Images/banner-2.png)"
         class="w-full min-h-[348px] md:min-h-[464px] bg-no-repeat bg-[length:220%_100%] md:bg-cover bg-[0%] rounded-[25px]"
       >
         <img
-          src="/Images/B1.png"
+          src="/Images/banner-2.png"
           alt=""
           class="w-full rounded-[25px] min-h-[348px] xs:min-h-auto bg-no-repeat bg-center hidden lg:block"
         />
@@ -281,4 +279,23 @@ export default {
   async mounted() {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+    @keyframes slideInOut {
+    0% { transform: translateY(117px); opacity: 0; }
+    20% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(0); opacity: 0; } /* Hold position */
+    100% { transform: translateY(117px); opacity: 0; }
+  }
+
+  .your-span, .brand-span, .anytime-span, .anywhere-span {
+    display: block;
+    opacity: 0;
+    transform: translateY(117px);
+    animation: slideInOut 4s ease-in-out infinite;
+  }
+
+  .your-span { animation-delay: 0s; }
+  .brand-span { animation-delay: 0.5s; }
+  .anytime-span { animation-delay: 1s; }
+  .anywhere-span { animation-delay: 1.5s; }
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto flex flex-wrap min-h-screen py-0 md:py-[3rem] lg:py-[10rem]"
+    class="container mx-auto flex flex-wrap py-0 md:py-[3rem] lg:py-[3rem]"
   >
     <div
       class="flex-1 lg:max-w-[640px] p-6 mx-auto lg:p-10 pt-0 bg-white order-2 lg:order-1"

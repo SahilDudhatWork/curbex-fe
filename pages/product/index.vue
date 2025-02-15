@@ -13,10 +13,10 @@
         class="flex items-center gap-2 lg:gap-4 mb-[3.5rem] md:mb-[4.5rem] flex-wrap"
       >
         <!-- Product Type Filter -->
-        <div class="relative order-2 lg:order-1">
+        <div class="relative order-2 lg:order-1 z-10">
           <button
             @click="toggleProductTypeDropdown"
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
+            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#121212] text-[#F3F3F3] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
           >
             {{ selectedProductType || "Product type" }}
             <svg
@@ -36,13 +36,13 @@
           </button>
           <div
             v-if="isProductTypeOpen"
-            class="absolute z-10 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200"
+            class="bg-[#FFFFFF] p-[10px_15px] border border-[#C3C3C3] mt-[-41px] rounded-[25px] absolute left-0 right-0 z-1 overflow-hidden opacity-0 transition-all openDropdown"
           >
             <div
               v-for="type in productTypes"
               :key="type"
               @click="selectProductType(type)"
-              class="px-4 py-2 text-[12px] lg:text-[14px] hover:bg-gray-100 cursor-pointer"
+              class="py-2 text-[#121212] text-[10px] lg:text-[15px] cursor-pointer"
             >
               {{ type }}
             </div>
@@ -187,23 +187,23 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="border-2 border-[#F3F3F3] rounded-t-[10px] relative">
+        <div class="border-2 border-[#F3F3F3] rounded-t-[20px] relative">
           <img
             src="/Images/Product/product.png"
             alt=""
-            class="rounded-t-[10px] first-image"
+            class="rounded-t-[20px] first-image"
           />
           <img
             v-if="item.images && item.images.length"
             :src="item.images[0].imageUrl"
             alt=""
-            class="rounded-t-[10px] hidden-important absolute inset-0 transition-opacity duration-300"
+            class="rounded-t-[20px] hidden-important absolute inset-0 transition-opacity duration-300"
           />
           <img
             v-else
             src="/Images/Product/product-1.png"
             alt=""
-            class="rounded-t-[10px] hidden-important absolute inset-0 transition-opacity duration-300"
+            class="rounded-t-[20px] hidden-important absolute inset-0 transition-opacity duration-300"
           />
           <span
             @click="toggleFavorite(item)"
@@ -229,7 +229,7 @@
             </svg>
           </span>
         </div>
-        <div class="bg-[#F3F3F3] rounded-b-[10px] p-2 md:p-3 lg:p-5">
+        <div class="bg-[#F3F3F3] rounded-b-[20px] p-2 md:p-3 lg:p-5">
           <p
             :class="item?.type === 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
             class="text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF] capitalize"
@@ -489,3 +489,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+.openDropdown {
+  height: auto;
+  padding-top: 52px;
+  opacity: 1;
+}
+</style>

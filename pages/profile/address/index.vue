@@ -165,15 +165,15 @@
             Make it your Default Address
           </p>
         </div>
-
         <button
           @click="toggleGrid"
-          class="w-full bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem]"
+          :class="isGridVisible ? 'buttonActive'  : ''"
+          class="w-[94.5%] bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem] "
         >
           + Add a new address
         </button>
         <div v-if="isGridVisible">
-          <div class="grid grid-cols-1 gap-2 md:gap-4">
+          <div class="grid grid-cols-1 gap-2 md:gap-4 w-[94.5%]">
             <!-- Business Name -->
             <!-- <div
               class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4"
@@ -345,7 +345,7 @@
           </div>
           <!-- Action Buttons -->
           <div
-            class="flex flex-col gap-4 md:col-span-2 mt-[10px] justify-end w-full lg:max-w-[100%] lg:w-full pb-[2rem] md:pb-0"
+            class="flex flex-col gap-4 md:col-span-2 mt-[10px] justify-end w-full lg:max-w-[94.5%] lg:w-full pb-[2rem] md:pb-0"
           >
             <button
               @click="handleSaveAddress()"
@@ -366,6 +366,7 @@
               </svg>
             </button>
             <button
+              @click="toggleGrid"
               class="group w-full flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition"
             >
               Cancel
@@ -550,7 +551,8 @@ export default {
             message: this.$i18n.t("addressCreatedSuccessfully"),
           });
         }
-
+        await this.profile();
+        
         this.formData = {};
       } catch (error) {
         console.log(error, "error");
@@ -651,6 +653,10 @@ export default {
 }
 .address-tab-Active .address-details svg path {
   stroke: #121212;
+}
+.buttonActive{
+  background-color: #8D54FF;
+  color: #ffffff;
 }
 @media screen and (max-width: 1023px) {
   .radio-section {

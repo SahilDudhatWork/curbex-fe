@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[32rem] space-y-8 w-full md:w-[90%] md:p-8">
+  <div class="max-w-[22rem] space-y-8 w-full md:w-[90%] md:p-8">
     <!-- Notifications Section -->
     <!-- <div>
         <h2 class="text-[18px] md:text-[20px] lg:text-[24px] font-semibold mb-6">Notifications</h2>
@@ -242,7 +242,7 @@
         class="flex gap-3 md:gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem] flex-wrap"
       >
         <button
-          class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition"
+          class="group order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[16px] font-medium border border-[#121212] text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition"
         >
           Cancel
           <svg
@@ -285,7 +285,7 @@
         </button>
         <button
           @click="changePassword"
-          class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition"
+          class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[16px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition"
         >
           Save
           <svg

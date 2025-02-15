@@ -72,7 +72,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full md:w-[60%]">
+      <div class="w-full md:w-[60%] pb-[2rem] md:pb-[4rem]">
         <div
           class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px]"
         >

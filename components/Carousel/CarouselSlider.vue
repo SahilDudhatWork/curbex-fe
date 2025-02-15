@@ -79,7 +79,7 @@
             </p>
             <div class="flex items-end justify-between pb-[5px]">
               <p
-                class="text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[96px] md:max-w-[80%] w-full overflow-hidden text-ellipsis"
+                class="text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis"
               >
                 {{ item?.name }}
               </p>

@@ -5,7 +5,7 @@
       <div class="container mx-auto mb-[3rem] md:mb-[6rem]">
         <div class="pt-5 md:pt-12">
           <img
-            src="/Images/event/1.png"
+            src="/Images/event/event.png"
             alt=""
             class="rounded-[20px] object-cover w-full"
           />
@@ -27,14 +27,14 @@
         </div>
         <div class="flex justify-center mt-4 md:mt-10">
           <p
-            class="text-[#000000] font-semibold text-[18px] font-Montserrat-Medium md:text-[23px] md:max-w-[600px] lg:max-w-full lg:text-[33px] text-center"
+            class="text-[#000000] font-[600] text-[18px] font-Montserrat-Medium md:text-[23px] md:max-w-[600px] lg:max-w-full lg:text-[30px] text-center"
           >
-            Impactful Signage Solutions for Events
+            High-Impact, Cost-Effective Signage for Events
           </p>
         </div>
         <div class="flex justify-center pt-[1rem] md:pt-0">
           <p
-            class="text-[#000000] font-normal text-[16px] md:text-[23px] lg:text-[33px] pt-3 text-center"
+            class="text-[#000000] font-Montserrat-Bold font-bold text-[16px] md:text-[23px] lg:text-[50px] pt-3 text-center max-w-[200px] md:max-w-full"
           >
             Because Being Noticed Is Kind of a Big Deal
           </p>
@@ -43,13 +43,13 @@
       <!------------------------------------------------->
       <!--------------------- Always Out Front ---------------------->
       <div class="container mx-auto">
-        <div class="flex justify-center mt-10">
+        <!-- <div class="flex justify-center mt-10">
           <p
             class="border border-black px-10 py-5 rounded-[60px] md:border-[0] md:px-0 md:py-0 text-[#000000] font-bold text-[19px] sm:text-[26px] md:text-[29px] lg:text-[40px] font-Montserrat-Bold"
           >
             Always Out Front <sup>&#174;</sup>
           </p>
-        </div>
+        </div> -->
         <div class="flex justify-center mt-10">
           <p
             class="max-w-screen-xl mx-auto text-[#131313] font-normal text-[16px] md:text-[21px] text-left lg:text-center pb-5"
@@ -368,7 +368,7 @@
           </p>
         </div>
         <div class="flex items-end lg:items-center relative">
-          <div class="lg:grid w-[100%] sm:w-[60%] mt-10 lg:mt-0">
+          <div class="lg:grid w-[100%] sm:w-[60%] mt-10">
             <div class="flex flex-wrap lg:gap-6 lg:gap-x-7">
               <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
                 <div
@@ -460,13 +460,13 @@
               </div>
             </div>
           </div>
-          <div class="md:w-[70%] lg:w-[40%] hidden md:block">
+          <!-- <div class="md:w-[70%] lg:w-[40%] hidden md:block">
             <img
               src="/Images/government-non-profits/slap.png"
               alt=""
               class="max-w-[300px] lg:max-w-[450px] md:w-full md:max-w-[94%] ml-auto"
             />
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -475,7 +475,7 @@
       class="mt-10 md:mt-[2.5rem] lg:mt-[2.5rem] container mx-auto px-6 md:px-0"
     >
       <p
-        class="font-Montserrat-Medium w-fit bg-[#FFA900] text-[#121212] font-bold md:font-semibold text-[16px] md:text-[24px] rounded-full py-[8px] px-6 mb-[29px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         For Rent
       </p>
@@ -492,7 +492,7 @@
       class="mt-10 md:mt-[2.5rem] lg:mt-[2.5rem] container mx-auto px-6 md:px-0"
     >
       <p
-        class="font-Montserrat-Medium w-fit bg-[#FFA900] text-[#121212] font-bold md:font-semibold text-[16px] md:text-[24px] rounded-full py-[8px] px-6 mb-[29px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         For Purchase
       </p>
@@ -515,7 +515,7 @@
           Get Started with Curbex Today
         </p>
         <p
-          class="text-[#000000] font-normal text-[16px] md:text-[26px] text-center pb-[10px]"
+          class="text-[#000000] font-normal text-[16px] md:text-[24px] text-center pb-[10px] max-w-[73%] mx-auto"
         >
           Maximize your event’s visibility with high-impact signage from Curbex.
         </p>
@@ -555,7 +555,7 @@
 
     <div class="container mx-auto mt-10 md:mt-20 mb-[5rem] px-6 md:px-0">
       <p
-        class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mb-[25px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         FAQ
       </p>
@@ -727,7 +727,7 @@
     >
       <div class="container mx-auto">
         <p
-          class="w-fit border-[2px] border-[#F3F3F3] md:border-none bg-[#FFA900] font-Montserrat-Medium text-[#121212] font-semibold text-[16px] sm:text-[18px] md:text-[24px] rounded-full py-[8px] px-6 mt-[-55px] mb-[10px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px]"
+          class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px] mt-[-55px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-auto md:mx-0"
         >
           projects on social media
         </p>

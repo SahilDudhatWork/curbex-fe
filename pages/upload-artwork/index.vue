@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[995px] mx-auto">
+  <div class="max-w-[995px] mx-auto mb-[2rem]">
     <div class="flex justify-between flex-wrap md:flex-nowrap">
       <div
         class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[20px] w-full md:w-[35%] h-fit mb-5 md:mb-0"
@@ -72,7 +72,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full md:w-[60%]">
+      <div class="w-full md:w-[60%] pb-[2rem] md:pb-[4rem]">
         <div
           class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px]"
         >

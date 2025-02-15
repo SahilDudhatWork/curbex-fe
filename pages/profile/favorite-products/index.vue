@@ -72,6 +72,7 @@
         </div>
       </div>
     </div>
+    <p v-else class="md:px-6">No favorite products added</p>
   </div>
 </template>
 

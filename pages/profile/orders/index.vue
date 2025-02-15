@@ -52,7 +52,7 @@
         <input
           type="text"
           placeholder="Search your order"
-          class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-3 border border-[#121212] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
+          class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
         <span class="absolute right-[14px] top-[14px] lg:top-[17px]">
           <svg

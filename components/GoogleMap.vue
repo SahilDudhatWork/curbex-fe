@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="rounded-[25px] overflow-hidden">
     <GmapMap
       :center="getMapLocation"
       :zoom="12"

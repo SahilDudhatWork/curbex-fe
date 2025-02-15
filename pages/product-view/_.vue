@@ -515,11 +515,11 @@
         </div>
       </div>
     </div>
-    <div class="container mx-auto px-6 md:px-0">
+    <div class="container mx-auto px-6 md:px-0 md:mb-10">
       <div class="flex flex-wrap lg:flex-nowrap pt-[50px]">
         <div class="w-full lg:w-[50%] order-2 lg:order-1 pb-[4rem] lg:pb-0">
           <p
-            class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[20px] rounded-full py-[8px] px-6 mb-[25px]"
+            class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
           >
             FAQ
           </p>
@@ -697,10 +697,9 @@
         </div>
       </div>
     </div>
-    <div class="container mx-auto px-6 md:px-0">
-      <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">You might also like</p> -->
+    <div class="container mx-auto px-6 md:px-0 md:mb-10">
       <p
-        class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[20px] rounded-full py-[8px] px-6 mb-[25px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         You might also like
       </p>
@@ -713,10 +712,10 @@
         type="rental"
       />
     </div>
-    <div class="container mx-auto px-6 md:px-0">
+    <div class="container mx-auto px-6 md:px-0 md:mb-10">
       <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold  pb-[2rem]">Downtowner in practice</p> -->
       <p
-        class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[20px] rounded-full py-[8px] mt-[3rem] lg:mt-[5rem] px-6 mb-[25px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         Downtowner in practice
       </p>
@@ -763,7 +762,7 @@
     <div class="container mx-auto px-6 md:px-0 pb-[4rem]">
       <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">From our costumers</p> -->
       <p
-        class="w-fit bg-[#FFA900] text-[#121212] font-Montserrat-Medium font-semibold text-[18px] md:text-[20px] rounded-full py-[8px] mt-[5rem] px-6 mb-[25px]"
+        class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
         From our costumers
       </p>

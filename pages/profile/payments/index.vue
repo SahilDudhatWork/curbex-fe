@@ -5,6 +5,7 @@
       <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6">My Cards</h2>
       <div class="max-w-[730px]">
         <Carousel
+        v-if="cards && cards.length"
           :autoplay="false"
           :autoplayTimeout="3000"
           :loop="false"
@@ -56,13 +57,16 @@
                 </div>
               </div>
             </div>
-          </Slide>
+          </Slide
+          >
         </Carousel>
+        <p v-else>No paymnent method added</p>
+        
       </div>
     </div>
 
     <!-- Saved Payment Options -->
-    <div class="pb-[2rem] pt-[1rem] lg:py-[2rem]">
+    <div class="pb-[2rem] pt-[1rem] lg:py-[2rem] max-w-[730px]">
       <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6">
         Saved Payment Options
       </h2>
@@ -170,7 +174,7 @@
           <div>
             <button
               @click="createPaymentCard"
-              class="text-[16px] md:text-[18px] bg-[#8D54FF] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
+              class="text-[16px] md:text-[18px] bg-[#121212] hover:bg-[#8D54FF] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
             >
               Create payment method
             </button>
@@ -242,7 +246,7 @@ export default {
         case "Discover":
           return "/Images/Profile/DiscoverLogo.png";
         default:
-          return "/Images/Profile/DefaultCard.png"; // Default card image
+          return "/Images/Profile/visaLogo.png"; // Default card image
       }
     },
     getSmallCardTypeImage(cardType) {
@@ -254,7 +258,7 @@ export default {
           return "/Images/Profile/Mastercard.png";
 
         default:
-          return "/Images/Profile/DefaultCard.png"; // Default card image
+          return "/Images/Profile/Visa.png"; // Default card image
       }
     },
     async validateCVV(e) {

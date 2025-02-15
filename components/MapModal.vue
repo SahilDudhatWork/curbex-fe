@@ -49,7 +49,7 @@
             >
               <div class="flex items-center gap-2.5">
                 <img src="@/static/svg/location.svg" alt="" />
-                <h1 class="text-[#121212] font-medium text-base">
+                <h1 class="text-[#121212] font-medium text-[12px] md:text-base">
                   {{ location?.street || "" }}
                 </h1>
               </div>

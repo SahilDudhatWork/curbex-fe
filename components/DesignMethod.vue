@@ -5,6 +5,12 @@
       <p class="bg-[#8D54FF] text-[18px] text-[#FFFFFF] p-[15px] text-center">
         Select Design Method
       </p>
+      <span class="absolute right-[19px] top-[15px] w-[25px] h-[25px] cursor-pointer flex justify-center items-center" @click="$emit('close')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L13 13" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M13 1L0.999999 13" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
       <div class="p-5">
         <div class="flex items-center">
           <div
