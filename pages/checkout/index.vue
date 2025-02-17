@@ -530,7 +530,7 @@
                 Total before discount
               </p>
               <p class="text-[16px] font-Montserrat-Medium">
-                ${{ cartTotal + (taxes?.rate || 0) }}
+                ${{ finalPaymentAmount }}
               </p>
             </div>
             <div
@@ -540,7 +540,7 @@
                 Total after discount
               </p>
               <p class="text-[16px] font-Montserrat-Medium">
-                ${{ cartTotal + (taxes?.rate || 0) }}
+                ${{ finalPaymentAmount }}
               </p>
             </div>
           </div>
@@ -944,7 +944,10 @@
                 <div
                   class="bg-[#FAFAFA] flex items-center justify-center w-[72px] h-[72px] rounded-[72px] mr-5"
                 >
-                  <img :src="getCardTypeImage(item?.type)" :alt="item?.type" />
+                  <img
+                    :src="getCardTypeImage(cardItem?.type)"
+                    :alt="cardItem?.type"
+                  />
                 </div>
                 <p class="text-[18px]">
                   {{ cardItem.type }} {{ cardItem.card }}
@@ -1224,6 +1227,9 @@ export default {
       );
       return total;
     },
+    finalPaymentAmount() {
+      return this.cartTotal + (this.cartTotal * (this.taxes?.rate || 0)) / 100;
+    },
   },
   methods: {
     ...mapActions({
@@ -1468,6 +1474,7 @@ export default {
             ? this.addressData.id
             : this.billingAddressData.id,
           dataKeyId: this.selectedCard,
+          price: this.finalPaymentAmount,
         };
         await this.createOrder(data);
         this.paymentDetails = {
