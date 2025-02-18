@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[22rem] space-y-8 w-full md:w-[90%] md:p-8">
+  <div class="max-w-[35rem] space-y-8 w-full md:w-[90%] md:p-8">
     <!-- Notifications Section -->
     <!-- <div>
         <h2 class="text-[18px] md:text-[20px] lg:text-[24px] font-semibold mb-6">Notifications</h2>
@@ -40,7 +40,7 @@
       <h2 class="text-[18px] md:text-[20px] lg:text-[24px] font-semibold mb-6">
         Password
       </h2>
-      <div class="space-y-4">
+      <div class="space-y-4 max-w-[20rem]">
         <div class="relative">
           <label
             class="text-[#000000] text-[14px] md:text-[18px] font-Montserrat-Medium"

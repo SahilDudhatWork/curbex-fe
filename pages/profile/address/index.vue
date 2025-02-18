@@ -173,7 +173,7 @@
           + Add a new address
         </button>
         <div v-if="isGridVisible">
-          <div class="grid grid-cols-1 gap-2 md:gap-4 w-[94.5%]">
+          <div class="grid grid-cols-1 gap-2 md:gap-4 w-[89%]">
             <!-- Business Name -->
             <!-- <div
               class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4"
@@ -453,6 +453,9 @@ export default {
         : [];
     },
     sortedAddresses() {
+      // if(this.userProfile.customerAddress){
+        return []
+      // }
       // Clone the array to avoid mutating the original
       const addresses = [...this.userProfile.customerAddress];
 

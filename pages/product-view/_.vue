@@ -760,11 +760,11 @@
       </Carousel>
     </div>
     <div class="container mx-auto px-6 md:px-0 pb-[4rem]">
-      <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">From our costumers</p> -->
+      <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold pt-[5rem] pb-[2rem]">From our customers</p> -->
       <p
         class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
-        From our costumers
+        From our customers
       </p>
       <Testimonial :testiminoalSlider="testiminoalSlider" />
     </div>

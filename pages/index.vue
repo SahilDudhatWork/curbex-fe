@@ -203,12 +203,12 @@
       <p
         class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
-        Costumer Experiences
+      Customer Experiences
       </p>
       <Testimonial :testiminoalSlider="testiminoalSlider" />
     </div>
     <div
-      class="container mx-auto px-6 md:px-0 md:mt-[3rem] mb-[5rem] mt-[4rem] md:mt-[1rem] lg:mt-[4rem]"
+      class="container mx-auto px-6 md:px-0 md:mt-[3rem] mb-[5rem] mt-[4rem] lg:mt-[4rem]"
     >
       <div
         style="background-image: url(/Images/banner-2.png)"

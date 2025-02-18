@@ -455,32 +455,32 @@
     </div>
     <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
       <div
-        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[3rem] md:p-[2rem] max-w-[986px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
+        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[3rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
       >
         <p
-          class="font-bold text-[30px] md:text-[50px] text-[#8D54FF] text-center font-Montserrat-Bold"
+          class="font-bold text-[30px] md:text-[40px] text-[#8D54FF] text-center font-Montserrat-Bold"
         >
           Get Started with Curbex Today
         </p>
         <p
-          class="text-[#000000] font-normal text-[16px] md:text-[24px] text-center py-[25px]"
+          class="text-[#000000] font-normal text-[16px] md:text-[20px] text-center py-[15px]"
         >
           Give your small business the attention it deserves
         </p>
         <p
-          class="text-[#000000] font-bold text-[16px] md:text-[26px] text-center"
+          class="text-[#000000] font-bold text-[16px] md:text-[20px] text-center"
         >
           Order your signs today and see how Curbex can help you achieve big
           results with small business-friendly solutions.
         </p>
       </div>
     </div>
-    <!------------------What costumers think about us------------------------------->
+    <!------------------What customers think about us------------------------------->
     <div class="border-b border-[#F3F3F3] md:mb-[7rem] mb-[4rem]">
       <p
         class="text-[#FCFCFC] font-medium text-[16px] sm:text-[17px] md:text-[24px] bg-[#121212] rounded-full py-[7px] md:py-[11px] px-7 w-fit text-center m-auto mb-[-26px]"
       >
-        What costumers think about us
+        What customers think about us
       </p>
     </div>
     <div class="container mx-auto px-6 md:px-0">

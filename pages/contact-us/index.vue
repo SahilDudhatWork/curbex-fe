@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-6 lg:p-[3rem_10rem_3rem_6rem] mb-5">
-    <div class="flex gap-12 mb-5 flex-wrap lg:flex-nowrap lg:mt-[25px]">
+    <div class="flex gap-12 mb-5 flex-wrap lg:flex-nowrap lg:mt-[4rem]">
       <!-- Left Column -->
       <div class="order-2 lg:order-1 lg:bg-[#FCFCFC] py-[3rem] lg:p-[4rem_2rem_1.7rem] rounded-[18px_0px_0px_18px] w-full lg:max-w-[452px]">
         <h2 class="text-[16px] lg:text-[24px] font-Montserrat-Bold mb-2">Other ways to connect</h2>

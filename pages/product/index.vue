@@ -50,7 +50,7 @@
         </div>
 
         <!-- Price Filter -->
-        <div class="relative order-3 lg:order-2">
+        <!-- <div class="relative order-3 lg:order-2">
           <button
             @click="togglePriceSort"
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
@@ -71,30 +71,20 @@
               <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!priceSort" />
             </svg>
           </button>
-        </div>
+        </div> -->
 
         <!-- Review Filter -->
-        <!-- <div class="relative order-4 lg:order-3">
-          <button
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-          >
-            Review
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+        <div class="relative order-4 lg:order-3 ml-auto flex items-center">
+          <button class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3">
+            Event & Trade Show
           </button>
-        </div> -->
+          <button class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3">
+            Exterior Promotions
+          </button>
+          <button class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10">
+            Interior Promotions
+          </button>
+        </div>
 
         <!-- Location Filter -->
         <!-- <div class="relative order-5 lg:order-4">
