@@ -5,7 +5,7 @@
       <h2 class="text-[20px] lg:text-[24px] font-semibold mb-6">My Cards</h2>
       <div class="max-w-[730px]">
         <Carousel
-        v-if="cards && cards.length"
+          v-if="cards && cards.length"
           :autoplay="false"
           :autoplayTimeout="3000"
           :loop="false"
@@ -13,13 +13,20 @@
           :dots="false"
           :perPageCustom="perPageCustom"
         >
-          <Slide v-for="item in cards" :key="item.id" class="relative p-2">
+          <Slide
+            v-for="(item, index) in cards"
+            :key="item.id"
+            class="relative p-2"
+          >
             <div
               class="min-w-[270px] md:min-w-[340px] p-3 md:p-6 rounded-[20px] text-white w-[100%] h-[175px] md:h-[225px] max-w-[357px] flex flex-col justify-between"
-              style="
-                background: url('/Images/Profile/CardBG.png') no-repeat center
-                  center / cover;
-              "
+              :style="{
+                background: `url(${
+                  index % 2 === 0
+                    ? '/Images/Profile/CardBG-2.png'
+                    : '/Images/Profile/CardBG.png'
+                }) no-repeat center center / cover`,
+              }"
             >
               <div class="flex justify-between items-center mb-8">
                 <img
@@ -57,11 +64,9 @@
                 </div>
               </div>
             </div>
-          </Slide
-          >
+          </Slide>
         </Carousel>
         <p v-else>No paymnent method added</p>
-        
       </div>
     </div>
 
@@ -236,10 +241,10 @@ export default {
     getCardTypeImage(cardType) {
       switch (cardType) {
         case "Visa":
-          return "/Images/Profile/visaLogo.png";
+          return "/Images/Profile/VisaLogo.png";
 
         case "MasterCard":
-          return "/Images/Profile/mastercard-1.png";
+          return "/Images/Profile/Mastercard-1.png";
         case "AmericanExpress":
           return "/Images/Profile/AmexLogo.png";
 
@@ -258,7 +263,7 @@ export default {
           return "/Images/Profile/Mastercard.png";
 
         default:
-          return "/Images/Profile/Visa.png"; // Default card image
+          return ""; // Default card image
       }
     },
     async validateCVV(e) {

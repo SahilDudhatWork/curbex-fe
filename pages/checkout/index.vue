@@ -1110,7 +1110,7 @@
           <div v-if="selectedCard">
             <button
               @click="placeOrder"
-              class="text-[16px] md:text-[18px] bg-[#8D54FF] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
+              class="text-[16px] md:text-[18px] bg-[#8D54FF] hover:bg-[#121212] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
             >
               Place order
             </button>
@@ -1118,7 +1118,7 @@
           <div v-if="paymentDetailsShow">
             <button
               @click="createPaymentCard"
-              class="text-[16px] md:text-[18px] bg-[#8D54FF] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
+              class="text-[16px] md:text-[18px] bg-[#8D54FF] hover:bg-[#121212] rounded-[8px] w-full p-[13px] mb-[1.5rem] text-[#FFFFFF]"
             >
               Create payment method
             </button>

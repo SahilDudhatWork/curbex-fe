@@ -75,13 +75,25 @@
 
         <!-- Review Filter -->
         <div class="relative order-4 lg:order-3 ml-auto flex items-center">
-          <button class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3">
+          <button
+            @click="handleSort('isEvent')"
+            :class="isEvent ? 'border border-[#121212]' : ' '"
+            class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3"
+          >
             Event & Trade Show
           </button>
-          <button class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3">
+          <button
+            @click="handleSort('isExterior')"
+            :class="isExterior ? 'border border-[#121212]' : ' '"
+            class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3"
+          >
             Exterior Promotions
           </button>
-          <button class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10">
+          <button
+            @click="handleSort('isInterior')"
+            :class="isInterior ? 'border border-[#121212]' : ' '"
+            class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
+          >
             Interior Promotions
           </button>
         </div>
@@ -349,6 +361,9 @@ export default {
       selectedProductType: "",
       productTypes: ["Rental", "Retail"],
       priceSort: "", // '' for default, 'asc' for ascending, 'desc' for descending
+      isEvent: false,
+      isExterior: false,
+      isInterior: false,
     };
   },
 
@@ -398,6 +413,15 @@ export default {
       fetchProducts: "product/fetchProducts",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
+    handleSort(type) {
+      if (type == "isEvent") {
+        this.isEvent = !this.isEvent;
+      } else if (type == "isExterior") {
+        this.isExterior = !this.isExterior;
+      } else if (type == "isInterior") {
+        this.isInterior = !this.isInterior;
+      }
+    },
     toggleProductTypeDropdown() {
       this.isProductTypeOpen = !this.isProductTypeOpen;
     },
