@@ -76,20 +76,20 @@
           :key="cardType"
           :src="getSmallCardTypeImage(cardType)"
           :alt="cardType"
-          class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain"
+          class="h-[45px] w-[66px] lg:h-[48px] lg:w-[70px] object-contain"
         />
         <img
           @click="addPaymentToggle"
           src="/Images/Profile/AddButton.png"
           alt="Add"
-          class="h-[45px] w-[66px] lg:h-[48px] lg:w-[48px] object-contain cursor-pointer"
+          class="h-[45px] w-[66px] lg:h-[48px] lg:w-[70px] object-contain cursor-pointer"
         />
       </div>
       <div v-if="paymentDetailsShow" class="pt-5">
         <p class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]">
           Add new payment method
         </p>
-        <div class="p-[15px_0px] mb-5">
+        <div class="p-[15px_0px] mb-5 max-w-[450px]">
           <div class="flex flex-col gap-1 w-full mb-5">
             <label
               class="hidden md:block font-Medium font-Montserrat-Medium text-[#121212] text-[18px]"

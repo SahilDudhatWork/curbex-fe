@@ -494,168 +494,7 @@
       >
         FAQ
       </p>
-      <div id="accordion-color" data-accordion="collapse">
-        <!-- First Accordion -->
-        <h2 id="accordion-color-heading-1" class="mb-4">
-          <button
-            type="button"
-            class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
-            :class="{ 'accordion-open': activeAccordion === 1 }"
-            :aria-expanded="activeAccordion === 1"
-            @click="toggleAccordion(1)"
-          >
-            <span class="text-left font-bold font-Montserrat-Medium"
-              >How soon can I receive my signage?</span
-            >
-            <svg
-              data-accordion-icon
-              class="shrink-0 transition-transform duration-300 transform"
-              :class="{ 'rotate-180': activeAccordion === 1 }"
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="11"
-                cy="11"
-                r="10"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <path
-                d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-color-body-1"
-          class="mb-4"
-          :class="{ hidden: activeAccordion !== 1 }"
-          aria-labelledby="accordion-color-heading-1"
-        >
-          <div
-            class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]"
-          >
-            <p class="text-gray-500 dark:text-gray-400">
-              We offer fast turnaround times, ensuring you have your signs
-              exactly when you need them.
-            </p>
-          </div>
-        </div>
-
-        <!-- Second Accordion -->
-        <h2 id="accordion-color-heading-2" class="mb-4">
-          <button
-            type="button"
-            class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
-            :class="{ 'accordion-open': activeAccordion === 2 }"
-            :aria-expanded="activeAccordion === 2"
-            @click="toggleAccordion(2)"
-          >
-            <span class="text-left font-bold font-Montserrat-Medium"
-              >Can I customize my signage to match my brand?</span
-            >
-            <svg
-              data-accordion-icon
-              class="shrink-0 transition-transform duration-300 transform"
-              :class="{ 'rotate-180': activeAccordion === 2 }"
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="11"
-                cy="11"
-                r="10"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <path
-                d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-color-body-2"
-          class="mb-4"
-          :class="{ hidden: activeAccordion !== 2 }"
-          aria-labelledby="accordion-color-heading-2"
-        >
-          <div
-            class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]"
-          >
-            <p class="text-gray-500 dark:text-gray-400">
-              Absolutely. We offer full customization options, including colors,
-              logos, and messaging.
-            </p>
-          </div>
-        </div>
-        <!-- Second Accordion -->
-        <h2 id="accordion-color-heading-3" class="mb-4">
-          <button
-            type="button"
-            class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
-            :class="{ 'accordion-open': activeAccordion === 3 }"
-            :aria-expanded="activeAccordion === 3"
-            @click="toggleAccordion(3)"
-          >
-            <span class="text-left font-bold font-Montserrat-Medium"
-              >What if I need help with installation?</span
-            >
-            <svg
-              data-accordion-icon
-              class="shrink-0 transition-transform duration-300 transform"
-              :class="{ 'rotate-180': activeAccordion === 3 }"
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle
-                cx="11"
-                cy="11"
-                r="10"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-              <path
-                d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-color-body-3"
-          class="mb-4"
-          :class="{ hidden: activeAccordion !== 3 }"
-          aria-labelledby="accordion-color-heading-3"
-        >
-          <div
-            class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]"
-          >
-            <p class="text-gray-500 dark:text-gray-400">
-              Our team provides complete support from concept to installation to
-              ensure everything is seamless.
-            </p>
-          </div>
-        </div>
-      </div>
+      <FaqsSeaction :faqs="faqs"/>      
     </div>
     <div
       class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] mb-[4rem]"
@@ -814,6 +653,11 @@ export default {
             "Working with Curbex Media has been fantastic for Pizza Nova. Their efficient team supports us with bookings, quotes, and creative changes. The signage has been great for promoting specials and driving more traffic to our locations. Curbex consistently exceeds our expectations, making them a reliable advertising partner.",
           image: Pizza,
         },
+      ],
+      faqs:[
+        { question: "How soon can I receive my signage?", answer: "We offer fast turnaround times, ensuring you have your signs exactly when you need them." },
+        { question: "Can I customize my signage to match my brand?", answer: "Absolutely. We offer full customization options, including colors, logos, and messaging." },
+        { question: "What if I need help with installation?", answer: "Our team provides complete support from concept to installation to ensure everything is seamless." }
       ],
     };
   },

@@ -544,170 +544,7 @@
           >
             FAQ
           </p>
-          <div id="accordion-color" data-accordion="collapse">
-            <!-- First Accordion -->
-            <h2 id="accordion-color-heading-1" class="mb-4">
-              <button
-                type="button"
-                class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
-                :class="{ 'accordion-open': activeAccordion === 1 }"
-                :aria-expanded="activeAccordion === 1"
-                @click="toggleAccordion(1)"
-              >
-                <span class="text-left font-bold font-Montserrat-Medium"
-                  >Can we launch nationwide campaigns with Curbex signage?</span
-                >
-                <svg
-                  data-accordion-icon
-                  class="shrink-0 transition-transform duration-300 transform"
-                  :class="{ 'rotate-180': activeAccordion === 1 }"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="11"
-                    cy="11"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-            </h2>
-            <div
-              id="accordion-color-body-1"
-              class="mb-4"
-              :class="{ hidden: activeAccordion !== 1 }"
-              aria-labelledby="accordion-color-heading-1"
-            >
-              <div
-                class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]"
-              >
-                <p class="text-gray-500 dark:text-gray-400">
-                  Yes! Our signage solutions can be deployed across Canada,
-                  offering a consistent, high-quality presence nationwide.
-                </p>
-              </div>
-            </div>
-
-            <!-- Second Accordion -->
-            <h2 id="accordion-color-heading-2" class="mb-4">
-              <button
-                type="button"
-                class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
-                :class="{ 'accordion-open': activeAccordion === 2 }"
-                :aria-expanded="activeAccordion === 2"
-                @click="toggleAccordion(2)"
-              >
-                <span class="text-left font-bold font-Montserrat-Medium"
-                  >How do Curbex signs fit into multi-channel campaigns?</span
-                >
-                <svg
-                  data-accordion-icon
-                  class="shrink-0 transition-transform duration-300 transform"
-                  :class="{ 'rotate-180': activeAccordion === 2 }"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="11"
-                    cy="11"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-            </h2>
-            <div
-              id="accordion-color-body-2"
-              class="mb-4"
-              :class="{ hidden: activeAccordion !== 2 }"
-              aria-labelledby="accordion-color-heading-2"
-            >
-              <div
-                class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]"
-              >
-                <p class="text-gray-500 dark:text-gray-400">
-                  Our signs are perfect for reinforcing messages from digital,
-                  TV, and radio campaigns, ensuring your clients’ brands stay
-                  top of mind.
-                </p>
-              </div>
-            </div>
-            <!-- Second Accordion -->
-            <h2 id="accordion-color-heading-3" class="mb-4">
-              <button
-                type="button"
-                class="relative z-1 accordion-color flex items-center justify-between w-fit p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
-                :class="{ 'accordion-open': activeAccordion === 3 }"
-                :aria-expanded="activeAccordion === 3"
-                @click="toggleAccordion(3)"
-              >
-                <span class="text-left font-bold font-Montserrat-Medium"
-                  >Can we place signage directly at the business location?</span
-                >
-                <svg
-                  data-accordion-icon
-                  class="shrink-0 transition-transform duration-300 transform"
-                  :class="{ 'rotate-180': activeAccordion === 3 }"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="11"
-                    cy="11"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M15.4 9.90039L11.7071 13.5933C11.3166 13.9838 10.6834 13.9838 10.2929 13.5933L6.60001 9.90039"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </button>
-            </h2>
-            <div
-              id="accordion-color-body-3"
-              class="mb-4"
-              :class="{ hidden: activeAccordion !== 3 }"
-              aria-labelledby="accordion-color-heading-3"
-            >
-              <div
-                class="max-w-[45rem] p-5 pt-[2rem] mt-[-30px] border border-[#C3C3C3] rounded-[20px]"
-              >
-                <p class="text-gray-500 dark:text-gray-400">
-                  Absolutely. Placing signs near or at the point of purchase
-                  maximizes impact by reaching customers right when they’re
-                  ready to act.
-                </p>
-              </div>
-            </div>
-          </div>
+          <FaqsSeaction :faqs="faqs"/>
         </div>
         <div class="w-full lg:w-[50%] order-1 lg:order-2 mb-[3rem] lg:mb-0">
           <img
@@ -1168,6 +1005,11 @@ export default {
         initialSlide: 0,
         // centerMode: true,
       },
+      faqs:[
+        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
+        { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
+        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." }
+      ],
     };
   },
   computed: {
