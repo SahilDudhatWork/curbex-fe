@@ -12,7 +12,11 @@
       v-if="productsWithTotalPrice && productsWithTotalPrice.length"
     >
       <div class="w-full lg:w-[60%]">
-        <div v-for="(item, index) in productsWithTotalPrice" :key="index" class="border-b-2 border-b-[#F5F5F5] pb-[10px] mb-[25px]">
+        <div
+          v-for="(item, index) in productsWithTotalPrice"
+          :key="index"
+          class="border-b-2 border-b-[#F5F5F5] pb-[10px] mb-[25px]"
+        >
           <div
             class="bg-[#FCFCFC] border border-[#F5F5F5] rounded-[25px] p-[15px] flex items-start mb-5 flex-wrap md:flex-nowrap"
           >
@@ -968,7 +972,7 @@
               Total
             </p>
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
-              ${{ cartTotal + taxes?.rate || 0 }}
+              ${{ finalPaymentAmount }}
             </p>
           </div>
           <p class="text-[12px] md:text-[14px] font-Montserrat-Medium pb-3">
@@ -985,7 +989,7 @@
               Total after discount
             </p>
             <p class="text-[12px] md:text-[16px] font-Montserrat-Medium">
-              ${{ cartTotal + taxes?.rate || 0 }}
+              ${{ finalPaymentAmount }}
             </p>
           </div>
           <button
@@ -1098,6 +1102,9 @@ export default {
       );
       console.log("total", total);
       return total;
+    },
+    finalPaymentAmount() {
+      return this.cartTotal + (this.cartTotal * (this.taxes?.rate || 0)) / 100;
     },
     getDefaultShippingAddress() {
       if (!this.profile?.customerAddress) {
