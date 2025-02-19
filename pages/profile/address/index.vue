@@ -167,8 +167,8 @@
         </div>
         <button
           @click="toggleGrid"
-          :class="isGridVisible ? 'buttonActive'  : ''"
-          class="w-[94.5%] bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem] "
+          :class="isGridVisible ? 'buttonActive' : ''"
+          class="w-[94.5%] bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem]"
         >
           + Add a new address
         </button>
@@ -454,7 +454,7 @@ export default {
     },
     sortedAddresses() {
       // if(this.userProfile.customerAddress){
-        return []
+      return [];
       // }
       // Clone the array to avoid mutating the original
       const addresses = [...this.userProfile.customerAddress];
@@ -490,6 +490,7 @@ export default {
     },
     toggleGrid() {
       this.isGridVisible = !this.isGridVisible;
+      this.formData = {};
     },
     async editAddress(address) {
       this.formData = { ...address };
@@ -555,7 +556,7 @@ export default {
           });
         }
         await this.profile();
-        
+
         this.formData = {};
       } catch (error) {
         console.log(error, "error");
@@ -657,8 +658,8 @@ export default {
 .address-tab-Active .address-details svg path {
   stroke: #121212;
 }
-.buttonActive{
-  background-color: #8D54FF;
+.buttonActive {
+  background-color: #8d54ff;
   color: #ffffff;
 }
 @media screen and (max-width: 1023px) {
