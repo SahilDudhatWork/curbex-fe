@@ -67,6 +67,11 @@ export default async (ctx, inject) => {
     validateField(form.confirmPassword, "confirmPassword", "confirm-password");
     validateField(form.company, "company", "business");
 
+    validateField(form.businessAddress.street, "street", "address");
+    validateField(form.businessAddress.city, "city", "city");
+    validateField(form.businessAddress.province, "province", "province");
+    validateField(form.businessAddress.postal, "postal", "postal");
+
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       setError("email", "Invalid email format");
     }

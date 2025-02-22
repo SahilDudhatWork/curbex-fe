@@ -45,6 +45,27 @@ export const actions = {
       throw error;
     }
   },
+  async resendEmailVerification(ctx, payload) {
+    try {
+      let { email } = payload;
+      const response = await $axios.get(
+        `auth/register/verify/resend?email=${email}`
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async emailVerification(ctx, payload) {
+    try {
+      let { code } = payload;
+      const response = await $axios.get(`auth/register/verify/?code=${code}`);
+      this.$cookies.set("token", response.access_token);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
   async profile(ctx, payload) {
     try {
       const response = await $axios.get("customers/profile");

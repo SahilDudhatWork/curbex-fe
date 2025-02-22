@@ -96,6 +96,72 @@
       </div>
 
       <h1
+        class="text-[16px] mb-3 md:text-[20px] text-[#121212] font-Montserrat-Medium md:font-bold pb-[2px]"
+      >
+        Business Address
+      </h1>
+      <div class="mb-4">
+        <input
+          type="text"
+          v-model="formData.businessAddress.street"
+          placeholder="Address"
+          :class="{ 'border-[red]': errors?.street }"
+          class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+        />
+        <span v-if="errors?.street" class="text-[red] text-[12px] pl-[3px]">{{
+          errors?.street
+        }}</span>
+      </div>
+      <!-- <div class="mb-4">
+        <input
+          type="text"
+          v-model="businessAddress2"
+          placeholder="Address Line 2"
+          class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+        />
+      </div> -->
+      <div class="flex flex-wrap justify-between">
+        <div class="mb-4 w-[48%] md:w-[32%] lg:w-[48%] w-full">
+          <input
+            type="text"
+            v-model="formData.businessAddress.city"
+            placeholder="City"
+            :class="{ 'border-[red]': errors?.city }"
+            class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+          />
+          <span v-if="errors?.city" class="text-[red] text-[12px] pl-[3px]">{{
+            errors?.city
+          }}</span>
+        </div>
+        <div class="mb-4 w-[48%] md:w-[32%] lg:w-[48%] w-full">
+          <input
+            type="text"
+            v-model="formData.businessAddress.postal"
+            placeholder="Postal Code"
+            :class="{ 'border-[red]': errors?.postal }"
+            class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+          />
+          <span v-if="errors?.postal" class="text-[red] text-[12px] pl-[3px]">{{
+            errors?.postal
+          }}</span>
+        </div>
+        <div class="mb-4 w-[48%] md:w-[32%] lg:w-[48%] w-full">
+          <input
+            type="text"
+            v-model="formData.businessAddress.province"
+            placeholder="Province"
+            :class="{ 'border-[red]': errors?.province }"
+            class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+          />
+          <span
+            v-if="errors?.province"
+            class="text-[red] text-[12px] pl-[3px]"
+            >{{ errors?.province }}</span
+          >
+        </div>
+      </div>
+
+      <h1
         class="text-[16px] mb-2 md:text-[20px] text-[#121212] font-Montserrat-Medium md:font-bold pb-[2px]"
       >
         Password
@@ -293,21 +359,37 @@
       <div class="bg-white rounded-[20px] p-8 max-w-md w-full mx-4">
         <div class="text-center">
           <div class="mb-4">
-            <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
-              <path d="M21.5 0C17.2477 0 13.0909 1.23163 9.55525 3.53914C6.01959 5.84665 3.26388 9.1264 1.6366 12.9636C0.00931565 16.8009 -0.416456 21.0233 0.413126 25.0969C1.24271 29.1705 3.29038 32.9123 6.29721 35.8492C9.30404 38.7861 13.135 40.7862 17.3056 41.5965C21.4762 42.4068 25.7991 41.9909 29.7277 40.4015C33.6563 38.812 37.0141 36.1204 39.3766 32.667C41.739 29.2135 43 25.1534 43 21C43 15.4305 40.7348 10.089 36.7028 6.15076C32.6708 2.21249 27.2022 0 21.5 0ZM20.64 29.75L10.75 22.3825L14.0288 18.235L19.9592 22.75L28.0396 13.86L32.0529 17.36L20.64 29.75Z" fill="#29CC6A"/>
+            <svg
+              width="43"
+              height="42"
+              viewBox="0 0 43 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mx-auto"
+            >
+              <path
+                d="M21.5 0C17.2477 0 13.0909 1.23163 9.55525 3.53914C6.01959 5.84665 3.26388 9.1264 1.6366 12.9636C0.00931565 16.8009 -0.416456 21.0233 0.413126 25.0969C1.24271 29.1705 3.29038 32.9123 6.29721 35.8492C9.30404 38.7861 13.135 40.7862 17.3056 41.5965C21.4762 42.4068 25.7991 41.9909 29.7277 40.4015C33.6563 38.812 37.0141 36.1204 39.3766 32.667C41.739 29.2135 43 25.1534 43 21C43 15.4305 40.7348 10.089 36.7028 6.15076C32.6708 2.21249 27.2022 0 21.5 0ZM20.64 29.75L10.75 22.3825L14.0288 18.235L19.9592 22.75L28.0396 13.86L32.0529 17.36L20.64 29.75Z"
+                fill="#29CC6A"
+              />
             </svg>
           </div>
           <h3 class="text-[16px] font-medium text-gray-900 mb-4">
             Your sign-up was successful! 
           </h3>
-          <p class="text-[14px] text-gray-500 mb-6">
-            <!-- We’ve sent you a verification email! Please check your inbox and verify your email address -->
+          <p class="text-[14px] text-gray-500 mb-4">
             {{ this.$i18n.t("registerMessage") }}
           </p>
+          <button
+            @click="resendVerification"
+            class="text-sm text-blue-600 font-medium hover:text-blue-800 underline transition duration-200 focus:outline-none"
+            aria-label="Resend email verification"
+          >
+            Resend email verification
+          </button>
           <div class="mt-6">
             <button
               @click="handleModalClose"
-              class="w-full inline-flex justify-center rounded-[8px] border border-transparent shadow-sm px-4 py-3 bg-black text-[16px]  font-medium text-white hover:bg-[#8D54FF] focus:outline-none"
+              class="w-full inline-flex justify-center rounded-[8px] border border-transparent shadow-sm px-4 py-3 bg-black text-[16px] font-medium text-white hover:bg-[#8D54FF] focus:outline-none"
             >
               Continue to Login
             </button>
@@ -331,6 +413,13 @@ export default {
         company: "",
         terms: false,
         confirmPassword: "",
+        businessAddress: {
+          street: "",
+          city: "",
+          province: "",
+          postal: "",
+          country: "CA",
+        },
       },
       errors: {},
       isPasswordVisible: false,
@@ -341,6 +430,7 @@ export default {
   methods: {
     ...mapActions({
       userRegister: "auth/userRegister",
+      resendEmailVerification: "auth/resendEmailVerification",
     }),
     async validatePhoneNumberInput(event) {
       this.formData.phoneNumber = await this.$validateNumber(
@@ -350,6 +440,22 @@ export default {
     handleModalClose() {
       this.showSuccessModal = false;
       this.$router.push("/auth/login");
+    },
+    async resendVerification() {
+      try {
+        await this.resendEmailVerification({ email: this.formData.email });
+        this.$toast.open({
+          message: this.$i18n.t("registerMessage"),
+          type: "success",
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log(error, "error");
+      }
     },
     async handleRegister() {
       try {
