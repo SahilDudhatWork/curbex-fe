@@ -172,7 +172,7 @@
       class="container mx-auto px-6 md:px-0 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-6"
     >
       <div
-        v-for="(item, key) in allProductData.records"
+        v-for="(item, key) in filterProducts.records"
         :key="key"
         class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
       >
@@ -189,16 +189,13 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[20px] relative overflow-hidden">          
+        <div class="rounded-t-[20px] relative overflow-hidden">
           <img
-            v-if="item.images && item.images.length"
-            :src="item.images[0].imageUrl"
-            alt=""
-            class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
-          />
-          <img
-            v-else
-            src="/Images/Product/product-1.png"
+            :src="
+              item.heroImage
+                ? item.heroImage.imageUrl
+                : '/Images/Product/product-1.png'
+            "
             alt=""
             class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
           />
@@ -363,7 +360,7 @@ export default {
   },
 
   watch: {
-    allProductData: {
+    filterProducts: {
       immediate: true,
       handler(newVal) {
         if (newVal?.totalCount) {
@@ -377,6 +374,21 @@ export default {
       allProductData: "product/getAllProductData",
       favoriteProductIds: "product/getFavoriteProductIds",
     }),
+    filterProducts() {
+      if (this.allProductData.records && this.allProductData.records.length) {
+        return {
+          totalCount: this.allProductData.totalCount,
+          records: this.allProductData.records.map((product) => ({
+            ...product,
+            heroImage:
+              product.images.find((image) => image.imageType === "primary") ||
+              null,
+          })),
+        };
+      } else {
+        return this.allProductData;
+      }
+    },
     totalPages() {
       return Math.ceil(this.pagination.total / this.pagination.limit);
     },

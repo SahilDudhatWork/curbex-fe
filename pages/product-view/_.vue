@@ -390,7 +390,7 @@
               Add to cart
             </button>
             <button
-              @click="selectDesignMethod"
+              @click="productAddToCart"
               class="bg-[#121212] text-[16px] md:text-[18px] text-white border-[1px] border-[#000000] w-full md:w-[49%] rounded-[7px] py-[11px] mb-[20px]"
             >
               Select Design Method
@@ -523,7 +523,7 @@
           >
             FAQ
           </p>
-          <FaqsSeaction :faqs="faqs"/>
+          <FaqsSeaction :faqs="faqs" />
         </div>
         <div class="w-full lg:w-[50%] order-1 lg:order-2 mb-[3rem] lg:mb-0">
           <img
@@ -612,202 +612,214 @@
   </div>
 </template>
 <script>
-  import trff from "@/static/Images/Testimonial/trff-1.png";
-  import cl from "@/static/Images/Testimonial/cl-1.png";
-  import cbs from "@/static/Images/Testimonial/cbs-1.png";
-  import Pizza from "@/static/Images/Testimonial/pizza.png";
-  import { mapGetters, mapActions, mapMutations } from "vuex";
+import trff from "@/static/Images/Testimonial/trff-1.png";
+import cl from "@/static/Images/Testimonial/cl-1.png";
+import cbs from "@/static/Images/Testimonial/cbs-1.png";
+import Pizza from "@/static/Images/Testimonial/pizza.png";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
-  export default {
-    middleware: "auth",
+export default {
+  middleware: "auth",
 
-    data() {
-      return {
-        rentalHistory: "",
-        showDesignModal: false,
-        activeAccordion: null,
-        testiminoalSlider: [
-          {
-            id: 1,
-            title: "Janie Houghton",
-            shortTitle: "PR Specialist at York Region",
-            description:
-              "We’ve worked with Curbex for signage across several locations, and their expertise and professionalism have been exceptional. They manage the entire process, which saves us time and hassle. The signs have made a noticeable difference with our events and notices, and we couldn’t be happier with the results. Curbex is a true partner!",
-            image: trff,
-          },
-          {
-            id: 2,
-            title: "Adam Palmieri",
-            shortTitle: "Supervisor Animal Services at City of Burlington",
-            description:
-              "The City of Burlington found Curbex signage highly effective for communicating key messages. Curbex provided reliable service, placing signs on time and exactly where needed. The clear, colorful signs boosted visibility, and Rachel’s professionalism exceeded expectations.",
-            image: cl,
-          },
-          {
-            id: 3,
-            title: "Julia Hance",
-            shortTitle: "Enterprise Risk Specialist at Canadian Blood Services",
-            description:
-              "it has been an absolute pleasure working with you! Your creative problem solving and attention to detail have been a huge support to me, Canadian Blood Services, and to the patients in need. You help in finding ways to get signs out has helped us recruit more blood donors and new blood donors – literally saving lives across Canada!",
-            image: cbs,
-          },
-          {
-            id: 4,
-            title: "AshElizabeth Janik",
-            shortTitle: "Marketing Manager at Pizza Nova",
-            description:
-              "Working with Curbex Media has been fantastic for Pizza Nova. Their efficient team supports us with bookings, quotes, and creative changes. The signage has been great for promoting specials and driving more traffic to our locations. Curbex consistently exceeds our expectations, making them a reliable advertising partner.",
-            image: Pizza,
-          },
-        ],
-        perPageCustom: [
-          [320, 1.2], // Show 1 slide if width >= 320px
-          [768, 1.5], // Show 3 slides if width >= 768px
-          [1024, 4], // Show 5 slides if width >= 1024px
-        ],
-        carouselSettings: {
-          dots: false,
-          infinite: false,
-          nav: false,
-          speed: 500,
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          initialSlide: 0,
-          centerMode: false,
+  data() {
+    return {
+      rentalHistory: "",
+      showDesignModal: false,
+      activeAccordion: null,
+      testiminoalSlider: [
+        {
+          id: 1,
+          title: "Janie Houghton",
+          shortTitle: "PR Specialist at York Region",
+          description:
+            "We’ve worked with Curbex for signage across several locations, and their expertise and professionalism have been exceptional. They manage the entire process, which saves us time and hassle. The signs have made a noticeable difference with our events and notices, and we couldn’t be happier with the results. Curbex is a true partner!",
+          image: trff,
         },
-        productId: null,
-        heroImage: null,
-        faqs:[
-          { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
-          { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
-          { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." }
-        ],
-      };
-    },
-    computed: {
-      ...mapGetters({
-        rentalProductData: "product/getRentalProductData",
-        product: "product/getSingleProductData",
-        cartItemCount: "product/getCartItemCount",
-        cartDetail: "product/getCartItem",
-      }),
-      dynamicCarouselSettings() {
-        // Update centerMode based on the number of product images
-        const isCenterMode = this.product.images.length <= 3;
-        return {
-          ...this.carouselSettings,
-          centerMode: isCenterMode,
-        };
+        {
+          id: 2,
+          title: "Adam Palmieri",
+          shortTitle: "Supervisor Animal Services at City of Burlington",
+          description:
+            "The City of Burlington found Curbex signage highly effective for communicating key messages. Curbex provided reliable service, placing signs on time and exactly where needed. The clear, colorful signs boosted visibility, and Rachel’s professionalism exceeded expectations.",
+          image: cl,
+        },
+        {
+          id: 3,
+          title: "Julia Hance",
+          shortTitle: "Enterprise Risk Specialist at Canadian Blood Services",
+          description:
+            "it has been an absolute pleasure working with you! Your creative problem solving and attention to detail have been a huge support to me, Canadian Blood Services, and to the patients in need. You help in finding ways to get signs out has helped us recruit more blood donors and new blood donors – literally saving lives across Canada!",
+          image: cbs,
+        },
+        {
+          id: 4,
+          title: "AshElizabeth Janik",
+          shortTitle: "Marketing Manager at Pizza Nova",
+          description:
+            "Working with Curbex Media has been fantastic for Pizza Nova. Their efficient team supports us with bookings, quotes, and creative changes. The signage has been great for promoting specials and driving more traffic to our locations. Curbex consistently exceeds our expectations, making them a reliable advertising partner.",
+          image: Pizza,
+        },
+      ],
+      perPageCustom: [
+        [320, 1.2], // Show 1 slide if width >= 320px
+        [768, 1.5], // Show 3 slides if width >= 768px
+        [1024, 4], // Show 5 slides if width >= 1024px
+      ],
+      carouselSettings: {
+        dots: false,
+        infinite: false,
+        nav: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        centerMode: false,
       },
-    },
-    async mounted() {
-      const accordionElements = document.querySelectorAll("[data-accordion]");
-      accordionElements.forEach((accordion) => {
-        // Reinitialize Flowbite accordion
-        import("flowbite").then(
-          ({ default: Flowbite }) => new Flowbite(accordion)
-        );
-      });
-      await this.getSingleProduct();
-      this.heroImage =
-        this.product.images && this.product.images.length
-          ? this.product.images[0].imageUrl
-          : null;
-    },
-    async asyncData({ params }) {
+      productId: null,
+      heroImage: null,
+      faqs: [
+        {
+          question: "Can we launch nationwide campaigns with Curbex signage?",
+          answer:
+            "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
+        },
+        {
+          question: "How do Curbex signs fit into multi-channel campaigns?",
+          answer:
+            "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
+        },
+        {
+          question: "Can we place signage directly at the business location?",
+          answer:
+            "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
+        },
+      ],
+    };
+  },
+  computed: {
+    ...mapGetters({
+      rentalProductData: "product/getRentalProductData",
+      product: "product/getSingleProductData",
+      cartItemCount: "product/getCartItemCount",
+      cartDetail: "product/getCartItem",
+    }),
+    dynamicCarouselSettings() {
+      // Update centerMode based on the number of product images
+      const isCenterMode = this.product.images.length <= 3;
       return {
-        productId: params.pathMatch,
+        ...this.carouselSettings,
+        centerMode: isCenterMode,
       };
     },
-    methods: {
-      ...mapActions({
-        fetchSingleProductDetail: "product/fetchSingleProductDetail",
-        toggleFavoriteProduct: "product/toggleFavoriteProduct",
-        addToCart: "product/addToCart",
-        updateCartItem: "product/updateCartItem",
-        fetchCartItems: "product/fetchCartItems",
-      }),
-      ...mapMutations({
-        setCartItemCount: "product/setCartItemCount",
-      }),
-      toggleAccordion(accordionId) {
-        if (this.activeAccordion === accordionId) {
-          this.activeAccordion = null;
+  },
+  async mounted() {
+    const accordionElements = document.querySelectorAll("[data-accordion]");
+    accordionElements.forEach((accordion) => {
+      // Reinitialize Flowbite accordion
+      import("flowbite").then(
+        ({ default: Flowbite }) => new Flowbite(accordion)
+      );
+    });
+    await this.getSingleProduct();
+    this.heroImage =
+      this.product.images && this.product.images.length
+        ? this.product.images[0].imageUrl
+        : null;
+  },
+  async asyncData({ params }) {
+    return {
+      productId: params.pathMatch,
+    };
+  },
+  methods: {
+    ...mapActions({
+      fetchSingleProductDetail: "product/fetchSingleProductDetail",
+      toggleFavoriteProduct: "product/toggleFavoriteProduct",
+      addToCart: "product/addToCart",
+      updateCartItem: "product/updateCartItem",
+      fetchCartItems: "product/fetchCartItems",
+    }),
+    ...mapMutations({
+      setCartItemCount: "product/setCartItemCount",
+    }),
+    toggleAccordion(accordionId) {
+      if (this.activeAccordion === accordionId) {
+        this.activeAccordion = null;
+      } else {
+        this.activeAccordion = accordionId;
+      }
+    },
+    async toggleFavorite() {
+      try {
+        await this.toggleFavoriteProduct({ id: this.product.id });
+      } catch (error) {
+        if (error.status == 401) {
+          this.$toast.open({
+            message: this.$i18n.t("authFavoriteErrorMessage"),
+            type: "warning",
+          });
+          this.$router.push(`/auth/login`);
+        }
+        console.log(error, "error");
+      }
+    },
+    async getSingleProduct() {
+      await this.fetchSingleProductDetail({ id: this.productId });
+    },
+    downloadFileItem() {
+      if (this.product.artworkSpecsURL && this.product.artworkSpecsURL != "") {
+        const fileName = this.product.artworkSpecsURL.split("/").pop();
+        this.$downloadFile({
+          src: this.product.artworkSpecsURL,
+          name: fileName,
+        });
+      }
+    },
+    selectDesignMethod() {
+      this.$cookies.set("productId", this.productId);
+      this.showDesignModal = true;
+    },
+    async productAddToCart() {
+      try {
+        let cartData = null;
+        if (this.cartDetail && this.cartDetail.cartItems) {
+          cartData = this.cartDetail.cartItems.find(
+            (x) => x.productId == this.productId
+          );
+        }
+        if (cartData && cartData != null && cartData.id != "") {
+          await this.updateCartItem({
+            id: cartData.id,
+            quantity: cartData.quantity + 1,
+            requestedDesigner: cartData.requestedDesigner,
+          });
+          await this.setCartItemCount(this.cartItemCount + 1);
+          this.$toast.open({
+            message: this.$i18n.t("productQuantityIncreasedMessage"),
+          });
         } else {
-          this.activeAccordion = accordionId;
-        }
-      },
-      async toggleFavorite() {
-        try {
-          await this.toggleFavoriteProduct({ id: this.product.id });
-        } catch (error) {
-          if (error.status == 401) {
-            this.$toast.open({
-              message: this.$i18n.t("authFavoriteErrorMessage"),
-              type: "warning",
-            });
-            this.$router.push(`/auth/login`);
-          }
-          console.log(error, "error");
-        }
-      },
-      async getSingleProduct() {
-        await this.fetchSingleProductDetail({ id: this.productId });
-      },
-      downloadFileItem() {
-        if (this.product.artworkSpecsURL && this.product.artworkSpecsURL != "") {
-          const fileName = this.product.artworkSpecsURL.split("/").pop();
-          this.$downloadFile({
-            src: this.product.artworkSpecsURL,
-            name: fileName,
+          await this.addToCart({
+            productId: this.productId,
+
+            quantity: 1,
+          });
+          this.$toast.open({
+            message: this.$i18n.t("productAddedToCartMessage"),
           });
         }
-      },
-      selectDesignMethod() {
         this.$cookies.set("productId", this.productId);
         this.showDesignModal = true;
-      },
-      async productAddToCart() {
-        try {
-          let cartData = null;
-          if (this.cartDetail && this.cartDetail.cartItems) {
-            cartData = this.cartDetail.cartItems.find(
-              (x) => x.productId == this.productId
-            );
-          }
-          if (cartData && cartData != null && cartData.id != "") {
-            await this.updateCartItem({
-              id: cartData.id,
-              quantity: cartData.quantity + 1,
-              requestedDesigner: cartData.requestedDesigner,
-            });
-            await this.setCartItemCount(this.cartItemCount + 1);
-            this.$toast.open({
-              message: this.$i18n.t("productQuantityIncreasedMessage"),
-            });
-          } else {
-            await this.addToCart({
-              productId: this.productId,
-
-              quantity: 1,
-            });
-            this.$toast.open({
-              message: this.$i18n.t("productAddedToCartMessage"),
-            });
-          }
-          this.$cookies.set("productId", this.productId);
-          this.showDesignModal = true;
-          await this.fetchCartItems();
-        } catch (error) {
-          console.log(error, "error");
-        }
-      },
+        await this.fetchCartItems();
+      } catch (error) {
+        console.log(error, "error");
+      }
     },
-  };
+  },
+};
 </script>
 <style scoped>
-  ::v-deep .slick-prev:before,
-  ::v-deep .slick-next:before {
-    color: #000000;
-  }
+::v-deep .slick-prev:before,
+::v-deep .slick-next:before {
+  color: #000000;
+}
 </style>

@@ -8,8 +8,14 @@
       :dots="false"
       :perPageCustom="perPageCustom"
     >
-      <Slide v-for="(item, index) in data" :key="index" class="relative p-2">
-        <div class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]">
+      <Slide
+        v-for="(item, index) in filterProducts"
+        :key="index"
+        class="relative p-2"
+      >
+        <div
+          class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+        >
           <p
             :class="
               item.isTrending || item.isBestSeller
@@ -30,8 +36,8 @@
           </p> -->
           <div class="rounded-t-[20px] relative overflow-hidden">
             <img
-              v-if="item.images && item.images.length"
-              :src="item.images[0].imageUrl"
+              v-if="item.heroImage"
+              :src="item.heroImage.imageUrl"
               alt=""
               class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
             />
@@ -135,6 +141,16 @@ export default {
     ...mapGetters({
       favoriteProductIds: "product/getFavoriteProductIds",
     }),
+    filterProducts() {
+      return this.data.map((product) => {
+        return {
+          ...product,
+          heroImage:
+            product.images.find((image) => image.imageType === "primary") ||
+            null,
+        };
+      });
+    },
   },
   methods: {
     ...mapActions({

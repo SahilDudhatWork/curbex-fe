@@ -25,8 +25,8 @@
             >
               <img
                 :src="
-                  item.product.images && item.product.images.length
-                    ? item.product.images[0].imageUrl
+                  item.heroImage
+                    ? item.heroImage.imageUrl
                     : '/Images/Product/product-1.png'
                 "
                 alt=""
@@ -1083,12 +1083,20 @@ export default {
 
           // Add the total price (base price total + total fees) for the product
           const totalPrice = basePriceTotal + totalFees;
+          let heroImage = null;
+          if (item.product.images && item.product.images.length) {
+            heroImage =
+              item.product.images.find(
+                (image) => image.imageType === "primary"
+              ) || null;
+          }
 
           // Return a new object with the total price included
           return {
             ...item,
             totalFees,
             totalPrice,
+            heroImage,
           };
         });
       } else {
