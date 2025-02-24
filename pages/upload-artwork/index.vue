@@ -12,7 +12,7 @@
               class="rounded-[20px] transition-opacity duration-300"
             />
             <span
-              class="border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[28px] md:w-[40px] h-[28px] md:h-[40px] block absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
+              class="border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[28px] md:w-[40px] h-[28px] md:h-[40px] absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
             >
               <svg
                 width="19"

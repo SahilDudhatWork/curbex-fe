@@ -17,7 +17,7 @@
         v-for="(item, index) in allProductData.records"
         :key="index"
         @click="viewProduct(item.id)"
-        class="item transition-all duration-300 rent-produt cursor-pointer"
+        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
       >
         <p
           :class="
@@ -25,34 +25,29 @@
               ? 'bg-[#FFA900] lg:bg-[#FF364A]'
               : 'bg-[#FFFFF] lg:bg-[#FFFFF]'
           "
-          class="mb-[-15px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
+          class="mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
         >
           <span class="" v-if="item.isTrending">Trending</span>
 
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="border-2 border-[#F3F3F3] rounded-t-[20px] relative">
-          <img
-            src="/Images/Product/product.png"
-            alt=""
-            class="rounded-t-[20px] first-image"
-          />
+        <div class="rounded-t-[20px] relative overflow-hidden">         
           <img
             v-if="item.images && item.images.length"
             :src="item.images[0].imageUrl"
             alt=""
-            class="rounded-t-[20px] hidden-important absolute inset-0 transition-opacity duration-300"
+            class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
           />
           <img
             v-else
             src="/Images/Product/product-1.png"
             alt=""
-            class="rounded-t-[20px] hidden-important absolute inset-0 transition-opacity duration-300"
+            class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
           />
           <span
             @click="toggleFavorite(item)"
-            class="cursor-pointer border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[40px] h-[40px] block absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
+            class="cursor-pointer border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[40px] h-[40px] absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
           >
             <svg
               width="19"

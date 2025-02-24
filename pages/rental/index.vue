@@ -21,6 +21,35 @@
                     </p>
                 </div>
                 <div class="w-full lg:w-[35%] flex flex-wrap justify-between lg:block">
+                    <div class="max-h-[50px] mb-[20px] overflow-hidden transition-all">
+                        <div class="flex items-center justify-between bg-[#FFFFFF] border border-[#C3C3C3] rounded-[50px] cursor-pointer mb-3">
+                            <p class="bg-[#121212] text-[#FFFFFF] text-[14px] p-[12px_30px] rounded-[50px]">Vancouver</p>
+                            <p class="text-[14px]">789 Westwood Avenue, V6B 1A1</p>
+                            <span class="flex items-center w-[15px] h-[15px] mr-3">
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L7.5 8L2 2" stroke="#121212" stroke-width="2.07955" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between bg-[#FFFFFF] border border-[#C3C3C3] rounded-[50px] cursor-pointer mb-3">
+                            <p class="bg-[#F5F5F5] text-[#121212] text-[14px] p-[12px_30px] rounded-[50px]">Vancouver</p>
+                            <p class="text-[14px]">789 Westwood Avenue, V6B 1A1</p>
+                            <span class="flex items-center w-[15px] h-[15px] mr-3">
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L7.5 8L2 2" stroke="#121212" stroke-width="2.07955" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between bg-[#FFFFFF] border border-[#C3C3C3] rounded-[50px] cursor-pointer mb-3">
+                            <p class="bg-[#F5F5F5] text-[#121212] text-[14px] p-[12px_30px] rounded-[50px]">Vancouver</p>
+                            <p class="text-[14px]">789 Westwood Avenue, V6B 1A1</p>
+                            <span class="flex items-center w-[15px] h-[15px] mr-3">
+                                <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L7.5 8L2 2" stroke="#121212" stroke-width="2.07955" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
                     <div class="w-full md:w-[48%] lg:w-full">
                         <div class="flex items-center pb-3">
                             <p class="bg-[#121212] w-fit p-[7px_16px] rounded-full text-[16px] lg:text-[20px] text-[#FFFFFF]">3</p>
