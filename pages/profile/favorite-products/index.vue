@@ -7,14 +7,14 @@
     </div>
     <div
       v-if="
-        allProductData &&
-        allProductData.records &&
-        allProductData.records.length
+        filterProducts &&
+        filterProducts.records &&
+        filterProducts.records.length
       "
       class="max-w-5xl grid grid-cols-2 lg:grid-cols-3 gap-3 md:px-6"
     >
-    <div
-        v-for="(item, index) in allProductData.records"
+      <div
+        v-for="(item, index) in filterProducts.records"
         :key="index"
         @click="viewProduct(item.id)"
         class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
@@ -32,16 +32,13 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[20px] relative overflow-hidden">         
+        <div class="rounded-t-[20px] relative overflow-hidden">
           <img
-            v-if="item.images && item.images.length"
-            :src="item.images[0].imageUrl"
-            alt=""
-            class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
-          />
-          <img
-            v-else
-            src="/Images/Product/product-1.png"
+            :src="
+              item.heroImage
+                ? item.heroImage.imageUrl
+                : '/Images/Product/product-1.png'
+            "
             alt=""
             class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
           />
@@ -166,6 +163,21 @@ export default {
       favoriteProductIds: "product/getFavoriteProductIds",
       allProductData: "product/getAllProductData",
     }),
+    filterProducts() {
+      if (this.allProductData.records && this.allProductData.records.length) {
+        return {
+          totalCount: this.allProductData.totalCount,
+          records: this.allProductData.records.map((product) => ({
+            ...product,
+            heroImage:
+              product.images.find((image) => image.imageType === "primary") ||
+              null,
+          })),
+        };
+      } else {
+        return this.allProductData;
+      }
+    },
   },
   methods: {
     ...mapActions({
