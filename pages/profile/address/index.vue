@@ -335,6 +335,7 @@
                 id="sameAddress"
                 type="checkbox"
                 value="value1"
+                v-model="isDefault"
               />
               <label for="sameAddress">Make this my default address</label>
             </div>
@@ -435,6 +436,7 @@ export default {
       isVisible: false,
       isGridVisible: false,
       addressDetails: {},
+      isDefault: false,
       formData: {
         street: "",
         province: "",
@@ -493,6 +495,7 @@ export default {
     toggleGrid() {
       this.isGridVisible = !this.isGridVisible;
       this.formData = {};
+      this.isDefault = false;
     },
     async editAddress(address) {
       this.formData = { ...address };
@@ -552,14 +555,19 @@ export default {
             message: this.$i18n.t("addressUpdatedSuccessfully"),
           });
         } else {
-          await this.createAddress(this.formData);
+          let res = await this.createAddress(this.formData);
+          if (this.isDefault) {
+            await this.setDefaultAddress({ id: res.id });
+          }
           this.$toast.open({
             message: this.$i18n.t("addressCreatedSuccessfully"),
           });
         }
+
         await this.profile();
 
         this.formData = {};
+        this.isDefault = false;
       } catch (error) {
         console.log(error, "error");
         this.$toast.open({
