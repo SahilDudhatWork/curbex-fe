@@ -3,60 +3,29 @@
     <div
       class="container px-6 md:px-0 mx-auto rounded-[25px] overflow-hidden md:pt-[2.6rem]"
     >
-      <Carousel
-        :perPage="1"
-        :autoplay="true"
-        :autoplayTimeout="3000"
-        loop
-        :nav="false"
-        :dots="false"
+    <Carousel
+      :perPage="1"
+      :autoplay="false"
+      :autoplayTimeout="3000"
+      loop
+      :nav="false"
+      :dots="false"
+    >
+      <Slide
+        v-for="(image, index) in images"
+        :key="index"
+        class="h-[149px] lg:h-[483px] md:h-[353px]"
       >
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/1.png)"
-          ></div>
-        </Slide>
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/2.png)"
-          ></div>
-        </Slide>
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/4.png)"
-          ></div>
-        </Slide>
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[94%_100%] md:bg-[99%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/5.png)"
-          ></div>
-        </Slide>
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/6.png)"
-          ></div>
-        </Slide>
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[80%_100%] md:bg-[74%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/7.webp)"
-          ></div>
-        </Slide>
-        <Slide class="h-[439px] md:h-[483px]">
-          <div
-            class="h-[439px] md:h-[483px] w-full bg-no-repeat bg-[14%_100%] md:bg-[20%_180%] lg:bg-center bg-cover"
-            style="background-image: url(/Images/8.webp)"
-          ></div>
-        </Slide>
-      </Carousel>
+        <div
+          class="h-[149px] lg:h-[483px] md:h-[353px] w-full bg-no-repeat bg-cover"
+          :class="image.bgPosition"
+          :style="{ backgroundImage: `url(${image.src})` }"
+        ></div>
+      </Slide>
+    </Carousel>
     </div>
     <div class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden">
-      <h2 class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal] relative h-[155px] flex items-center justify-center gap-[20px] ">
+      <h2 class="text-changed font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal] relative h-[155px] flex items-center justify-center gap-[20px] ">
         <span class="your-span">your </span>
         <span class="brand-span">brand,</span>
         <span class="anytime-span">anytime, </span>
@@ -267,6 +236,14 @@ export default {
           image: Pizza,
         },
       ],
+      images: [
+        { src: "/Images/homeSlider/1.png", bgPosition: "bg-[80%_100%] md:bg-[74%_180%] lg:bg-center" },
+        { src: "/Images/homeSlider/2.png", bgPosition: "bg-[30%_100%] md:bg-[24%_180%] lg:bg-[24%_center]" },
+        { src: "/Images/homeSlider/3.png", bgPosition: "bg-[10%_100%] md:bg-[4%_180%] lg:bg-center" },
+        { src: "/Images/homeSlider/4.png", bgPosition: "bg-[4%_100%] md:bg-[10%_180%] lg:bg-center" },
+        { src: "/Images/homeSlider/5.png", bgPosition: "bg-[100%_100%] md:bg-[94%_180%] lg:bg-center" },
+        { src: "/Images/homeSlider/6.png", bgPosition: "bg-[80%_100%] md:bg-[4%_180%] lg:bg-center" },
+      ],
     };
   },
   computed: {
@@ -298,4 +275,9 @@ export default {
   .brand-span { animation-delay: 0.5s; }
   .anytime-span { animation-delay: 1s; }
   .anywhere-span { animation-delay: 1.5s; }
+  @media screen and (min-width:1024px) and (max-width:1280px){
+    .text-changed{
+      font-size: 56px;
+    }
+  }
 </style>

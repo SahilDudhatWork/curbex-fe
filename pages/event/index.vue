@@ -460,13 +460,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="md:w-[70%] lg:w-[40%] hidden md:block">
-            <img
-              src="/Images/government-non-profits/slap.png"
-              alt=""
-              class="max-w-[300px] lg:max-w-[450px] md:w-full md:max-w-[94%] ml-auto"
-            />
-          </div> -->
         </div>
       </div>
     </div>

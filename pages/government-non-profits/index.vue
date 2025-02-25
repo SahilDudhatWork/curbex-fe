@@ -291,7 +291,6 @@
             background-image: url(/Images/government-non-profits/public-servey.webp);
           "
         ></div>
-        <!-- <img src="/Images/government-non-profits/public-servey.webp" alt="" class="w-full h-[182px] md:h-[340px] lg:h-auto object-cover rounded-[20px]"> -->
       </div>
 
       <div class="mt-20">
@@ -406,13 +405,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="md:w-[70%] lg:w-[40%] hidden md:block">
-            <img
-              src="/Images/government-non-profits/slap.png"
-              alt=""
-              class="max-w-[300px] lg:max-w-[450px] md:w-full md:max-w-[94%] ml-auto mt-[-6rem]"
-            />
-          </div> -->
         </div>
       </div>
     </div>
