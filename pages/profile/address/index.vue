@@ -18,7 +18,7 @@
         >
           <div
             @click="defaultAddress(address.id)"
-            class="flex items-center flex-wrap lg:flex-row"
+            class="flex items-center flex-wrap lg:flex-nowrap"
           >
             <div
               class="radio-section bg-[#E3E3E3] text-[#121212] flex item-center w-fit p-[15px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
@@ -119,7 +119,9 @@
                   />
                 </svg>
               </span>
-              <p class="p-[0px_10px]">
+              <p
+                class="p-[0px_10px] whitespace-nowrap max-w-[540px] overflow-hidden text-ellipsis"
+              >
                 {{ address.street }}
               </p>
               <span @click.stop="editAddress(address)">
@@ -168,12 +170,12 @@
         <button
           @click="toggleGrid"
           :class="isGridVisible ? 'buttonActive' : ''"
-          class="w-[94.5%] bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem]"
+          class="w-full bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem]"
         >
           + Add a new address
         </button>
         <div v-if="isGridVisible">
-          <div class="grid grid-cols-1 gap-2 md:gap-4 w-[89%]">
+          <div class="grid grid-cols-1 gap-2 md:gap-4 w-[94%]">
             <!-- Business Name -->
             <!-- <div
               class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4"
@@ -345,7 +347,7 @@
           </div>
           <!-- Action Buttons -->
           <div
-            class="flex flex-col gap-4 md:col-span-2 mt-[10px] justify-end w-full lg:max-w-[94.5%] lg:w-full pb-[2rem] md:pb-0"
+            class="flex flex-col gap-4 md:col-span-2 mt-[10px] justify-end w-full lg:max-w-[100%] lg:w-full pb-[2rem] md:pb-0"
           >
             <button
               @click="handleSaveAddress()"
@@ -453,9 +455,9 @@ export default {
         : [];
     },
     sortedAddresses() {
-      // if(this.userProfile.customerAddress){
-      return [];
-      // }
+      if (!this.userProfile.customerAddress) {
+        return [];
+      }
       // Clone the array to avoid mutating the original
       const addresses = [...this.userProfile.customerAddress];
 
@@ -631,6 +633,12 @@ export default {
 }
 .address-tab:hover .radio-section span {
   background-color: #ffa900;
+}
+.radio-section {
+  width: 200px;
+}
+.address-details {
+  width: calc(100% - 200px);
 }
 .address-tab:hover .address-details {
   border-color: #c3c3c3;

@@ -133,7 +133,18 @@ export const actions = {
   },
   async fetchSingleProductDetail(ctx, payload) {
     try {
-      const response = await $axios.get(`/products/${payload?.id}`);
+      const response = await $axios.post(`/products/${payload?.id}/details`);
+      ctx.commit("setSingleProductData", response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async fetchSingleProductPublicDetail(ctx, payload) {
+    try {
+      const response = await $axios.post(
+        `/products/${payload?.id}/details/public`
+      );
       ctx.commit("setSingleProductData", response);
       return response;
     } catch (error) {
