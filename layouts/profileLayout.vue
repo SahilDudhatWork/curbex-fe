@@ -91,7 +91,7 @@
               >
                 <path
                   d="M12 0.75L6.5 6.25L1 0.75"
-                  stroke="#8D54FF"
+                  stroke="#FFFFFF"
                   stroke-width="1.5"
                   stroke-linecap="round"
                 />
@@ -943,7 +943,7 @@
               <span class="text-[#FF364A] text-[20px]">Logout</span>
             </div>
           </div>
-          <div class="flex flex-col md:gap-7 sidemenu-sm hidden md:flex">
+          <div class="flex-col md:gap-7 sidemenu-sm hidden md:flex">
             <NuxtLink
               to="/profile"
               class="flex items-center gap-3 text-[#121212] cursor-pointer"
@@ -1878,7 +1878,7 @@ export default {
     position: absolute;
     overflow: hidden;
     z-index: 9;
-    background-color: #ffffff;
+    background-color: #8d54ff;
     width: calc(100% - 49px);
     box-sizing: border-box;
   }
@@ -1889,15 +1889,21 @@ export default {
   }
   .sidemenu-sm-active {
     height: auto;
+    background-color: #ffffff;
   }
+
   .sidemenu-sm div span,
   .sidemenu-sm a span {
     font-size: 12px;
     border-bottom: 1px solid #c3c3c3;
     /* min-width: 129px; */
     padding: 8px 0;
-    color: #8d54ff;
+    color: #FFFFFF;
     width: 100%;
+  }
+  .sidemenu-sm-active div span,
+  .sidemenu-sm-active a span {
+    color: #121212;
   }
   .content-flex {
     width: 100%;

@@ -32,7 +32,7 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[20px] relative overflow-hidden">
+        <div class="rounded-t-[20px] relative overflow-hidden mt-[3px]">
           <img
             :src="
               item.heroImage
@@ -40,7 +40,7 @@
                 : '/Images/Product/product-1.png'
             "
             alt=""
-            class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
+            class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
           />
           <span
             @click="toggleFavorite(item)"
@@ -87,6 +87,15 @@
               </p>
             </div>
           </div>
+          <p class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[150px] overflow-hidden text-ellipsis mb-[1px]">
+              {{
+                item?.description
+                  ? item?.description.length > 40
+                    ? item?.description?.substring(0, 40) + "..."
+                    : item?.description
+                  : "The billboard that's always out front"
+              }}
+            </p>
         </div>
       </div>
       <!-- <div

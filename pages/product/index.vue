@@ -75,7 +75,7 @@
 
         <!-- Review Filter -->
         <div class="relative order-4 lg:order-3 ml-auto flex items-center">
-          <button
+          <!-- <button
             @click="handleSort('isEvent')"
             :class="isEvent ? 'border border-[#121212]' : ' '"
             class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3"
@@ -95,7 +95,7 @@
             class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
           >
             Interior Promotions
-          </button>
+          </button> -->
         </div>
 
         <!-- Location Filter -->
@@ -189,7 +189,7 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[20px] relative overflow-hidden">
+        <div class="rounded-t-[23px] relative overflow-hidden mt-[3px]">
           <img
             :src="
               item.heroImage
@@ -197,7 +197,7 @@
                 : '/Images/Product/product-1.png'
             "
             alt=""
-            class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
+            class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
           />
           <span
             @click="toggleFavorite(item)"
@@ -223,7 +223,7 @@
             </svg>
           </span>
         </div>
-        <div class="bg-[#F3F3F3] rounded-b-[20px] p-2 md:p-3 lg:p-5">
+        <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-3 lg:p-5">
           <p
             :class="item?.type === 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
             class="text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF] capitalize"

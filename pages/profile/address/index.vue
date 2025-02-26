@@ -21,15 +21,15 @@
             class="flex items-center flex-wrap lg:flex-nowrap"
           >
             <div
-              class="radio-section bg-[#E3E3E3] text-[#121212] flex item-center w-fit p-[15px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
+              class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center justify-center lg:justify-start w-fit p-[13px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
             >
               <span
-                class="w-[22px] h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px]"
+                class="w-[13px] lg:w-[22px] h-[13px] lg:h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px] mb-[2px] lg:mb-0"
               ></span>
-              <p>{{ address.city }}- {{ address.country }}</p>
+              <p class="text-[14px] lg:text-[16px]">{{ address.city }}- {{ address.country }}</p>
             </div>
             <div
-              class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
+              class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[13px_15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
             >
               <span>
                 <svg
@@ -120,7 +120,7 @@
                 </svg>
               </span>
               <p
-                class="p-[0px_10px] whitespace-nowrap max-w-[540px] overflow-hidden text-ellipsis"
+                class="text-left w-full lg:w-auto lg:text-center p-[0px_10px] whitespace-nowrap max-w-[540px] overflow-hidden text-ellipsis"
               >
                 {{ address.street }}
               </p>
@@ -170,12 +170,12 @@
         <button
           @click="toggleGrid"
           :class="isGridVisible ? 'buttonActive' : ''"
-          class="w-full bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[14px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem]"
+          class="w-full bg-[#E3E3E3] text-[#121212] rounded-[35px] p-[12px] text-[16px] hover:bg-[#DAC8FF] mb-[2rem]"
         >
           + Add a new address
         </button>
         <div v-if="isGridVisible">
-          <div class="grid grid-cols-1 gap-2 md:gap-4 w-[94%]">
+          <div class="grid grid-cols-1 gap-2 md:gap-4 w-full md:w-[94%]">
             <!-- Business Name -->
             <!-- <div
               class="flex flex-wrap lg:grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4"
@@ -188,7 +188,7 @@
                 <input
                   type="text"
                   placeholder="Business Name"
-                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
               </div>
             </div> -->
@@ -206,7 +206,7 @@
                   type="text"
                   placeholder="Address Line 1"
                   v-model="formData.street"
-                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   :class="{ 'border-[red]': errors?.street }"
                   @keyup="initAutocomplete"
                 />
@@ -225,7 +225,7 @@
                   type="text"
                   placeholder="Province"
                   v-model="formData.province"
-                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   :class="{ 'border-[red]': errors?.province }"
                 />
                 <span
@@ -259,7 +259,7 @@
                 <input
                   type="text"
                   placeholder="Province"
-                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
                 <button
                   class="hidden md:block absolute right-[-50px] top-9"
@@ -294,7 +294,7 @@
                   type="text"
                   placeholder="City"
                   v-model="formData.city"
-                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   :class="{ 'border-[red]': errors?.city }"
                 />
                 <span
@@ -312,7 +312,7 @@
                   type="text"
                   placeholder="Postal Code"
                   v-model="formData.postal"
-                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   :class="{ 'border-[red]': errors?.postal }"
                 />
                 <span

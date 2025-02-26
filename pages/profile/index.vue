@@ -47,7 +47,7 @@
               type="text"
               v-model="formData.firstName"
               placeholder="First Name"
-              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             />
           </div>
 
@@ -61,7 +61,7 @@
               type="text"
               v-model="formData.lastName"
               placeholder="Last Name"
-              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             />
           </div>
 
@@ -69,7 +69,7 @@
           <!-- Username -->
           <!-- <div class="flex flex-col gap-1 w-full md:w-[72%] lg:w-auto">
                         <label class="hidden md:block font-medium text-[#121212] text-[18px]">Username</label>
-                        <input type="text" v-model="username" placeholder="Username" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
+                        <input type="text" v-model="username" placeholder="Username" class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]">
                     </div> -->
 
           <!-- Phone Number -->
@@ -82,7 +82,7 @@
               type="tel"
               v-model="formData.phoneNumber"
               placeholder="E.g. (123) 456-7890"
-              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             />
             <span class="text-[12px] text-gray-500">E.g. (123) 456-7890</span>
           </div>
@@ -102,7 +102,7 @@
               type="email"
               v-model="formData.email"
               placeholder="Email"
-              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+              class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             />
           </div>
           <div
@@ -152,7 +152,7 @@
             </button>
             <button
               @click="updateProfile"
-              class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition"
+              class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-[#121212] text-white rounded-lg hover:bg-[#8b5cf6] transition"
             >
               Save
               <svg
@@ -170,7 +170,7 @@
             </button>
           </div>
         </div>
-        <div class="md:hidden pb-6">
+        <!-- <div class="md:hidden pb-6">
           <h2
             class="text-[16px] md:text-[20px] font-semibold mt-6 pt-6 pb-3 md:hidden"
           >
@@ -215,7 +215,7 @@
               </svg>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

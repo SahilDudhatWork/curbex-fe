@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mx-auto px-6 md:px-0">
+    <div class="container mx-auto px-6 md:px-0 pt-5">
       <div class="flex flex-wrap lg:flex-nowrap">
         <div
           class="w-full lg:w-[50%] lg:mr-[4rem] mb-[35px] border border-[#F5F5F5] rounded-[20px] p-[0.25rem] md:p-5"

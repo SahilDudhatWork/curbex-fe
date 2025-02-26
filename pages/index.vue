@@ -26,8 +26,8 @@
     </div>
     <div class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden">
       <h2 class="text-changed font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal] relative h-[155px] flex items-center justify-center gap-[20px] ">
-        <span class="your-span">your </span>
-        <span class="brand-span">brand,</span>
+        <span class="your-span">your brand,</span>
+        <!-- <span class="brand-span"></span> -->
         <span class="anytime-span">anytime, </span>
         <span class="anywhere-span">anywhere</span>
       </h2>
@@ -264,7 +264,7 @@ export default {
     100% { transform: translateY(117px); opacity: 0; }
   }
 
-  .your-span, .brand-span, .anytime-span, .anywhere-span {
+  .your-span, .anytime-span, .anywhere-span {
     display: block;
     opacity: 0;
     transform: translateY(117px);
@@ -272,9 +272,8 @@ export default {
   }
 
   .your-span { animation-delay: 0s; }
-  .brand-span { animation-delay: 0.5s; }
-  .anytime-span { animation-delay: 1s; }
-  .anywhere-span { animation-delay: 1.5s; }
+  .anytime-span { animation-delay: 0.5s; }
+  .anywhere-span { animation-delay: 1s; }
   @media screen and (min-width:1024px) and (max-width:1280px){
     .text-changed{
       font-size: 56px;

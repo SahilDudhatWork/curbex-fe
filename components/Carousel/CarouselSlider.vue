@@ -34,18 +34,18 @@
           >
             <span class="hidden lg:block">Best Seller</span>
           </p> -->
-          <div class="rounded-t-[20px] relative overflow-hidden">
+          <div class="rounded-t-[23px] relative overflow-hidden mt-[3px]">
             <img
               v-if="item.heroImage"
               :src="item.heroImage.imageUrl"
               alt=""
-              class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
+              class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
             />
             <img
               v-else
               src="/Images/Product/product-1.png"
               alt=""
-              class="rounded-t-[20px] transition-opacity duration-300 group-hover:scale-110"
+              class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
             />
             <span
               @click="toggleFavorite(item)"
@@ -71,10 +71,10 @@
               </svg>
             </span>
           </div>
-          <div class="bg-[#F3F3F3] rounded-b-[20px] p-2 md:p-5">
+          <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-5">
             <p
               :class="item?.type == 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
-              class="capitalize text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"
+              class="capitalize text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] md:mt-[-28px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"
             >
               {{ item?.type }}
             </p>
@@ -131,9 +131,9 @@ export default {
   data() {
     return {
       perPageCustom: [
-        [320, 2], // Show 1 slide if width >= 320px
-        [768, 3], // Show 3 slides if width >= 768px
-        [1024, 5], // Show 5 slides if width >= 1024px
+        [320, 2], 
+        [768, 2.5], 
+        [1024, 5], 
       ],
     };
   },
