@@ -26,7 +26,9 @@
               <span
                 class="w-[13px] lg:w-[22px] h-[13px] lg:h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px] mb-[2px] lg:mb-0"
               ></span>
-              <p class="text-[14px] lg:text-[16px]">{{ address.city }}- {{ address.country }}</p>
+              <p class="text-[14px] lg:text-[16px]">
+                {{ address.city }}- {{ address.country }}
+              </p>
             </div>
             <div
               class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[13px_15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"

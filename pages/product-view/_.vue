@@ -78,7 +78,7 @@
                 v-bind="dynamicCarouselSettings"
                 class="section788777887"
               >
-                <div v-for="(item, index) in product.images">
+                <div v-for="(item, index) in product.images" :key="index">
                   <img
                     :src="item.imageUrl"
                     alt="Carousel Image"
@@ -619,7 +619,7 @@ import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
-  middleware: "auth",
+  // middleware: "auth",
 
   data() {
     return {
@@ -712,6 +712,9 @@ export default {
         centerMode: isCenterMode,
       };
     },
+    hasToken() {
+      return this.$cookies.get("token") ? true : false;
+    },
   },
   async mounted() {
     const accordionElements = document.querySelectorAll("[data-accordion]");
@@ -734,6 +737,7 @@ export default {
   },
   methods: {
     ...mapActions({
+      fetchSingleProductPublicDetail: "product/fetchSingleProductPublicDetail",
       fetchSingleProductDetail: "product/fetchSingleProductDetail",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
       addToCart: "product/addToCart",
@@ -765,7 +769,11 @@ export default {
       }
     },
     async getSingleProduct() {
-      await this.fetchSingleProductDetail({ id: this.productId });
+      if (this.hasToken) {
+        await this.fetchSingleProductDetail({ id: this.productId });
+      } else {
+        await this.fetchSingleProductPublicDetail({ id: this.productId });
+      }
     },
     downloadFileItem() {
       if (this.product.artworkSpecsURL && this.product.artworkSpecsURL != "") {
@@ -782,6 +790,16 @@ export default {
     },
     async productAddToCart() {
       try {
+        if (!this.hasToken) {
+          if (this.product.type == "rental") {
+            this.$router.push(`/auth/login?redirect=/rental/${this.productId}`);
+          } else {
+            this.$router.push(
+              `/auth/login?redirect=/product-view/${this.productId}`
+            );
+          }
+          return;
+        }
         let cartData = null;
         if (this.cartDetail && this.cartDetail.cartItems) {
           cartData = this.cartDetail.cartItems.find(

@@ -16,8 +16,8 @@
       <div
         v-for="(item, index) in filterProducts.records"
         :key="index"
-        @click="viewProduct(item.id)"
-        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+        @click="viewProduct(item)"
+        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
       >
         <p
           :class="
@@ -87,15 +87,17 @@
               </p>
             </div>
           </div>
-          <p class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[150px] overflow-hidden text-ellipsis mb-[1px]">
-              {{
-                item?.description
-                  ? item?.description.length > 40
-                    ? item?.description?.substring(0, 40) + "..."
-                    : item?.description
-                  : "The billboard that's always out front"
-              }}
-            </p>
+          <p
+            class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[150px] overflow-hidden text-ellipsis mb-[1px]"
+          >
+            {{
+              item?.description
+                ? item?.description.length > 40
+                  ? item?.description?.substring(0, 40) + "..."
+                  : item?.description
+                : "The billboard that's always out front"
+            }}
+          </p>
         </div>
       </div>
       <!-- <div
@@ -194,8 +196,12 @@ export default {
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
       fetchProducts: "product/fetchProducts",
     }),
-    async viewProduct(id) {
-      this.$router.push(`/product-view/${id}`);
+    async viewProduct(product) {
+      if (product.type == "retail") {
+        this.$router.push(`/product-view/${product.id}`);
+      } else {
+        this.$router.push(`/rental/${product.id}`);
+      }
     },
     async getFavoriteProducts() {
       let payload = {

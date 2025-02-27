@@ -104,7 +104,7 @@
             </p> -->
             <button
               class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] md:text-[12px] w-full mt-3 text-center p-[7px] md:p-[9px] font-semibold mb-[5px]"
-              @click.stop="openProduct(item.id)"
+              @click.stop="openProduct(item)"
             >
               Customize it
             </button>
@@ -151,13 +151,24 @@ export default {
         };
       });
     },
+    hasToken() {
+      return this.$cookies.get("token") ? true : false;
+    },
   },
   methods: {
     ...mapActions({
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
-    openProduct(id) {
-      this.$router.push(`/product-view/${id}`);
+    openProduct(product) {
+      if (product.type == "retail") {
+        this.$router.push(`/product-view/${product.id}`);
+      } else {
+        if (!this.hasToken) {
+          this.$router.push(`/product-view/${product.id}`);
+        } else {
+          this.$router.push(`/rental/${product.id}`);
+        }
+      }
     },
     async toggleFavorite(product) {
       try {

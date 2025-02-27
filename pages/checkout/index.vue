@@ -131,7 +131,7 @@
                       {{ address.street }}
                     </p>
                   </div>
-                  <span>
+                  <span @click.stop="editAddress(address)">
                     <svg
                       width="19"
                       height="19"
@@ -210,7 +210,7 @@
             <p
               class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]"
             >
-              Enter new address
+              {{ addressData?.id ? "Edit address" : "Enter new address" }}
             </p>
             <div
               class="flex flex-wrap md:grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-5"
@@ -1523,6 +1523,7 @@ export default {
       createCard: "payment/createCard",
       fetchCards: "payment/fetchCards",
       createAddress: "profile/createAddress",
+      updateAddress: "profile/updateAddress",
       fetchProfile: "auth/profile",
       setDefaultAddress: "profile/setDefaultAddress",
       createOrder: "order/createOrder",
@@ -1619,6 +1620,12 @@ export default {
         console.log("error", error);
       }
     },
+    async editAddress(address) {
+      this.addressData = { ...address };
+
+      this.isNewAddress = true;
+      this.isShippingDefaultAddress = false;
+    },
     async removeItem(cart) {
       try {
         await this.removeCartItem({ id: cart.id });
@@ -1686,7 +1693,7 @@ export default {
         console.log("error", error);
       }
     },
-    async handleSaveShippingAddress() {
+    async handleSaveShippingAddress(type = "add") {
       try {
         this.addressError = await this.$validateAddressFormData({
           form: this.addressData,
@@ -1696,8 +1703,13 @@ export default {
         }
         this.addressData.country = "CA";
         this.addressData.customerId = this.profile.id;
+        let res;
+        if (type == "add") {
+          res = await this.createAddress(this.addressData);
+        } else {
+          res = await this.updateAddress(this.addressData);
+        }
 
-        let res = await this.createAddress(this.addressData);
         this.isNewAddress = false;
         this.addressData = res;
         if (this.isShippingDefaultAddress) {
@@ -1745,8 +1757,15 @@ export default {
     async placeOrder() {
       try {
         if (this.addressData && !this.addressData.id) {
-          await this.handleSaveShippingAddress();
+          await this.handleSaveShippingAddress("add");
+        } else if (
+          this.addressData &&
+          this.addressData.id &&
+          this.isNewAddress
+        ) {
+          await this.handleSaveShippingAddress("edit");
         }
+
         if (this.billingAddressData && !this.billingAddressData.id) {
           await this.handleSaveBillingAddress();
         }
