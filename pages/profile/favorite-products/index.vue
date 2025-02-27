@@ -17,7 +17,7 @@
         v-for="(item, index) in filterProducts.records"
         :key="index"
         @click="viewProduct(item.id)"
-        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
       >
         <p
           :class="
@@ -32,7 +32,7 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[20px] relative overflow-hidden mt-[3px]">
+        <div class="rounded-t-[23px] relative overflow-hidden">
           <img
             :src="
               item.heroImage
@@ -40,7 +40,7 @@
                 : '/Images/Product/product-1.png'
             "
             alt=""
-            class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
+            class="rounded-t-[23px] transition-scale duration-300 group-hover:scale-110"
           />
           <span
             @click="toggleFavorite(item)"
@@ -66,7 +66,7 @@
             </svg>
           </span>
         </div>
-        <div class="bg-[#F3F3F3] rounded-b-[20px] p-2 md:p-3 lg:p-5">
+        <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-3 lg:p-5">
           <p
             :class="item?.type === 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
             class="text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF] capitalize"

@@ -15,7 +15,7 @@
             Select from saved addresses
           </p>
           <div
-            class="max-h-[323px] pr-3 overflow-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
+            class="max-h-[323px] my-[15px] pr-3 overflow-auto [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
           >
             <div
               v-for="(address, index) in sortedAddresses"
@@ -167,10 +167,9 @@
             </div>
           </div>
           <div
-            @click="addNewAddress"
-            class="flex items-center m-[15px_0px_25px] cursor-pointer"
+            class="flex items-center m-[15px_0px_25px]"
           >
-            <span class="block mr-3">
+            <span class="block mr-3 cursor-pointer" @click="addNewAddress">
               <svg
                 width="25"
                 height="23"
@@ -376,7 +375,7 @@
             </div>
           </div>
           <p
-            class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]"
+            class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem] pt-[3rem]"
           >
             Billing Address
           </p>
@@ -400,7 +399,7 @@
           </p>
           <div
             v-if="!isBillingSameAddress && sortedAddresses.length > 0"
-            class="max-h-[323px] pr-3 overflow-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
+            class="max-h-[323px] my-[15px] pr-3 overflow-auto [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
           >
             <div
               v-for="(address, index) in sortedAddresses"
@@ -555,10 +554,10 @@
           </div>
           <div
             v-if="!isBillingSameAddress"
-            @click="addNewBillingAddress"
-            class="flex items-center m-[15px_0px_25px] cursor-pointer"
+            
+            class="flex items-center m-[15px_0px_25px] "
           >
-            <span class="block mr-3">
+            <span class="block mr-3 cursor-pointer" @click="addNewBillingAddress" >
               <svg
                 width="25"
                 height="23"

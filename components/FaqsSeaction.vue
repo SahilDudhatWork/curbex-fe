@@ -3,7 +3,7 @@
         <div v-for="(item, index) in faqs" :key="index" class="w-fit mb-5">
             <button
                 ref="buttons"
-                class="relative z-1 accordion-color flex items-center justify-between p-3 font-medium rounded-[20px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
+                class="relative z-1 accordion-color flex items-center justify-between p-3 font-medium rounded-[54px] text-[#121212] gap-3 outline-none transition-all bg-[#F3F3F3]"
                 :class="{ 'accordion-open': openIndex === index }"
                 @click="toggle(index, $event)"
             >

@@ -14,7 +14,7 @@
         class="relative p-2"
       >
         <div
-          class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+          class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
         >
           <p
             :class="
@@ -34,7 +34,7 @@
           >
             <span class="hidden lg:block">Best Seller</span>
           </p> -->
-          <div class="rounded-t-[23px] relative overflow-hidden mt-[3px]">
+          <div class="rounded-t-[23px] relative overflow-hidden">
             <img
               v-if="item.heroImage"
               :src="item.heroImage.imageUrl"

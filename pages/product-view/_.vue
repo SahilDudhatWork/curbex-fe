@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mx-auto px-6 md:px-0 pt-5">
+    <div class="container mx-auto px-6 md:px-0 pt-[5rem]">
       <div class="flex flex-wrap lg:flex-nowrap">
         <div
           class="w-full lg:w-[50%] lg:mr-[4rem] mb-[35px] border border-[#F5F5F5] rounded-[20px] p-[0.25rem] md:p-5"
@@ -93,7 +93,7 @@
         <div class="w-[100%] lg:w-[50%] lg:pl-[2rem]">
           <div class="w-full md:w-[72%] lg:w-full">
             <h3
-              class="text-[#000000] text-[20px] md:text-[30px] font-Montserrat-Bold pb-[10px]"
+              class="text-[#000000] text-[20px] md:text-[30px] font-Montserrat-Bold pb-[10px] lg:pb-[5px]"
             >
               {{ product?.name }}
               <span
@@ -118,10 +118,10 @@
             </p>
             <div
               v-if="product.fees && product.fees.length"
-              class="border-t border-b border-[#D5D5D5] p-[10px_0px]"
+              class="border-t border-b border-[#D5D5D5] p-[20px_0px]"
             >
               <p
-                class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
+                class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium pb-[8px]"
                 v-for="(item, index) in product.fees"
                 :key="index"
               >
@@ -354,11 +354,11 @@
               </div>
             </div>
             <div
-              class="border-b border-[#D5D5D5] p-[10px_0px] mb-5 pb-4"
+              class="border-b border-[#D5D5D5] p-[20px_0px] mb-5"
               v-html="product?.description"
             >
               <!-- <p
-                class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium mb-[5px]"
+                class="text-[14px] md:text-[16px] text-[#121212] font-Montserrat-Medium pb-[8px]"
               >
                 Double Sided
               </p>
@@ -402,11 +402,11 @@
               Download Artwork Specs
             </button>
           </div>
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap justify-between">
             <div
-              class="flex items-center w-[47%] md:w-[30%] md:mr-5 border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
+              class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
-              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-3">
+              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]">
                 <svg
                   width="23"
                   height="22"
@@ -449,9 +449,9 @@
               </div>
             </div>
             <div
-              class="flex items-center w-[47%] md:w-[30%] md:mr-5 border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
+              class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
-              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-3">
+              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]">
                 <svg
                   width="22"
                   height="22"
@@ -479,9 +479,9 @@
               </div>
             </div>
             <div
-              class="flex items-center w-[47%] md:w-[30%] md:mr-5 border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
+              class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
-              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-3">
+              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]">
                 <svg
                   width="22"
                   height="22"
@@ -679,9 +679,9 @@ export default {
       heroImage: null,
       faqs: [
         {
-          question: "Can we launch nationwide campaigns with Curbex signage?",
+          question: "Can we place signage directly at the business location?",
           answer:
-            "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
+            "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
         },
         {
           question: "How do Curbex signs fit into multi-channel campaigns?",
@@ -689,10 +689,11 @@ export default {
             "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
         },
         {
-          question: "Can we place signage directly at the business location?",
+          question: "Can we launch nationwide campaigns with Curbex signage?",
           answer:
-            "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
+            "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
         },
+        
       ],
     };
   },

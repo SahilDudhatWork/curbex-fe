@@ -174,7 +174,7 @@
       <div
         v-for="(item, key) in filterProducts.records"
         :key="key"
-        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
       >
         <p
           :class="
@@ -189,7 +189,7 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[23px] relative overflow-hidden mt-[3px]">
+        <div class="rounded-t-[23px] relative overflow-hidden">
           <img
             :src="
               item.heroImage
@@ -231,7 +231,7 @@
             {{ item?.type }}
           </p>
           <div
-            class="flex items-start justify-between pb-[5px] md:pb-[0] lg:pb-[5px]"
+            class="flex items-end justify-between pb-[5px] md:pb-[0] lg:pb-[5px]"
           >
             <p
               class="text-[12px] lg:text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis"

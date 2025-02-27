@@ -19,23 +19,7 @@
                         </div>
                         <div class="w-full lg:w-[38%] pt-[2rem] lg:pt-0">
                             <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">Reference Images</p>
-                            <Carousel :autoplay="false" :autoplayTimeout="3000" :loop="false" :nav="false" :dots="false" :perSecondPageCustom="perSecondPageCustom" class="rounded-none">
-                                <Slide class="relative p-2">
-                                    <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                        <img src="/Images/Proof/s1.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                                    </div>
-                                </Slide>
-                                <Slide class="relative p-2">
-                                    <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                        <img src="/Images/Proof/s2.jpg" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                                    </div>
-                                </Slide>
-                                <Slide class="relative p-2">
-                                    <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                        <img src="/Images/Proof/s3.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                                    </div>
-                                </Slide>
-                            </Carousel>
+                            <ReferenceImagesSlide/>
                         </div>
                     </div>
                 </div>
@@ -72,7 +56,7 @@
             </div>
             <div class="container px-6 mx-auto">
                 <p class="font-Montserrat-Medium font-[600] w-fit bg-[#FFA900] text-[#121212] text-[16px] md:text-[20px] rounded-full py-[4px] px-6 mb-[29px]">For Rent</p>
-                <p class="font-Montserrat-Regular w-fit bg-[#121212] text-[#FFFFFF] text-[16px] rounded-full py-[4px] px-6 mb-[29px]">Proof 1</p>
+                <p class="font-Montserrat-Regular w-fit bg-[#121212] text-[#FFFFFF] text-[16px] rounded-full py-[4px] px-6 mb-[10px]">Proof 1</p>
                 <div>
                     <div class="w-full lg:hidden ">
                         <p class="text-[16px] text-[#121212] font-[500] flex items-center">
@@ -116,7 +100,7 @@
                         </div>                    
                     </div>
                 </div>
-                <div class="pb-3 border-seaction">
+                <div class="pb-[3rem] border-seaction">
                     <p class="relative z-[3] text-[16px] text-[#121212] pb-5 pt-6 flex items-center font-[600]">
                         <span class="w-[22px] h-[22px] bg-[#8D54FF] block mr-[10px] rounded-[50px]"></span>
                         Sent by You
@@ -135,23 +119,7 @@
                         </div>
                         <div class="w-full lg:w-[38%] mb-[3.5rem] hidden lg:block">
                             <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">Reference Images</p>
-                            <Carousel :autoplay="false" :autoplayTimeout="3000" :loop="false" :nav="false" :dots="false" :perPageCustom="perPageCustom" class="rounded-none">
-                                <Slide class="relative p-2">
-                                    <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                        <img src="/Images/Proof/s1.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                                    </div>
-                                </Slide>
-                                <Slide class="relative p-2">
-                                    <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                        <img src="/Images/Proof/s2.jpg" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                                    </div>
-                                </Slide>
-                                <Slide class="relative p-2">
-                                    <div class="item transition-all duration-300 w-[176px] h-[166px]">
-                                        <img src="/Images/Proof/s3.png" alt="" class="w-[176px] h-[166px] object-cover rounded-[20px]"/>
-                                    </div>
-                                </Slide>
-                            </Carousel>
+                            <ReferenceImagesSlide/>
                         </div>                    
                     </div>
                 </div>
@@ -167,33 +135,25 @@
 </template>
 <script>
     export default {
-    props: {
-        data: {
-        type: Array,
-        default: () => [],
+        props: {
+            data: {
+            type: Array,
+            default: () => [],
+            },
+            type: {
+            type: String,
+            default: () => "",
+            },
         },
-        type: {
-        type: String,
-        default: () => "",
+        data() {
+            return {
+                isApproved:false,
+                isRequest:false,
+            };
         },
-    },
-    data() {
-        return {
-        perPageCustom: [
-            [320, 2.5], 
-        ],
-        perSecondPageCustom: [
-            [320, 2.5], 
-            [768, 4],
-            [1024, 4],
-        ],
-        isApproved:false,
-        isRequest:false,
-        };
-    },
-    methods: {
-    
-    },
+        methods: {
+        
+        },
     };
 </script>
 <style scoped>
