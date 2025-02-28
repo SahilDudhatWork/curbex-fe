@@ -248,7 +248,13 @@
           <p class="text-[#C3C3C3] text-[10px] description hidden lg:block">
             The billboard that's always out front
           </p>
-          <nuxt-link :to="`/product-view/${item.id}`">
+          <nuxt-link
+            :to="
+              item?.type == 'rental'
+                ? `/rental/${item.id}`
+                : `/product-view/${item.id}`
+            "
+          >
             <button
               class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] lg:text-[12px] w-full mt-3 text-center p-1 lg:p-2 font-semibold"
             >

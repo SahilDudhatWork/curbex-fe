@@ -10,6 +10,14 @@ export const state = () => ({
   cartItem: {},
   taxes: {},
   favoriteProductIds: [],
+  productMarkers: [],
+  singleRentalProductData: {
+    permits: [],
+    product: {},
+    property: {},
+    schedule: [],
+  },
+  markerSchedule: [],
 });
 
 export const getters = {
@@ -21,6 +29,9 @@ export const getters = {
   },
   getSingleProductData(state) {
     return state.singleProductData;
+  },
+  getSingleRentalProductData(state) {
+    return state.singleRentalProductData;
   },
   getProductData(state) {
     return state.productData;
@@ -40,6 +51,12 @@ export const getters = {
   getFavoriteProductIds(state) {
     return state.favoriteProductIds;
   },
+  getMarkers(state) {
+    return state.productMarkers;
+  },
+  getMarkerSchedule(state) {
+    return state.markerSchedule;
+  },
 };
 
 export const mutations = {
@@ -51,6 +68,9 @@ export const mutations = {
   },
   setSingleProductData(state, payload) {
     state.singleProductData = payload;
+  },
+  setSingleRentalProductData(state, payload) {
+    state.singleRentalProductData = payload;
   },
   setProductData(state, payload) {
     state.productData = payload;
@@ -101,6 +121,12 @@ export const mutations = {
   setFavoriteProductIds(state, payload) {
     state.favoriteProductIds = payload;
   },
+  setMarkers(state, payload) {
+    state.productMarkers = payload;
+  },
+  setMarkerSchedule(state, payload) {
+    state.markerSchedule = payload;
+  },
 };
 
 export const actions = {
@@ -135,6 +161,18 @@ export const actions = {
     try {
       const response = await $axios.post(`/products/${payload?.id}/details`);
       ctx.commit("setSingleProductData", response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async fetchSingleRentalProductDetail(ctx, payload) {
+    try {
+      const response = await $axios.post(
+        `/products/${payload?.id}/details`,
+        payload
+      );
+      ctx.commit("setSingleRentalProductData", response);
       return response;
     } catch (error) {
       throw error;
@@ -265,6 +303,27 @@ export const actions = {
       let { province } = payload;
       const response = await $axios.get(`/taxes/${province}`);
       ctx.commit("setTaxes", response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async fetchMarkersByProduct(ctx, payload) {
+    try {
+      let { id } = payload;
+      const response = await $axios.get(`/markers/property/${id}`);
+      ctx.commit("setMarkers", response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async fetchMarkerSchedule(ctx, payload) {
+    try {
+      let { id } = payload;
+      const response = await $axios.get(`/markers/${id}/schedule`);
+      ctx.commit("setMarkerSchedule", response);
       return response;
     } catch (error) {
       throw error;

@@ -23,6 +23,12 @@
     <p class="text-[14px] text-gray-500 mb-6">
       Your email was verified. You can continue using the application.
     </p>
+    <button
+      class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] md:text-[12px] w-full mt-3 text-center p-[7px] md:p-[9px] font-semibold mb-[5px]"
+      @click="continueShopping"
+    >
+      Start Shopping
+    </button>
   </div>
 </template>
 <script>
@@ -33,11 +39,13 @@ export default {
     ...mapActions({
       emailVerification: "auth/emailVerification",
     }),
+    continueShopping() {
+      this.$router.push("/");
+    },
   },
   async mounted() {
     try {
       await this.emailVerification({ code: this.$route.query.code });
-      this.$router.push("/");
     } catch (error) {
       this.$toast.open({
         message: error?.response?.data?.message || this.$i18n.t("errorMessage"),

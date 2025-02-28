@@ -27,5 +27,10 @@
     "forgotPasswordSuccessMessage":"Reset password email sent",
     "resetPasswordSuccessMessage":"Password reset successfully",
     "updatePasswordSuccessMessage":"Password updated successfully",
-    "orderPlacedSuccessfully":"Order placed successfully"
+    "orderPlacedSuccessfully":"Order placed successfully",
+
+    "productAvailableForRent": "This product is available for rent from {startDate} to {endDate}.",
+    "productNotAvailableForRent": "This product is not available for rent from {startDate} to {endDate}."
+  
+
 }
