@@ -445,7 +445,7 @@
     </div>
     <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
       <div
-        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[2rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
+        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[1rem_2rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
       >
         <p
           class="font-bold text-[30px] md:text-[40px] text-[#8D54FF] text-center font-Montserrat-Bold pb-[10px]"

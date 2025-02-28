@@ -648,9 +648,12 @@ export default {
         },
       ],
       faqs:[
-        { question: "How soon can I receive my signage?", answer: "We offer fast turnaround times, ensuring you have your signs exactly when you need them." },
-        { question: "Can I customize my signage to match my brand?", answer: "Absolutely. We offer full customization options, including colors, logos, and messaging." },
-        { question: "What if I need help with installation?", answer: "Our team provides complete support from concept to installation to ensure everything is seamless." }
+        // { question: "How soon can I receive my signage?", answer: "We offer fast turnaround times, ensuring you have your signs exactly when you need them." },
+        // { question: "Can I customize my signage to match my brand?", answer: "Absolutely. We offer full customization options, including colors, logos, and messaging." },
+        // { question: "What if I need help with installation?", answer: "Our team provides complete support from concept to installation to ensure everything is seamless." },
+        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." },
+        { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
+        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
       ],
     };
   },

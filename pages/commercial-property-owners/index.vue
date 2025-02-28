@@ -14,7 +14,7 @@
     </div>
     <!------------------------------------------------->
     <div
-      class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[5rem]"
+      class="mt-8 md:mt-[7rem] px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[5rem]"
     >
       <!--------------------- Government & Non-Profit ---------------------->
       <div class="container mx-auto">
@@ -325,7 +325,7 @@
 
       <div class="mt-14">
         <img
-          src="/Images/commercial-property-owners/4.png"
+          src="/Images/commercial-property-owners/5.png"
           alt=""
           class="w-full h-[182px] md:h-[340px] lg:h-auto object-cover rounded-[20px]"
         />
@@ -372,14 +372,14 @@
         <div class="flex items-end lg:items-center relative">
           <div class="lg:grid w-[100%] sm:w-[67%] mt-10">
             <div class="flex flex-wrap lg:gap-6 lg:gap-x-7">
-              <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
+              <div class="flex mb-7 md:mb-10 lg:mb-4 lg:w-[48%]">
                 <div
                   class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"
                 ></div>
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
                     >
                       Uniform, High-Quality Designs
                     </p>
@@ -389,14 +389,14 @@
                   </p>
                 </div>
               </div>
-              <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
+              <div class="flex mb-7 md:mb-10 lg:mb-4 lg:w-[48%]">
                 <div
                   class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"
                 ></div>
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
                     >
                       Revenue Sharing
                     </p>
@@ -406,14 +406,14 @@
                   </p>
                 </div>
               </div>
-              <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
+              <div class="flex mb-7 md:mb-10 lg:mb-4 lg:w-[48%]">
                 <div
                   class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"
                 ></div>
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
                     >
                       Emergency Services
                     </p>
@@ -423,14 +423,14 @@
                   </p>
                 </div>
               </div>
-              <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
+              <div class="flex mb-7 md:mb-10 lg:mb-4 lg:w-[48%]">
                 <div
                   class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"
                 ></div>
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
                     >
                       Dedicated Account Manager
                     </p>
@@ -440,14 +440,14 @@
                   </p>
                 </div>
               </div>
-              <div class="flex mb-7 md:mb-10 lg:mb-7 lg:w-[48%]">
+              <div class="flex mb-7 md:mb-10 lg:mb-4 lg:w-[48%]">
                 <div
                   class="bg-[#FFA900] h-[37px] w-[37px] min-w-[37px] md:min-w-[44px] md:w-[44px] md:h-[44px] rounded-full"
                 ></div>
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
                     >
                       Liability Insurance
                     </p>

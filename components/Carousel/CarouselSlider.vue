@@ -71,7 +71,7 @@
               </svg>
             </span>
           </div>
-          <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-5">
+          <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-5 md:pb-[10px]">
             <p
               :class="item?.type == 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
               class="capitalize text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] md:mt-[-28px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"
@@ -93,7 +93,7 @@
                 </p>
               </div>
             </div>
-            <!-- <p class="text-[#C3C3C3] text-[10px] description hidden md:block">
+            <p class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis">
               {{
                 item?.description
                   ? item?.description.length > 40
@@ -101,7 +101,7 @@
                     : item?.description
                   : "The billboard that's always out front"
               }}
-            </p> -->
+            </p>
             <button
               class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] md:text-[12px] w-full mt-3 text-center p-[7px] md:p-[9px] font-semibold mb-[5px]"
               @click.stop="openProduct(item.id)"

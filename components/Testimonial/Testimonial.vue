@@ -36,7 +36,7 @@ export default {
       perPageCustom: [
         [320, 1.5], // Show 1 slide if width >= 320px
         [768, 1.7], // Show 3 slides if width >= 768px
-        [1024, 3.2], // Show 5 slides if width >= 1024px
+        [1024, 3], // Show 5 slides if width >= 1024px
       ],
     };
   }

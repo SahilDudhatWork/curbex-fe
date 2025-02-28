@@ -4,13 +4,13 @@
       <div class="flex justify-between flex-wrap lg:flex-nowrap">
         <div class="w-full lg:w-[48%]">
           <p
-            class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]"
+            class="text-[18px] md:text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem]"
           >
             Shipping Address
           </p>
           <p
             v-if="sortedAddresses.length > 0"
-            class="text-[18px] text-[#121212] font-Montserrat-Medium"
+            class="text-[14px] md:text-[18px] text-[#121212] font-Montserrat-Medium"
           >
             Select from saved addresses
           </p>
@@ -375,7 +375,7 @@
             </div>
           </div>
           <p
-            class="text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem] pt-[3rem]"
+            class="text-[18px] md:text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem] pt-[3rem]"
           >
             Billing Address
           </p>
@@ -393,7 +393,7 @@
           </div>
           <p
             v-if="!isBillingSameAddress && sortedAddresses.length > 0"
-            class="text-[18px] text-[#121212] font-Montserrat-Medium"
+            class="text-[14px] md:text-[18px] text-[#121212] font-Montserrat-Medium"
           >
             Select from saved addresses
           </p>

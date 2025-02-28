@@ -36,7 +36,7 @@
           </button>
           <div
             v-if="isProductTypeOpen"
-            class="bg-[#FFFFFF] p-[10px_15px] border border-[#C3C3C3] mt-[-41px] rounded-[25px] absolute left-0 right-0 z-1 overflow-hidden opacity-0 transition-all openDropdown"
+            class="bg-[#FFFFFF] p-[10px_15px] border border-[#C3C3C3] mt-[-33px] lg:mt-[-41px] rounded-[25px] absolute left-0 right-0 z-1 overflow-hidden opacity-0 transition-all openDropdown"
           >
             <div
               v-for="type in productTypes"
@@ -182,7 +182,7 @@
               ? 'bg-[#FFA900] lg:bg-[#FF364A]'
               : 'bg-[#FFFFF] lg:bg-[#FFFFF]'
           "
-          class="mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
+          class="mb-[-12px] lg:mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
         >
           <span class="" v-if="item.isTrending">Trending</span>
 
@@ -201,7 +201,7 @@
           />
           <span
             @click="toggleFavorite(item)"
-            class="cursor-pointer border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[40px] h-[40px] absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
+            class="cursor-pointer border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[40px] h-[40px] absolute top-[5px] right-[5px] rounded-full flex justify-center items-center pointer scale-75 lg:scale-100 lg:top-[10px] lg:right-[10px]"
           >
             <svg
               width="19"
@@ -515,5 +515,10 @@ export default {
   height: auto;
   padding-top: 52px;
   opacity: 1;
+}
+@media screen and (max-width:1023px) {
+  .openDropdown {
+  padding-top: 35px;
+} 
 }
 </style>

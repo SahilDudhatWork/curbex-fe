@@ -499,7 +499,7 @@
     </div>
     <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
       <div
-        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[2rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
+        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[1rem_2rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
       >
         <p
           class="font-bold text-[30px] md:text-[40px] text-[#8D54FF] text-center font-Montserrat-Bold pb-[10px]"
@@ -716,9 +716,9 @@ export default {
         },
       ],
       faqs:[
-        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
+        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." },
         { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
-        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." }
+        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
       ],
     };
   },
