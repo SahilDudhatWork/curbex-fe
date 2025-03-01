@@ -93,15 +93,17 @@
                 </p>
               </div>
             </div>
-            <p class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis">
-              {{
+            <p
+              v-html="
                 item?.description
                   ? item?.description.length > 40
-                    ? item?.description?.substring(0, 40) + "..."
+                    ? item?.description?.substring(0, 40) + '...'
                     : item?.description
-                  : "The billboard that's always out front"
-              }}
-            </p>
+                  : 'The billboard that`s always out front'
+              "
+              class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis"
+            ></p>
+
             <button
               class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] md:text-[12px] w-full mt-3 text-center p-[7px] md:p-[9px] font-semibold mb-[5px]"
               @click.stop="openProduct(item)"
@@ -131,9 +133,9 @@ export default {
   data() {
     return {
       perPageCustom: [
-        [320, 2], 
-        [768, 2.5], 
-        [1024, 5], 
+        [320, 2],
+        [768, 2.5],
+        [1024, 5],
       ],
     };
   },

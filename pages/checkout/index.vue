@@ -1039,9 +1039,17 @@
                         />
                       </svg>
                     </span>
-                    April 28th - April 30th
+                    {{
+                      item?.rentalStartDate && item?.rentalEndDate
+                        ? `${$moment.formatMonthDay(
+                            item?.rentalStartDate
+                          )} - ${$moment.formatMonthDay(item?.rentalEndDate)}`
+                        : "N/A"
+                    }}
                   </p>
-                  <p class="text-[14px]">$209.00</p>
+                  <p class="text-[14px]">
+                    ${{ $formatCurrency(item.totalPrice) }}
+                  </p>
                 </div>
                 <div v-else>
                   <div class="flex justify-between items-center pb-[5px]">
@@ -1792,7 +1800,7 @@ export default {
             ? this.addressData.id
             : this.billingAddressData.id,
           dataKeyId: this.selectedCard,
-          price: this.finalPaymentAmount,
+          price: parseFloat(this.$formatCurrency(this.finalPaymentAmount)),
         };
         await this.createOrder(data);
         this.paymentDetails = {

@@ -16,6 +16,9 @@ export default (_, inject) => {
         ? moment(startDate).add(days, "days").format("YYYY-MM-DD")
         : "-";
     },
+    formatMonthDay(date) {
+      return date ? moment(date).format("MMMM Do") : "-"; // Example: "April 28th"
+    },
     isDateRangeAvailable(startDate, endDate, bookedDates) {
       const start = moment(startDate);
       const end = moment(endDate);

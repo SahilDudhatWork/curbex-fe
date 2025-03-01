@@ -1,5 +1,7 @@
 export default ({ app }, inject) => {
   inject("formatCurrency", (value) => {
-    return Number(value || 0).toFixed(2);
+    return `${(
+      Math.round((Number(value) + Number.EPSILON) * 100) / 100
+    ).toFixed(2)}`;
   });
 };
