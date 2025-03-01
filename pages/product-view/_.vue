@@ -49,11 +49,17 @@
                 <g clip-path="url(#clip0_4949_3589)">
                   <path
                     d="M23.2248 5.65198C22.6576 5.08445 21.984 4.63424 21.2427 4.32708C20.5014 4.01991 19.7069 3.86182 18.9044 3.86182C18.102 3.86182 17.3074 4.01991 16.5661 4.32708C15.8248 4.63424 15.1513 5.08445 14.584 5.65198L13.4067 6.82927L12.2295 5.65198C11.0836 4.50614 9.52952 3.86241 7.90905 3.86241C6.28858 3.86241 4.73449 4.50614 3.58864 5.65198C2.4428 6.79783 1.79907 8.35192 1.79907 9.97239C1.79907 11.5929 2.4428 13.147 3.58864 14.2928L4.76593 15.4701L13.4067 24.1109L22.0476 15.4701L23.2248 14.2928C23.7924 13.7255 24.2426 13.052 24.5497 12.3107C24.8569 11.5694 25.015 10.7748 25.015 9.97239C25.015 9.16996 24.8569 8.3754 24.5497 7.63409C24.2426 6.89278 23.7924 6.21925 23.2248 5.65198V5.65198Z"
-                    :stroke="product?.isFavorite ? '#FF364A' : '#C3C3C3'"
+                    :stroke="
+                      favoriteProductIds.includes(product.id)
+                        ? '#FF364A'
+                        : '#C3C3C3'
+                    "
                     stroke-width="1.64535"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    :fill="product?.isFavorite ? '#FF364A' : ''"
+                    :fill="
+                      favoriteProductIds.includes(product.id) ? '#FF364A' : ''
+                    "
                   />
                 </g>
                 <defs>
@@ -406,7 +412,9 @@
             <div
               class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
-              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]">
+              <div
+                class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]"
+              >
                 <svg
                   width="23"
                   height="22"
@@ -451,7 +459,9 @@
             <div
               class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
-              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]">
+              <div
+                class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]"
+              >
                 <svg
                   width="22"
                   height="22"
@@ -481,7 +491,9 @@
             <div
               class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
-              <div class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]">
+              <div
+                class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]"
+              >
                 <svg
                   width="22"
                   height="22"
@@ -693,7 +705,6 @@ export default {
           answer:
             "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
         },
-        
       ],
     };
   },
@@ -703,6 +714,7 @@ export default {
       product: "product/getSingleProductData",
       cartItemCount: "product/getCartItemCount",
       cartDetail: "product/getCartItem",
+      favoriteProductIds: "product/getFavoriteProductIds",
     }),
     dynamicCarouselSettings() {
       // Update centerMode based on the number of product images
@@ -763,7 +775,9 @@ export default {
             message: this.$i18n.t("authFavoriteErrorMessage"),
             type: "warning",
           });
-          this.$router.push(`/auth/login`);
+          this.$router.push(
+            `/auth/login?redirect=/product-view${this.product.id}`
+          );
         }
         console.log(error, "error");
       }

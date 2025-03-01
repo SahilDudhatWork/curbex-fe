@@ -34,6 +34,7 @@ export default {
     { src: "~/plugins/vClickOutside.js", ssr: false },
     "~/plugins/lodash.js",
     "~/plugins/moment.js",
+    "~/plugins/filters.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

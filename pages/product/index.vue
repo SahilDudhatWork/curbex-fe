@@ -248,19 +248,13 @@
           <p class="text-[#C3C3C3] text-[10px] description hidden lg:block">
             The billboard that's always out front
           </p>
-          <nuxt-link
-            :to="
-              item?.type == 'rental'
-                ? `/rental/${item.id}`
-                : `/product-view/${item.id}`
-            "
+
+          <button
+            @click.stop="openProduct(item)"
+            class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] lg:text-[12px] w-full mt-3 text-center p-1 lg:p-2 font-semibold"
           >
-            <button
-              class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] lg:text-[12px] w-full mt-3 text-center p-1 lg:p-2 font-semibold"
-            >
-              Customize it
-            </button>
-          </nuxt-link>
+            Customize it
+          </button>
         </div>
       </div>
     </div>
@@ -380,6 +374,9 @@ export default {
       allProductData: "product/getAllProductData",
       favoriteProductIds: "product/getFavoriteProductIds",
     }),
+    hasToken() {
+      return this.$cookies.get("token") ? true : false;
+    },
     filterProducts() {
       if (this.allProductData.records && this.allProductData.records.length) {
         return {
@@ -426,6 +423,17 @@ export default {
       fetchProducts: "product/fetchProducts",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
+    openProduct(product) {
+      if (product.type == "retail") {
+        this.$router.push(`/product-view/${product.id}`);
+      } else {
+        if (!this.hasToken) {
+          this.$router.push(`/product-view/${product.id}`);
+        } else {
+          this.$router.push(`/rental/${product.id}`);
+        }
+      }
+    },
     handleSort(type) {
       if (type == "isEvent") {
         this.isEvent = !this.isEvent;

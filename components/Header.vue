@@ -86,8 +86,21 @@
                 class="text-gray-800 focus:outline-none"
                 @click="toggleSidebar"
               >
-                <svg  id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 6H20M4 12H20M4 18H20" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg
+                  id="menu-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 6H20M4 12H20M4 18H20"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
               </button>
             </div>
@@ -636,6 +649,9 @@ export default {
     ...mapGetters({
       cartItemCount: "product/getCartItemCount",
     }),
+    hasToken() {
+      return this.$cookies.get("token") ? true : false;
+    },
   },
   methods: {
     ...mapMutations({
@@ -676,17 +692,18 @@ export default {
         : [];
       this.setFavoriteProductIds(favoriteArray);
     }
+    if (this.hasToken) {
+      try {
+        await this.fetchFavoriteProductsIds();
+      } catch (error) {
+        console.log("Favorite products error:", error);
+      }
 
-    try {
-      await this.fetchFavoriteProductsIds();
-    } catch (error) {
-      console.log("Favorite products error:", error);
-    }
-
-    try {
-      await this.fetchCartItems();
-    } catch (error) {
-      console.log("Cart items error:", error);
+      try {
+        await this.fetchCartItems();
+      } catch (error) {
+        console.log("Cart items error:", error);
+      }
     }
   },
   beforeDestroy() {

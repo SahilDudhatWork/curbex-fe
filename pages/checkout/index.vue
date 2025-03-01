@@ -131,7 +131,7 @@
                       {{ address.street }}
                     </p>
                   </div>
-                  <span @click.stop="editAddress(address)">
+                  <!-- <span @click.stop="editAddress(address)">
                     <svg
                       width="19"
                       height="19"
@@ -161,15 +161,13 @@
                         </clipPath>
                       </defs>
                     </svg>
-                  </span>
+                  </span> -->
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="flex items-center m-[15px_0px_25px]"
-          >
-            <span class="block mr-3 cursor-pointer" @click="addNewAddress">
+          <div class="flex items-center m-[15px_0px_25px]">
+            <span @click="addNewAddress" class="block mr-3 cursor-pointer">
               <svg
                 width="25"
                 height="23"
@@ -373,6 +371,12 @@
               />
               <label for="sameAddress">Make this my default address</label>
             </div>
+            <button
+              @click="handleSaveShippingAddress"
+              class="block bg-[#121212] text-[16px] md:text-[16px] text-white border-[1px] border-[#000000] w-full lg:w-fit rounded-[7px] p-[11px_50px] m-[10px_0px_0px_auto]"
+            >
+              Save
+            </button>
           </div>
           <p
             class="text-[18px] md:text-[22px] text-[#121212] font-Montserrat-Medium pb-[1rem] pt-[3rem]"
@@ -517,47 +521,18 @@
                       {{ address.street }}
                     </p>
                   </div>
-                  <span>
-                    <svg
-                      width="19"
-                      height="19"
-                      viewBox="0 0 19 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_6742_73450)">
-                        <path
-                          d="M9.83765 11.8054L5.90259 12.5137L6.55843 8.52617L14.0744 1.03643C14.1963 0.91349 14.3414 0.815908 14.5013 0.749315C14.6611 0.682723 14.8325 0.648437 15.0057 0.648438C15.1789 0.648437 15.3503 0.682723 15.5101 0.749315C15.67 0.815908 15.8151 0.91349 15.937 1.03643L17.3274 2.42682C17.4503 2.54876 17.5479 2.69384 17.6145 2.85368C17.6811 3.01352 17.7154 3.18496 17.7154 3.35812C17.7154 3.53128 17.6811 3.70272 17.6145 3.86257C17.5479 4.02241 17.4503 4.16748 17.3274 4.28942L9.83765 11.8054Z"
-                          stroke="#C3C3C3"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <path
-                          d="M15.7402 12.4617V16.3967C15.7402 16.7446 15.602 17.0783 15.356 17.3243C15.11 17.5702 14.7764 17.7084 14.4285 17.7084H1.96745C1.61957 17.7084 1.28594 17.5702 1.03995 17.3243C0.793957 17.0783 0.655762 16.7446 0.655762 16.3967V3.93571C0.655762 3.58783 0.793957 3.2542 1.03995 3.00821C1.28594 2.76222 1.61957 2.62402 1.96745 2.62402H5.90251"
-                          stroke="#C3C3C3"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_6742_73450">
-                          <rect width="18.3636" height="18.3636" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
                 </div>
               </div>
             </div>
           </div>
           <div
             v-if="!isBillingSameAddress"
-            
-            class="flex items-center m-[15px_0px_25px] "
+            class="flex items-center m-[15px_0px_25px]"
           >
-            <span class="block mr-3 cursor-pointer" @click="addNewBillingAddress" >
+            <span
+              class="block mr-3 cursor-pointer"
+              @click="addNewBillingAddress"
+            >
               <svg
                 width="25"
                 height="23"
@@ -765,6 +740,12 @@
                 >Make this my default address</label
               >
             </div>
+            <button
+              @click="handleSaveBillingAddress"
+              class="block bg-[#121212] text-[16px] md:text-[16px] text-white border-[1px] border-[#000000] w-full lg:w-fit rounded-[7px] p-[11px_50px] m-[10px_0px_0px_auto]"
+            >
+              Save
+            </button>
           </div>
         </div>
         <div class="w-full lg:w-[48%]">
@@ -780,14 +761,16 @@
               <p class="text-[16px] font-Montserrat-Medium">
                 {{ cartItemCount }} Items
               </p>
-              <p class="text-[16px] font-Montserrat-Medium">${{ cartTotal }}</p>
+              <p class="text-[16px] font-Montserrat-Medium">
+                ${{ $formatCurrency(cartTotal) }}
+              </p>
             </div>
             <div class="flex justify-between items-center pb-[1rem]">
               <p class="text-[16px] font-Medium">
                 {{ taxes?.type || "Estimated Tax" }}
               </p>
               <p class="text-[16px] font-Montserrat-Medium">
-                ${{ taxes?.rate || 0 }}
+                ${{ $formatCurrency(rateAmount) || 0 }}
               </p>
             </div>
             <!-- <div class="flex justify-between items-center pb-[1rem]">
@@ -801,21 +784,17 @@
               <p class="text-[16px] font-Montserrat-Medium">$0</p>
             </div>
             <div class="flex justify-between items-center pb-[2rem]">
+              <p class="text-[16px] font-Montserrat-Medium">Subtotal</p>
               <p class="text-[16px] font-Montserrat-Medium">
-                Total before discount
-              </p>
-              <p class="text-[16px] font-Montserrat-Medium">
-                ${{ finalPaymentAmount }}
+                ${{ $formatCurrency(finalPaymentAmount) }}
               </p>
             </div>
             <div
               class="flex justify-between items-center bg-[#121212] text-[#FFFFFF] p-[20px_25px] m-[0px_-25px_-25px] rounded-b-[25px]"
             >
+              <p class="text-[16px] font-Montserrat-Medium">Total</p>
               <p class="text-[16px] font-Montserrat-Medium">
-                Total after discount
-              </p>
-              <p class="text-[16px] font-Montserrat-Medium">
-                ${{ finalPaymentAmount }}
+                ${{ $formatCurrency(finalPaymentAmount) }}
               </p>
             </div>
           </div>
@@ -1087,7 +1066,9 @@
                       </button>
                     </div>
                   </div>
-                  <p class="text-[14px]">${{ item.totalPrice }}</p>
+                  <p class="text-[14px]">
+                    ${{ $formatCurrency(item.totalPrice) }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -1451,6 +1432,7 @@ export default {
     isInputBillingDisabled() {
       return this.sortedAddresses.length > 0 && !this.isNewBillingAddress;
     },
+
     sortedAddresses() {
       // Check if profile and customerAddress exist
       if (!this.profile?.customerAddress) {
@@ -1473,25 +1455,32 @@ export default {
       if (this.cartDetail.cartItems && this.cartDetail.cartItems.length) {
         return this.cartDetail.cartItems.map((item) => {
           // Calculate the total fees for the product
-          const totalFees = item.product.fees.reduce(
-            (sum, fee) => sum + fee.price,
-            0
-          );
+          const totalFees =
+            item.product?.fees && item.product?.fees.length
+              ? item.product.fees.reduce((sum, fee) => sum + fee.price, 0)
+              : 0;
 
-          // Calculate the base price multiplied by the quantity
-          const basePriceTotal = item.price * item.quantity;
+          // Ensure item price is valid
+          let basePriceTotal = (item.price || 0) * (item.quantity || 1);
 
-          // Add the total price (base price total + total fees) for the product
+          // Add permit price if applicable
+          if (item.permit?.price) {
+            basePriceTotal += item.permit.price;
+          }
+
+          // Compute the total price (base price total + total fees)
           const totalPrice = basePriceTotal + totalFees;
+
+          // Find hero image (fallback to the first image if no "primary" image is found)
           let heroImage = null;
-          if (item.product.images && item.product.images.length) {
+          if (item.product.images?.length) {
             heroImage =
               item.product.images.find(
                 (image) => image.imageType === "primary"
               ) || null;
           }
 
-          // Return a new object with the total price included
+          // Return a new object with the calculated properties
           return {
             ...item,
             totalFees,
@@ -1503,6 +1492,28 @@ export default {
         return [];
       }
     },
+    totalPriceWithoutPermit() {
+      if (this.cartDetail.cartItems && this.cartDetail.cartItems.length) {
+        return this.cartDetail.cartItems.reduce((total, item) => {
+          // Ensure fees exist
+          const totalFees = (item.product.fees || []).reduce(
+            (sum, fee) => sum + (fee.price || 0),
+            0
+          );
+
+          // Base price multiplied by quantity
+          const basePriceTotal = (item.price || 0) * (item.quantity || 1);
+
+          // Calculate the total price without permit
+          const totalPrice = basePriceTotal + totalFees;
+
+          // Sum up all items' prices
+          return total + totalPrice;
+        }, 0);
+      }
+      return 0;
+    },
+
     cartTotal() {
       let total = this.productsWithTotalPrice.reduce(
         (total, item) => total + item.totalPrice,
@@ -1510,8 +1521,12 @@ export default {
       );
       return total;
     },
+
+    rateAmount() {
+      return (this.totalPriceWithoutPermit * (this.taxes?.rate || 0)) / 100;
+    },
     finalPaymentAmount() {
-      return this.cartTotal + (this.cartTotal * (this.taxes?.rate || 0)) / 100;
+      return this.cartTotal + this.rateAmount;
     },
   },
   methods: {
@@ -1540,10 +1555,10 @@ export default {
     getCardTypeImage(cardType) {
       switch (cardType) {
         case "Visa":
-          return "/Images/Profile/visaLogo.png";
+          return "/Images/Profile/VisaLogo.png";
 
         case "MasterCard":
-          return "/Images/Profile/mastercard-1.png";
+          return "/Images/Profile/Mastercard-1.png";
         case "AmericanExpress":
           return "/Images/Profile/AmexLogo.png";
 
@@ -1704,11 +1719,11 @@ export default {
         this.addressData.country = "CA";
         this.addressData.customerId = this.profile.id;
         let res;
-        if (type == "add") {
-          res = await this.createAddress(this.addressData);
-        } else {
-          res = await this.updateAddress(this.addressData);
-        }
+        // if (type == "add") {
+        res = await this.createAddress(this.addressData);
+        // } else {
+        //   res = await this.updateAddress(this.addressData);
+        // }
 
         this.isNewAddress = false;
         this.addressData = res;
@@ -1717,6 +1732,7 @@ export default {
             id: this.addressData.id,
           });
         }
+        await this.fetchProfile();
       } catch (error) {
         this.$toast.open({
           message:
@@ -1745,6 +1761,7 @@ export default {
             id: this.billingAddressData.id,
           });
         }
+        await this.fetchProfile();
       } catch (error) {
         this.$toast.open({
           message:
@@ -1756,20 +1773,19 @@ export default {
     },
     async placeOrder() {
       try {
-        if (this.addressData && !this.addressData.id) {
-          await this.handleSaveShippingAddress("add");
-        } else if (
-          this.addressData &&
-          this.addressData.id &&
-          this.isNewAddress
-        ) {
-          await this.handleSaveShippingAddress("edit");
-        }
+        // if (this.addressData && !this.addressData.id) {
+        //   await this.handleSaveShippingAddress("add");
+        // } else if (
+        //   this.addressData &&
+        //   this.addressData.id &&
+        //   this.isNewAddress
+        // ) {
+        //   await this.handleSaveShippingAddress("edit");
+        // }
 
-        if (this.billingAddressData && !this.billingAddressData.id) {
-          await this.handleSaveBillingAddress();
-        }
-        await this.fetchProfile();
+        // if (this.billingAddressData && !this.billingAddressData.id) {
+        //   await this.handleSaveBillingAddress();
+        // }
         let data = {
           shippingAddressId: this.addressData.id,
           billingAddressId: this.isBillingSameAddress

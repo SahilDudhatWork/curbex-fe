@@ -160,6 +160,7 @@
             <RentalProductSeaction
               v-if="productData && productData?.product"
               :product="productData.product"
+              @toggleFavorite="toggleFavorite"
             />
 
             <div class="hidden md:block lg:hidden">
@@ -239,13 +240,13 @@
                 </label>
               </div>
               <p
-                v-if="!isAvailable"
-                class="text-red-500 text-[12px] lg:text-[14px] font-Montserrat-Medium text-center lg:text-left pr-[25px] pt-5 md:pt-0"
+                class="text-[12px] lg:text-[14px] font-Montserrat-Medium text-center lg:text-left pr-[25px] pt-5 md:pt-0"
+                :class="!isAvailable ? 'text-red-500' : 'text-green'"
               >
                 {{
                   !isAvailable
                     ? $t("productNotAvailableForRent", { startDate, endDate })
-                    : ""
+                    : $t("productAvailableForRent", { startDate, endDate })
                 }}
               </p>
             </div>
@@ -342,32 +343,31 @@
                 </p>
                 <p
                   class="text-[12px] lg:text-[17px] text-[#121212] font-Montserrat-Medium font-[600]"
+                  :class="selectedPermitPrice == 'Free' ? 'text-green' : ''"
                 >
-                  ${{ selectedPermit?.price || 0 }}
+                  {{
+                    selectedPermitPrice == "Free"
+                      ? selectedPermitPrice
+                      : `$${selectedPermit?.price}`
+                  }}
                 </p>
               </div>
-              <div class="flex justify-between items-center p-[5px_15px]">
+              <div
+                v-if="
+                  productData.product.fees && productData.product.fees.length
+                "
+                v-for="(feeItem, index) in productData.product.fees"
+                class="flex justify-between items-center p-[5px_15px]"
+              >
                 <p
                   class="text-[12px] lg:text-[17px] text-[#121212] font-Montserrat-Medium font-[600]"
                 >
-                  Set Up & Print Fee
+                  {{ feeItem?.name }}
                 </p>
                 <p
                   class="text-[12px] lg:text-[17px] text-[#121212] font-Montserrat-Medium font-[600]"
                 >
-                  $20
-                </p>
-              </div>
-              <div class="flex justify-between items-center p-[5px_15px_20px]">
-                <p
-                  class="text-[12px] lg:text-[17px] text-[#121212] font-Montserrat-Medium font-[600]"
-                >
-                  Fuel Surcharge
-                </p>
-                <p
-                  class="text-[12px] lg:text-[17px] text-[#121212] font-Montserrat-Medium font-[600]"
-                >
-                  $10
+                  ${{ $formatCurrency(feeItem?.price) }}
                 </p>
               </div>
               <div
@@ -381,7 +381,7 @@
                 <p
                   class="text-[12px] lg:text-[17px] text-[#FFFFFF] font-Montserrat-Medium font-[600]"
                 >
-                  ${{ selectedPermit?.price || 0 }}
+                  ${{ $formatCurrency(totalPriceWithCharges) || 0 }}
                 </p>
               </div>
             </div>
@@ -671,12 +671,14 @@
               :markers="markers"
               @markerClick="getProductByMarker"
             />
+
             <!-- <img
               src="/Images/Rental/map.png"
               alt=""
               class="w-full h-full object-cover"
             /> -->
           </div>
+
           <p
             class="hidden lg:block bg-[#121212] text-[#FFFFFF] font-Montserrat-Medium font-[600] text-[15px] p-[5px_15px] rounded-[25px] w-fit"
           >
@@ -806,6 +808,11 @@ export default {
         ? this.userProfile.customerAddress
         : [];
     },
+    selectedPermitPrice() {
+      return this.selectedPermit?.price && this.selectedPermit?.price > 0
+        ? this.selectedPermit?.price
+        : "Free";
+    },
     sortedAddresses() {
       if (!this.userProfile.customerAddress) {
         return [];
@@ -822,6 +829,26 @@ export default {
 
       return addresses;
     },
+    totalPriceWithCharges() {
+      let totalPrice = this.productData.product.price || 0;
+
+      if (this.selectedPermit && this.selectedPermit.price) {
+        totalPrice += this.selectedPermit.price;
+      }
+
+      if (
+        this.productData.product.fees &&
+        this.productData.product.fees.length
+      ) {
+        const totalFees = this.productData.product.fees.reduce(
+          (sum, fee) => sum + (fee.price || 0),
+          0
+        );
+        totalPrice += totalFees;
+      }
+
+      return totalPrice;
+    },
   },
   methods: {
     ...mapActions({
@@ -830,10 +857,27 @@ export default {
       addToCart: "product/addToCart",
       fetchCartItems: "product/fetchCartItems",
       fetchMarkerSchedule: "product/fetchMarkerSchedule",
+      toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
     ...mapMutations({
       setCartItemCount: "product/setCartItemCount",
     }),
+    async toggleFavorite() {
+      try {
+        await this.toggleFavoriteProduct({ id: this.productData?.product?.id });
+      } catch (error) {
+        if (error.status == 401) {
+          this.$toast.open({
+            message: this.$i18n.t("authFavoriteErrorMessage"),
+            type: "warning",
+          });
+          this.$router.push(
+            `/auth/login?redirect=/rental${this.productData?.product?.id}`
+          );
+        }
+        console.log(error, "error");
+      }
+    },
     togglePermitType() {
       this.togglePermit = !this.togglePermit;
     },
@@ -851,8 +895,9 @@ export default {
       try {
         await this.fetchSingleRentalProductDetail({
           id: this.productId,
-          addressId: 1,
+          addressId: this.selectedAddress?.id || 1,
         });
+        console.log("getSingleProduct", this.selectedAddress);
       } catch (error) {
         console.log("error", error);
       }
@@ -907,25 +952,33 @@ export default {
             (x) => x.productId == this.productData?.product?.id
           );
         }
-        // if (cartData && cartData != null && cartData.id != "") {
-        //   // await this.updateCartItem({
-        //   //   id: cartData.id,
-        //   //   requestedDesigner: cartData.requestedDesigner,
-        //   // });
-        //   this.$toast.open({
-        //     message: this.$i18n.t("productAddedToCartMessage"),
-        //   });
-        // } else {
-        await this.addToCart({
-          productId: this.productData?.product?.id,
-          markerId: this.markerId,
-          permitId: this.selectedPermit?.id || null,
-          quantity: 1,
-        });
-        this.$toast.open({
-          message: this.$i18n.t("productAddedToCartMessage"),
-        });
-        // }
+        if (cartData && cartData != null && cartData.id != "") {
+          await this.updateCartItem({
+            id: cartData.id,
+            requestedDesigner: cartData.requestedDesigner,
+            productId: this.productData?.product?.id,
+            markerId: this.markerId,
+            permitId: this.selectedPermit?.id || null,
+            quantity: 1,
+            rentalStartDate: this.startDate,
+            rentalEndDate: this.endDate,
+          });
+          this.$toast.open({
+            message: this.$i18n.t("productAddedToCartMessage"),
+          });
+        } else {
+          await this.addToCart({
+            productId: this.productData?.product?.id,
+            markerId: this.markerId,
+            permitId: this.selectedPermit?.id || null,
+            quantity: 1,
+            rentalStartDate: this.startDate,
+            rentalEndDate: this.endDate,
+          });
+          this.$toast.open({
+            message: this.$i18n.t("productAddedToCartMessage"),
+          });
+        }
         this.$cookies.set("productId", this.productData?.product?.id);
         this.showDesignModal = true;
         await this.fetchCartItems();
@@ -939,9 +992,13 @@ export default {
           this.markerId = marker?.id;
           const newUrl = `/rental/${marker.productId}`;
           window.history.pushState({}, "", newUrl);
+          this.selectedAddress =
+            this.sortedAddresses && this.sortedAddresses.length
+              ? this.sortedAddresses[0]
+              : null;
           await this.fetchSingleRentalProductDetail({
             id: marker.productId,
-            addressId: 1,
+            addressId: this.selectedAddress?.id || 1,
           });
           await this.loadData();
         }
@@ -965,23 +1022,23 @@ export default {
         this.endDate,
         this.markerSchedule
       );
-
-      if (!this.isAvailable) {
-        this.$toast.open({
-          message: this.$i18n.t("productNotAvailableForRent", {
-            startDate: this.startDate,
-            endDate: this.endDate,
-          }),
-          type: "error",
-        });
-      } else {
-        this.$toast.open({
-          message: this.$i18n.t("productAvailableForRent", {
-            startDate: this.startDate,
-            endDate: this.endDate,
-          }),
-        });
-      }
+      console.log("isAvailable", this.isAvailable);
+      // if (!this.isAvailable) {
+      //   this.$toast.open({
+      //     message: this.$i18n.t("productNotAvailableForRent", {
+      //       startDate: this.startDate,
+      //       endDate: this.endDate,
+      //     }),
+      //     type: "error",
+      //   });
+      // } else {
+      //   this.$toast.open({
+      //     message: this.$i18n.t("productAvailableForRent", {
+      //       startDate: this.startDate,
+      //       endDate: this.endDate,
+      //     }),
+      //   });
+      // }
     },
 
     async loadData() {
@@ -1005,6 +1062,10 @@ export default {
     },
   },
   async mounted() {
+    this.selectedAddress =
+      this.sortedAddresses && this.sortedAddresses.length
+        ? this.sortedAddresses[0]
+        : null;
     await this.getSingleProduct();
     await this.loadData();
     if (this.markerId) {
