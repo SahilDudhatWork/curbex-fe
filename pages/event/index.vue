@@ -535,7 +535,7 @@
     <!------------------------------------------------->
     <div class="mt-10 bg-[#121212]">
       <div class="container mx-auto mt-[1.5rem] md:mt-10">
-        <p class="text-[#FFFFFF] font-bold p-[2rem] text-[28px]">
+        <p class="text-[#FFFFFF] font-bold p-[2rem] text-[18px] md:text-[28px]">
           At Curbex, we help event organizers create memorable experiences with
           impactful, professional signage. Whether you’re running a festival,
           trade show, or fundraiser, we’ll make sure your message is Always Out
@@ -559,7 +559,7 @@
     >
       <div class="container mx-auto">
         <p
-          class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px] mt-[-55px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-auto md:mx-0"
+          class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px] mt-[-55px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-0"
         >
           projects on social media
         </p>

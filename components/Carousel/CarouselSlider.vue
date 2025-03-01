@@ -22,7 +22,7 @@
                 ? 'bg-[#FFA900] lg:bg-[#FF364A]'
                 : 'bg-[#FFFFF] lg:bg-[#FFFFF]'
             "
-            class="mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
+            class="mb-[-12px] lg:mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
           >
             <span class="" v-if="item.isTrending">Trending</span>
             <span class="" v-else-if="item.isBestSeller">Best Seller</span>

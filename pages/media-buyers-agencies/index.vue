@@ -20,21 +20,21 @@
       <div class="container mx-auto">
         <div class="flex justify-center">
           <h1
-            class="text-[15px] sm:text-[30px] lg:text-[38px] text-white font-Montserrat-Bold bg-[#121212] py-[6px] px-8 rounded-full mt-[-51px] mb-[15px] sm:mt-[-63px] sm:mb-[8px] lg:mt-[-65px] lg:mb-[3px]"
+            class="w-full md:w-fit text-[15px] sm:text-[30px] lg:text-[38px] text-white font-Montserrat-Bold bg-[#121212] py-[6px] px-8 rounded-full mt-[-51px] mb-[15px] sm:mt-[-63px] sm:mb-[8px] lg:mt-[-65px] lg:mb-[3px]"
           >
             Media Buyers/ Agencies
           </h1>
         </div>
         <div class="flex justify-center mt-4 md:mt-10">
           <p
-            class="text-[#000000] font-[600] text-[18px] font-Montserrat-Medium md:text-[23px] md:max-w-[600px] lg:max-w-full lg:text-[30px] text-center"
+            class="text-[#000000] font-[600] text-[18px] font-Montserrat-Medium md:text-[23px] md:max-w-[600px] lg:max-w-full lg:text-[30px] text-left md:text-center"
           >
             Powerful Signage Solutions for Agencies & Media Buyers
           </p>
         </div>
-        <div class="flex justify-center pt-[1rem] md:pt-0">
+        <div class="flex md:justify-center pt-[1rem] md:pt-0">
           <p
-            class="text-[#000000] font-Montserrat-Bold font-bold text-[16px] md:text-[23px] lg:text-[50px] pt-3 text-center max-w-[200px] md:max-w-full"
+            class="text-[#000000] font-Montserrat-Bold font-bold text-[18px] md:text-[23px] lg:text-[50px] md:pt-3 text-left md:text-center max-w-[300px] md:max-w-full"
           >
             Because Being Noticed Is Kind of a Big Deal
           </p>
@@ -50,7 +50,7 @@
             Always Out Front <sup>&#174;</sup>
           </p>
         </div> -->
-        <div class="flex justify-center mt-10">
+        <div class="flex justify-center mt-5 md:mt-10">
           <p
             class="max-w-screen-xl mx-auto text-[#131313] font-normal text-[16px] md:text-[21px] text-left lg:text-center pb-5 leading-[31px]"
           >
@@ -347,7 +347,7 @@
         </div>
       </div>
 
-      <div class="mt-14 pb-[3rem]">
+      <div class="mt-14 md:pb-[3rem]">
         <img
           src="/Images/media-buyers-agencies/4.png"
           alt=""
@@ -377,7 +377,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[5px] md:py-[8px] px-7"
                     >
                       Affordable Campaigns
                     </p>
@@ -395,7 +395,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[5px] md:py-[8px] px-7"
                     >
                       Multi-Channel Integration
                     </p>
@@ -412,7 +412,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[5px] md:py-[8px] px-7"
                     >
                       Point-of-Purchase Impact
                     </p>
@@ -430,7 +430,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[5px] md:py-[8px] px-7"
                     >
                       Full-Service Support
                     </p>
@@ -447,7 +447,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[22px] bg-[#121212] rounded-full py-[5px] md:py-[8px] px-7"
                     >
                       Proven Results
                     </p>
@@ -499,7 +499,7 @@
     </div>
     <div class="flex justify-center mb-10 md:mb-20 container mx-auto">
       <div
-        class="border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[1rem_2rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
+        class="border-[3px] md:border-[4px] border-[#8D54FF] mt-10 md:mt-[7rem] md:mb-[1rem] p-[1rem] md:p-[1rem_2rem] max-w-[763px] rounded-[22px] md:rounded-[73px] m-[20px] md:m-0"
       >
         <p
           class="font-bold text-[30px] md:text-[40px] text-[#8D54FF] text-center font-Montserrat-Bold pb-[10px]"
@@ -535,7 +535,7 @@
     <!------------------------------------------------->
     <div class="mt-20 bg-[#121212]">
       <div class="container mx-auto mt-[1.5rem] md:mt-10 md:p-[20px_0]">
-        <p class="text-[#FFFFFF] font-bold p-[2rem] text-[28px]">
+        <p class="text-[#FFFFFF] font-bold p-[2rem] text-[18px] md:text-[28px]">
           At Curbex, we specialize in delivering signage that enhances
           multi-channel campaigns, drives engagement, and offers unbeatable
           value.
@@ -562,7 +562,7 @@
     >
       <div class="container mx-auto">
         <p
-          class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px] mt-[-55px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-auto md:mx-0"
+          class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px] mt-[-55px] sm:mt-[-60px] sm:mb-[5px] lg:mt-[-59px] lg:mb-[0px] mx-0"
         >
           projects on social media
         </p>

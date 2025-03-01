@@ -102,7 +102,7 @@
           v-for="(item, index) in product.images"
           :key="index"
           @click="heroImage = item.imageUrl"
-          class="border border-[#F5F5F5] rounded-[12px]"
+          class="border border-[#F5F5F5] rounded-[12px] overflow-hidden"
         >
           <img
             :src="item.imageUrl"

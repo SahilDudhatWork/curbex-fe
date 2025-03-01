@@ -273,7 +273,7 @@
                 </div>
               </div>
               <div
-                class="flex items-center m-[5px] md:m-0 md:mr-5 border md:border-0 md:border-r border-[#F5F5F5] md:border-[#121212] min-w-[150px] rounded-[5px] md:rounded-[0px] p-[10px] md:p-0 md:pr-8"
+                class="flex items-center m-[5px] md:m-0 md:mr-5 border md:border-0 md:border-r-0 border-[#F5F5F5] md:border-[#121212] min-w-[150px] rounded-[5px] md:rounded-[0px] p-[10px] md:p-0 md:pr-8"
               >
                 <div class="mr-2">
                   <svg
@@ -450,7 +450,7 @@
                   Free Delivery
                 </p>
                 <p
-                  class="text-[#121212] text-[10px] md:text-[12px] font-Montserrat-Bold"
+                  class="text-[#121212] text-[10px] md:text-[12px] font-Montserrat-Medium"
                 >
                   1-2 day
                 </p>
@@ -482,7 +482,7 @@
                   In Stock
                 </p>
                 <p
-                  class="text-[#121212] text-[10px] md:text-[12px] font-Montserrat-Bold"
+                  class="text-[#121212] text-[10px] md:text-[12px] font-Montserrat-Medium"
                 >
                   Today
                 </p>
@@ -517,7 +517,7 @@
                   Guaranteed
                 </p>
                 <p
-                  class="text-[#121212] text-[10px] md:text-[12px] font-Montserrat-Bold"
+                  class="text-[#121212] text-[10px] md:text-[12px] font-Montserrat-Medium"
                 >
                   30 Day
                 </p>
@@ -527,7 +527,7 @@
         </div>
       </div>
     </div>
-    <div class="container mx-auto px-6 md:px-0 md:mb-10">
+    <div class="container mx-auto px-6 md:px-0 mb-10">
       <div class="flex flex-wrap lg:flex-nowrap pt-[50px]">
         <div class="w-full lg:w-[50%] order-2 lg:order-1 pb-[4rem] lg:pb-0">
           <p
@@ -546,7 +546,7 @@
         </div>
       </div>
     </div>
-    <div class="container mx-auto px-6 md:px-0 md:mb-10">
+    <div class="container mx-auto px-6 md:px-0 mb-10">
       <p
         class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
@@ -561,7 +561,7 @@
         type="rental"
       />
     </div>
-    <div class="container mx-auto px-6 md:px-0 md:mb-10">
+    <div class="container mx-auto px-6 md:px-0 mb-10">
       <!-- <p class="text-[30px] text-[#000000] font-Montserrat-Medium font-bold  pb-[2rem]">Downtowner in practice</p> -->
       <p
         class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"

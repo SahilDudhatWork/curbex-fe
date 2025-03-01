@@ -85,12 +85,12 @@
           </p>
         </div>
         <div class="w-full lg:w-[35%] flex flex-wrap justify-between lg:block">
-          <div class="relative pb-[1rem]">
+          <div class="relative pb-[1rem] w-full">
             <div
               v-if="selectedAddress"
               @click="showAddress = !showAddress"
               :class="!showAddress ? 'z-10' : 'z-0'"
-              class="relative flex items-center justify-between bg-[#FFFFFF] border border-[#C3C3C3] rounded-[50px] cursor-pointer mb-[8px]"
+              class="relative flex items-center justify-between bg-[#FFFFFF] border border-[#C3C3C3] rounded-[50px] cursor-pointer mb-[8px] md:w-[48%] lg:w-full"
             >
               <p
                 class="bg-[#121212] text-[#FFFFFF] text-[14px] p-[12px_30px] rounded-[50px] whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis text-center"
@@ -98,7 +98,7 @@
                 {{ selectedAddress?.city }}
               </p>
               <p
-                class="text-[14px] whitespace-nowrap max-w-[120px] md:max-w-[280px] w-full overflow-hidden text-ellipsis text-left"
+                class="text-[14px] whitespace-nowrap max-w-[180px] md:max-w-[280px] w-full overflow-hidden text-ellipsis text-left p-[0px_15px]"
               >
                 {{ selectedAddress.street }}
               </p>
@@ -123,7 +123,7 @@
 
             <div
               v-if="showAddress && sortedAddresses.length"
-              class="bg-[#FFFFFF] w-full absolute z-10 max-h-[250px] overflow-auto mb-[20px] transition-all [&::-webkit-scrollbar]:w-[0px] [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
+              class="bg-[#FFFFFF] w-full md:w-[48%] lg:w-full absolute z-10 max-h-[250px] overflow-auto mb-[20px] transition-all [&::-webkit-scrollbar]:w-[0px] [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
             >
               <div
                 v-for="(address, index) in sortedAddresses"
@@ -137,7 +137,7 @@
                   {{ address.city }}
                 </p>
                 <p
-                  class="text-[14px] whitespace-nowrap max-w-[150px] md:max-w-[336px] w-full overflow-hidden text-ellipsis text-left"
+                  class="text-[14px] whitespace-nowrap max-w-[225px] md:max-w-[336px] w-full overflow-hidden text-ellipsis text-left"
                 >
                   {{ address.street }}
                 </p>
@@ -267,7 +267,7 @@
                     class="bg-[#FFFFFF] rounded-[34px] p-[10px_15px] border border-[#C3C3C3] cursor-pointer flex justify-between items-center relative z-[1]"
                   >
                     <p
-                      class="text-[18px] text-[#121212] font-Montserrat-Medium"
+                      class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium"
                     >
                       {{ selectedPermit?.duration }} Days
                     </p>
@@ -322,7 +322,7 @@
                   >
                     <p
                       v-for="(item, index) in productData.permits"
-                      class="text-[18px] text-[#121212] font-Montserrat-Medium"
+                      class="text-[16px] md:text-[18px] text-[#121212] font-Montserrat-Medium"
                       @click="selectPermit(item)"
                     >
                       {{ item?.duration }} Days
@@ -376,7 +376,7 @@
                 <p
                   class="text-[12px] lg:text-[17px] text-[#FFFFFF] font-Montserrat-Medium font-[600]"
                 >
-                  Total before taxes
+                  Total
                 </p>
                 <p
                   class="text-[12px] lg:text-[17px] text-[#FFFFFF] font-Montserrat-Medium font-[600]"
@@ -654,7 +654,7 @@
                 Select Design Method
               </button>
               <button
-                class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[11px] mb-[20px]"
+                class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[8px] mb-[20px]"
                 @click="downloadFileItem"
               >
                 Download Artwork Specs
@@ -1104,4 +1104,7 @@ export default {
   padding-top: 60px;
   opacity: 1;
 }
+::v-deep .VueCarousel-wrapper{
+  border-radius: 0px;
+} 
 </style>

@@ -4,11 +4,15 @@
       <!--------------------- Hero ---------------------->
       <div class="container mx-auto mb-[3rem] md:mb-[6rem]">
         <div class="pt-5">
-          <img
+          <div
+          style="background-image: url(/Images/small-business-franchise/1.png)"
+          class="rounded-[20px] w-full h-[206px] md:h-[461px] bg-no-repeat bg-cover bg-[14%]"
+        ></div>
+          <!-- <img
             src="/Images/small-business-franchise/1.png"
             alt=""
             class="rounded-[20px] h-[206px] md:h-[461px] object-cover w-full"
-          />
+          /> -->
         </div>
       </div>
     </div>
@@ -52,7 +56,7 @@
         </div> -->
         <div class="flex justify-center mt-10">
           <p
-            class="max-w-screen-xl mx-auto text-[#131313] font-normal text-[16px] md:text-[21px] text-left lg:text-center pb-5 leading-[31px]"
+            class="max-w-screen-xl mx-auto text-[#131313] font-normal text-[16px] md:text-[21px] text-left md:text-center pb-5 leading-[31px]"
           >
             At Curbex, we understand the unique challenges faced by small
             businesses, from tight budgets to fierce competition. That's why our
