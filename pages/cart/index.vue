@@ -287,7 +287,13 @@
                       />
                     </svg>
                   </span>
-                  April 28th - April 30th
+                  {{
+                    item?.rentalStartDate && item?.rentalEndDate
+                      ? `${$moment.formatMonthDay(
+                          item?.rentalStartDate
+                        )} - ${$moment.formatMonthDay(item?.rentalEndDate)}`
+                      : "N/A"
+                  }}
                 </p>
                 <div class="flex justify-between items-center">
                   <p class="flex p-[2px_6px] text-[12px] md:text-[14px] w-fit">

@@ -48,9 +48,8 @@
             </div>
           </div>
         </div>
-
         <!-- Price Filter -->
-        <!-- <div class="relative order-3 lg:order-2">
+        <div class="relative order-3 lg:order-2">
           <button
             @click="togglePriceSort"
             class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
@@ -71,7 +70,29 @@
               <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!priceSort" />
             </svg>
           </button>
-        </div> -->
+        </div>
+        <div class="relative order-3 lg:order-2">
+          <button
+            @click="toggleNameSort"
+            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
+          >
+            Name
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7 15l5 5 5-5" v-if="nameSort === 'desc'" />
+              <path d="M7 9l5-5 5 5" v-if="nameSort === 'asc'" />
+              <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!nameSort" />
+            </svg>
+          </button>
+        </div>
 
         <!-- Review Filter -->
         <div class="relative order-4 lg:order-3 ml-auto flex items-center">
@@ -353,6 +374,7 @@ export default {
       selectedProductType: "",
       productTypes: ["Rental", "Retail"],
       priceSort: "", // '' for default, 'asc' for ascending, 'desc' for descending
+      nameSort: "", // '' for default, 'asc' for ascending, 'desc' for descending
       isEvent: false,
       isExterior: false,
       isInterior: false,
@@ -447,6 +469,8 @@ export default {
       this.isProductTypeOpen = !this.isProductTypeOpen;
     },
     togglePriceSort() {
+      this.nameSort = "";
+
       if (!this.priceSort) {
         this.priceSort = "asc";
       } else if (this.priceSort === "asc") {
@@ -455,6 +479,17 @@ export default {
         this.priceSort = "";
       }
       console.log(this.priceSort, "priceSort");
+      this.getAllProducts();
+    },
+    toggleNameSort() {
+      this.priceSort = "";
+      if (!this.nameSort) {
+        this.nameSort = "asc";
+      } else if (this.nameSort === "asc") {
+        this.nameSort = "desc";
+      } else {
+        this.nameSort = "";
+      }
       this.getAllProducts();
     },
 
@@ -486,6 +521,10 @@ export default {
         if (this.priceSort) {
           apiPayload.order = {
             price: this.priceSort.toUpperCase(),
+          };
+        } else if (this.nameSort) {
+          apiPayload.order = {
+            name: this.nameSort.toUpperCase(),
           };
         } else {
           apiPayload.order = {
@@ -530,9 +569,9 @@ export default {
   padding-top: 52px;
   opacity: 1;
 }
-@media screen and (max-width:1023px) {
+@media screen and (max-width: 1023px) {
   .openDropdown {
-  padding-top: 35px;
-} 
+    padding-top: 35px;
+  }
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="container mx-auto flex flex-wrap py-0 md:py-[3rem] lg:py-[3rem]"
-  >
+  <div class="container mx-auto flex flex-wrap py-0 md:py-[3rem] lg:py-[3rem]">
     <div
       class="flex-1 lg:max-w-[640px] p-6 mx-auto lg:p-10 pt-0 bg-white order-2 lg:order-1"
     >
@@ -230,11 +228,16 @@ export default {
       } catch (error) {
         console.log(error);
 
-        this.$toast.open({
-          message:
-            error?.response?.data?.message || this.$i18n.t("errorMessage"),
-          type: "error",
-        });
+        if (error?.status == 401) {
+          this.$cookies.set("email", this.formData.email);
+          this.$router.push("/resend-email-verification");
+        } else {
+          this.$toast.open({
+            message:
+              error?.response?.data?.message || this.$i18n.t("errorMessage"),
+            type: "error",
+          });
+        }
       }
     },
   },

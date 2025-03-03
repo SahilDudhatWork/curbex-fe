@@ -5,25 +5,39 @@
     > 
       <HomePageSlider/>    
     </div>
-    <div class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden">
-      <h2 class="text-changed font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal] relative h-[155px] flex items-center justify-center gap-[20px] ">
+    <div
+      class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden"
+    >
+      <h2
+        class="text-changed font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal] relative h-[155px] flex items-center justify-center gap-[20px]"
+      >
         <span class="your-span">your brand,</span>
         <!-- <span class="brand-span"></span> -->
         <span class="anytime-span">anytime, </span>
         <span class="anywhere-span">anywhere</span>
       </h2>
     </div>
-    <div class="lg:hidden container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212]">
-      <h2 class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal]">
+    <div
+      class="lg:hidden container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212]"
+    >
+      <h2
+        class="font-Montserrat-Bold text-[30px] md:text-[61px] lg:text-[74px] capitalize py-[2rem] leading-[normal]"
+      >
         your brand,
         <p class="lg:hidden"></p>
         anytime, anywhere
       </h2>
     </div>
-    <div class="container medium-s-section mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]">
+    <div
+      class="container medium-s-section mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]"
+    >
       <div class="lg:text-center text-[#121212] lg:bg-[#121212] rounded-[20px]">
-        <h2 class="md:bg-[#121212] lg:bg-[#12121200] md:p-[20px] md:max-w-[768px] lg:max-w-full md:mx-auto px-6 md:rounded-[20px] text-[#121212] md:text-[#FFFFFF] leading-[normal] text-[17px] md:text-[27px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] ml-[10px]">
-          <p class="md:inline bg-[#121212] md:bg-[#121212] text-[#FFFFFF] p-[18px_18px] rounded-[20px] mb-6 md:p-0 md:mb-0 ml-[-10px] md:ml-0">
+        <h2
+          class="md:bg-[#121212] lg:bg-[#12121200] md:p-[20px] md:max-w-[768px] lg:max-w-full md:mx-auto px-6 md:rounded-[20px] text-[#121212] md:text-[#FFFFFF] leading-[normal] text-[17px] md:text-[27px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] ml-[10px]"
+        >
+          <p
+            class="md:inline bg-[#121212] md:bg-[#121212] text-[#FFFFFF] p-[18px_18px] rounded-[20px] mb-6 md:p-0 md:mb-0 ml-[-10px] md:ml-0"
+          >
             Curbside Express Advertising in your community.
           </p>
           Help us create your customer journey
@@ -143,7 +157,7 @@
     <div class="container px-6 md:px-0 mx-auto my-[3rem]">
       <div
         style="background-image: url(/Images/banner-1.png)"
-        class="w-full min-h-[348px] md:min-h-[464px] bg-no-repeat bg-cover bg-[14%] rounded-[25px]"
+        class="w-full min-h-[348px] md:min-h-[464px] bg-no-repeat bg-cover bg-[80%] md:bg-[14%] rounded-[25px]"
       ></div>
       <!-- <img src="/Images/3.png" alt="" > -->
     </div>
@@ -153,7 +167,7 @@
       <p
         class="font-Montserrat-Medium w-fit bg-[#121212] text-[#FFFFFF] text-[16px] md:text-[20px] rounded-full py-[6px] px-7 mb-[29px]"
       >
-      Customer Experiences
+        Customer Experiences
       </p>
       <Testimonial :testiminoalSlider="testiminoalSlider" />
     </div>
@@ -218,12 +232,30 @@ export default {
         },
       ],
       images: [
-        { src: "/Images/homeSlider/1.png", bgPosition: "bg-[80%_100%] md:bg-[74%_180%] lg:bg-center" },
-        { src: "/Images/homeSlider/2.png", bgPosition: "bg-[30%_100%] md:bg-[24%_180%] lg:bg-[24%_center]" },
-        { src: "/Images/homeSlider/3.png", bgPosition: "bg-[10%_100%] md:bg-[4%_180%] lg:bg-center" },
-        { src: "/Images/homeSlider/4.png", bgPosition: "bg-[4%_100%] md:bg-[10%_180%] lg:bg-center" },
-        { src: "/Images/homeSlider/5.png", bgPosition: "bg-[100%_100%] md:bg-[94%_180%] lg:bg-center" },
-        { src: "/Images/homeSlider/6.png", bgPosition: "bg-[80%_100%] md:bg-[4%_180%] lg:bg-center" },
+        {
+          src: "/Images/homeSlider/1.png",
+          bgPosition: "bg-[80%_100%] md:bg-[74%_180%] lg:bg-center",
+        },
+        {
+          src: "/Images/homeSlider/2.png",
+          bgPosition: "bg-[30%_100%] md:bg-[24%_180%] lg:bg-[24%_center]",
+        },
+        {
+          src: "/Images/homeSlider/3.png",
+          bgPosition: "bg-[10%_100%] md:bg-[4%_180%] lg:bg-center",
+        },
+        {
+          src: "/Images/homeSlider/4.png",
+          bgPosition: "bg-[4%_100%] md:bg-[10%_180%] lg:bg-center",
+        },
+        {
+          src: "/Images/homeSlider/5.png",
+          bgPosition: "bg-[100%_100%] md:bg-[94%_180%] lg:bg-center",
+        },
+        {
+          src: "/Images/homeSlider/6.png",
+          bgPosition: "bg-[80%_100%] md:bg-[4%_180%] lg:bg-center",
+        },
       ],
     };
   },
@@ -238,26 +270,46 @@ export default {
 };
 </script>
 <style scoped>
-    @keyframes slideInOut {
-    0% { transform: translateY(117px); opacity: 0; }
-    20% { transform: translateY(0); opacity: 1; }
-    80% { transform: translateY(0); opacity: 0; } /* Hold position */
-    100% { transform: translateY(117px); opacity: 0; }
-  }
-
-  .your-span, .anytime-span, .anywhere-span {
-    display: block;
-    opacity: 0;
+@keyframes slideInOut {
+  0% {
     transform: translateY(117px);
-    animation: slideInOut 4s ease-in-out infinite;
+    opacity: 0;
   }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 0;
+  } /* Hold position */
+  100% {
+    transform: translateY(117px);
+    opacity: 0;
+  }
+}
 
-  .your-span { animation-delay: 0s; }
-  .anytime-span { animation-delay: 0.5s; }
-  .anywhere-span { animation-delay: 1s; }
-  @media screen and (min-width:1024px) and (max-width:1280px){
-    .text-changed{
-      font-size: 56px;
-    }
+.your-span,
+.anytime-span,
+.anywhere-span {
+  display: block;
+  opacity: 0;
+  transform: translateY(117px);
+  animation: slideInOut 4s ease-in-out infinite;
+}
+
+.your-span {
+  animation-delay: 0s;
+}
+.anytime-span {
+  animation-delay: 0.5s;
+}
+.anywhere-span {
+  animation-delay: 1s;
+}
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+  .text-changed {
+    font-size: 56px;
   }
+}
 </style>
