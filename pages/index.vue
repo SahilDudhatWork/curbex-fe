@@ -2,27 +2,8 @@
   <div class="bg-[#FCFCFC]">
     <div
       class="container px-6 md:px-0 mx-auto rounded-[25px] overflow-hidden md:pt-[2.6rem]"
-    >
-      <Carousel
-        :perPage="1"
-        :autoplay="false"
-        :autoplayTimeout="3000"
-        loop
-        :nav="false"
-        :dots="false"
-      >
-        <Slide
-          v-for="(image, index) in images"
-          :key="index"
-          class="h-[149px] lg:h-[483px] md:h-[353px]"
-        >
-          <div
-            class="h-[149px] lg:h-[483px] md:h-[353px] w-full bg-no-repeat bg-cover"
-            :class="image.bgPosition"
-            :style="{ backgroundImage: `url(${image.src})` }"
-          ></div>
-        </Slide>
-      </Carousel>
+    > 
+      <HomePageSlider/>    
     </div>
     <div
       class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden"
