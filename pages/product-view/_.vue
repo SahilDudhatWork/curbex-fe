@@ -18,7 +18,8 @@
                 viewBox="0 0 27 27"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                class="border border-[#F3F3F3] p-[0.425rem] md:p-2.5 block w-[33px] md:w-[45px] h-[33px] md:h-[45px] rounded-full bg-[#FCFCFC] mb-3"
+                class="cursor-pointer border border-[#F3F3F3] p-[0.425rem] md:p-2.5 block w-[33px] md:w-[45px] h-[33px] md:h-[45px] rounded-full bg-[#FCFCFC] mb-3"
+                @click="shareProduct"
               >
                 <g clip-path="url(#clip0_4661_37639)">
                   <path
@@ -84,7 +85,7 @@
                 v-bind="dynamicCarouselSettings"
                 class="section788777887"
               >
-                <div v-for="(item, index) in product.images" :key="index">
+                <div v-for="(item, index) in isolatedImages" :key="index">
                   <img
                     :src="item.imageUrl"
                     alt="Carousel Image"
@@ -716,9 +717,15 @@ export default {
       cartDetail: "product/getCartItem",
       favoriteProductIds: "product/getFavoriteProductIds",
     }),
+    isolatedImages() {
+      return this.product?.images && this.product?.images.length
+        ? this.product?.images.filter((x) => x.imageType == "isolated")
+        : [];
+    },
     dynamicCarouselSettings() {
       // Update centerMode based on the number of product images
-      const isCenterMode = this.product.images.length <= 3;
+      const isCenterMode =
+        this.isolatedImages && this.isolatedImages.length <= 3;
       return {
         ...this.carouselSettings,
         centerMode: isCenterMode,
@@ -738,8 +745,8 @@ export default {
     });
     await this.getSingleProduct();
     this.heroImage =
-      this.product.images && this.product.images.length
-        ? this.product.images[0].imageUrl
+      this.isolatedImages && this.isolatedImages.length
+        ? this.isolatedImages[0].imageUrl
         : null;
   },
   async asyncData({ params }) {
@@ -780,6 +787,20 @@ export default {
           );
         }
         console.log(error, "error");
+      }
+    },
+    shareProduct() {
+      const shareUrl = window.location.href;
+      if (navigator.share) {
+        navigator
+          .share({
+            title: this.product?.name || "Check out this product!",
+            url: shareUrl,
+          })
+          .then(() => console.log("Product shared successfully"))
+          .catch((error) => console.log("Error sharing product:", error));
+      } else {
+        alert("Your browser does not support the Web Share API.");
       }
     },
     async getSingleProduct() {

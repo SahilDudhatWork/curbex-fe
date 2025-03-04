@@ -8,10 +8,15 @@
           <div
             class="w-full h-[370px] md:h-[454px] rounded-[19px] overflow-hidden mb-[1rem]"
           >
-            <img
+            <!-- <img
               src="/Images/Rental/map.png"
               alt=""
               class="w-full h-full object-cover"
+            /> -->
+            <RentalGoogleMap
+              :height="450"
+              :markers="markers"
+              @markerClick="getProductByMarker"
             />
           </div>
           <!-- When click on READ MORE the add class "h-auto" -->
@@ -159,7 +164,8 @@
             </div> -->
             <RentalProductSeaction
               v-if="productData && productData?.product"
-              :product="productData.product"
+              :product="productArray"
+              @shareProduct="shareProduct"
               @toggleFavorite="toggleFavorite"
             />
 
@@ -849,6 +855,17 @@ export default {
 
       return totalPrice;
     },
+    productArray() {
+      if (!this.productData.product) return null; // Handle the case where product is undefined
+
+      return {
+        ...this.productData.product, // Spread all product details
+        images:
+          this.productData.product.images?.filter(
+            (x) => x.imageType === "isolated"
+          ) || [], // Filter only isolated images
+      };
+    },
   },
   methods: {
     ...mapActions({
@@ -878,6 +895,20 @@ export default {
         console.log(error, "error");
       }
     },
+    shareProduct() {
+      const shareUrl = window.location.href;
+      if (navigator.share) {
+        navigator
+          .share({
+            title: this.product?.name || "Check out this product!",
+            url: shareUrl,
+          })
+          .then(() => console.log("Product shared successfully"))
+          .catch((error) => console.log("Error sharing product:", error));
+      } else {
+        alert("Your browser does not support the Web Share API.");
+      }
+    },
     togglePermitType() {
       this.togglePermit = !this.togglePermit;
     },
@@ -897,8 +928,11 @@ export default {
           id: this.productId,
           addressId: this.selectedAddress?.id || 1,
         });
-        console.log("getSingleProduct", this.selectedAddress);
       } catch (error) {
+        this.$toast.open({
+          message: this.$i18n.t("productDetailsErrorMessage"),
+          type: "error",
+        });
         console.log("error", error);
       }
     },
@@ -1104,7 +1138,7 @@ export default {
   padding-top: 60px;
   opacity: 1;
 }
-::v-deep .VueCarousel-wrapper{
+::v-deep .VueCarousel-wrapper {
   border-radius: 0px;
-} 
+}
 </style>

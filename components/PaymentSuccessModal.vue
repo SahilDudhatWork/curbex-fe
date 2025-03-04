@@ -47,7 +47,7 @@
 
       <!-- Amount -->
       <div class="text-center text-3xl font-bold mb-6">
-        $ {{ paymentDetails?.amount + (paymentDetails?.taxes?.rate || 0) }}
+        $ {{ $formatCurrency(paymentDetails?.finalPaymentAmount) }}
       </div>
 
       <!-- Payment Details Button -->
@@ -77,14 +77,16 @@
         </div>
         <div class="flex justify-between text-sm">
           <span class="text-gray-500">Amount</span>
-          <span class="text-black">${{ paymentDetails?.amount }}</span>
+          <span class="text-black"
+            >${{ $formatCurrency(paymentDetails?.amount) }}</span
+          >
         </div>
         <div class="flex justify-between text-sm">
           <span class="text-gray-500">{{
             paymentDetails?.taxes?.type || "Estimated Tax"
           }}</span>
           <span class="text-black">
-            ${{ paymentDetails?.taxes?.rate || 0 }}</span
+            ${{ $formatCurrency(paymentDetails?.taxesRate) || 0 }}</span
           >
         </div>
 

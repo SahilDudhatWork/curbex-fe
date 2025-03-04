@@ -1804,12 +1804,14 @@ export default {
         };
         await this.createOrder(data);
         this.paymentDetails = {
+          finalPaymentAmount: this.finalPaymentAmount,
           amount: this.cartTotal,
           refNumber: "N/A",
           paymentTime: new Date().toLocaleString(),
           paymentMethod: "Credit card",
           senderName: this.profile.firstName.concat(" ", this.profile.lastName),
           taxes: this.taxes,
+          taxesRate: this.rateAmount,
         };
         this.showPaymentSuccess = true;
         await this.removeCart();

@@ -47,7 +47,14 @@
           class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-4 border border-[#F3F3F3] rounded-[15px]"
         >
           <img
-            :src="heroImage || '/Images/Profile/16.png'"
+            v-if="heroImage?.imageUrl"
+            :src="heroImage?.imageUrl || '/Images/Profile/16.png'"
+            :alt="orderDetails?.product?.name"
+            class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
+          />
+          <img
+            v-else
+            :src="'/Images/Profile/16.png'"
             :alt="orderDetails?.product?.name"
             class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
           />
@@ -75,6 +82,7 @@
           class="flex justify-end lg:justify-center items-end w-full lg:w-auto mt-5 lg:mt-0 pb-1"
         >
           <button
+            @click="downloadInvoice(orderDetails)"
             class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto lg:mb-0 md:mr-4"
           >
             Download Invoice
@@ -701,16 +709,21 @@ export default {
 
   async mounted() {
     await this.getOrderDetails();
-    this.heroImage =
+    if (
       this.orderDetails?.product?.images &&
       this.orderDetails?.product?.images.length
-        ? this.orderDetails?.product?.images[0].imageUrl
-        : null;
+    ) {
+      this.heroImage =
+        this.orderDetails?.product.images.find(
+          (image) => image.imageType === "primary"
+        ) || null;
+    }
   },
 
   methods: {
     ...mapActions({
       fetchOrderDetails: "order/fetchOrderDetails",
+      generateInvoice: "order/generateInvoice",
     }),
     async getOrderDetails() {
       try {
@@ -719,6 +732,21 @@ export default {
       } catch (error) {
         this.$toast.open({
           message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async downloadInvoice(order) {
+      try {
+        let response = await this.generateInvoice({ id: order?.id });
+        new Promise((resolve, reject) => {
+          this.$fileDownload(response, `order-${order?.id}.pdf`);
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
           type: "error",
         });
         console.log("error", error);

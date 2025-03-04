@@ -50,6 +50,8 @@
       <!-- Search Bar -->
       <div class="mb-3 md:mb-6 lg:mb-0 relative">
         <input
+          v-model="searchQuery"
+          @keyup="searchProduct()"
           type="text"
           placeholder="Search your order"
           class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -82,21 +84,34 @@
       <!-- Active Orders -->
       <div
         v-if="
-          currentTab === 'active' && orders.records && orders.records.length
+          (currentTab === 'active' ||
+            currentTab === 'upcoming' ||
+            currentTab === 'past') &&
+          filterOrders.records &&
+          filterOrders.records.length
         "
         class="space-y-6"
       >
         <div
           class="flex flex-wrap py-4 md:py-8 border-b border-gray-200"
-          v-for="(order, index) in orders.records"
+          v-for="(order, index) in ordersData"
           :key="index"
         >
           <div
             class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-6 border border-[#F3F3F3] rounded-[15px]"
           >
             <img
+              v-if="order.product.heroImage && order.product.heroImage.imageUrl"
+              :src="order.product.heroImage.imageUrl"
+              :alt="order?.product?.name"
+              :class="currentTab === 'past' ? 'grayscale' : ''"
+              class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
+            />
+            <img
+              v-else
               src="/Images/Profile/16.png"
-              :alt="order.name"
+              :alt="order?.product?.name"
+              :class="currentTab === 'past' ? 'grayscale' : ''"
               class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
             />
           </div>
@@ -104,7 +119,7 @@
             <h3
               class="text-[14px] lg:text-[18px] text-[#121212] font-Montserrat-Medium pb-1"
             >
-              Banner Stand
+              {{ order?.product?.name }}
             </h3>
             <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-10">
               April 28th - April 30th
@@ -123,6 +138,7 @@
             class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto mt-[13px] md:mt-2"
           >
             <button
+              @click="downloadInvoice(order)"
               class="md:order-2 lg:order-1 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto lg:mb-0 lg:mr-4"
             >
               Download Invoice
@@ -138,7 +154,7 @@
       </div>
 
       <!-- Upcoming Orders -->
-      <div
+      <!-- <div
         v-if="
           currentTab === 'upcoming' && orders.records && orders.records.length
         "
@@ -146,7 +162,7 @@
       >
         <div
           class="flex flex-wrap py-4 md:py-8 border-b border-gray-200"
-          v-for="(order, index) in orders.records"
+          v-for="(order, index) in ordersData"
           :key="index"
         >
           <div
@@ -191,23 +207,23 @@
             >
               Details
             </button>
-            <!-- <NuxtLink
+            <NuxtLink
               to="/profile/trackOrder"
               class="md:order-3 text-[11px] lg:text-[14px] py-2 px-4 border border-[#8D54FF] text-[#FFFFFF] rounded-lg bg-[#8D54FF] hover:bg-[#121212] hover:border-[#121212] w-fit md:w-[150px] lg:w-auto text-center lg:mb-0 lg:mr-4"
               >Track it</NuxtLink
-            > -->
+            >
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Past Orders -->
-      <div
+      <!-- <div
         v-if="currentTab === 'past' && orders.records && orders.records.length"
         class="space-y-6"
       >
         <div
           class="flex flex-wrap py-4 md:py-8 border-b border-gray-200"
-          v-for="order in orders.records"
+          v-for="order in ordersData"
           :key="order.id"
         >
           <div
@@ -254,17 +270,18 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   layout: "profileLayout",
   data() {
     return {
+      searchQuery: "",
       currentTab: "active",
       activeOrders: [
         {
@@ -325,11 +342,34 @@ export default {
   computed: {
     ...mapGetters({
       orders: "order/getOrders",
+      filterOrders: "order/getFilterOrders",
     }),
+    ordersData() {
+      if (this.filterOrders.records && this.filterOrders.records.length) {
+        return this.filterOrders.records.map((order) => {
+          return {
+            ...order,
+            product: {
+              ...order.product, // Keep existing product details
+              heroImage:
+                order.product?.images?.find(
+                  (image) => image.imageType === "primary"
+                ) || null,
+            },
+          };
+        });
+      } else {
+        return [];
+      }
+    },
   },
   methods: {
     ...mapActions({
       fetchOrders: "order/fetchOrders",
+      generateInvoice: "order/generateInvoice",
+    }),
+    ...mapMutations({
+      setFilterOrders: "order/setFilterOrders",
     }),
     async getOrders() {
       try {
@@ -346,10 +386,50 @@ export default {
     orderDetails(id) {
       this.$router.push(`/profile/orders/${id}`);
     },
+    async downloadInvoice(order) {
+      try {
+        let response = await this.generateInvoice({ id: order?.id });
+        new Promise((resolve, reject) => {
+          this.$fileDownload(response, `order-${order?.id}.pdf`);
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async searchProductData() {
+      try {
+        let data = this.orders.records.filter((order) => {
+          const query = this.searchQuery.toLowerCase();
+          return (
+            order.product.name.toLowerCase().includes(query) ||
+            order.shippingStreet.toLowerCase().includes(query) ||
+            order.total.toString().includes(query) // Convert price to string for matching
+          );
+        });
+        this.setFilterOrders({ records: data, totalCount: data.length });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
   },
 
   mounted() {
     this.getOrders();
+  },
+  async created() {
+    this.searchProduct = this.$lodash.debounce(async () => {
+      await this.searchProductData();
+    }, 1000);
   },
 };
 </script>

@@ -31,7 +31,9 @@
 
     "productAvailableForRent": "This product is available for rent from {startDate} to {endDate}.",
     "productNotAvailableForRent": "This product is not available for rent from {startDate} to {endDate}.",
-    "verifyEmailMessage": "We already sent an email verification to your registered email when you signed up. If you didn't receive the email, please resend it."
+    "verifyEmailMessage": "We already sent an email verification to your registered email when you signed up. If you didn't receive the email, please resend it.",
+
+    "productDetailsErrorMessage": "Product details not found for this address."
 
   
 

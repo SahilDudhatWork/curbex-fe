@@ -14,7 +14,8 @@
             viewBox="0 0 27 27"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="border border-[#F3F3F3] p-[0.425rem] md:p-2.5 block w-[33px] md:w-[45px] h-[33px] md:h-[45px] rounded-full bg-[#FCFCFC] mb-3"
+            class="cursor-pointer border border-[#F3F3F3] p-[0.425rem] md:p-2.5 block w-[33px] md:w-[45px] h-[33px] md:h-[45px] rounded-full bg-[#FCFCFC] mb-3"
+            @click="$emit('shareProduct')"
           >
             <g clip-path="url(#clip0_4661_37639)">
               <path
@@ -146,6 +147,11 @@ export default {
     ...mapGetters({
       favoriteProductIds: "product/getFavoriteProductIds",
     }),
+    isolatedImages() {
+      return this.product?.images && this.product?.images.length
+        ? this.product?.images.filter((x) => x.imageType == "isolated")
+        : [];
+    },
   },
   watch: {
     product: {

@@ -2,12 +2,16 @@ import $axios from "@/plugins/axios";
 
 export const state = () => ({
   orders: {},
+  filterOrders: {},
   orderDetails: {},
 });
 
 export const getters = {
   getOrders(state) {
     return state.orders;
+  },
+  getFilterOrders(state) {
+    return state.filterOrders;
   },
   getOrderDetails(state) {
     return state.orderDetails;
@@ -17,6 +21,9 @@ export const getters = {
 export const mutations = {
   setOrders(state, payload) {
     state.orders = payload;
+  },
+  setFilterOrders(state, payload) {
+    state.filterOrders = payload;
   },
   setOrderDetails(state, payload) {
     state.orderDetails = payload;
@@ -28,6 +35,7 @@ export const actions = {
     try {
       const response = await $axios.get("/orders/customer");
       ctx.commit("setOrders", response);
+      ctx.commit("setFilterOrders", response);
       return response;
     } catch (error) {
       throw error;
@@ -45,6 +53,16 @@ export const actions = {
     try {
       const response = await $axios.get(`/orders/${payload.id}`);
       ctx.commit("setOrderDetails", response);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async generateInvoice(ctx, payload) {
+    try {
+      const response = await $axios.get(`/orders/${payload.id}/invoice`, {
+        responseType: "blob",
+      });
       return response;
     } catch (error) {
       throw error;
