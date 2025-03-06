@@ -175,6 +175,13 @@ export const actions = {
       ctx.commit("setSingleRentalProductData", response);
       return response;
     } catch (error) {
+      ctx.commit("setSingleRentalProductData", {
+        permits: [],
+        product: [],
+        property: [],
+        schedule: [],
+      });
+
       throw error;
     }
   },

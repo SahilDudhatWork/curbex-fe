@@ -101,6 +101,7 @@
       <!-- Action Buttons -->
       <button
         class="w-full border border-black rounded-[75px_75px_75px_75px] py-2 mb-4 text-black font-medium"
+        @click="downloadInvoice"
       >
         Download PDF Receipt
       </button>
@@ -116,6 +117,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "PaymentSuccessModal",
   props: {
@@ -125,6 +128,9 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      generateInvoice: "order/generateInvoice",
+    }),
     closeModal() {
       this.$emit("close");
     },
@@ -133,6 +139,23 @@ export default {
     },
     backToHome() {
       this.$router.push("/");
+    },
+    async downloadInvoice() {
+      try {
+        let response = await this.generateInvoice({
+          id: this.paymentDetails?.id,
+        });
+        new Promise((resolve, reject) => {
+          this.$fileDownload(response, `order-${this.paymentDetails?.id}.pdf`);
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
     },
   },
   mounted() {

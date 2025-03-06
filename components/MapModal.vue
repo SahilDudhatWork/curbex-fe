@@ -31,6 +31,7 @@
                     class="absolute right-0"
                   />
                   <input
+                    id="searchAddress"
                     type="text"
                     class="border border-[#121212] rounded-[30px] text-[#C3C3C3] font-normal text-sm h-[44px] sm:w-[412px] w-[327px] px-4"
                     placeholder="Search for address"
@@ -40,7 +41,7 @@
               </div>
               <GoogleMap
                 :height="343"
-                :addressDetails="addressDetails"
+                :addressDetails="markerPosition"
                 @updateAddress="getAddress"
               />
             </div>
@@ -86,16 +87,13 @@ export default {
       type: Boolean,
       required: true,
     },
-    addressDetails: {
-      type: Object,
-      default: () => ({}),
-      required: false,
-    },
   },
 
   data() {
     return {
       location: {},
+      autocomplete: "",
+      markerPosition: {},
     };
   },
   methods: {
@@ -103,6 +101,52 @@ export default {
       this.location = item;
       this.$emit("getAddress", this.location);
     },
+    async getCurrentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.handleSuccess);
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    },
+    handleSuccess(position) {
+      this.markerPosition = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude,
+      };
+    },
+    async initAutocomplete() {
+      this.$nextTick(async () => {
+        const inputElement = document.getElementById("searchAddress");
+        if (inputElement instanceof HTMLInputElement) {
+          this.autocomplete = new google.maps.places.Autocomplete(
+            inputElement,
+            { types: ["geocode"] }
+          );
+          this.autocomplete.setFields([
+            "address_component",
+            "formatted_address",
+            "geometry",
+          ]);
+          this.autocomplete.setComponentRestrictions({ country: ["ca"] });
+          this.autocomplete.addListener("place_changed", this.selectAddress);
+        }
+      });
+    },
+    async selectAddress() {
+      const place = this.autocomplete.getPlace();
+      if (!place.address_components) return;
+
+      let latitude = place.geometry.location.lat(); // Get latitude
+      let longitude = place.geometry.location.lng(); // Get longitude
+      this.markerPosition = {
+        lat: latitude,
+        long: longitude,
+      };
+    },
+  },
+  async mounted() {
+    await this.getCurrentLocation();
+    await this.initAutocomplete();
   },
 };
 </script>

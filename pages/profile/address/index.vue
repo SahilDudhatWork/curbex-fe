@@ -26,7 +26,11 @@
               <span
                 class="w-[13px] lg:w-[22px] h-[13px] lg:h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px] mb-[2px] lg:mb-0"
               ></span>
-              <p class="text-[14px] lg:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis max-w-[116px]">{{ address.city }}- {{ address.country }}</p>
+              <p
+                class="text-[14px] lg:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis max-w-[116px]"
+              >
+                {{ address.city }}- {{ address.country }}
+              </p>
             </div>
             <div
               class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[13px_15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
@@ -205,10 +209,11 @@
                 <input
                   type="text"
                   placeholder="Address Line 1"
+                  id="mapAddress"
                   v-model="formData.street"
+                  ref="addressInputRef"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   :class="{ 'border-[red]': errors?.street }"
-                  @keyup="initAutocomplete"
                 />
                 <span
                   v-if="errors?.street"
@@ -306,8 +311,8 @@
               <div class="flex flex-col gap-1 w-full">
                 <label
                   class="hidden md:block font-medium text-[#121212] text-[18px]"
-                  >Postal Code</label
-                >
+                  >Postal Code
+                </label>
                 <input
                   type="text"
                   placeholder="Postal Code"
@@ -416,8 +421,8 @@
       </div>
 
       <MapModal
+        v-if="isVisible"
         :isVisible="isVisible"
-        :addressDetails="addressDetails"
         @closeModal="closeModal"
         @openMapModal="openMapModal"
         @handleClick="handleMap"
@@ -435,7 +440,6 @@ export default {
     return {
       isVisible: false,
       isGridVisible: false,
-      addressDetails: {},
       isDefault: false,
       formData: {
         street: "",
@@ -444,6 +448,9 @@ export default {
         postal: "",
       },
       errors: {},
+      addressInputRef: null,
+      placesService: null,
+      autocomplete: "",
     };
   },
   computed: {
@@ -486,36 +493,22 @@ export default {
       this.isVisible = false;
     },
     openMapModal() {
-      this.getCurrentLocation();
       this.isVisible = true;
     },
     handleMap() {
       this.isVisible = false;
     },
-    toggleGrid() {
+    async toggleGrid() {
       this.isGridVisible = !this.isGridVisible;
       this.formData = {};
       this.isDefault = false;
+      await this.initAutocomplete();
     },
     async editAddress(address) {
       this.formData = { ...address };
       this.isGridVisible = true;
     },
-    getCurrentLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(this.handleSuccess);
-      } else {
-        console.error("Geolocation is not supported by this browser.");
-      }
-    },
-    handleSuccess(position) {
-      this.formData.latitude = position.coords.latitude;
-      this.formData.longitude = position.coords.longitude;
-      this.addressDetails = {
-        lat: position.coords.latitude,
-        long: position.coords.longitude,
-      };
-    },
+
     async getAddressFromCoordinates(location) {
       try {
         let res = await this.fetchAddressFromCoordinates({
@@ -527,13 +520,61 @@ export default {
       } finally {
       }
     },
-    initAutocomplete() {
+    async loadGoogleMaps() {
       try {
-        const input = this.formData.street;
-        // this.fetchAutocomplete({ query: input });
+        const google = await this.$loadGoogleMaps(); // Load Google Maps dynamically
+
+        const displayElement = document.createElement("div");
+        this.placesService = new google.maps.places.PlacesService(
+          displayElement
+        );
       } catch (error) {
-        console.log(error, "error");
+        console.error("Google Maps API failed to load:", error);
       }
+    },
+    async initAutocomplete() {
+      this.$nextTick(async () => {
+        const inputElement = document.getElementById("mapAddress");
+        if (inputElement instanceof HTMLInputElement) {
+          this.autocomplete = new google.maps.places.Autocomplete(
+            inputElement,
+            { types: ["geocode"] }
+          );
+          this.autocomplete.setFields([
+            "address_component",
+            "formatted_address",
+          ]);
+          this.autocomplete.setComponentRestrictions({ country: ["ca"] });
+          this.autocomplete.addListener("place_changed", this.selectAddress);
+        }
+      });
+    },
+    async selectAddress() {
+      const place = this.autocomplete.getPlace();
+      if (!place.address_components) return;
+
+      let city = "";
+      let province = "";
+      let postalCode = "";
+
+      // Loop through address components
+      place.address_components.forEach((component) => {
+        if (component.types.includes("locality")) {
+          city = component.long_name; // City
+        }
+        if (component.types.includes("administrative_area_level_1")) {
+          province = component.short_name; // Province / State
+        }
+        if (component.types.includes("postal_code")) {
+          postalCode = component.long_name; // Postal Code
+        }
+      });
+
+      // Assign values to form fields
+      this.formData.street = place.formatted_address;
+      this.formData.city = city;
+      this.formData.province = province;
+      this.formData.postal = postalCode;
     },
     async handleSaveAddress() {
       try {
@@ -595,7 +636,10 @@ export default {
       this.formData = item;
     },
   },
-  mounted() {},
+  async mounted() {
+    await this.loadGoogleMaps();
+    await this.initAutocomplete();
+  },
 };
 </script>
 <style scoped>

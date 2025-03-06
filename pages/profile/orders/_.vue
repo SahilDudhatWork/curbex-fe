@@ -65,9 +65,15 @@
           >
             {{ orderDetails?.product?.name }}
           </h3>
-          <!-- <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">
-            {{ order.dateRange }}
-          </p> -->
+          <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">
+            {{
+              orderDetails?.rentalStartDate && orderDetails?.rentalEndDate
+                ? `${$moment.formatMonthDay(
+                    orderDetails?.rentalStartDate
+                  )} - ${$moment.formatMonthDay(orderDetails?.rentalEndDate)}`
+                : ""
+            }}
+          </p>
           <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">
             {{ orderDetails?.shippingStreet }}
           </p>
@@ -318,16 +324,16 @@
         </div>
       </div>
     </div>
-    <div>
+    <div v-if="orderDetails?.notes">
       <h1 class="text-[18px] md:text-[20px] font-semibold mb-3 md:mb-6">
         Sign Message
       </h1>
       <div class="bg-[#F9F9F9] rounded-[10px] px-4 py-3 mb-4">
         <div class="flex justify-between items-center">
           <div class="flex items-center gap-2">
-            <span class="text-[12px] md:text-[16px] font-medium"
-              >7.5% Instant Discount up to $10 on every spend</span
-            >
+            <span class="text-[12px] md:text-[16px] font-medium">{{
+              orderDetails?.notes
+            }}</span>
           </div>
           <div class="flex gap-2">
             <button class="p-2 hover:bg-gray-100 rounded-full">
@@ -486,26 +492,50 @@
               >Total MRP</span
             >
             <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >${{ orderDetails?.total }}</span
-            >
+              >${{ orderDetails?.total }}
+            </span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Discount on MRP</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">-$0</span>
-          </div>
-          <div class="flex justify-between py-1 lg:py-3">
-            <span class="text-[#121212] text-[12px] md:text-[18px]"
-              >Setup Fees</span
-            >
             <span class="text-[#949494] text-[12px] md:text-[18px]">$0</span>
           </div>
-          <div class="flex justify-between py-1 lg:py-3">
-            <span class="text-[#121212] text-[12px] md:text-[18px]"
-              >Convenience Fee</span
+          <div
+            v-if="
+              orderDetails?.product?.fees && orderDetails?.product?.fees.length
+            "
+            v-for="(feeItem, index) in orderDetails?.product?.fees"
+            class="flex justify-between py-1 lg:py-3"
+          >
+            <span class="text-[#121212] text-[12px] md:text-[18px]">{{
+              feeItem?.name
+            }}</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]">
+              ${{ $formatCurrency(feeItem?.price) }}</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">$00</span>
+          </div>
+          <div
+            v-if="orderDetails?.permit"
+            class="flex justify-between py-1 lg:py-3"
+          >
+            <span class="text-[#121212] text-[12px] md:text-[18px]">{{
+              orderDetails?.permit?.name
+            }}</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]"
+              >${{ $formatCurrency(orderDetails?.permit?.price) }}</span
+            >
+          </div>
+          <div
+            v-if="orderDetails?.taxType"
+            class="flex justify-between py-1 lg:py-3"
+          >
+            <span class="text-[#121212] text-[12px] md:text-[18px]">{{
+              orderDetails?.taxType
+            }}</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]"
+              >${{ $formatCurrency(rateAmount) }}</span
+            >
           </div>
         </div>
 
@@ -700,6 +730,13 @@ export default {
     ...mapGetters({
       orderDetails: "order/getOrderDetails",
     }),
+    rateAmount() {
+      let productPrice =
+        (this.orderDetails?.price || 0) -
+        (this.orderDetails?.permit?.price || 0);
+
+      return (productPrice * (this.orderDetails?.tax || 0)) / 100;
+    },
   },
   async asyncData({ params }) {
     return {

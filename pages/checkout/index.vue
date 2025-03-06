@@ -271,6 +271,7 @@
                   >Address</label
                 >
                 <input
+                  id="mapShippingAddress"
                   v-model="addressData.street"
                   :readonly="isInputShippingDisabled"
                   type="text"
@@ -297,17 +298,17 @@
             >
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
-                  v-model="addressData.street"
+                  v-model="addressData.apt"
                   :readonly="isInputShippingDisabled"
                   type="text"
                   placeholder="Apt, Suite,Unit"
-                  :class="{ 'border-[red]': addressError?.street }"
+                  :class="{ 'border-[red]': addressError?.apt }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
                 <span
-                  v-if="addressError?.street"
+                  v-if="addressError?.apt"
                   class="text-[red] text-[12px] pl-[3px]"
-                  >{{ addressError?.street }}</span
+                  >{{ addressError?.apt }}</span
                 >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
@@ -636,6 +637,7 @@
                   >Address</label
                 >
                 <input
+                  id="mapBillingAddress"
                   v-model="billingAddressData.street"
                   :readonly="isInputBillingDisabled"
                   type="text"
@@ -663,17 +665,17 @@
             >
               <div class="flex flex-col gap-1 w-full md:w-auto">
                 <input
-                  v-model="billingAddressData.street"
+                  v-model="billingAddressData.apt"
                   :readonly="isInputBillingDisabled"
                   type="text"
                   placeholder="Apt, Suite,Unit"
-                  :class="{ 'border-[red]': billingError?.street }"
+                  :class="{ 'border-[red]': billingError?.apt }"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.60rem] md:py-[0.70rem] border border-[#121212] bg-[#FFFFFF] rounded-[8px] focus:outline-none focus:border-[#000000]"
                 />
                 <span
-                  v-if="billingError?.street"
+                  v-if="billingError?.apt"
                   class="text-[red] text-[12px] pl-[3px]"
-                  >{{ billingError?.street }}</span
+                  >{{ billingError?.apt }}</span
                 >
               </div>
               <div class="flex flex-col gap-1 w-full md:w-auto">
@@ -1423,6 +1425,10 @@ export default {
       isBillingDefaultAddress: false,
       showPaymentSuccess: false,
       paymentDetails: {},
+
+      placesService: null,
+      autocompleteShipping: "",
+      autocompleteBilling: "",
     };
   },
 
@@ -1593,23 +1599,125 @@ export default {
         province: address.province,
       });
     },
+
     selectBillingAddress(address) {
       this.showBillingDropdown = false;
 
       this.billingAddressData = address;
       this.isNewBillingAddress = false;
     },
-    addNewAddress() {
+    async initShippingAutocomplete() {
+      this.$nextTick(async () => {
+        const inputElement = document.getElementById("mapShippingAddress");
+        if (inputElement instanceof HTMLInputElement) {
+          this.autocompleteShipping = new google.maps.places.Autocomplete(
+            inputElement,
+            { types: ["geocode"] }
+          );
+          this.autocompleteShipping.setFields([
+            "address_component",
+            "formatted_address",
+            "adr_address",
+          ]);
+          this.autocompleteShipping.setComponentRestrictions({
+            country: ["ca"],
+          });
+          this.autocompleteShipping.addListener(
+            "place_changed",
+            this.selectSearchShippingAddress
+          );
+        }
+      });
+    },
+    async initBillingAutocomplete() {
+      this.$nextTick(async () => {
+        const inputElement = document.getElementById("mapBillingAddress");
+        if (inputElement instanceof HTMLInputElement) {
+          this.autocompleteBilling = new google.maps.places.Autocomplete(
+            inputElement,
+            { types: ["geocode"] }
+          );
+          this.autocompleteBilling.setFields([
+            "address_component",
+            "formatted_address",
+          ]);
+          this.autocompleteBilling.setComponentRestrictions({
+            country: ["ca"],
+          });
+          this.autocompleteBilling.addListener(
+            "place_changed",
+            this.selectSearchBillingAddress
+          );
+        }
+      });
+    },
+    async selectSearchShippingAddress() {
+      const place = this.autocompleteShipping.getPlace();
+      if (!place.address_components) return;
+
+      let city = "";
+      let province = "";
+      let postalCode = "";
+
+      // Loop through address components
+      place.address_components.forEach((component) => {
+        if (component.types.includes("locality")) {
+          city = component.long_name; // City
+        }
+        if (component.types.includes("administrative_area_level_1")) {
+          province = component.short_name; // Province / State
+        }
+        if (component.types.includes("postal_code")) {
+          postalCode = component.long_name; // Postal Code
+        }
+      });
+
+      // Assign values to form fields
+      this.addressData.street = place.formatted_address;
+      this.addressData.city = city;
+      this.addressData.province = province;
+      this.addressData.postal = postalCode;
+    },
+    async selectSearchBillingAddress() {
+      const place = this.autocompleteBilling.getPlace();
+      if (!place.address_components) return;
+
+      let city = "";
+      let province = "";
+      let postalCode = "";
+
+      // Loop through address components
+      place.address_components.forEach((component) => {
+        if (component.types.includes("locality")) {
+          city = component.long_name; // City
+        }
+        if (component.types.includes("administrative_area_level_1")) {
+          province = component.short_name; // Province / State
+        }
+        if (component.types.includes("postal_code")) {
+          postalCode = component.long_name; // Postal Code
+        }
+      });
+
+      // Assign values to form fields
+      this.billingAddressData.street = place.formatted_address;
+      this.billingAddressData.city = city;
+      this.billingAddressData.province = province;
+      this.billingAddressData.postal = postalCode;
+    },
+    async addNewAddress() {
       this.showDropdown = false;
       this.addressData = {};
       this.isNewAddress = true;
       this.isShippingDefaultAddress = false;
+      await this.initShippingAutocomplete();
     },
-    addNewBillingAddress() {
+    async addNewBillingAddress() {
       this.showBillingDropdown = false;
       this.billingAddressData = {};
       this.isNewBillingAddress = true;
       this.isBillingDefaultAddress = false;
+      await this.initBillingAutocomplete();
     },
     dropdownBillingToggle() {
       this.showBillingDropdown = !this.showBillingDropdown;
@@ -1649,6 +1757,7 @@ export default {
       this.isNewAddress = true;
       this.isShippingDefaultAddress = false;
     },
+
     async removeItem(cart) {
       try {
         await this.removeCartItem({ id: cart.id });
@@ -1716,6 +1825,19 @@ export default {
         console.log("error", error);
       }
     },
+    async loadGoogleMaps() {
+      try {
+        const google = await this.$loadGoogleMaps(); // Load Google Maps dynamically
+
+        const displayElement = document.createElement("div");
+        this.placesService = new google.maps.places.PlacesService(
+          displayElement
+        );
+      } catch (error) {
+        console.error("Google Maps API failed to load:", error);
+      }
+    },
+
     async handleSaveShippingAddress(type = "add") {
       try {
         this.addressError = await this.$validateAddressFormData({
@@ -1802,8 +1924,9 @@ export default {
           dataKeyId: this.selectedCard,
           price: parseFloat(this.$formatCurrency(this.finalPaymentAmount)),
         };
-        await this.createOrder(data);
+        let response = await this.createOrder(data);
         this.paymentDetails = {
+          id: response[0]?.id,
           finalPaymentAmount: this.finalPaymentAmount,
           amount: this.cartTotal,
           refNumber: "N/A",
@@ -1829,6 +1952,8 @@ export default {
     },
   },
   async mounted() {
+    await this.loadGoogleMaps();
+
     if (this.profile) {
       this.profileData = { ...this.profile };
     }

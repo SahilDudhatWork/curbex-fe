@@ -13,10 +13,10 @@
         class="flex space-x-4 mb-3 md:mb-6 border-b border-[#F3F3F3] pb-[16px]"
       >
         <button
-          @click="currentTab = 'active'"
+          @click="ordersByStatus('Open')"
           :class="[
             'py-1 lg:pl-0 px-4 text-[14px] lg:text-[16px]',
-            currentTab === 'active'
+            currentTab === 'Open'
               ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black'
               : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]',
           ]"
@@ -24,10 +24,10 @@
           Active
         </button>
         <button
-          @click="currentTab = 'upcoming'"
+          @click="ordersByStatus('Shipped')"
           :class="[
             'py-1 px-4 text-[14px] lg:text-[16px]',
-            currentTab === 'upcoming'
+            currentTab === 'Shipped'
               ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black'
               : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]',
           ]"
@@ -35,10 +35,10 @@
           Upcoming
         </button>
         <button
-          @click="currentTab = 'past'"
+          @click="ordersByStatus('Delivered')"
           :class="[
             'py-1 px-4 text-[14px] lg:text-[16px]',
-            currentTab === 'past'
+            currentTab === 'Delivered'
               ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black'
               : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]',
           ]"
@@ -84,9 +84,9 @@
       <!-- Active Orders -->
       <div
         v-if="
-          (currentTab === 'active' ||
-            currentTab === 'upcoming' ||
-            currentTab === 'past') &&
+          (currentTab === 'Open' ||
+            currentTab === 'Shipped' ||
+            currentTab === 'Delivered') &&
           filterOrders.records &&
           filterOrders.records.length
         "
@@ -104,14 +104,14 @@
               v-if="order.product.heroImage && order.product.heroImage.imageUrl"
               :src="order.product.heroImage.imageUrl"
               :alt="order?.product?.name"
-              :class="currentTab === 'past' ? 'grayscale' : ''"
+              :class="currentTab === 'Delivered' ? 'grayscale' : ''"
               class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
             />
             <img
               v-else
               src="/Images/Profile/16.png"
               :alt="order?.product?.name"
-              :class="currentTab === 'past' ? 'grayscale' : ''"
+              :class="currentTab === 'Delivered' ? 'grayscale' : ''"
               class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
             />
           </div>
@@ -122,7 +122,13 @@
               {{ order?.product?.name }}
             </h3>
             <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-10">
-              April 28th - April 30th
+              {{
+                order?.rentalStartDate && order?.rentalEndDate
+                  ? `${$moment.formatMonthDay(
+                      order?.rentalStartDate
+                    )} - ${$moment.formatMonthDay(order?.rentalEndDate)}`
+                  : ""
+              }}
             </p>
             <p class="text-[13px] lg:text-[16px] text-[#121212] pb-2">
               {{ order?.shippingStreet }}
@@ -135,17 +141,28 @@
             </p>
           </div>
           <div
-            class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto mt-[13px] md:mt-2"
+            class="flex flex-wrap md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto gap-2 md:gap-3 lg:gap-4 mt-3"
           >
+            <!-- Proof Button -->
+            <button
+              @click="goToProof(order)"
+              class="text-[12px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-full md:w-[150px] lg:w-auto"
+            >
+              Proof
+            </button>
+
+            <!-- Download Invoice Button -->
             <button
               @click="downloadInvoice(order)"
-              class="md:order-2 lg:order-1 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto lg:mb-0 lg:mr-4"
+              class="text-[12px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-full md:w-[150px] lg:w-auto"
             >
               Download Invoice
             </button>
+
+            <!-- Details Button -->
             <button
               @click="orderDetails(order.id)"
-              class="md:order-1 lg:order-2 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0"
+              class="text-[12px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-full md:w-[150px] lg:w-auto"
             >
               Details
             </button>
@@ -282,7 +299,7 @@ export default {
   data() {
     return {
       searchQuery: "",
-      currentTab: "active",
+      currentTab: "Open",
       activeOrders: [
         {
           id: 1,
@@ -383,6 +400,9 @@ export default {
         console.log(error);
       }
     },
+    goToProof(order) {
+      this.$router.push(`/proof/${order.id}`);
+    },
     orderDetails(id) {
       this.$router.push(`/profile/orders/${id}`);
     },
@@ -411,6 +431,23 @@ export default {
             order.total.toString().includes(query) // Convert price to string for matching
           );
         });
+        this.setFilterOrders({ records: data, totalCount: data.length });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async ordersByStatus(status) {
+      try {
+        this.searchQuery = "";
+        this.currentTab = status;
+        let data = this.orders.records.filter(
+          (order) => order.status == status
+        );
         this.setFilterOrders({ records: data, totalCount: data.length });
       } catch (error) {
         this.$toast.open({
