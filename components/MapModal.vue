@@ -11,6 +11,7 @@
         <div class="max-w-4xl mx-auto z-50 bg-white rounded-[15px]">
           <div
             class="bg-[#FFFFFF] rounded-[15px] sm:w-[772px] w-[358px] mt-5 mb-5 relative px-6"
+            v-click-outside="closeMapModal"
           >
             <div
               class="flex justify-end mt-2 cursor-pointer"
@@ -31,6 +32,7 @@
                     class="absolute right-0"
                   />
                   <input
+                    autocomplete="off"
                     id="searchAddress"
                     type="text"
                     class="border border-[#121212] rounded-[30px] text-[#C3C3C3] font-normal text-sm h-[44px] sm:w-[412px] w-[327px] px-4"
@@ -142,6 +144,9 @@ export default {
         lat: latitude,
         long: longitude,
       };
+    },
+    async closeMapModal() {
+      this.emit("closeModal");
     },
   },
   async mounted() {

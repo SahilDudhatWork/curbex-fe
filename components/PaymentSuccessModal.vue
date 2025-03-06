@@ -2,7 +2,10 @@
   <div
     class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 overflow-hidden"
   >
-    <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4 relative">
+    <div
+      class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4 relative"
+      v-click-outside="closeModal"
+    >
       <!-- Close Icon -->
       <button
         @click="closeModal"

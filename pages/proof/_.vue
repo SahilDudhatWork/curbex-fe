@@ -11,22 +11,31 @@
           <p
             class="text-[12px] md:text-[16px] text-[#2C2C2E] bg-[#F5F5F5] w-fit p-[5px_10px] rounded-[33px] mb-3"
           >
-            Order Number : 1234567
+            Order Number : {{ orderDetails?.id }}
           </p>
           <p
             class="text-[12px] md:text-[16px] text-[#2C2C2E] p-[0px_10px] w-fit mb-3"
           >
-            Client Name : Ryan Reynolds
+            Client Name : {{ orderDetails?.customer?.firstName }}
+            {{ orderDetails?.customer?.lastName }}
           </p>
           <p
             class="text-[12px] md:text-[16px] text-[#2C2C2E] p-[0px_10px] w-fit mb-3"
           >
-            Address : 310 Bayfield
+            Address : {{ fullShippingAddress }}
           </p>
           <p
+            v-if="orderDetails?.rentalStartDate && orderDetails?.rentalEndDate"
             class="text-[12px] md:text-[16px] text-[#2C2C2E] p-[0px_10px] w-fit mb-3"
           >
-            Rental Dates : 20.09.2024 - 20.09.2025
+            Rental Dates :
+            {{
+              orderDetails?.rentalStartDate && orderDetails?.rentalEndDate
+                ? `${$moment.formatMonthDay(
+                    orderDetails?.rentalStartDate
+                  )} - ${$moment.formatMonthDay(orderDetails?.rentalEndDate)}`
+                : ""
+            }}
           </p>
         </div>
       </div>
@@ -35,19 +44,14 @@
           <div
             class="flex items-start justify-between flex-wrap lg:flex-nowrap"
           >
-            <div class="w-full lg:w-[60%]">
+            <div v-if="orderDetails?.notes" class="w-full lg:w-[60%]">
               <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">
                 Signage description
               </p>
               <p
                 class="text-[12px] md:text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#FCFCFC] rounded-[20px] p-7"
               >
-                We’d like to order a mini B with the message “Upgrade Your Space
-                – ABC Home Furnishings!” on a blue gradient background,
-                featuring our logo and a living room image. Include a yellow
-                call-to-action and external LED lighting. Installation on
-                Downtown Main Street is needed by October 20, 2024, with 50%
-                payment upfront.
+                {{ orderDetails?.notes }}
               </p>
             </div>
             <div class="w-full lg:w-[38%] pt-[2rem] lg:pt-0">
@@ -64,7 +68,10 @@
           <div
             class="flex items-start justify-between flex-wrap lg:flex-nowrap"
           >
-            <div class="w-full lg:w-[60%]">
+            <div
+              v-if="latestAdminNote?.images && latestAdminNote?.images.length"
+              class="w-full lg:w-[60%]"
+            >
               <div
                 class="text-[12px] md:text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#E3E3E3] rounded-[20px] mt-6"
               >
@@ -74,7 +81,9 @@
                   <span>New Proof</span>
                 </p>
                 <img
-                  src="/Images/Proof/newProof.png"
+                  v-for="(item, index) in latestAdminNote?.images"
+                  :key="index"
+                  :src="item.imageUrl || '/Images/Proof/newProof.png '"
                   alt=""
                   class="rounded-[20px]"
                 />
@@ -94,7 +103,10 @@
                 </button>
               </div>
             </div>
-            <div class="w-full lg:w-[38%]">
+            <div
+              v-if="latestAdminNote && latestAdminNote?.note"
+              class="w-full lg:w-[38%]"
+            >
               <p
                 class="text-[16px] text-[#121212] pb-5 pt-6 font-[500] flex items-center"
               >
@@ -105,31 +117,33 @@
               </p>
               <pre
                 class="text-[12px] md:text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]"
+                >{{ latestAdminNote?.note }}</pre
               >
-Hi,
-    Thank you for the detailed feedback! I’ve made the requested changes:
-    1.	Headline Font Size: Increased by 10% for better visibility.
-    2.	Logo Placement: Centered the logo horizontally.
-    3.	Color Contrast: Adjusted the purple text to a darker shade (#5A3DA1) and added a subtle white outline for contrast.</pre
+              <p
+                v-if="latestAdminNote?.createdAt"
+                class="text-right text-[15px] text-[#000000] py-5"
               >
-              <p class="text-right text-[15px] text-[#000000] py-5">
-                10:50 AM - 2024-08-11
+                {{ $moment.formatTime(latestAdminNote?.createdAt) }} -
+                {{ $moment.formatStartDate(latestAdminNote?.createdAt) }}
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="container px-6 mx-auto">
+      <div
+        v-if="sortedChatNotes && sortedChatNotes.length"
+        class="container px-6 mx-auto"
+      >
         <p
           class="font-Montserrat-Medium font-[600] w-fit bg-[#FFA900] text-[#121212] text-[16px] md:text-[20px] rounded-full py-[4px] px-6 mb-[29px]"
         >
           For Rent
         </p>
-        <p
+        <!-- <p
           class="font-Montserrat-Regular w-fit bg-[#121212] text-[#FFFFFF] text-[16px] rounded-full py-[4px] px-6 mb-[10px]"
         >
           Proof 1
-        </p>
+        </p> -->
         <div>
           <div class="w-full lg:hidden">
             <p class="text-[16px] text-[#121212] font-[500] flex items-center">
@@ -155,14 +169,24 @@ Hi,
             <ProofSlider />
           </div>
         </div>
-        <div class="pb-3 border-seaction">
+        <div
+          v-for="(item, index) in sortedChatNotes"
+          class="pb-3 border-seaction"
+        >
           <p
             class="relative z-[5] text-[16px] text-[#121212] pb-5 pt-6 flex items-center font-[600]"
           >
             <span
-              class="w-[22px] h-[22px] bg-[#FFA900] block mr-[10px] rounded-[50px]"
+              :class="
+                item.type != 'customer' ? 'bg-[#FFA900]' : 'bg-[#8D54FF] '
+              "
+              class="w-[22px] h-[22px] block mr-[10px] rounded-[50px]"
             ></span>
-            Sent by Curbex designer
+            {{
+              item.type != "customer"
+                ? "Sent by Curbex designer"
+                : "Sent by You"
+            }}
           </p>
           <div
             class="flex items-start justify-between flex-wrap lg:flex-nowrap"
@@ -170,21 +194,20 @@ Hi,
             <div class="w-full lg:w-[60%]">
               <pre
                 class="text-[12px] md:text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]"
+                >{{ item?.note }}</pre
               >
-Hi
-    Here'’'s the first proof of your signage design . I’ve attached the mockup, dimensions, and material details.
-    •	Design Highlights:
-    •	The color palette aligns with your branding (HEX: #8D54FF for accents).
-    •	The headline font to maintain readability.
-    •	Mockup showcases how the sign will appear in daylight and evening settings.
-
-    Please review and let me know if there are any adjustments you’d like. I’ve included an annotation tool on the proofing page for easy feedback.</pre
+              <p
+                v-if="item?.createdAt"
+                class="text-right text-[15px] text-[#000000] py-5"
               >
-              <p class="text-right text-[15px] text-[#000000] py-5">
-                10:50 AM - 2024-08-11
+                {{ $moment.formatTime(item?.createdAt) }} -
+                {{ $moment.formatStartDate(item?.createdAt) }}
               </p>
             </div>
-            <div class="w-full lg:w-[38%] hidden lg:block">
+            <div
+              v-if="item.type != 'customer'"
+              class="w-full lg:w-[38%] hidden lg:block"
+            >
               <p
                 class="text-[16px] text-[#121212] font-[500] flex items-center"
               >
@@ -203,36 +226,10 @@ Hi
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div class="pb-[3rem] border-seaction">
-          <p
-            class="relative z-[3] text-[16px] text-[#121212] pb-5 pt-6 flex items-center font-[600]"
-          >
-            <span
-              class="w-[22px] h-[22px] bg-[#8D54FF] block mr-[10px] rounded-[50px]"
-            ></span>
-            Sent by You
-          </p>
-          <div class="flex items-end justify-between flex-wrap lg:flex-nowrap">
-            <div class="w-full lg:w-[60%]">
-              <pre
-                class="text-[12px] md:text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]"
-              >
-Hi
-    Here'’'s the first proof of your signage design . I’ve attached the mockup, dimensions, and material details.
-    •	Design Highlights:
-    •	The color palette aligns with your branding (HEX: #8D54FF for accents).
-    •	The headline font to maintain readability.
-    •	Mockup showcases how the sign will appear in daylight and evening settings.
-
-    Please review and let me know if there are any adjustments you’d like. I’ve included an annotation tool on the proofing page for easy feedback.</pre
-              >
-              <p class="text-right text-[15px] text-[#000000] py-5">
-                10:50 AM - 2024-08-11
-              </p>
-            </div>
-            <div class="w-full lg:w-[38%] mb-[3.5rem] hidden lg:block">
+            <div
+              v-if="item.type == 'customer'"
+              class="w-full lg:w-[38%] mb-[3.5rem] hidden lg:block"
+            >
               <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">
                 Reference Images
               </p>
@@ -240,18 +237,56 @@ Hi
             </div>
           </div>
         </div>
+        <!-- <div v-if="item.type == 'customer'" class="pb-[3rem] border-seaction">
+            <p
+              class="relative z-[3] text-[16px] text-[#121212] pb-5 pt-6 flex items-center font-[600]"
+            >
+              <span
+                class="w-[22px] h-[22px] bg-[#8D54FF] block mr-[10px] rounded-[50px]"
+              ></span>
+              Sent by You
+            </p>
+            <div
+              class="flex items-end justify-between flex-wrap lg:flex-nowrap"
+            >
+              <div class="w-full lg:w-[60%]">
+                <pre
+                  class="text-[12px] md:text-[16px] text-[#000000] border border-[#F5F5F5] bg-[#F5F5F5] rounded-[20px] p-7 text-wrap font-Montserrat-Regular leading-[26px]"
+                  >{{ item?.note }}</pre
+                >
+                <p
+                  v-if="item?.createdAt"
+                  class="text-right text-[15px] text-[#000000] py-5"
+                >
+                  {{ $moment.formatTime(item?.createdAt) }} -
+                  {{ $moment.formatStartDate(item?.createdAt) }}
+                </p>
+              </div>
+              <div class="w-full lg:w-[38%] mb-[3.5rem] hidden lg:block">
+                <p
+                  class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium"
+                >
+                  Reference Images
+                </p>
+                <ReferenceImagesSlide />
+              </div>
+            </div>
+          </div> -->
       </div>
     </div>
     <div v-if="isApproved">
-      <ApprovedModal />
+      <ApprovedModal @close="isApproved = false" />
     </div>
     <div v-if="isRequest">
-      <RequestRevisionModal />
+      <RequestRevisionModal @close="isRequest = false" />
     </div>
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
+  middleware: "auth",
+
   props: {
     data: {
       type: Array,
@@ -262,13 +297,85 @@ export default {
       default: () => "",
     },
   },
+  async asyncData({ params }) {
+    return {
+      orderId: params.pathMatch,
+    };
+  },
+  computed: {
+    ...mapGetters({
+      orderDetails: "order/getOrderDetails",
+      orderProof: "order/getOrderProof",
+    }),
+    fullShippingAddress() {
+      if (!this.orderDetails) return "";
+
+      const {
+        shippingStreet,
+        shippingCity,
+        shippingProvince,
+        shippingPostalCode,
+        shippingCountry,
+      } = this.orderDetails;
+
+      return `${shippingStreet}, ${shippingCity}, ${shippingProvince} ${shippingPostalCode}, ${shippingCountry}`;
+    },
+    latestAdminNote() {
+      if (!this.orderProof?.notes) return null;
+
+      return (
+        this.orderProof.notes
+          .filter((note) => note.type.toLowerCase() == "customer") // Exclude customer notes
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0] ||
+        null
+      ); // Get latest note
+    },
+    sortedChatNotes() {
+      if (!this.orderProof?.notes) return null;
+
+      return [...this.orderProof.notes].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+    },
+  },
   data() {
     return {
       isApproved: false,
       isRequest: false,
     };
   },
-  methods: {},
+  methods: {
+    ...mapActions({
+      fetchOrderDetails: "order/fetchOrderDetails",
+      fetchProofByOrder: "order/fetchProofByOrder",
+    }),
+    async getOrderDetails() {
+      try {
+        await this.fetchOrderDetails({ id: this.orderId });
+      } catch (error) {
+        this.$toast.open({
+          message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async getProofByOrder() {
+      try {
+        await this.fetchProofByOrder({ id: this.orderId });
+      } catch (error) {
+        this.$toast.open({
+          message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+  },
+  async mounted() {
+    await this.getOrderDetails();
+    await this.getProofByOrder();
+  },
 };
 </script>
 <style scoped>

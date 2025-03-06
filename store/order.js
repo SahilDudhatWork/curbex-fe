@@ -4,6 +4,7 @@ export const state = () => ({
   orders: {},
   filterOrders: {},
   orderDetails: {},
+  orderProof: {},
 });
 
 export const getters = {
@@ -16,6 +17,9 @@ export const getters = {
   getOrderDetails(state) {
     return state.orderDetails;
   },
+  getOrderProof(state) {
+    return state.orderProof;
+  },
 };
 
 export const mutations = {
@@ -27,6 +31,9 @@ export const mutations = {
   },
   setOrderDetails(state, payload) {
     state.orderDetails = payload;
+  },
+  setOrderProof(state, payload) {
+    state.orderProof = payload;
   },
 };
 
@@ -63,6 +70,17 @@ export const actions = {
       const response = await $axios.get(`/orders/${payload.id}/invoice`, {
         responseType: "blob",
       });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async fetchProofByOrder(ctx, payload) {
+    try {
+      const response = await $axios.get(`/proofs/${payload.id}`);
+      ctx.commit("setOrderProof", response);
+
       return response;
     } catch (error) {
       throw error;

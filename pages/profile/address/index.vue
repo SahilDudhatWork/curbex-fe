@@ -210,6 +210,7 @@
                   type="text"
                   placeholder="Address Line 1"
                   id="mapAddress"
+                  autocomplete="off"
                   v-model="formData.street"
                   ref="addressInputRef"
                   class="text-[12px] md:text-[16px] w-full mt-1 px-4 py-[0.50rem] md:py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"

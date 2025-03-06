@@ -1,7 +1,7 @@
 <!-- components/LogoutModal.vue -->
 <template>
   <div class="modal-overlay" v-if="isVisible">
-    <div class="modal">
+    <div class="modal" v-click-outside="cancelLogout">
       <h2 class="log-out-title">
         Are you sure you want to <br />
         Log out?

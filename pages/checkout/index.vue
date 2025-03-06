@@ -271,6 +271,7 @@
                   >Address</label
                 >
                 <input
+                  autocomplete="off"
                   id="mapShippingAddress"
                   v-model="addressData.street"
                   :readonly="isInputShippingDisabled"
@@ -637,6 +638,7 @@
                   >Address</label
                 >
                 <input
+                  autocomplete="off"
                   id="mapBillingAddress"
                   v-model="billingAddressData.street"
                   :readonly="isInputBillingDisabled"
