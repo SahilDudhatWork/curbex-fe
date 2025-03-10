@@ -552,7 +552,7 @@
       >
         FAQ
       </p>
-      <FaqsSeaction :faqs="faqs"/>
+      <FaqsSeaction :faqs="faqs" />
     </div>
     <div
       class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] mb-[4rem]"
@@ -676,6 +676,7 @@ import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters } from "vuex";
 
 export default {
+  layout: "productLayout",
   data() {
     return {
       activeAccordion: null, // Track which accordion is currently open
@@ -713,10 +714,22 @@ export default {
           image: Pizza,
         },
       ],
-      faqs:[
-        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." },
-        { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
-        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." }
+      faqs: [
+        {
+          question: "Can we place signage directly at the business location?",
+          answer:
+            "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
+        },
+        {
+          question: "How do Curbex signs fit into multi-channel campaigns?",
+          answer:
+            "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
+        },
+        {
+          question: "Can we launch nationwide campaigns with Curbex signage?",
+          answer:
+            "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
+        },
       ],
     };
   },

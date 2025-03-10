@@ -325,15 +325,110 @@ export default {
 
       return (
         this.orderProof.notes
-          .filter((note) => note.type.toLowerCase() == "customer") // Exclude customer notes
+          .filter((note) => note.type.toLowerCase() != "customer") // Exclude customer notes
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))[0] ||
         null
       ); // Get latest note
     },
     sortedChatNotes() {
-      if (!this.orderProof?.notes) return null;
+      let data = {
+        id: 23,
+        revisionsAvailable: 1,
+        status: "Revising",
+        createdAt: "2025-03-05T15:10:49.257Z",
+        updatedAt: "2025-03-05T15:10:49.257Z",
+        deletedAt: null,
+        notes: [
+          {
+            id: 9,
+            proofId: 23,
+            type: "customer",
+            note: "test2",
+            createdAt: "2025-03-05T15:10:49.291Z",
+            deletedAt: null,
+            images: [
+              {
+                id: 11,
+                proofNoteId: 9,
+                imageUrl:
+                  "https://curbex-storage.s3.amazonaws.com/cart/32/MiniB-19d5090e-50c8-4d28-8e33-eef55c9d85f2.jpg",
+                createdAt: "2025-03-05T15:10:49.316Z",
+              },
+            ],
+          },
+          {
+            id: 10,
+            proofId: 23,
+            type: "customer",
+            note: "Tresting",
+            createdAt: "2025-03-05T15:12:31.425Z",
+            deletedAt: null,
+            images: [
+              {
+                id: 12,
+                proofNoteId: 10,
+                imageUrl:
+                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+                createdAt: "2025-03-05T15:12:31.457Z",
+              },
+            ],
+          },
+          {
+            id: 10,
+            proofId: 23,
+            type: "admin",
+            note: "Tresting",
+            createdAt: "2025-03-05T15:09:31.425Z",
+            deletedAt: null,
+            images: [
+              {
+                id: 12,
+                proofNoteId: 10,
+                imageUrl:
+                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+                createdAt: "2025-03-05T15:12:31.457Z",
+              },
+            ],
+          },
+          {
+            id: 10,
+            proofId: 23,
+            type: "admin",
+            note: "Tresting",
+            createdAt: "2025-03-05T15:20:31.425Z",
+            deletedAt: null,
+            images: [
+              {
+                id: 12,
+                proofNoteId: 10,
+                imageUrl:
+                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+                createdAt: "2025-03-05T15:12:31.457Z",
+              },
+            ],
+          },
+          {
+            id: 10,
+            proofId: 23,
+            type: "admin",
+            note: "Tresting",
+            createdAt: "2025-03-05T12:12:31.425Z",
+            deletedAt: null,
+            images: [
+              {
+                id: 12,
+                proofNoteId: 10,
+                imageUrl:
+                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+                createdAt: "2025-03-05T15:12:31.457Z",
+              },
+            ],
+          },
+        ],
+      };
+      if (!data?.notes) return null;
 
-      return [...this.orderProof.notes].sort(
+      return [...data.notes].sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
     },

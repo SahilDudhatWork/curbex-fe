@@ -894,7 +894,7 @@ export default {
       updateCartItem: "product/updateCartItem",
       addToCart: "product/addToCart",
       fetchCartItems: "product/fetchCartItems",
-      fetchMarkerSchedule: "product/fetchMarkerSchedule",
+      // fetchMarkerSchedule: "product/fetchMarkerSchedule",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
     ...mapMutations({
@@ -1077,7 +1077,7 @@ export default {
       this.isAvailable = this.$moment.isDateRangeAvailable(
         this.startDate,
         this.endDate,
-        this.markerSchedule
+        this.productData?.schedule
       );
       console.log("isAvailable", this.isAvailable);
       // if (!this.isAvailable) {
@@ -1117,6 +1117,7 @@ export default {
         this.startDate,
         this.selectedPermit?.duration || 30
       );
+      await this.isProductAvailable();
     },
   },
   async mounted() {
@@ -1126,9 +1127,9 @@ export default {
         : null;
     await this.getSingleProduct();
     await this.loadData();
-    if (this.markerId) {
-      await this.getMarkerSchedule(22);
-    }
+    // if (this.markerId) {
+    //   await this.getMarkerSchedule(22);
+    // }
   },
   async asyncData({ params }) {
     return {

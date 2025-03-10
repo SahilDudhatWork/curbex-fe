@@ -5,9 +5,11 @@
       <div class="container mx-auto mb-[3rem] md:mb-[6rem]">
         <div class="pt-5">
           <div
-          style="background-image: url(/Images/small-business-franchise/1.png)"
-          class="rounded-[20px] w-full h-[206px] md:h-[461px] bg-no-repeat bg-cover bg-[14%]"
-        ></div>
+            style="
+              background-image: url(/Images/small-business-franchise/1.png);
+            "
+            class="rounded-[20px] w-full h-[206px] md:h-[461px] bg-no-repeat bg-cover bg-[14%]"
+          ></div>
           <!-- <img
             src="/Images/small-business-franchise/1.png"
             alt=""
@@ -491,7 +493,7 @@
       >
         FAQ
       </p>
-      <FaqsSeaction :faqs="faqs"/>      
+      <FaqsSeaction :faqs="faqs" />
     </div>
     <div
       class="mt-8 md:mt-16 px-6 bg-[#FCFCFC] border-t-2 border-b-2 border-[#f3f3f3] p-8 pb-[3rem] md:pb-[4rem] mb-[4rem]"
@@ -614,6 +616,8 @@ import cbs from "@/static/Images/Testimonial/cbs-1.png";
 import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters } from "vuex";
 export default {
+  layout: "productLayout",
+
   data() {
     return {
       activeAccordion: null,
@@ -651,13 +655,25 @@ export default {
           image: Pizza,
         },
       ],
-      faqs:[
+      faqs: [
         // { question: "How soon can I receive my signage?", answer: "We offer fast turnaround times, ensuring you have your signs exactly when you need them." },
         // { question: "Can I customize my signage to match my brand?", answer: "Absolutely. We offer full customization options, including colors, logos, and messaging." },
         // { question: "What if I need help with installation?", answer: "Our team provides complete support from concept to installation to ensure everything is seamless." },
-        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." },
-        { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
-        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
+        {
+          question: "Can we place signage directly at the business location?",
+          answer:
+            "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
+        },
+        {
+          question: "How do Curbex signs fit into multi-channel campaigns?",
+          answer:
+            "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
+        },
+        {
+          question: "Can we launch nationwide campaigns with Curbex signage?",
+          answer:
+            "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
+        },
       ],
     };
   },

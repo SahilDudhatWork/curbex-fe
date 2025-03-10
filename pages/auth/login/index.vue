@@ -228,7 +228,7 @@ export default {
       } catch (error) {
         console.log(error);
 
-        if (error?.status == 401) {
+        if (error?.response?.data?.status == "unverified") {
           this.$cookies.set("email", this.formData.email);
           this.$router.push("/resend-email-verification");
         } else {

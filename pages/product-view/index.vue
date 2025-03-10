@@ -69,10 +69,7 @@
           </div>
           <div class="flex items-center justify-between">
             <div class="w-[90%] mx-auto">
-              <VueSlickCarousel
-                v-bind="carouselSettings"
-                class="section"
-              >
+              <VueSlickCarousel v-bind="carouselSettings" class="section">
                 <div class="section1321231321">
                   <img
                     src="/Images/Product/new.png"
@@ -544,7 +541,7 @@
           >
             FAQ
           </p>
-          <FaqsSeaction :faqs="faqs"/>
+          <FaqsSeaction :faqs="faqs" />
         </div>
         <div class="w-full lg:w-[50%] order-1 lg:order-2 mb-[3rem] lg:mb-0">
           <img
@@ -944,6 +941,8 @@ import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters } from "vuex";
 
 export default {
+  layout: "productLayout",
+
   data() {
     return {
       rentalHistory: "",
@@ -1005,10 +1004,22 @@ export default {
         initialSlide: 0,
         // centerMode: true,
       },
-      faqs:[
-        { question: "Can we place signage directly at the business location?", answer: "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act." },
-        { question: "How do Curbex signs fit into multi-channel campaigns?", answer: "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind." },
-        { question: "Can we launch nationwide campaigns with Curbex signage?", answer: "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide." },
+      faqs: [
+        {
+          question: "Can we place signage directly at the business location?",
+          answer:
+            "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
+        },
+        {
+          question: "How do Curbex signs fit into multi-channel campaigns?",
+          answer:
+            "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
+        },
+        {
+          question: "Can we launch nationwide campaigns with Curbex signage?",
+          answer:
+            "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
+        },
       ],
     };
   },

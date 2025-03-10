@@ -2,8 +2,8 @@
   <div class="bg-[#FCFCFC]">
     <div
       class="container px-6 md:px-0 mx-auto rounded-[25px] overflow-hidden md:pt-[2.6rem]"
-    > 
-      <HomePageSlider/>    
+    >
+      <HomePageSlider />
     </div>
     <div
       class="hidden lg:block container px-6 md:px-0 mx-auto lg:text-center text-[24px] font-bold text-[#121212] h-[155px] overflow-hidden"
@@ -195,6 +195,7 @@ import Tim from "@/static/Images/Testimonial/Tim.png";
 import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters, mapActions } from "vuex";
 export default {
+  layout: "productLayout",
   data() {
     return {
       testiminoalSlider: [

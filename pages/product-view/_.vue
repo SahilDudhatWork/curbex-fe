@@ -632,6 +632,8 @@ import Pizza from "@/static/Images/Testimonial/pizza.png";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
+  layout: "productLayout",
+
   // middleware: "auth",
 
   data() {

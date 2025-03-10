@@ -2,11 +2,13 @@ import Cookies from "js-cookie";
 
 export default async function ({ store, redirect, route }) {
   let token = Cookies.get("token");
-
+  console.log("route.fullPath", route.fullPath);
   if (token) {
     try {
       try {
-        await store.dispatch("auth/profile");
+        if (!route.fullPath.startsWith("/proof")) {
+          await store.dispatch("auth/profile");
+        }
       } catch (error) {
         return redirect(`/auth/login?redirect=${route.fullPath}`);
       }

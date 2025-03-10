@@ -57,8 +57,8 @@ export default {
     },
   },
   async mounted() {
-    // await this.getRentalProducts();
-    // await this.getRetailProducts();
+    await this.getRentalProducts();
+    await this.getRetailProducts();
   },
 };
 </script>

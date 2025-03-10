@@ -1073,6 +1073,7 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  layout: "productLayout",
   middleware: "auth",
   data() {
     return {
