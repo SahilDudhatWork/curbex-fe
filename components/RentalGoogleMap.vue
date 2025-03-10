@@ -1,11 +1,10 @@
 <template>
   <div class="rounded-[25px] overflow-hidden">
     <GmapMap
-      :center="getMapLocation"
-      :zoom="12"
-      map-style-id="roadmap"
-      map-type-id="terrain"
+      :center="firstMarkerPosition"
+      map-type-id="hybrid"
       ref="mapRef"
+      :zoom="mapZoom"
       :style="{
         width: '100%',
         height: height + 'px',
@@ -44,18 +43,28 @@ export default {
     return {
       marker: { position: { lat: 44.41015439985794, lng: -79.70788851599121 } }, // Ottawa's coordinates
       mapOptions: {
-        disableDefaultUI: false,
+        disableDefaultUI: true,
         streetViewControl: false,
         fullscreenControl: false,
-        mapTypeControl: false,
+        mapTypeControl: true,
         keyboardShortcuts: false,
-        zoomControl: false,
+        zoomControl: true,
       },
       address: "",
       geocoder: null,
       getMapLocation: { lat: 44.41015439985794, lng: -79.70788851599121 }, // Default location set to Ottawa, Canada
       latLng: { lat: 44.41015439985794, lng: -79.70788851599121 }, // Default latLng for Canada
     };
+  },
+  computed: {
+    firstMarkerPosition() {
+      return this.markers.length > 0
+        ? { lat: this.markers[0].lat, lng: this.markers[0].lng }
+        : this.getMapLocation; // Default if no markers
+    },
+    mapZoom() {
+      return this.markers.length > 0 ? 20 : 12; // Set higher zoom when first marker exists
+    },
   },
   watch: {
     //   addressDetails: {

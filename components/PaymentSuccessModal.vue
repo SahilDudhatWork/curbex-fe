@@ -2,7 +2,10 @@
   <div
     class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 overflow-hidden"
   >
-    <div class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4 relative">
+    <div
+      class="bg-white rounded-2xl p-6 w-full max-w-sm mx-4 relative"
+      v-click-outside="closeModal"
+    >
       <!-- Close Icon -->
       <button
         @click="closeModal"
@@ -47,7 +50,7 @@
 
       <!-- Amount -->
       <div class="text-center text-3xl font-bold mb-6">
-        $ {{ paymentDetails?.amount + (paymentDetails?.taxes?.rate || 0) }}
+        $ {{ $formatCurrency(paymentDetails?.finalPaymentAmount) }}
       </div>
 
       <!-- Payment Details Button -->
@@ -77,14 +80,16 @@
         </div>
         <div class="flex justify-between text-sm">
           <span class="text-gray-500">Amount</span>
-          <span class="text-black">${{ paymentDetails?.amount }}</span>
+          <span class="text-black"
+            >${{ $formatCurrency(paymentDetails?.amount) }}</span
+          >
         </div>
         <div class="flex justify-between text-sm">
           <span class="text-gray-500">{{
             paymentDetails?.taxes?.type || "Estimated Tax"
           }}</span>
           <span class="text-black">
-            ${{ paymentDetails?.taxes?.rate || 0 }}</span
+            ${{ $formatCurrency(paymentDetails?.taxesRate) || 0 }}</span
           >
         </div>
 
@@ -99,6 +104,7 @@
       <!-- Action Buttons -->
       <button
         class="w-full border border-black rounded-[75px_75px_75px_75px] py-2 mb-4 text-black font-medium"
+        @click="downloadInvoice"
       >
         Download PDF Receipt
       </button>
@@ -114,6 +120,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "PaymentSuccessModal",
   props: {
@@ -123,6 +131,9 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      generateInvoice: "order/generateInvoice",
+    }),
     closeModal() {
       this.$emit("close");
     },
@@ -131,6 +142,23 @@ export default {
     },
     backToHome() {
       this.$router.push("/");
+    },
+    async downloadInvoice() {
+      try {
+        let response = await this.generateInvoice({
+          id: this.paymentDetails?.id,
+        });
+        new Promise((resolve, reject) => {
+          this.$fileDownload(response, `order-${this.paymentDetails?.id}.pdf`);
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
     },
   },
   mounted() {

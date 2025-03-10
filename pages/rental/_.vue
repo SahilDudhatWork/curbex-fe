@@ -8,12 +8,28 @@
           <div
             class="w-full h-[370px] md:h-[454px] rounded-[19px] overflow-hidden mb-[1rem]"
           >
-            <img
+            <!-- <img
               src="/Images/Rental/map.png"
               alt=""
               class="w-full h-full object-cover"
+            /> -->
+            <RentalGoogleMap
+              :height="450"
+              :markers="markers"
+              @markerClick="getProductByMarker"
             />
           </div>
+          <!-- Show message when markers are empty -->
+          <p
+            v-if="!markers || !markers.length"
+            class="text-[#A0A0A0] text-[12px] lg:text-[14px] font-Montserrat-Medium text-center lg:text-left pr-[25px] pt-5 md:pt-0 mb-2"
+          >
+            Sign is not available.
+            <span class="underline cursor-pointer text-[#885DF5]"
+              >Request sign</span
+            >
+          </p>
+
           <!-- When click on READ MORE the add class "h-auto" -->
           <p
             class="text-[#121212] text-[12px] font-Montserrat-Medium lg:font-[600] leading-[25px] pt-5 line-clamp-2 overflow-hidden mb-[15px]"
@@ -159,7 +175,8 @@
             </div> -->
             <RentalProductSeaction
               v-if="productData && productData?.product"
-              :product="productData.product"
+              :product="productArray"
+              @shareProduct="shareProduct"
               @toggleFavorite="toggleFavorite"
             />
 
@@ -188,9 +205,11 @@
           </div>
           <div ref="duration" class="w-full md:w-[48%] lg:w-full">
             <div
+              v-if="markers && markers.length"
               class="bg-[#F5F5F5] md:bg-[#F5F5F500] h-[1px] my-5 w-full"
             ></div>
             <div
+              v-if="markers && markers.length"
               class="bg-[#FCFCFC] border border-[#F3F3F3] rounded-[20px] p-[15px] lg:p-[20px_30px]"
             >
               <div class="flex justify-between items-center pb-5">
@@ -250,7 +269,10 @@
                 }}
               </p>
             </div>
-            <div class="bg-[#F5F5F5] h-[1px] my-5 w-full"></div>
+            <div
+              v-if="productData.permits && productData.permits.length"
+              class="bg-[#F5F5F5] h-[1px] my-5 w-full"
+            ></div>
             <div
               v-if="productData.permits && productData.permits.length"
               class="lg:bg-[#FCFCFC] lg:border border-[#F3F3F3] rounded-[60px] lg:p-[15px_15px_15px_30px]"
@@ -331,7 +353,10 @@
                 </div>
               </div>
             </div>
-            <div class="bg-[#F5F5F5] h-[1px] my-5 w-full"></div>
+            <div
+              v-if="markers && markers.length"
+              class="bg-[#F5F5F5] h-[1px] my-5 w-full"
+            ></div>
             <div
               class="bg-[#FCFCFC] border border-[#F3F3F3] rounded-[20px] pt-[15px] overflow-hidden"
             >
@@ -642,12 +667,14 @@
               class="flex flex-wrap justify-between border-b border-[#F5F5F5] mb-5"
             >
               <button
+                v-if="markers && markers.length"
                 @click="productAddToCart"
                 class="bg-[#FFA900] text-[16px] md:text-[16px] text-center py-[11px] rounded-[7px] w-full lg:w-[49%] font-Montserrat-Medium mb-[10px]"
               >
                 Add to cart
               </button>
               <button
+                v-if="markers && markers.length"
                 @click="productAddToCart"
                 class="bg-[#121212] text-[16px] md:text-[16px] text-white border-[1px] border-[#000000] w-full lg:w-[49%] rounded-[7px] py-[11px] mb-[10px]"
               >
@@ -663,21 +690,29 @@
           </div>
         </div>
         <div class="w-full lg:w-[62%]">
-          <div
-            class="w-full h-[450px] rounded-[16px] overflow-hidden mb-[3rem] hidden lg:block"
-          >
+          <div>
             <RentalGoogleMap
+              class="w-full h-[450px] rounded-[16px] overflow-hidden mb-[3rem] hidden lg:block"
               :height="450"
               :markers="markers"
               @markerClick="getProductByMarker"
             />
-
             <!-- <img
-              src="/Images/Rental/map.png"
-              alt=""
-              class="w-full h-full object-cover"
+            src="/Images/Rental/map.png"
+            alt=""
+            class="w-full h-full object-cover"
             /> -->
           </div>
+          <!-- Show message when markers are empty -->
+          <p
+            v-if="!markers || !markers.length"
+            class="text-[#A0A0A0] text-[12px] lg:text-[14px] font-Montserrat-Medium text-center lg:text-left pr-[25px] pt-5 md:pt-0 mb-2"
+          >
+            Sign is not available.
+            <span class="underline cursor-pointer text-[#885DF5]"
+              >Request sign</span
+            >
+          </p>
 
           <p
             class="hidden lg:block bg-[#121212] text-[#FFFFFF] font-Montserrat-Medium font-[600] text-[15px] p-[5px_15px] rounded-[25px] w-fit"
@@ -698,7 +733,7 @@
             here offers advertisers a unique opportunity to reach a wide and
             engaged audience. 
           </p>
-          <div>
+          <div v-if="liveImages && liveImages.length">
             <Carousel
               :perPageCustom="perPageCustom"
               :autoplay="true"
@@ -707,34 +742,13 @@
               :nav="false"
               :dots="false"
             >
-              <Slide class="relative m-2">
+              <Slide
+                v-for="(item, index) in liveImages"
+                :key="index"
+                class="relative m-2"
+              >
                 <div class="relative">
-                  <img src="/Images/Product/6.png" alt="" class="w-full" />
-                </div>
-              </Slide>
-              <Slide class="relative m-2">
-                <div class="relative">
-                  <img src="/Images/Product/7.png" alt="" class="w-full" />
-                </div>
-              </Slide>
-              <Slide class="relative m-2">
-                <div class="relative">
-                  <img src="/Images/Product/8.png" alt="" class="w-full" />
-                </div>
-              </Slide>
-              <Slide class="relative m-2">
-                <div class="relative">
-                  <img src="/Images/Product/6.png" alt="" class="w-full" />
-                </div>
-              </Slide>
-              <Slide class="relative m-2">
-                <div class="relative">
-                  <img src="/Images/Product/7.png" alt="" class="w-full" />
-                </div>
-              </Slide>
-              <Slide class="relative m-2">
-                <div class="relative">
-                  <img src="/Images/Product/8.png" alt="" class="w-full" />
+                  <img :src="item.imageUrl" alt="" class="w-full" />
                 </div>
               </Slide>
             </Carousel>
@@ -798,8 +812,8 @@ export default {
       markerSchedule: "product/getMarkerSchedule",
     }),
     markers() {
-      return this.productData.property && this.productData.property.markers
-        ? this.productData.property.markers
+      return this.productData?.property && this.productData?.property?.markers
+        ? this.productData?.property?.markers
         : [];
     },
     customerAddress() {
@@ -849,6 +863,30 @@ export default {
 
       return totalPrice;
     },
+    liveImages() {
+      if (!this.productData.product) return null; // Handle the case where product is undefined
+
+      return (
+        this.productData.product.images?.filter(
+          (x) => x.imageType === "live"
+        ) || []
+      );
+    },
+    productArray() {
+      if (!this.productData.product) return null; // Handle the case where product is undefined
+
+      return {
+        ...this.productData.product, // Spread all product details
+        images:
+          this.productData.product.images?.filter(
+            (x) => x.imageType === "isolated"
+          ) || [], // Filter only isolated images
+        liveImages:
+          this.productData.product.images?.filter(
+            (x) => x.imageType === "live"
+          ) || [], // Filter only live images
+      };
+    },
   },
   methods: {
     ...mapActions({
@@ -856,7 +894,7 @@ export default {
       updateCartItem: "product/updateCartItem",
       addToCart: "product/addToCart",
       fetchCartItems: "product/fetchCartItems",
-      fetchMarkerSchedule: "product/fetchMarkerSchedule",
+      // fetchMarkerSchedule: "product/fetchMarkerSchedule",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
     ...mapMutations({
@@ -878,6 +916,20 @@ export default {
         console.log(error, "error");
       }
     },
+    shareProduct() {
+      const shareUrl = window.location.href;
+      if (navigator.share) {
+        navigator
+          .share({
+            title: this.product?.name || "Check out this product!",
+            url: shareUrl,
+          })
+          .then(() => console.log("Product shared successfully"))
+          .catch((error) => console.log("Error sharing product:", error));
+      } else {
+        alert("Your browser does not support the Web Share API.");
+      }
+    },
     togglePermitType() {
       this.togglePermit = !this.togglePermit;
     },
@@ -890,6 +942,8 @@ export default {
     async selectAddress(address) {
       this.showAddress = false;
       this.selectedAddress = address;
+      await this.getSingleProduct();
+      await this.loadData(true);
     },
     async getSingleProduct() {
       try {
@@ -897,8 +951,11 @@ export default {
           id: this.productId,
           addressId: this.selectedAddress?.id || 1,
         });
-        console.log("getSingleProduct", this.selectedAddress);
       } catch (error) {
+        this.$toast.open({
+          message: this.$i18n.t("productDetailsErrorMessage"),
+          type: "error",
+        });
         console.log("error", error);
       }
     },
@@ -1020,7 +1077,7 @@ export default {
       this.isAvailable = this.$moment.isDateRangeAvailable(
         this.startDate,
         this.endDate,
-        this.markerSchedule
+        this.productData?.schedule
       );
       console.log("isAvailable", this.isAvailable);
       // if (!this.isAvailable) {
@@ -1041,16 +1098,17 @@ export default {
       // }
     },
 
-    async loadData() {
+    async loadData(isAddressChange = false) {
       this.selectedPermit =
         this.productData?.permits && this.productData?.permits.length
           ? this.productData.permits[0]
           : {};
-
-      this.selectedAddress =
-        this.sortedAddresses && this.sortedAddresses.length
-          ? this.sortedAddresses[0]
-          : null;
+      if (!isAddressChange) {
+        this.selectedAddress =
+          this.sortedAddresses && this.sortedAddresses.length
+            ? this.sortedAddresses[0]
+            : null;
+      }
       if (this.markers && this.markers.length) {
         this.markerId = this.markers[0]?.id;
       }
@@ -1059,6 +1117,7 @@ export default {
         this.startDate,
         this.selectedPermit?.duration || 30
       );
+      await this.isProductAvailable();
     },
   },
   async mounted() {
@@ -1068,9 +1127,9 @@ export default {
         : null;
     await this.getSingleProduct();
     await this.loadData();
-    if (this.markerId) {
-      await this.getMarkerSchedule(22);
-    }
+    // if (this.markerId) {
+    //   await this.getMarkerSchedule(22);
+    // }
   },
   async asyncData({ params }) {
     return {
@@ -1104,7 +1163,7 @@ export default {
   padding-top: 60px;
   opacity: 1;
 }
-::v-deep .VueCarousel-wrapper{
+::v-deep .VueCarousel-wrapper {
   border-radius: 0px;
-} 
+}
 </style>

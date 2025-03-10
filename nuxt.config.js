@@ -35,6 +35,7 @@ export default {
     "~/plugins/lodash.js",
     "~/plugins/moment.js",
     "~/plugins/filters.js",
+    { src: "~/plugins/google-maps.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

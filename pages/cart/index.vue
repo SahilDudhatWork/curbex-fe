@@ -130,8 +130,8 @@
                   {{ item?.product?.type }}
                 </p>
                 <p
-                  v-if="item.product.fees && item.product.fees.length"
-                  v-for="(feeItem, index) in item.product.fees"
+                  v-if="item?.product?.fees && item?.product?.fees.length"
+                  v-for="(feeItem, index) in item?.product?.fees"
                   class="bg-[#F5F5F5] rounded-[5px] p-[2px_6px] text-[12px] md:text-[14px] w-fit mb-3"
                 >
                   {{ feeItem?.name }} : ${{ $formatCurrency(feeItem?.price) }}
@@ -1073,6 +1073,7 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
+  layout: "productLayout",
   middleware: "auth",
   data() {
     return {

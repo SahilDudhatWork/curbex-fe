@@ -13,10 +13,10 @@
         class="flex space-x-4 mb-3 md:mb-6 border-b border-[#F3F3F3] pb-[16px]"
       >
         <button
-          @click="currentTab = 'active'"
+          @click="ordersByStatus('Open')"
           :class="[
             'py-1 lg:pl-0 px-4 text-[14px] lg:text-[16px]',
-            currentTab === 'active'
+            currentTab === 'Open'
               ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black'
               : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]',
           ]"
@@ -24,10 +24,10 @@
           Active
         </button>
         <button
-          @click="currentTab = 'upcoming'"
+          @click="ordersByStatus('Shipped')"
           :class="[
             'py-1 px-4 text-[14px] lg:text-[16px]',
-            currentTab === 'upcoming'
+            currentTab === 'Shipped'
               ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black'
               : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]',
           ]"
@@ -35,10 +35,10 @@
           Upcoming
         </button>
         <button
-          @click="currentTab = 'past'"
+          @click="ordersByStatus('Delivered')"
           :class="[
             'py-1 px-4 text-[14px] lg:text-[16px]',
-            currentTab === 'past'
+            currentTab === 'Delivered'
               ? 'border border-[#8D54FF] bg-[#8D54FF] text-[#FFFFFF] lg:text-[#121212] lg:bg-[#FFFFFF] rounded-[50px] lg:rounded-[0px] lg:border-0 lg:border-b-0 lg:border-black'
               : 'border border-[#949494] rounded-[50px] bg-[#FCFCFC] lg:bg-[#00000000] lg:border-0 text-[#C3C3C3]',
           ]"
@@ -50,6 +50,8 @@
       <!-- Search Bar -->
       <div class="mb-3 md:mb-6 lg:mb-0 relative">
         <input
+          v-model="searchQuery"
+          @keyup="searchProduct()"
           type="text"
           placeholder="Search your order"
           class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
@@ -82,21 +84,34 @@
       <!-- Active Orders -->
       <div
         v-if="
-          currentTab === 'active' && orders.records && orders.records.length
+          (currentTab === 'Open' ||
+            currentTab === 'Shipped' ||
+            currentTab === 'Delivered') &&
+          filterOrders.records &&
+          filterOrders.records.length
         "
         class="space-y-6"
       >
         <div
           class="flex flex-wrap py-4 md:py-8 border-b border-gray-200"
-          v-for="(order, index) in orders.records"
+          v-for="(order, index) in ordersData"
           :key="index"
         >
           <div
             class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-6 border border-[#F3F3F3] rounded-[15px]"
           >
             <img
+              v-if="order.product.heroImage && order.product.heroImage.imageUrl"
+              :src="order.product.heroImage.imageUrl"
+              :alt="order?.product?.name"
+              :class="currentTab === 'Delivered' ? 'grayscale' : ''"
+              class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
+            />
+            <img
+              v-else
               src="/Images/Profile/16.png"
-              :alt="order.name"
+              :alt="order?.product?.name"
+              :class="currentTab === 'Delivered' ? 'grayscale' : ''"
               class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
             />
           </div>
@@ -104,10 +119,16 @@
             <h3
               class="text-[14px] lg:text-[18px] text-[#121212] font-Montserrat-Medium pb-1"
             >
-              Banner Stand
+              {{ order?.product?.name }}
             </h3>
             <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-10">
-              April 28th - April 30th
+              {{
+                order?.rentalStartDate && order?.rentalEndDate
+                  ? `${$moment.formatMonthDay(
+                      order?.rentalStartDate
+                    )} - ${$moment.formatMonthDay(order?.rentalEndDate)}`
+                  : ""
+              }}
             </p>
             <p class="text-[13px] lg:text-[16px] text-[#121212] pb-2">
               {{ order?.shippingStreet }}
@@ -120,16 +141,28 @@
             </p>
           </div>
           <div
-            class="flex flex-row md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto mt-[13px] md:mt-2"
+            class="flex flex-wrap md:flex-col lg:flex-row justify-between md:justify-end lg:justify-center items-end w-full lg:w-auto gap-2 md:gap-3 lg:gap-4 mt-3"
           >
+            <!-- Proof Button -->
             <button
-              class="md:order-2 lg:order-1 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto lg:mb-0 lg:mr-4"
+              @click="goToProof(order)"
+              class="text-[12px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-full md:w-[150px] lg:w-auto"
+            >
+              Proof
+            </button>
+
+            <!-- Download Invoice Button -->
+            <button
+              @click="downloadInvoice(order)"
+              class="text-[12px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-full md:w-[150px] lg:w-auto"
             >
               Download Invoice
             </button>
+
+            <!-- Details Button -->
             <button
               @click="orderDetails(order.id)"
-              class="md:order-1 lg:order-2 text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] md:w-[150px] lg:w-auto md:mb-3 lg:mb-0"
+              class="text-[12px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-full md:w-[150px] lg:w-auto"
             >
               Details
             </button>
@@ -138,7 +171,7 @@
       </div>
 
       <!-- Upcoming Orders -->
-      <div
+      <!-- <div
         v-if="
           currentTab === 'upcoming' && orders.records && orders.records.length
         "
@@ -146,7 +179,7 @@
       >
         <div
           class="flex flex-wrap py-4 md:py-8 border-b border-gray-200"
-          v-for="(order, index) in orders.records"
+          v-for="(order, index) in ordersData"
           :key="index"
         >
           <div
@@ -191,23 +224,23 @@
             >
               Details
             </button>
-            <!-- <NuxtLink
+            <NuxtLink
               to="/profile/trackOrder"
               class="md:order-3 text-[11px] lg:text-[14px] py-2 px-4 border border-[#8D54FF] text-[#FFFFFF] rounded-lg bg-[#8D54FF] hover:bg-[#121212] hover:border-[#121212] w-fit md:w-[150px] lg:w-auto text-center lg:mb-0 lg:mr-4"
               >Track it</NuxtLink
-            > -->
+            >
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Past Orders -->
-      <div
+      <!-- <div
         v-if="currentTab === 'past' && orders.records && orders.records.length"
         class="space-y-6"
       >
         <div
           class="flex flex-wrap py-4 md:py-8 border-b border-gray-200"
-          v-for="order in orders.records"
+          v-for="order in ordersData"
           :key="order.id"
         >
           <div
@@ -254,18 +287,19 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   layout: "profileLayout",
   data() {
     return {
-      currentTab: "active",
+      searchQuery: "",
+      currentTab: "Open",
       activeOrders: [
         {
           id: 1,
@@ -325,11 +359,34 @@ export default {
   computed: {
     ...mapGetters({
       orders: "order/getOrders",
+      filterOrders: "order/getFilterOrders",
     }),
+    ordersData() {
+      if (this.filterOrders.records && this.filterOrders.records.length) {
+        return this.filterOrders.records.map((order) => {
+          return {
+            ...order,
+            product: {
+              ...order.product, // Keep existing product details
+              heroImage:
+                order.product?.images?.find(
+                  (image) => image.imageType === "primary"
+                ) || null,
+            },
+          };
+        });
+      } else {
+        return [];
+      }
+    },
   },
   methods: {
     ...mapActions({
       fetchOrders: "order/fetchOrders",
+      generateInvoice: "order/generateInvoice",
+    }),
+    ...mapMutations({
+      setFilterOrders: "order/setFilterOrders",
     }),
     async getOrders() {
       try {
@@ -343,13 +400,73 @@ export default {
         console.log(error);
       }
     },
+    goToProof(order) {
+      this.$router.push(`/proof/${order.id}`);
+    },
     orderDetails(id) {
       this.$router.push(`/profile/orders/${id}`);
+    },
+    async downloadInvoice(order) {
+      try {
+        let response = await this.generateInvoice({ id: order?.id });
+        new Promise((resolve, reject) => {
+          this.$fileDownload(response, `order-${order?.id}.pdf`);
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async searchProductData() {
+      try {
+        let data = this.orders.records.filter((order) => {
+          const query = this.searchQuery.toLowerCase();
+          return (
+            order.product.name.toLowerCase().includes(query) ||
+            order.shippingStreet.toLowerCase().includes(query) ||
+            order.total.toString().includes(query) // Convert price to string for matching
+          );
+        });
+        this.setFilterOrders({ records: data, totalCount: data.length });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async ordersByStatus(status) {
+      try {
+        this.searchQuery = "";
+        this.currentTab = status;
+        let data = this.orders.records.filter(
+          (order) => order.status == status
+        );
+        this.setFilterOrders({ records: data, totalCount: data.length });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
     },
   },
 
   mounted() {
     this.getOrders();
+  },
+  async created() {
+    this.searchProduct = this.$lodash.debounce(async () => {
+      await this.searchProductData();
+    }, 1000);
   },
 };
 </script>

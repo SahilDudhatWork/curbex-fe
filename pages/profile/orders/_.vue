@@ -47,7 +47,14 @@
           class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] mr-4 border border-[#F3F3F3] rounded-[15px]"
         >
           <img
-            :src="heroImage || '/Images/Profile/16.png'"
+            v-if="heroImage?.imageUrl"
+            :src="heroImage?.imageUrl || '/Images/Profile/16.png'"
+            :alt="orderDetails?.product?.name"
+            class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
+          />
+          <img
+            v-else
+            :src="'/Images/Profile/16.png'"
             :alt="orderDetails?.product?.name"
             class="w-[157px] h-[147px] lg:w-[164px] lg:h-[164px] rounded-lg object-cover"
           />
@@ -58,9 +65,15 @@
           >
             {{ orderDetails?.product?.name }}
           </h3>
-          <!-- <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">
-            {{ order.dateRange }}
-          </p> -->
+          <p class="text-[13px] lg:text-[16px] text-[#949494] pb-7 lg:pb-8">
+            {{
+              orderDetails?.rentalStartDate && orderDetails?.rentalEndDate
+                ? `${$moment.formatMonthDay(
+                    orderDetails?.rentalStartDate
+                  )} - ${$moment.formatMonthDay(orderDetails?.rentalEndDate)}`
+                : ""
+            }}
+          </p>
           <p class="text-[13px] lg:text-[16px] text-[#121212] pb-1">
             {{ orderDetails?.shippingStreet }}
           </p>
@@ -75,6 +88,7 @@
           class="flex justify-end lg:justify-center items-end w-full lg:w-auto mt-5 lg:mt-0 pb-1"
         >
           <button
+            @click="downloadInvoice(orderDetails)"
             class="text-[11px] lg:text-[14px] py-2 px-4 border border-[#121212] hover:border-[#885DF5] hover:text-[#885DF5] rounded-lg w-[48%] lg:w-auto lg:mb-0 md:mr-4"
           >
             Download Invoice
@@ -310,16 +324,16 @@
         </div>
       </div>
     </div>
-    <div>
+    <div v-if="orderDetails?.notes">
       <h1 class="text-[18px] md:text-[20px] font-semibold mb-3 md:mb-6">
         Sign Message
       </h1>
       <div class="bg-[#F9F9F9] rounded-[10px] px-4 py-3 mb-4">
         <div class="flex justify-between items-center">
           <div class="flex items-center gap-2">
-            <span class="text-[12px] md:text-[16px] font-medium"
-              >7.5% Instant Discount up to $10 on every spend</span
-            >
+            <span class="text-[12px] md:text-[16px] font-medium">{{
+              orderDetails?.notes
+            }}</span>
           </div>
           <div class="flex gap-2">
             <button class="p-2 hover:bg-gray-100 rounded-full">
@@ -478,26 +492,50 @@
               >Total MRP</span
             >
             <span class="text-[#949494] text-[12px] md:text-[18px]"
-              >${{ orderDetails?.total }}</span
-            >
+              >${{ orderDetails?.total }}
+            </span>
           </div>
           <div class="flex justify-between py-1 lg:py-3">
             <span class="text-[#121212] text-[12px] md:text-[18px]"
               >Discount on MRP</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">-$0</span>
-          </div>
-          <div class="flex justify-between py-1 lg:py-3">
-            <span class="text-[#121212] text-[12px] md:text-[18px]"
-              >Setup Fees</span
-            >
             <span class="text-[#949494] text-[12px] md:text-[18px]">$0</span>
           </div>
-          <div class="flex justify-between py-1 lg:py-3">
-            <span class="text-[#121212] text-[12px] md:text-[18px]"
-              >Convenience Fee</span
+          <div
+            v-if="
+              orderDetails?.product?.fees && orderDetails?.product?.fees.length
+            "
+            v-for="(feeItem, index) in orderDetails?.product?.fees"
+            class="flex justify-between py-1 lg:py-3"
+          >
+            <span class="text-[#121212] text-[12px] md:text-[18px]">{{
+              feeItem?.name
+            }}</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]">
+              ${{ $formatCurrency(feeItem?.price) }}</span
             >
-            <span class="text-[#949494] text-[12px] md:text-[18px]">$00</span>
+          </div>
+          <div
+            v-if="orderDetails?.permit"
+            class="flex justify-between py-1 lg:py-3"
+          >
+            <span class="text-[#121212] text-[12px] md:text-[18px]">{{
+              orderDetails?.permit?.name
+            }}</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]"
+              >${{ $formatCurrency(orderDetails?.permit?.price) }}</span
+            >
+          </div>
+          <div
+            v-if="orderDetails?.taxType"
+            class="flex justify-between py-1 lg:py-3"
+          >
+            <span class="text-[#121212] text-[12px] md:text-[18px]">{{
+              orderDetails?.taxType
+            }}</span>
+            <span class="text-[#949494] text-[12px] md:text-[18px]"
+              >${{ $formatCurrency(rateAmount) }}</span
+            >
           </div>
         </div>
 
@@ -692,6 +730,13 @@ export default {
     ...mapGetters({
       orderDetails: "order/getOrderDetails",
     }),
+    rateAmount() {
+      let productPrice =
+        (this.orderDetails?.price || 0) -
+        (this.orderDetails?.permit?.price || 0);
+
+      return (productPrice * (this.orderDetails?.tax || 0)) / 100;
+    },
   },
   async asyncData({ params }) {
     return {
@@ -701,16 +746,21 @@ export default {
 
   async mounted() {
     await this.getOrderDetails();
-    this.heroImage =
+    if (
       this.orderDetails?.product?.images &&
       this.orderDetails?.product?.images.length
-        ? this.orderDetails?.product?.images[0].imageUrl
-        : null;
+    ) {
+      this.heroImage =
+        this.orderDetails?.product.images.find(
+          (image) => image.imageType === "primary"
+        ) || null;
+    }
   },
 
   methods: {
     ...mapActions({
       fetchOrderDetails: "order/fetchOrderDetails",
+      generateInvoice: "order/generateInvoice",
     }),
     async getOrderDetails() {
       try {
@@ -719,6 +769,21 @@ export default {
       } catch (error) {
         this.$toast.open({
           message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async downloadInvoice(order) {
+      try {
+        let response = await this.generateInvoice({ id: order?.id });
+        new Promise((resolve, reject) => {
+          this.$fileDownload(response, `order-${order?.id}.pdf`);
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
           type: "error",
         });
         console.log("error", error);
