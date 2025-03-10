@@ -379,7 +379,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7 whitespace-nowrap"
                     >
                       Uniform, High-Quality Designs
                     </p>
@@ -430,7 +430,7 @@
                 <div class="ml-[-20px]">
                   <div class="flex">
                     <p
-                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7"
+                      class="text-[#FCFCFC] font-semibold text-[18px] md:text-[21px] bg-[#121212] rounded-full py-[8px] px-7 whitespace-nowrap"
                     >
                       Dedicated Account Manager
                     </p>
