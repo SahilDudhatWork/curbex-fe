@@ -44,21 +44,24 @@
           <div
             class="flex items-start justify-between flex-wrap lg:flex-nowrap"
           >
-            <div v-if="orderDetails?.notes" class="w-full lg:w-[60%]">
+            <div v-if="firstCustomerNote?.note" class="w-full lg:w-[60%]">
               <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">
                 Signage description
               </p>
               <p
                 class="text-[12px] md:text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#FCFCFC] rounded-[20px] p-7"
               >
-                {{ orderDetails?.notes }}
+                {{ firstCustomerNote?.note }}
               </p>
             </div>
             <div class="w-full lg:w-[38%] pt-[2rem] lg:pt-0">
               <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">
                 Reference Images
               </p>
-              <ReferenceImagesSlide />
+              <ReferenceImagesSlide
+                v-if="firstCustomerNote?.images"
+                :images="firstCustomerNote.images"
+              />
             </div>
           </div>
         </div>
@@ -90,7 +93,7 @@
               </div>
               <div class="flex items-center pt-6">
                 <button
-                  @click="(isApproved = true), (isRequest = false)"
+                  @click="handleApprove"
                   class="text-[12px] md:text-[16px] bg-[#29CC6A] text-[#FFFFFF] rounded-[20px] mr-3 min-w-[132px] p-[5px_20px] border border-[#29CC6A]"
                 >
                   Approve
@@ -137,7 +140,7 @@
         <p
           class="font-Montserrat-Medium font-[600] w-fit bg-[#FFA900] text-[#121212] text-[16px] md:text-[20px] rounded-full py-[4px] px-6 mb-[29px]"
         >
-          For Rent
+          Proof History
         </p>
         <!-- <p
           class="font-Montserrat-Regular w-fit bg-[#121212] text-[#FFFFFF] text-[16px] rounded-full py-[4px] px-6 mb-[10px]"
@@ -146,11 +149,14 @@
         </p> -->
         <div>
           <div class="w-full lg:hidden">
-            <p class="text-[16px] text-[#121212] font-[500] flex items-center">
+            <p
+              v-if="this.orderProof?.revisionsAvailable"
+              class="text-[16px] text-[#121212] font-[500] flex items-center"
+            >
               <span
                 class="w-[22px] h-[22px] bg-[#FF364A] block mr-[10px] rounded-[50px]"
               ></span>
-              Only one free revision left
+              {{ formattedRevisions }}
             </p>
             <div
               class="text-[12px] md:text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#E3E3E3] rounded-[20px] mt-5 h-[275px] overflow-hidden"
@@ -214,13 +220,16 @@
                 <span
                   class="w-[22px] h-[22px] bg-[#FF364A] block mr-[10px] rounded-[50px]"
                 ></span>
-                Only one free revision left
+                {{ formattedRevisions }}
               </p>
               <div
+                v-if="item?.images"
                 class="text-[12px] md:text-[16px] text-[#000000] border border-[#E3E3E3] bg-[#E3E3E3] rounded-[20px] mt-5 h-[275px] overflow-hidden"
               >
                 <img
-                  src="/Images/Proof/OnlyOneFree.png"
+                  :src="
+                    item?.images[0]?.imageUrl || '/Images/Proof/OnlyOneFree.png'
+                  "
                   alt=""
                   class="h-full w-full object-cover rounded-[20px] grayscale-[1] hover:grayscale-0"
                 />
@@ -233,7 +242,7 @@
               <p class="text-[18px] text-[#2C2C2E] pb-5 font-Montserrat-Medium">
                 Reference Images
               </p>
-              <ReferenceImagesSlide />
+              <ReferenceImagesSlide v-if="item?.images" :images="item.images" />
             </div>
           </div>
         </div>
@@ -278,7 +287,10 @@
       <ApprovedModal @close="isApproved = false" />
     </div>
     <div v-if="isRequest">
-      <RequestRevisionModal @close="isRequest = false" />
+      <RequestRevisionModal
+        @close="isRequest = false"
+        @submit="handleRequestRevision"
+      />
     </div>
   </div>
 </template>
@@ -307,6 +319,7 @@ export default {
       orderDetails: "order/getOrderDetails",
       orderProof: "order/getOrderProof",
     }),
+
     fullShippingAddress() {
       if (!this.orderDetails) return "";
 
@@ -320,6 +333,19 @@ export default {
 
       return `${shippingStreet}, ${shippingCity}, ${shippingProvince} ${shippingPostalCode}, ${shippingCountry}`;
     },
+    formattedRevisions() {
+      if (this.orderProof?.revisionsAvailable === 1) {
+        return "Only one free revision left";
+      }
+      return `Only ${this.orderProof?.revisionsAvailable} free revisions left`;
+    },
+    firstCustomerNote() {
+      if (!this.orderProof?.notes) return null;
+
+      return (
+        this.orderProof?.notes?.find((note) => note.type === "customer") || null
+      );
+    },
     latestAdminNote() {
       if (!this.orderProof?.notes) return null;
 
@@ -331,104 +357,104 @@ export default {
       ); // Get latest note
     },
     sortedChatNotes() {
-      let data = {
-        id: 23,
-        revisionsAvailable: 1,
-        status: "Revising",
-        createdAt: "2025-03-05T15:10:49.257Z",
-        updatedAt: "2025-03-05T15:10:49.257Z",
-        deletedAt: null,
-        notes: [
-          {
-            id: 9,
-            proofId: 23,
-            type: "customer",
-            note: "test2",
-            createdAt: "2025-03-05T15:10:49.291Z",
-            deletedAt: null,
-            images: [
-              {
-                id: 11,
-                proofNoteId: 9,
-                imageUrl:
-                  "https://curbex-storage.s3.amazonaws.com/cart/32/MiniB-19d5090e-50c8-4d28-8e33-eef55c9d85f2.jpg",
-                createdAt: "2025-03-05T15:10:49.316Z",
-              },
-            ],
-          },
-          {
-            id: 10,
-            proofId: 23,
-            type: "customer",
-            note: "Tresting",
-            createdAt: "2025-03-05T15:12:31.425Z",
-            deletedAt: null,
-            images: [
-              {
-                id: 12,
-                proofNoteId: 10,
-                imageUrl:
-                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
-                createdAt: "2025-03-05T15:12:31.457Z",
-              },
-            ],
-          },
-          {
-            id: 10,
-            proofId: 23,
-            type: "admin",
-            note: "Tresting",
-            createdAt: "2025-03-05T15:09:31.425Z",
-            deletedAt: null,
-            images: [
-              {
-                id: 12,
-                proofNoteId: 10,
-                imageUrl:
-                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
-                createdAt: "2025-03-05T15:12:31.457Z",
-              },
-            ],
-          },
-          {
-            id: 10,
-            proofId: 23,
-            type: "admin",
-            note: "Tresting",
-            createdAt: "2025-03-05T15:20:31.425Z",
-            deletedAt: null,
-            images: [
-              {
-                id: 12,
-                proofNoteId: 10,
-                imageUrl:
-                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
-                createdAt: "2025-03-05T15:12:31.457Z",
-              },
-            ],
-          },
-          {
-            id: 10,
-            proofId: 23,
-            type: "admin",
-            note: "Tresting",
-            createdAt: "2025-03-05T12:12:31.425Z",
-            deletedAt: null,
-            images: [
-              {
-                id: 12,
-                proofNoteId: 10,
-                imageUrl:
-                  "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
-                createdAt: "2025-03-05T15:12:31.457Z",
-              },
-            ],
-          },
-        ],
-      };
-      if (!data?.notes) return null;
+      // let data = {
+      //   id: 23,
+      //   revisionsAvailable: 1,
+      //   status: "Revising",
+      //   createdAt: "2025-03-05T15:10:49.257Z",
+      //   updatedAt: "2025-03-05T15:10:49.257Z",
+      //   deletedAt: null,
+      //   notes: [
+      //     {
+      //       id: 9,
+      //       proofId: 23,
+      //       type: "admin",
+      //       note: "test2",
+      //       createdAt: "2025-03-05T15:10:49.291Z",
+      //       deletedAt: null,
+      //       images: [
+      //         {
+      //           id: 11,
+      //           proofNoteId: 9,
+      //           imageUrl:
+      //             "https://curbex-storage.s3.amazonaws.com/cart/32/MiniB-19d5090e-50c8-4d28-8e33-eef55c9d85f2.jpg",
+      //           createdAt: "2025-03-05T15:10:49.316Z",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: 10,
+      //       proofId: 23,
+      //       type: "customer",
+      //       note: "Tresting",
+      //       createdAt: "2025-03-05T15:12:31.425Z",
+      //       deletedAt: null,
+      //       images: [
+      //         {
+      //           id: 12,
+      //           proofNoteId: 10,
+      //           imageUrl:
+      //             "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+      //           createdAt: "2025-03-05T15:12:31.457Z",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: 10,
+      //       proofId: 23,
+      //       type: "admin",
+      //       note: "Tresting",
+      //       createdAt: "2025-03-05T15:09:31.425Z",
+      //       deletedAt: null,
+      //       images: [
+      //         {
+      //           id: 12,
+      //           proofNoteId: 10,
+      //           imageUrl:
+      //             "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+      //           createdAt: "2025-03-05T15:12:31.457Z",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: 10,
+      //       proofId: 23,
+      //       type: "admin",
+      //       note: "Tresting",
+      //       createdAt: "2025-03-05T15:20:31.425Z",
+      //       deletedAt: null,
+      //       images: [
+      //         {
+      //           id: 12,
+      //           proofNoteId: 10,
+      //           imageUrl:
+      //             "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+      //           createdAt: "2025-03-05T15:12:31.457Z",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: 10,
+      //       proofId: 23,
+      //       type: "admin",
+      //       note: "Tresting",
+      //       createdAt: "2025-03-05T12:12:31.425Z",
+      //       deletedAt: null,
+      //       images: [
+      //         {
+      //           id: 12,
+      //           proofNoteId: 10,
+      //           imageUrl:
+      //             "https://curbex-storage.s3.amazonaws.com/proofs/49/MiniB-80438ee6-6da4-463c-9742-33df24c3a389.jpg",
+      //           createdAt: "2025-03-05T15:12:31.457Z",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // };
+      if (!this.orderProof?.notes) return null;
 
-      return [...data.notes].sort(
+      return [...this.orderProof.notes].sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
     },
@@ -443,6 +469,8 @@ export default {
     ...mapActions({
       fetchOrderDetails: "order/fetchOrderDetails",
       fetchProofByOrder: "order/fetchProofByOrder",
+      approveProof: "order/approveProof",
+      requestRevision: "order/requestRevision",
     }),
     async getOrderDetails() {
       try {
@@ -458,6 +486,40 @@ export default {
     async getProofByOrder() {
       try {
         await this.fetchProofByOrder({ id: this.orderId });
+      } catch (error) {
+        this.$toast.open({
+          message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async handleApprove() {
+      this.isRequest = false;
+      try {
+        await this.approveProof({ id: this.orderId });
+        this.isApproved = true;
+      } catch (error) {
+        this.$toast.open({
+          message: error?.response?.data?.message || "Something went wrong",
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
+    async handleRequestRevision(payload) {
+      try {
+        const formData = new FormData();
+        let images = payload.images;
+        images.forEach(async (image, index) => {
+          formData.append(`images[${index}]`, image);
+        });
+        formData.append("id", this.orderId);
+        formData.append("note", payload?.note || "");
+
+        await this.requestRevision(formData);
+        await this.getProofByOrder();
+        this.isRequest = false;
       } catch (error) {
         this.$toast.open({
           message: error?.response?.data?.message || "Something went wrong",

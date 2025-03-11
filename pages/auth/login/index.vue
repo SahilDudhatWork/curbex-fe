@@ -22,6 +22,7 @@
           type="email"
           v-model="formData.email"
           placeholder="Email"
+          @keyup.enter="handleLogin"
           :class="{ 'border-[red]': errors?.email }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />
@@ -35,6 +36,7 @@
           :type="isPasswordVisible ? 'text' : 'password'"
           v-model="formData.password"
           placeholder="Password"
+          @keyup.enter="handleLogin"
           :class="{ 'border-[red]': errors?.password }"
           class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[0.70rem] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
         />

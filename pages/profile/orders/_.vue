@@ -639,24 +639,23 @@
         <div
           class="flex flex-wrap gap-4 md:col-span-2 mt-[30px] justify-end mb-[3rem]"
         >
-          <button
+          <!-- <button
             class="min-w-[133px] order-2 md:order-1 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium border border-gray-300 text-[#121212] rounded-lg hover:border-[#7B61FF] hover:text-[#7B61FF] transition"
           >
-            <span class="block md:hidden lg:block">Change Ad</span>
-            <span class="hidden md:block lg:hidden">Order Again</span>
-          </button>
+            <span class="block">Change Ad</span>
+          </button> -->
           <button
+            @click="goToProduct"
             class="min-w-[133px] order-1 md:order-2 w-full md:w-auto flex justify-center items-center gap-2 px-6 py-[0.60rem] md:py-3 text-[12px] md:text-[14px] font-medium bg-violet-500 text-white rounded-lg hover:bg-[#121212] transition"
           >
-            <span class="block md:hidden lg:block">Order Again</span>
-            <span class="hidden md:block lg:hidden">Change Ad</span>
+            <span class="block">Order Again</span>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Feedback Section -->
-    <div class="hidden md:block">
+    <!-- <div class="hidden md:block">
       <h2 class="text-xl font-bold mb-4 pb-4">
         We would love to hear your feedback
       </h2>
@@ -700,7 +699,7 @@
           Sumbit
         </button>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -762,6 +761,13 @@ export default {
       fetchOrderDetails: "order/fetchOrderDetails",
       generateInvoice: "order/generateInvoice",
     }),
+    async goToProduct() {
+      if (this.orderDetails?.product?.type == "rental") {
+        this.$router.push(`/rental/${this.orderDetails?.product.id}`);
+      } else {
+        this.$router.push(`/product-view/${this.orderDetails?.product.id}`);
+      }
+    },
     async getOrderDetails() {
       try {
         const response = await this.fetchOrderDetails({ id: this.orderId });

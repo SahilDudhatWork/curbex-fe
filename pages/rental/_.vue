@@ -20,15 +20,19 @@
             />
           </div>
           <!-- Show message when markers are empty -->
-          <p
-            v-if="!markers || !markers.length"
-            class="text-[#A0A0A0] text-[12px] lg:text-[14px] font-Montserrat-Medium text-center lg:text-left pr-[25px] pt-5 md:pt-0 mb-2"
-          >
-            Sign is not available.
-            <span class="underline cursor-pointer text-[#885DF5]"
-              >Request sign</span
+          <div class="flex justify-between items-center">
+            <p
+              class="text-[#FF364A] text-[16px] rounded-[20px] border border-[#FF364A] p-[6px_8px] w-[48%] text-center"
             >
-          </p>
+              We haven’t mapped this property yet
+            </p>
+            <p
+              @click="modalShow = true"
+              class="text-[#121212] text-[16px] rounded-[20px] border border-[#FFA900] p-[6px_8px] w-[48%] text-center bg-[#FFA900]"
+            >
+              You can request service for this location
+            </p>
+          </div>
 
           <!-- When click on READ MORE the add class "h-auto" -->
           <p
@@ -695,6 +699,7 @@
               class="w-full h-[450px] rounded-[16px] overflow-hidden mb-[3rem] hidden lg:block"
               :height="450"
               :markers="markers"
+              :permit="selectedPermit"
               @markerClick="getProductByMarker"
             />
             <!-- <img
@@ -703,19 +708,112 @@
             class="w-full h-full object-cover"
             /> -->
           </div>
-          <!-- Show message when markers are empty -->
-          <p
-            v-if="!markers || !markers.length"
-            class="text-[#A0A0A0] text-[12px] lg:text-[14px] font-Montserrat-Medium text-center lg:text-left pr-[25px] pt-5 md:pt-0 mb-2"
-          >
-            Sign is not available.
-            <span class="underline cursor-pointer text-[#885DF5]"
-              >Request sign</span
+          <div class="flex justify-between items-center">
+            <p
+              class="text-[#FF364A] text-[16px] rounded-[20px] border border-[#FF364A] p-[6px_8px] w-[48%] text-center"
             >
-          </p>
+              We haven’t mapped this property yet
+            </p>
+            <p
+              @click="modalShow = true"
+              class="text-[#121212] text-[16px] rounded-[20px] border border-[#FFA900] p-[6px_8px] w-[48%] text-center bg-[#FFA900]"
+            >
+              You can request service for this location
+            </p>
+          </div>
+          <div
+            v-if="modalShow"
+            class="flex items-center justify-center absolute left-0 right-0 top-0 bottom-0"
+          >
+            <div
+              @click="modalShow = false"
+              class="fixed top-0 left-0 right-0 bottom-0 bg-[#12121260] z-50 h-[100vh]"
+            ></div>
+            <div
+              class="bg-[#FFFFFF] rounded-[20px] absolute w-full max-w-[380px] m-auto z-[51]"
+            >
+              <div class="bg-[#121212] p-[17px] rounded-[20px_20px_0_0]">
+                <svg
+                  @click="modalShow = false"
+                  class="block ml-auto"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11 1L1 11"
+                    stroke="#949494"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M1 1L11 11"
+                    stroke="#949494"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <p class="text-[16px] text-[#FFFFFF] text-center pt-[15px]">
+                  Please enter your landlord information
+                </p>
+              </div>
+              <div class="p-[15px]">
+                <div class="my-5">
+                  <p>Property Owner Business Name</p>
+                  <input
+                    type="text"
+                    placeholder="Good Food"
+                    class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  />
+                </div>
+                <div class="my-5">
+                  <p>Contact Name</p>
+                  <input
+                    type="text"
+                    placeholder="Contact Name"
+                    class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  />
+                </div>
+                <div class="my-5">
+                  <p>Address</p>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  />
+                </div>
+                <div class="my-5">
+                  <p>Email</p>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  />
+                </div>
+                <div class="my-5">
+                  <p>Phone Number</p>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                  />
+                </div>
+                <button
+                  @click="modalShow = false"
+                  class="text-[#121212] text-[16px] rounded-[10px] border border-[#FFA900] p-[7px_8px] w-[100%] text-center bg-[#FFA900]"
+                >
+                  Submit your request
+                </button>
+              </div>
+            </div>
+          </div>
 
           <p
-            class="hidden lg:block bg-[#121212] text-[#FFFFFF] font-Montserrat-Medium font-[600] text-[15px] p-[5px_15px] rounded-[25px] w-fit"
+            class="mt-2 hidden lg:block bg-[#121212] text-[#FFFFFF] font-Montserrat-Medium font-[600] text-[15px] p-[5px_15px] rounded-[25px] w-fit"
           >
             310 Bayfield
           </p>
@@ -798,6 +896,7 @@ export default {
       todayDate: this.$moment.formatStartDate(new Date()), // Default: today's date
       endDate: null,
       isAvailable: false,
+      modalShow: false,
     };
   },
   watch: {

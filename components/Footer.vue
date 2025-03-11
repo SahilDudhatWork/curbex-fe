@@ -11,7 +11,11 @@
               <img src="/svg/LogoWhite.svg" alt="Logo" />
             </h1>
             <div class="flex sm:mt-4 space-x-4">
-              <a href="#" class="text-gray-400 hover:text-gray-300">
+              <a
+                href="https://www.facebook.com/Curbex"
+                class="text-gray-400 hover:text-gray-300"
+                target="_blank"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -32,7 +36,11 @@
                   </defs>
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-gray-300">
+              <a
+                href="https://www.instagram.com/curbexmedia/"
+                class="text-gray-400 hover:text-gray-300"
+                target="_blank"
+              >
                 <svg
                   width="24"
                   height="24"
@@ -60,7 +68,11 @@
                   />
                 </svg>
               </a>
-              <a href="#" class="text-gray-400 hover:text-gray-300">
+              <a
+                href="https://www.linkedin.com/company/curbex/posts/?feedView=all"
+                class="text-gray-400 hover:text-gray-300"
+                target="_blank"
+              >
                 <svg
                   width="24"
                   height="24"

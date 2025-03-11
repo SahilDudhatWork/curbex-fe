@@ -86,4 +86,34 @@ export const actions = {
       throw error;
     }
   },
+
+  async approveProof(ctx, payload) {
+    try {
+      const response = await $axios.patch(`/proofs/${payload.id}/approve`);
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async approveProof(ctx, payload) {
+    try {
+      const response = await $axios.patch(`/proofs/${payload.id}/approve`);
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async requestRevision(ctx, payload) {
+    try {
+      let id = payload.get("id");
+
+      const response = await $axios.put(`/proofs/${id}/note`, payload);
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

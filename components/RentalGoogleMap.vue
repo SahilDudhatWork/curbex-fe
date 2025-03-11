@@ -17,8 +17,44 @@
         :position="{ lat: marker.lat, lng: marker.lng }"
         :clickable="true"
         :draggable="isMarkerEnabled"
+        :icon="marker === activeMarkerData ? redMarker : yellowMarker"
         @click="handleMarkerClick(marker)"
+        @mouseover="activeMarkerData = marker"
+        @mouseout="activeMarkerData = null"
       />
+      <GmapInfoWindow
+        v-if="activeMarkerData"
+        :position="{ lat: activeMarkerData?.lat, lng: activeMarkerData?.lng }"
+        :options="{ pixelOffset: { width: 0, height: -40 } }"
+        :opened="activeMarkerData != null ? true : false"
+      >
+        <div class="bg-[#FCFCFC] rounded-[18px] p-[15px] flex items-end w-fit">
+          <img
+            :src="heroImage?.imageUrl || '/Images/Product/product-1.png'"
+            alt=""
+            class="border border-[#F5F5F5] rounded-[14px] w-[114px] h-[114px]"
+          />
+          <div class="pl-2">
+            <p
+              class="bg-[#29CC6A] text-[#FFFFFF] text-[10px] w-fit p-[2px_5px] rounded-[20px] mb-1"
+            >
+              Available
+            </p>
+            <p class="text-[12px] font-Montserrat-Medium font-bold mb-1">
+              {{ activeMarkerData?.product?.name }}
+            </p>
+            <p class="text-[10px] text-[#3B3B3B] mb-1">
+              Rental Cost: ${{ activeMarkerData?.product?.price }}
+            </p>
+            <p class="text-[10px] text-[#3B3B3B] mb-1">
+              Permit Cost: ${{ permit?.price }}
+            </p>
+            <p class="text-[10px] text-[#3B3B3B] mb-1">
+              {{ permit?.duration }} day rental
+            </p>
+          </div>
+        </div>
+      </GmapInfoWindow>
     </GmapMap>
   </div>
 </template>
@@ -29,6 +65,10 @@ export default {
     markers: {
       type: Array,
       default: () => [],
+    },
+    permit: {
+      type: Object,
+      default: () => null,
     },
     height: {
       type: Number,
@@ -41,6 +81,7 @@ export default {
   },
   data() {
     return {
+      activeMarkerData: null,
       marker: { position: { lat: 44.41015439985794, lng: -79.70788851599121 } }, // Ottawa's coordinates
       mapOptions: {
         disableDefaultUI: true,
@@ -54,6 +95,14 @@ export default {
       geocoder: null,
       getMapLocation: { lat: 44.41015439985794, lng: -79.70788851599121 }, // Default location set to Ottawa, Canada
       latLng: { lat: 44.41015439985794, lng: -79.70788851599121 }, // Default latLng for Canada
+      yellowMarker: {
+        url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png",
+        scaledSize: { width: 40, height: 40 }, // Adjust size if needed
+      },
+      redMarker: {
+        url: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+        scaledSize: { width: 40, height: 40 }, // Adjust size if needed
+      },
     };
   },
   computed: {
@@ -64,6 +113,19 @@ export default {
     },
     mapZoom() {
       return this.markers.length > 0 ? 20 : 12; // Set higher zoom when first marker exists
+    },
+    heroImage() {
+      if (!this.activeMarkerData?.product?.images?.length) {
+        return null;
+      }
+
+      // Find the primary image
+      const primaryImage = this.activeMarkerData.product.images.find(
+        (image) => image.imageType === "primary"
+      );
+
+      // Return the primary image if found, otherwise return the first image
+      return primaryImage || this.activeMarkerData.product.images[0];
     },
   },
   watch: {
@@ -188,3 +250,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+::v-deep .gm-style-iw,
+::v-deep .gm-style-iw-c {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+::v-deep .gm-style-iw-chr {
+  display: none !important;
+}
+::v-deep .gm-style-iw-d {
+  overflow: hidden !important;
+}
+</style>

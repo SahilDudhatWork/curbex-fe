@@ -10,7 +10,7 @@
     <div class="container mx-auto pt-[20px] px-6 md:px-0">
       <!-- Filter Section -->
       <div
-        class="flex items-center gap-2 lg:gap-4 mb-[3.5rem] md:mb-[4.5rem] flex-wrap"
+        class="flex items-center gap-2 lg:gap-4 mb-[1.5rem] md:mb-[2.5rem] flex-wrap"
       >
         <!-- Product Type Filter -->
         <div class="relative order-2 lg:order-1 z-10">
@@ -188,7 +188,43 @@
           </button>
         </div> -->
       </div>
+
+      <!-- Search Bar -->
+
+      <div class="mb-[3.5rem] relative">
+        <input
+          v-model="searchQuery"
+          @keyup="searchProduct()"
+          type="text"
+          placeholder="Search product"
+          class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
+        />
+        <span class="absolute right-[14px] top-[14px] lg:top-[17px]">
+          <svg
+            width="21"
+            height="22"
+            viewBox="0 0 21 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z"
+              stroke="#949494"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+            />
+            <path
+              d="M15 14.6631L20 20.6631"
+              stroke="#949494"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
+
     <div
       class="container mx-auto px-6 md:px-0 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-6"
     >
@@ -365,6 +401,8 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
+      searchQuery: "",
+
       pagination: {
         currentPage: 1,
         limit: 10,
@@ -511,10 +549,16 @@ export default {
           skip,
           take: limit,
           relations: ["images"],
+          where: {},
         };
         if (this.selectedProductType) {
-          apiPayload.where = {
-            type: this.selectedProductType.toLowerCase(),
+          apiPayload.where.type = this.selectedProductType.toLowerCase();
+        }
+
+        if (this.searchQuery && this.searchQuery.trim() !== "") {
+          apiPayload.where.name = {
+            operator: "$like",
+            value: `%${this.searchQuery}%`,
           };
         }
         // Add sorting based on priceSort
@@ -557,9 +601,26 @@ export default {
         this.getAllProducts();
       }
     },
+    async searchProductData() {
+      try {
+        this.getAllProducts();
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
   },
   async mounted() {
     await this.getAllProducts();
+  },
+  async created() {
+    this.searchProduct = this.$lodash.debounce(async () => {
+      await this.searchProductData();
+    }, 1000);
   },
 };
 </script>
