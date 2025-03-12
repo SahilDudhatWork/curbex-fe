@@ -39,4 +39,13 @@ export const actions = {
       throw error;
     }
   },
+
+  async contactUs(ctx, payload) {
+    try {
+      const response = await $axios.post(`/contact`, payload);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

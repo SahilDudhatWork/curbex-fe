@@ -17,7 +17,7 @@
         :position="{ lat: marker.lat, lng: marker.lng }"
         :clickable="true"
         :draggable="isMarkerEnabled"
-        :icon="marker === activeMarkerData ? redMarker : yellowMarker"
+        :icon="generateMarkerIcon(index + 1, marker)"
         @click="handleMarkerClick(marker)"
         @mouseover="activeMarkerData = marker"
         @mouseout="activeMarkerData = null"
@@ -155,6 +155,23 @@ export default {
     }, 1000);
   },
   methods: {
+    generateMarkerIcon(number, marker) {
+      const color =
+        this.activeMarkerData?.id == marker?.id ? "#FF364A" : "#FFA900"; // Orange on hover, Yellow by default
+      const svg = `
+        <svg width="33" height="46" viewBox="0 0 33 46" xmlns="http://www.w3.org/2000/svg">
+          <!-- Marker Shape -->
+          <path d="M32.6704 16.1126C32.3266 7.60866 25.3419 0.815185 16.7606 0.785254C7.96764 0.754594 0.756599 7.90943 0.720829 16.7024C0.712069 18.9362 1.16103 21.0635 1.9801 22.9966C5.48706 32.494 15.2327 43.8478 16.554 45.1254C16.638 45.2064 16.7701 45.2079 16.8555 45.129C18.3024 43.7989 29.592 31.4245 32.1602 20.8467C32.1864 20.7459 32.2098 20.6445 32.2346 20.5437C32.2573 20.4422 32.2835 20.3408 32.3047 20.2393C32.4675 19.5056 32.5785 18.7537 32.6361 17.9858C32.6383 17.9566 32.6405 17.9266 32.6427 17.8974C32.669 17.5237 32.6865 17.1484 32.6865 16.7681C32.6865 16.5345 32.6799 16.3191 32.6697 16.1118L32.6704 16.1126ZM16.7037 25.0581C12.1272 25.0581 8.41659 21.3482 8.41659 16.771C8.41659 12.1939 12.1265 8.48395 16.7037 8.48395C21.2808 8.48395 24.9907 12.1939 24.9907 16.771C24.9907 21.3482 21.2808 25.0581 16.7037 25.0581Z" fill="${color}"/>
+          
+          <!-- White Background Circle for the Number -->
+          <circle cx="16.7" cy="16.7" r="8" fill="white"/>
+          
+          <!-- Centered Number -->
+          <text x="50%" y="40%" font-family="Arial" font-size="12" fill="black" text-anchor="middle" dominant-baseline="middle" font-weight="bold">${number}</text>
+        </svg>
+      `;
+      return `data:image/svg+xml;base64,${btoa(svg)}`;
+    },
     async handleMapClick(e) {
       console.log("handleMapClick", e);
     },

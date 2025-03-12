@@ -391,6 +391,7 @@ export default {
     async getOrders() {
       try {
         await this.fetchOrders();
+        await this.ordersByStatus("Open");
       } catch (error) {
         this.$toast.open({
           message:
@@ -425,11 +426,11 @@ export default {
       try {
         let data = this.orders.records.filter((order) => {
           const query = this.searchQuery.toLowerCase();
-          return (
+          const matchesSearch =
             order.product.name.toLowerCase().includes(query) ||
             order.shippingStreet.toLowerCase().includes(query) ||
-            order.total.toString().includes(query) // Convert price to string for matching
-          );
+            order.total.toString().includes(query);
+          return matchesSearch && order.status === this.currentTab;
         });
         this.setFilterOrders({ records: data, totalCount: data.length });
       } catch (error) {

@@ -138,7 +138,12 @@ export default {
 
             if (setAddress) {
               // Extract specific address components
-              const street =
+              const streetNumber =
+                addressComponents.find((component) =>
+                  component.types.includes("street_number")
+                )?.long_name || "";
+
+              const streetName =
                 addressComponents.find((component) =>
                   component.types.includes("route")
                 )?.long_name || "";
@@ -158,15 +163,20 @@ export default {
                   component.types.includes("postal_code")
                 )?.long_name || "";
 
+              // Determine the street value
+              const street =
+                streetNumber && streetName
+                  ? `${streetNumber} ${streetName}`
+                  : streetName || formattedAddress.split(",")[0] || "";
+
               this.address = formattedAddress;
+
               // Emit the full address details
               this.$emit("updateAddress", {
-                street: this.address,
+                street: street,
                 city: city,
                 province: province,
                 postal: postalCode,
-                // lat: this.marker.position.lat,
-                // long: this.marker.position.lng,
               });
             } else {
               this.address = "";

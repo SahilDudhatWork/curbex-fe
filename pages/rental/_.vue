@@ -20,7 +20,10 @@
             />
           </div>
           <!-- Show message when markers are empty -->
-          <div class="flex justify-between items-center">
+          <div
+            v-if="!markers || !markers.length"
+            class="flex justify-between items-center"
+          >
             <p
               class="text-[#FF364A] text-[16px] rounded-[20px] border border-[#FF364A] p-[6px_8px] w-[48%] text-center"
             >
@@ -708,7 +711,10 @@
             class="w-full h-full object-cover"
             /> -->
           </div>
-          <div class="flex justify-between items-center">
+          <div
+            v-if="!markers || !markers.length"
+            class="flex justify-between items-center"
+          >
             <p
               class="text-[#FF364A] text-[16px] rounded-[20px] border border-[#FF364A] p-[6px_8px] w-[48%] text-center"
             >

@@ -150,7 +150,7 @@
           </button>
         </div>
         <div class="p-[2.7rem] menu-scroll">
-          <div
+          <!-- <div
             class="flex items-center justify-between max-w-[220px] bg-[#FFFFFF] text-[#949494] text-[16px] p-[9px_20px] mb-[10px] rounded-[28px]"
           >
             <span>
@@ -210,7 +210,7 @@
               placeholder="Search Products"
               class="rounded-[28px] text-[16px] px-[50px] py-[10px] w-full ml-[-21px]"
             />
-          </div>
+          </div> -->
           <ul class="mt-4 text-white">
             <li
               class="py-[12px] flex items-center border-b border-[#FCFCFC]"
@@ -648,6 +648,7 @@ export default {
   computed: {
     ...mapGetters({
       cartItemCount: "product/getCartItemCount",
+      favoriteProductIdsArray: "product/getFavoriteProductIds",
     }),
     hasToken() {
       return this.$cookies.get("token") ? true : false;
@@ -694,7 +695,9 @@ export default {
     }
     if (this.hasToken) {
       try {
-        await this.fetchFavoriteProductsIds();
+        if (!this.favoriteProductIdsArray.length) {
+          await this.fetchFavoriteProductsIds();
+        }
       } catch (error) {
         console.log("Favorite products error:", error);
       }

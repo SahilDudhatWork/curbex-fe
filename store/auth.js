@@ -2,7 +2,7 @@ import $axios from "@/plugins/axios";
 import axios from "axios";
 
 export const state = () => ({
-  userData: {},
+  userData: null,
 });
 
 export const getters = {
@@ -68,9 +68,13 @@ export const actions = {
   },
   async profile(ctx, payload) {
     try {
-      const response = await $axios.get("customers/profile");
-      ctx.commit("setUserProfile", response);
-      return response;
+      if (!ctx.state.userData) {
+        // Check if profile data is already present
+        const response = await $axios.get("customers/profile");
+        ctx.commit("setUserProfile", response);
+        return response;
+      }
+      return ctx.state.userData; // Return existing profile data if available
     } catch (error) {
       throw error;
     }
