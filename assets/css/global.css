@@ -67,12 +67,32 @@ svg {
     background-color: #8D54FF !important; 
     color: #ffffff !important;
 }
-@media screen and (min-width:768px) and (max-width:1023px) {
-    .medium-s-section{
-    max-width: 100%;
-    }    
-}
+
 .menu-scroll{
     height: calc(100vh - 30px);
     overflow: auto;
+}
+@media screen and (min-width:768px) and (max-width:870px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+@media screen and (min-width:1024px) and (max-width:1150px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+@media screen and (min-width:1280px) and (max-width:1350px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+@media screen and (min-width:1536px) and (max-width:1630px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }

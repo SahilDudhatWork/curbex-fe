@@ -131,4 +131,27 @@ export default {
     z-index: 9;
   }
 }
+@media screen and (max-width:767px) {
+  ::v-deep .VueCarousel-dot {
+    background-color: #ffffff99 !important;
+    padding: 2px !important;
+    width: 5px !important;
+    height: 5px !important;
+  }
+  ::v-deep .VueCarousel-navigation-prev {
+    left: 90px !important;
+    width: 30px;
+    height: 30px;
+  }
+  ::v-deep .VueCarousel-navigation-prev svg,
+  ::v-deep .VueCarousel-navigation-next svg{
+    width: 100%;
+    height: 100%;
+  }
+  ::v-deep .VueCarousel-navigation-next {
+    right: 90px !important;
+    width: 30px;
+    height: 30px;
+  }
+}
 </style>

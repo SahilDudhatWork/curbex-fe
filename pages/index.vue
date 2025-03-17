@@ -29,22 +29,22 @@
       </h2>
     </div>
     <div
-      class="container medium-s-section mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]"
+      class="container px-6 md:px-0 mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]"
     >
       <div class="lg:text-center text-[#121212] lg:bg-[#121212] rounded-[20px]">
-        <h2
-          class="md:bg-[#121212] lg:bg-[#12121200] md:p-[20px] md:max-w-[768px] lg:max-w-full md:mx-auto px-6 md:rounded-[20px] text-[#121212] md:text-[#FFFFFF] leading-[normal] text-[17px] md:text-[27px] capitalize lg:py-[3rem] font-bold lg:font-normal lg:px-[2rem] ml-[10px]"
-        >
           <p
-            class="md:inline bg-[#121212] md:bg-[#121212] text-[#FFFFFF] p-[18px_18px] rounded-[20px] mb-6 md:p-0 md:mb-0 ml-[-10px] md:ml-0"
+            class="
+            bg-[#121212] md:p-[20px] px-6 text-[20px] md:text-[27px] lg:py-[3rem] lg:px-[2rem] text-[#FFFFFF] p-[18px_18px] rounded-[20px]
+            "
           >
-            Curbside Express Advertising in your community.
+            Curbside Express Advertising in your community. 
+            <span class="p-[6px] md:p-[0px] block md:hidden"></span>
+            
+            Help us create your customer journey
           </p>
-          Help us create your customer journey
-        </h2>
       </div>
       <div
-        class="px-6 md:p-[2.5rem_2rem_1rem] lg:p-[3rem] border-t border-b mt-[2rem] pt-[2rem] md:mt-[2.5rem] md:border-[2px] md:border-[#F3F3F3] md:bg-[#FFFFFF] lg:border-[0px] md:rounded-[20px]"
+        class="md:p-[2.5rem_2rem_1rem] lg:p-[3rem] border-t border-b mt-[2rem] pt-[2rem] md:mt-[2.5rem] md:border-[2px] md:border-[#F3F3F3] md:bg-[#FFFFFF] lg:border-[0px] md:rounded-[20px]"
       >
         <div
           class="flex flex-wrap justify-between items-center md:max-w-[768px] lg:max-w-full mx-auto"
@@ -61,7 +61,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 right-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Small Business & Franchise 
             </div>
@@ -78,7 +78,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 right-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Government & Non-Profit
             </div>
@@ -95,7 +95,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 right-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Media Buyers/ Agencies
             </div>
@@ -112,7 +112,7 @@
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
             <div
-              class="p-[2rem] absolute top-0 bottom-0 left-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
+              class="p-[2rem] absolute top-0 bottom-0 left-0 right-0 gradient-background text-white text-[22px] md:text-[25px] font-Montserrat-Bold mt-auto h-full flex items-end lg:text-[27px] transition-all duration-300"
             >
               Commercial Property Owners
             </div>
@@ -156,8 +156,8 @@
     </div>
     <div class="container px-6 md:px-0 mx-auto my-[3rem]">
       <div
-        style="background-image: url(/Images/banner-1.png)"
-        class="w-full min-h-[348px] md:min-h-[464px] bg-no-repeat bg-cover bg-[80%] md:bg-[14%] rounded-[25px]"
+        style="background-image: url(/Images/car-banner.png)"
+        class="w-full min-h-[227px] md:min-h-[464px] bg-no-repeat bg-cover bg-[10%] md:bg-[14%] rounded-[25px]"
       ></div>
       <!-- <img src="/Images/3.png" alt="" > -->
     </div>
@@ -176,7 +176,7 @@
     >
       <div
         style="background-image: url(/Images/banner-2.png)"
-        class="w-full min-h-[348px] md:min-h-[464px] bg-no-repeat bg-[length:220%_100%] md:bg-cover bg-[0%] rounded-[25px]"
+        class="w-full min-h-[227px] md:min-h-[464px] bg-no-repeat bg-[length:220%_100%] md:bg-cover bg-[20%] rounded-[25px]"
       >
         <img
           src="/Images/banner-2.png"

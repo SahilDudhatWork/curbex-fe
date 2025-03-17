@@ -3,7 +3,7 @@
     <div class="container mx-auto px-6 lg:px-4 py-8 pt-[2.6rem]">
       <!-- <h1 class="text-[24px] font-Montserrat-Bold md:mb-4">About Us</h1>             -->
       <h2
-        class="text-[24px] md:text-[48px] lg:text-[47px] font-bold font-Montserrat-Bold md:mb-2"
+        class="text-[24px] md:text-[44px] font-bold font-Montserrat-Bold md:mb-2"
       >
         About Us
       </h2>
@@ -22,7 +22,7 @@
       </section>
       <section class="mb-10">
         <h2
-          class="text-[24px] md:text-[60px] font-bold font-Montserrat-Bold mb-2"
+          class="text-[24px] md:text-[44px] font-bold font-Montserrat-Bold mb-2"
         >
           Our Focus
         </h2>
@@ -45,7 +45,7 @@
       </section>
       <section class="mb-10">
         <h2
-          class="text-[24px] md:text-[60px] font-bold font-Montserrat-Bold mb-2"
+          class="text-[24px] md:text-[44px] font-bold font-Montserrat-Bold mb-2"
         >
           Our Team
         </h2>
