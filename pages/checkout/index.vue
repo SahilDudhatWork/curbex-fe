@@ -1897,7 +1897,7 @@ export default {
             id: this.addressData.id,
           });
         }
-        await this.fetchProfile();
+        await this.fetchProfile({ call: true });
       } catch (error) {
         this.$toast.open({
           message:
@@ -1926,7 +1926,7 @@ export default {
             id: this.billingAddressData.id,
           });
         }
-        await this.fetchProfile();
+        await this.fetchProfile({ call: true });
       } catch (error) {
         this.$toast.open({
           message:

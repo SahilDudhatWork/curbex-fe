@@ -29,5 +29,6 @@
     "productNotAvailableForRent": "This product is not available for rent from {startDate} to {endDate}.",
     "verifyEmailMessage": "We already sent an email verification to your registered email when you signed up. If you didn't receive the email, please resend it.",
     "productDetailsErrorMessage": "Product details not found for this address.",
-    "contactUsSuccessMessage": "Thank you for reaching out! Your message has been successfully sent. We will get back to you as soon as possible"
+    "contactUsSuccessMessage": "Thank you for reaching out! Your message has been successfully sent. We will get back to you as soon as possible",
+    "serviceRequestSuccessMessage": "Your service request for this location has been successfully submitted!"
 }

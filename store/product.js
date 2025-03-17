@@ -336,4 +336,12 @@ export const actions = {
       throw error;
     }
   },
+  async signRequest(ctx, payload) {
+    try {
+      const response = await $axios.post(`/markers/request`, payload);
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

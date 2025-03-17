@@ -105,7 +105,7 @@
       <h1 class="text-[18px] md:text-[20px] font-semibold mb-3 md:mb-6">
         Uploaded Ad
       </h1>
-      <div class="bg-[#F9F9F9] rounded-[10px] px-4 py-3 mb-4">
+      <div class="bg-[#F9F9F9] rounded-[10px] px-4 py-4 mb-4">
         <div class="flex justify-between items-center">
           <div class="flex items-center gap-2">
             <svg
@@ -221,7 +221,7 @@
               >Image - 01.PNG</span
             >
           </div>
-          <div class="flex gap-2">
+          <!-- <div class="flex gap-2">
             <button class="p-2 hover:bg-gray-100 rounded-full">
               <svg
                 width="24"
@@ -320,7 +320,7 @@
                 />
               </svg>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -328,14 +328,14 @@
       <h1 class="text-[18px] md:text-[20px] font-semibold mb-3 md:mb-6">
         Sign Message
       </h1>
-      <div class="bg-[#F9F9F9] rounded-[10px] px-4 py-3 mb-4">
+      <div class="bg-[#F9F9F9] rounded-[10px] px-4 py-4 mb-4">
         <div class="flex justify-between items-center">
           <div class="flex items-center gap-2">
             <span class="text-[12px] md:text-[16px] font-medium">{{
               orderDetails?.notes
             }}</span>
           </div>
-          <div class="flex gap-2">
+          <!-- <div class="flex gap-2">
             <button class="p-2 hover:bg-gray-100 rounded-full">
               <svg
                 width="20"
@@ -473,7 +473,7 @@
                 />
               </svg>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

@@ -307,10 +307,7 @@
           />
           <label for="terms" class="flex">
             <span class="block mt-[-4px]" style="width: calc(100% - 25px)">
-              By clicking 'Log In' you agree to our website
-              <NuxtLink to="/terms" class="text-black underline"
-                >Terms & Conditions</NuxtLink
-              >,
+              By creating an account, you agree to our website
               <NuxtLink to="/privacy-policy" class="text-black underline"
                 >Privacy Notice</NuxtLink
               >

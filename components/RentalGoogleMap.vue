@@ -112,7 +112,7 @@ export default {
         : this.getMapLocation; // Default if no markers
     },
     mapZoom() {
-      return this.markers.length > 0 ? 20 : 12; // Set higher zoom when first marker exists
+      return this.markers.length > 0 ? 18 : 12; // Set higher zoom when first marker exists
     },
     heroImage() {
       if (!this.activeMarkerData?.product?.images?.length) {

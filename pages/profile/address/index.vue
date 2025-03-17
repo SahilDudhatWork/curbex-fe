@@ -621,7 +621,7 @@ export default {
           });
         }
 
-        await this.profile();
+        await this.profile({ call: true });
 
         this.formData = {};
         this.isDefault = false;
@@ -640,7 +640,7 @@ export default {
           return;
         }
         await this.setDefaultAddress({ id: id });
-        await this.profile();
+        await this.profile({ call: true });
         this.$toast.open({
           message: this.$i18n.t("addressSetAsDefaultSuccessfully"),
         });

@@ -68,7 +68,9 @@ export const actions = {
   },
   async profile(ctx, payload) {
     try {
-      if (!ctx.state.userData) {
+      let { call = null } = payload || {};
+      console.log("call", call);
+      if (!ctx.state.userData || call == true) {
         // Check if profile data is already present
         const response = await $axios.get("customers/profile");
         ctx.commit("setUserProfile", response);
