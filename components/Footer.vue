@@ -162,6 +162,11 @@
               >
             </li>
             <li class="list-disc list-inside">
+              <a href="/terms" class="hover:underline text-[12px]"
+                >Terms & Conditions</a
+              >
+            </li>
+            <li class="list-disc list-inside">
               <a href="#" class="hover:underline text-[12px]">Legal</a>
             </li>
           </ul>

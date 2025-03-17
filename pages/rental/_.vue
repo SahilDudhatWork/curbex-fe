@@ -722,7 +722,7 @@
             </p>
             <p
               @click="modalShow = true"
-              class="text-[#121212] text-[16px] rounded-[20px] border border-[#FFA900] p-[6px_8px] w-[48%] text-center bg-[#FFA900]"
+              class="text-[#121212] text-[16px] rounded-[20px] border border-[#FFA900] p-[6px_8px] w-[48%] text-center bg-[#FFA900] cursor-pointer"
             >
               You can request service for this location
             </p>
@@ -772,44 +772,80 @@
                   <p>Property Owner Business Name</p>
                   <input
                     type="text"
-                    placeholder="Good Food"
+                    v-model="formData.landlordCompany"
+                    placeholder="Business Name"
+                    :class="{ 'border-[red]': errors?.landlordCompany }"
                     class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   />
+                  <span
+                    v-if="errors?.landlordCompany"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ errors?.landlordCompany }}</span
+                  >
                 </div>
                 <div class="my-5">
                   <p>Contact Name</p>
                   <input
                     type="text"
+                    v-model="formData.landlordName"
                     placeholder="Contact Name"
                     class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                    :class="{ 'border-[red]': errors?.landlordName }"
                   />
+                  <span
+                    v-if="errors?.landlordName"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ errors?.landlordName }}</span
+                  >
                 </div>
                 <div class="my-5">
                   <p>Address</p>
                   <input
                     type="text"
+                    v-model="formData.landlordAddress"
                     placeholder="Address"
                     class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+                    :class="{ 'border-[red]': errors?.landlordAddress }"
                   />
+                  <span
+                    v-if="errors?.landlordAddress"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ errors?.landlordAddress }}</span
+                  >
                 </div>
                 <div class="my-5">
                   <p>Email</p>
                   <input
                     type="text"
-                    placeholder="Address"
+                    placeholder="Email"
+                    v-model="formData.landlordEmail"
+                    :class="{ 'border-[red]': errors?.landlordEmail }"
                     class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   />
+                  <span
+                    v-if="errors?.landlordEmail"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ errors?.landlordEmail }}</span
+                  >
                 </div>
                 <div class="my-5">
                   <p>Phone Number</p>
                   <input
                     type="text"
-                    placeholder="Address"
+                    v-model="formData.landlordPhone"
+                    placeholder="Phone Number"
+                    :class="{ 'border-[red]': errors?.landlordPhone }"
+                    @input="validatePhoneNumberInput"
                     class="text-[12px] md:text-[16px] w-full md:mt-2 px-4 py-[6px] border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
                   />
+                  <span
+                    v-if="errors?.landlordPhone"
+                    class="text-[red] text-[12px] pl-[3px]"
+                    >{{ errors?.landlordPhone }}</span
+                  >
                 </div>
                 <button
-                  @click="modalShow = false"
+                  @click="submitMarkerRequest"
                   class="text-[#121212] text-[16px] rounded-[10px] border border-[#FFA900] p-[7px_8px] w-[100%] text-center bg-[#FFA900]"
                 >
                   Submit your request
@@ -903,6 +939,16 @@ export default {
       endDate: null,
       isAvailable: false,
       modalShow: false,
+      formData: {
+        productId: "",
+        propertyId: "",
+        landlordCompany: "",
+        landlordAddress: "",
+        landlordName: "",
+        landlordEmail: "",
+        landlordPhone: "",
+      },
+      errors: {},
     };
   },
   watch: {
@@ -1001,10 +1047,41 @@ export default {
       fetchCartItems: "product/fetchCartItems",
       // fetchMarkerSchedule: "product/fetchMarkerSchedule",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
+      signRequest: "product/signRequest",
     }),
     ...mapMutations({
       setCartItemCount: "product/setCartItemCount",
     }),
+    async validatePhoneNumberInput(event) {
+      this.formData.landlordPhone = await this.$validateNumber(
+        event.target.value
+      );
+    },
+    async submitMarkerRequest() {
+      try {
+        this.errors = await this.$validateMarkerRequestFormData({
+          form: this.formData,
+        });
+        if (Object.keys(this.errors).length > 0) {
+          return;
+        }
+        this.formData.productId = this.productData?.product?.id || null;
+        this.formData.propertyId = this.productData?.property?.id || null;
+        await this.signRequest(this.formData);
+        this.formData = {};
+        this.modalShow = false;
+        this.$toast.open({
+          message: this.$i18n.t("serviceRequestSuccessMessage"),
+        });
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
     async toggleFavorite() {
       try {
         await this.toggleFavoriteProduct({ id: this.productData?.product?.id });
@@ -1154,15 +1231,18 @@ export default {
           this.markerId = marker?.id;
           const newUrl = `/rental/${marker.productId}`;
           window.history.pushState({}, "", newUrl);
-          this.selectedAddress =
-            this.sortedAddresses && this.sortedAddresses.length
-              ? this.sortedAddresses[0]
-              : null;
+          // this.selectedAddress =
+          //   this.sortedAddresses && this.sortedAddresses.length
+          //     ? this.sortedAddresses[0]
+          //     : null;
+          let addressId =
+            this.selectedAddress?.id ?? this.sortedAddresses?.[0]?.id ?? null;
+
           await this.fetchSingleRentalProductDetail({
             id: marker.productId,
-            addressId: this.selectedAddress?.id || 1,
+            addressId: addressId,
           });
-          await this.loadData();
+          await this.loadData(true);
         }
       } catch (error) {
         console.log(error, "error");
@@ -1171,8 +1251,6 @@ export default {
     async getMarkerSchedule(markerId) {
       try {
         await this.fetchMarkerSchedule({ id: markerId });
-        console.log(this.startDate, "asd");
-        console.log("markerSchedule", this.markerSchedule);
         await this.isProductAvailable();
       } catch (error) {
         console.log("error", error);
@@ -1182,7 +1260,7 @@ export default {
       this.isAvailable = this.$moment.isDateRangeAvailable(
         this.startDate,
         this.endDate,
-        this.productData?.schedule
+        this.productData?.schedule || []
       );
       console.log("isAvailable", this.isAvailable);
       // if (!this.isAvailable) {

@@ -467,6 +467,7 @@ export default {
           return;
         }
         await this.contactUs(this.form);
+        this.form = {};
         this.$toast.open({
           message: this.$i18n.t("contactUsSuccessMessage"),
         });

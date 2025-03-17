@@ -161,9 +161,6 @@
 
       <p class="mt-6 text-[8px] md:text-[16px] text-[#121212] font-bold">
         By clicking 'Log In' you agree to our website
-        <NuxtLink to="/terms" class="text-black underline"
-          >Terms & Conditions</NuxtLink
-        >,
         <NuxtLink to="/privacy-policy" class="text-black underline"
           >Privacy Notice</NuxtLink
         >

@@ -365,7 +365,7 @@
                         />
                       </svg>
                     </span>
-                    310 Bayfield
+                    {{ formattedAddress(item?.marker?.property) }}
                   </p>
                   <p class="text-[14px] font-Montserrat-Bold">
                     Total : ${{ $formatCurrency(item.totalPrice) }}
@@ -684,7 +684,7 @@
               </div>
             </div>
 
-            <div class="flex items-center mb-6 text-[12px] text-[#121212] py-2">
+            <!-- <div class="flex items-center mb-6 text-[12px] text-[#121212] py-2">
               <input
                 class="styled-checkbox"
                 id="keepLoggedIn-2"
@@ -694,7 +694,7 @@
               <label for="keepLoggedIn-2"
                 >Apply Instructions to all products in cart</label
               >
-            </div>
+            </div> -->
             <button
               @click="uploadArtwork(item, index)"
               class="bg-[#8D54FF] rounded-[42px] text-[12px] md:text-[14px] text-[#FFFFFF] p-[4px_15px]"
@@ -939,7 +939,7 @@
               placeholder="Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance."
             ></textarea>
 
-            <div class="flex items-center mb-6 text-[12px] text-[#121212] py-2">
+            <!-- <div class="flex items-center mb-6 text-[12px] text-[#121212] py-2">
               <input
                 class="styled-checkbox"
                 id="keepLoggedIn-1"
@@ -949,7 +949,7 @@
               <label for="keepLoggedIn-1"
                 >Apply Instructions to all products in cart</label
               >
-            </div>
+            </div> -->
             <button
               @click="hireDesigner(item, index)"
               class="bg-[#8D54FF] rounded-[42px] text-[12px] md:text-[14px] text-[#FFFFFF] p-[4px_15px]"
@@ -1205,6 +1205,11 @@ export default {
       this.productArtworkIndex = index;
 
       // this.isArtWork = !this.isArtWork;
+    },
+    formattedAddress(property) {
+      if (!property) return "";
+      const { street, province, postal, city } = property;
+      return [street, city, province, postal].filter(Boolean).join(", ");
     },
     async checkout() {
       this.$router.push(`/checkout`);

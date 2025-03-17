@@ -254,6 +254,36 @@ export default async (ctx, inject) => {
     return errors;
   };
 
+  const validateMarkerRequestFormData = async ({ form }) => {
+    const errors = {};
+    const isEmpty = (value) => {
+      return typeof value === "string" ? value.trim() === "" : !value;
+    };
+    const setError = (fieldName, message) => {
+      errors[fieldName] = message;
+    };
+
+    const validateField = (field, fieldName, errorLabel) => {
+      if (isEmpty(field)) {
+        setError(fieldName, `${errorLabel} is required`);
+      }
+    };
+
+    validateField(form.landlordCompany, "landlordCompany", "business-name");
+    validateField(form.landlordName, "landlordName", "contact-name");
+    validateField(form.landlordEmail, "landlordEmail", "email");
+    validateField(form.landlordPhone, "landlordPhone", "phone");
+
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setError("landlordEmail", "Invalid email format");
+    }
+    if (!(await validatePhoneNumber(form.phone))) {
+      setError("landlordPhone", "Invalid phone-number format");
+    }
+
+    return errors;
+  };
+
   inject("validateRegisterFormData", validateRegisterFormData);
   inject("validateLoginFormData", validateLoginFormData);
   inject("validateNumber", validateNumber);
@@ -265,4 +295,5 @@ export default async (ctx, inject) => {
   inject("validatePaymentFormData", validatePaymentFormData);
   inject("passwordValidation", passwordValidation);
   inject("validateContactUsFormData", validateContactUsFormData);
+  inject("validateMarkerRequestFormData", validateMarkerRequestFormData);
 };
