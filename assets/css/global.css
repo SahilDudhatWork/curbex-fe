@@ -72,6 +72,14 @@ svg {
     height: calc(100vh - 30px);
     overflow: auto;
 }
+.text-hidden-lg{
+    max-width: 155px;
+}
+@media screen and (max-width:767px){
+    .text-hidden-lg{
+        max-width: 95px;
+    }
+}
 @media screen and (min-width:768px) and (max-width:870px) {
     .container {
         padding-left: 2rem;
@@ -83,13 +91,26 @@ svg {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+    .text-hidden-lg{
+        max-width: 90px;
+    }
+}
+@media screen and (min-width:1151px) and (max-width:1279px) {
+    .text-hidden-lg{
+        max-width: 96px;
+    }
 }
 @media screen and (min-width:1280px) and (max-width:1350px) {
     .container {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+    .text-hidden-lg{
+        max-width: 140px;
+    }
+    
 }
+
 @media screen and (min-width:1536px) and (max-width:1630px) {
     .container {
         padding-left: 2rem;

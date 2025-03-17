@@ -80,7 +80,7 @@
             </p>
             <div class="flex items-end justify-between pb-[5px]">
               <p
-                class="text-[14px] text-[#121212] font-semibold whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis"
+                class="text-hidden-lg text-[14px] text-[#121212] font-semibold whitespace-nowrap w-full overflow-hidden text-ellipsis"
               >
                 {{ item?.name }}
               </p>
@@ -101,14 +101,14 @@
                     : item?.description
                   : 'The billboard that`s always out front'
               "
-              class="text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap max-w-[96px] md:max-w-[155px] w-full overflow-hidden text-ellipsis"
+              class="text-hidden-lg text-[#C3C3C3] text-[10px] description hidden md:block whitespace-nowrap w-full overflow-hidden text-ellipsis"
             ></p>
 
             <button
               class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] md:text-[12px] w-full mt-3 text-center p-[7px] md:p-[9px] font-semibold mb-[5px]"
               @click.stop="openProduct(item)"
             >
-              Customize it
+              Get Started
             </button>
           </div>
         </div>

@@ -346,7 +346,7 @@
             @click.stop="openProduct(item)"
             class="rounded-full bg-[#121212] hover:bg-[#8D54FF] text-[#ffffff] text-[10px] lg:text-[12px] w-full mt-3 text-center p-1 lg:p-2 font-semibold"
           >
-            Customize it
+            Get Started
           </button>
         </div>
       </div>
