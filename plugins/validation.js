@@ -223,6 +223,37 @@ export default async (ctx, inject) => {
     return errors;
   };
 
+  const validateContactUsFormData = async ({ form }) => {
+    const errors = {};
+    const isEmpty = (value) => {
+      return typeof value === "string" ? value.trim() === "" : !value;
+    };
+    const setError = (fieldName, message) => {
+      errors[fieldName] = message;
+    };
+
+    const validateField = (field, fieldName, errorLabel) => {
+      if (isEmpty(field)) {
+        setError(fieldName, `${errorLabel} is required`);
+      }
+    };
+
+    validateField(form.name, "name", "name");
+    validateField(form.phone, "phone", "phone");
+    validateField(form.email, "email", "email");
+    validateField(form.interest, "interest", "interest");
+    validateField(form.message, "message", "message");
+
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setError("email", "Invalid email format");
+    }
+    if (!(await validatePhoneNumber(form.phone))) {
+      setError("phone", "Invalid phone-number format");
+    }
+
+    return errors;
+  };
+
   inject("validateRegisterFormData", validateRegisterFormData);
   inject("validateLoginFormData", validateLoginFormData);
   inject("validateNumber", validateNumber);
@@ -233,4 +264,5 @@ export default async (ctx, inject) => {
   inject("formatCVV", formatCVV);
   inject("validatePaymentFormData", validatePaymentFormData);
   inject("passwordValidation", passwordValidation);
+  inject("validateContactUsFormData", validateContactUsFormData);
 };

@@ -1,40 +1,33 @@
 {
-    "requiredErrorMessage":"Please fill up your field !",
-    "matchErrorMessage":"Passwords do not match.",
-    "loginMessage":"Successfully logged in.",
-    "loginOTPMessage":"OTP has been sent to your email address. Please check your inbox and use the OTP to proceed",
-    "matchPasswordMessage":"Passwords do not match.",
-    "errorMessage":"Something is wrong please try again",
-    "fileSizeErrorMessage":"File size must be less than 2MB.",
-
-    "adminVerificationErrorMessage":"You are not verified by the admin. Please contact the admin for assistanc",
-    "authFavoriteErrorMessage":"Please log in to add or remove items from your favorites",
-
-    "registerMessage":"We sent you a verification email. Please check your inbox and verify your email address.",
-    "profileUpdateOKMessage":"Profile updated successfully.",
-    "artworkUploadedMessage":"Artwork uploaded successfully",
-    "designerAddedToProductMessage":"Designer added to product successfully",
-    "productAddedToCartMessage":"Product added to cart successfully",
-
-    "productQuantityIncreasedMessage":"You have this product in your cart and we have increased the quantity by 1",
-    "maximumFilesAllowed":"Maximum 5 files allowed",
-    "paymentCardCreatedSuccessfully":"Payment card created successfully",
-    "removeItemSuccessMessage":"Item removed from cart successfully",
-    "addressUpdatedSuccessfully":"Address updated successfully",
-    "addressCreatedSuccessfully":"Address created successfully",
-    "addressSetAsDefaultSuccessfully":"Address set as default successfully",
-    "fileNotImageMessage":"File is not an image",
-    "forgotPasswordSuccessMessage":"Reset password email sent",
-    "resetPasswordSuccessMessage":"Password reset successfully",
-    "updatePasswordSuccessMessage":"Password updated successfully",
-    "orderPlacedSuccessfully":"Order placed successfully",
-
+    "requiredErrorMessage": "Please fill up your field !",
+    "matchErrorMessage": "Passwords do not match.",
+    "loginMessage": "Successfully logged in.",
+    "loginOTPMessage": "OTP has been sent to your email address. Please check your inbox and use the OTP to proceed",
+    "matchPasswordMessage": "Passwords do not match.",
+    "errorMessage": "Something is wrong please try again",
+    "fileSizeErrorMessage": "File size must be less than 2MB.",
+    "adminVerificationErrorMessage": "You are not verified by the admin. Please contact the admin for assistanc",
+    "authFavoriteErrorMessage": "Please log in to add or remove items from your favorites",
+    "registerMessage": "We sent you a verification email. Please check your inbox and verify your email address.",
+    "profileUpdateOKMessage": "Profile updated successfully.",
+    "artworkUploadedMessage": "Artwork uploaded successfully",
+    "designerAddedToProductMessage": "Designer added to product successfully",
+    "productAddedToCartMessage": "Product added to cart successfully",
+    "productQuantityIncreasedMessage": "You have this product in your cart and we have increased the quantity by 1",
+    "maximumFilesAllowed": "Maximum 5 files allowed",
+    "paymentCardCreatedSuccessfully": "Payment card created successfully",
+    "removeItemSuccessMessage": "Item removed from cart successfully",
+    "addressUpdatedSuccessfully": "Address updated successfully",
+    "addressCreatedSuccessfully": "Address created successfully",
+    "addressSetAsDefaultSuccessfully": "Address set as default successfully",
+    "fileNotImageMessage": "File is not an image",
+    "forgotPasswordSuccessMessage": "Reset password email sent",
+    "resetPasswordSuccessMessage": "Password reset successfully",
+    "updatePasswordSuccessMessage": "Password updated successfully",
+    "orderPlacedSuccessfully": "Order placed successfully",
     "productAvailableForRent": "This product is available for rent from {startDate} to {endDate}.",
     "productNotAvailableForRent": "This product is not available for rent from {startDate} to {endDate}.",
     "verifyEmailMessage": "We already sent an email verification to your registered email when you signed up. If you didn't receive the email, please resend it.",
-
-    "productDetailsErrorMessage": "Product details not found for this address."
-
-  
-
+    "productDetailsErrorMessage": "Product details not found for this address.",
+    "contactUsSuccessMessage": "Thank you for reaching out! Your message has been successfully sent. We will get back to you as soon as possible"
 }

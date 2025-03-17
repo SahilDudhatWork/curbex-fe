@@ -25,6 +25,7 @@
           Our team is currently in the process of finalizing your order.
         </p>
         <button
+          @click="backToHome"
           class="flex justify-center w-[90%] m-auto text-[16px] bg-[#121212] text-[#FFFFFF] rounded-[20px] min-w-[132px] p-[5px_20px] border border-[#121212]"
         >
           Back to User Dashboard
@@ -51,6 +52,9 @@ export default {
     },
     closeModal() {
       this.$emit("close");
+    },
+    backToHome() {
+      this.$router.push("/");
     },
   },
 };

@@ -10,88 +10,124 @@
     <div class="container mx-auto pt-[20px] px-6 md:px-0">
       <!-- Filter Section -->
       <div
-        class="flex items-center gap-2 lg:gap-4 mb-[3.5rem] md:mb-[4.5rem] flex-wrap"
+        class="flex items-center gap-2 lg:gap-4 mb-[1.5rem] md:mb-[2.5rem] flex-wrap"
       >
-        <!-- Product Type Filter -->
-        <div class="relative order-2 lg:order-1 z-10">
-          <button
-            @click="toggleProductTypeDropdown"
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#121212] text-[#F3F3F3] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
-          >
-            {{ selectedProductType || "Product type" }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        <div class="flex items-center gap-2 lg:gap-4 flex-wrap">
+          <!-- Product Type Filter -->
+          <div class="relative order-2 lg:order-1 z-10">
+            <button
+              @click="toggleProductTypeDropdown"
+              class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#121212] text-[#F3F3F3] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-          <div
-            v-if="isProductTypeOpen"
-            class="bg-[#FFFFFF] p-[10px_15px] border border-[#C3C3C3] mt-[-33px] lg:mt-[-41px] rounded-[25px] absolute left-0 right-0 z-1 overflow-hidden opacity-0 transition-all openDropdown"
-          >
+              {{ selectedProductType || "Product type" }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
             <div
-              v-for="type in productTypes"
-              :key="type"
-              @click="selectProductType(type)"
-              class="py-2 text-[#121212] text-[10px] lg:text-[15px] cursor-pointer"
+              v-if="isProductTypeOpen"
+              class="bg-[#FFFFFF] p-[10px_15px] border border-[#C3C3C3] mt-[-33px] lg:mt-[-41px] rounded-[25px] absolute left-0 right-0 z-1 overflow-hidden opacity-0 transition-all openDropdown"
             >
-              {{ type }}
+              <div
+                v-for="type in productTypes"
+                :key="type"
+                @click="selectProductType(type)"
+                class="py-2 text-[#121212] text-[10px] lg:text-[15px] cursor-pointer"
+              >
+                {{ type }}
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Price Filter -->
-        <div class="relative order-3 lg:order-2">
-          <button
-            @click="togglePriceSort"
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-          >
-            Price
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+          <!-- Price Filter -->
+          <div class="relative order-3 lg:order-2">
+            <button
+              @click="togglePriceSort"
+              class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
             >
-              <path d="M7 15l5 5 5-5" v-if="priceSort === 'desc'" />
-              <path d="M7 9l5-5 5 5" v-if="priceSort === 'asc'" />
-              <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!priceSort" />
-            </svg>
-          </button>
-        </div>
-        <div class="relative order-3 lg:order-2">
-          <button
-            @click="toggleNameSort"
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-          >
-            Name
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              Price
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 15l5 5 5-5" v-if="priceSort === 'desc'" />
+                <path d="M7 9l5-5 5 5" v-if="priceSort === 'asc'" />
+                <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!priceSort" />
+              </svg>
+            </button>
+          </div>
+          <div class="relative order-3 lg:order-2">
+            <button
+              @click="toggleNameSort"
+              class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
             >
-              <path d="M7 15l5 5 5-5" v-if="nameSort === 'desc'" />
-              <path d="M7 9l5-5 5 5" v-if="nameSort === 'asc'" />
-              <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!nameSort" />
+              Name
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 15l5 5 5-5" v-if="nameSort === 'desc'" />
+                <path d="M7 9l5-5 5 5" v-if="nameSort === 'asc'" />
+                <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!nameSort" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- Search Bar -->
+
+        <div class="relative order-4 lg:order-2 search-bar-section">
+          <input
+            v-model="searchQuery"
+            @keyup="searchProduct()"
+            type="text"
+            placeholder="Search product"
+            class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
+          />
+          <span class="absolute right-[14px] top-[14px] lg:top-[17px]">
+            <svg
+              width="21"
+              height="22"
+              viewBox="0 0 21 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z"
+                stroke="#949494"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+              />
+              <path
+                d="M15 14.6631L20 20.6631"
+                stroke="#949494"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+              />
             </svg>
-          </button>
+          </span>
         </div>
 
         <!-- Review Filter -->
@@ -188,7 +224,43 @@
           </button>
         </div> -->
       </div>
+
+      <!-- Search Bar -->
+
+      <!-- <div class="mb-[3.5rem] relative">
+        <input
+          v-model="searchQuery"
+          @keyup="searchProduct()"
+          type="text"
+          placeholder="Search product"
+          class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
+        />
+        <span class="absolute right-[14px] top-[14px] lg:top-[17px]">
+          <svg
+            width="21"
+            height="22"
+            viewBox="0 0 21 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z"
+              stroke="#949494"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+            />
+            <path
+              d="M15 14.6631L20 20.6631"
+              stroke="#949494"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+      </div> -->
     </div>
+
     <div
       class="container mx-auto px-6 md:px-0 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-6"
     >
@@ -365,6 +437,8 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
+      searchQuery: "",
+
       pagination: {
         currentPage: 1,
         limit: 10,
@@ -511,10 +585,16 @@ export default {
           skip,
           take: limit,
           relations: ["images"],
+          where: {},
         };
         if (this.selectedProductType) {
-          apiPayload.where = {
-            type: this.selectedProductType.toLowerCase(),
+          apiPayload.where.type = this.selectedProductType.toLowerCase();
+        }
+
+        if (this.searchQuery && this.searchQuery.trim() !== "") {
+          apiPayload.where.name = {
+            operator: "$like",
+            value: `%${this.searchQuery}%`,
           };
         }
         // Add sorting based on priceSort
@@ -557,9 +637,26 @@ export default {
         this.getAllProducts();
       }
     },
+    async searchProductData() {
+      try {
+        this.getAllProducts();
+      } catch (error) {
+        this.$toast.open({
+          message:
+            error?.response?.data?.message || this.$i18n.t("errorMessage"),
+          type: "error",
+        });
+        console.log("error", error);
+      }
+    },
   },
   async mounted() {
     await this.getAllProducts();
+  },
+  async created() {
+    this.searchProduct = this.$lodash.debounce(async () => {
+      await this.searchProductData();
+    }, 1000);
   },
 };
 </script>
@@ -569,9 +666,20 @@ export default {
   padding-top: 52px;
   opacity: 1;
 }
+.search-bar-section {
+  width: calc(100% - 376px);
+}
 @media screen and (max-width: 1023px) {
   .openDropdown {
     padding-top: 35px;
+  }
+  .search-bar-section {
+    width: calc(100% - 291px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .search-bar-section {
+    width: 100%;
   }
 }
 </style>

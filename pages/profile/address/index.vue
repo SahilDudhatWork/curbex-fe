@@ -554,12 +554,19 @@ export default {
       const place = this.autocomplete.getPlace();
       if (!place.address_components) return;
 
+      let streetNumber = "";
+      let streetName = "";
       let city = "";
       let province = "";
       let postalCode = "";
-
       // Loop through address components
       place.address_components.forEach((component) => {
+        if (component.types.includes("street_number")) {
+          streetNumber = component.long_name; // Street Number
+        }
+        if (component.types.includes("route")) {
+          streetName = component.long_name; // Street Name
+        }
         if (component.types.includes("locality")) {
           city = component.long_name; // City
         }
@@ -571,8 +578,16 @@ export default {
         }
       });
 
+      // Determine the street value
+      if (streetNumber && streetName) {
+        this.formData.street = `${streetNumber} ${streetName}`;
+      } else if (streetName) {
+        this.formData.street = streetName;
+      } else {
+        this.formData.street = place?.formatted_address.split(",")[0] || "";
+      }
+
       // Assign values to form fields
-      this.formData.street = place.formatted_address;
       this.formData.city = city;
       this.formData.province = province;
       this.formData.postal = postalCode;

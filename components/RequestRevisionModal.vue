@@ -25,6 +25,7 @@
           <textarea
             class="border border-[#F5F5F5] bg-[#FFFFFF] rounded-[18px] w-full p-[15px] resize-none text-[12px]"
             rows="4"
+            v-model="notes"
             placeholder="Design a clean and eye-catching physical banner that highlights the key message with bold typography, vibrant visuals, and a clear call-to-action, ensuring high visibility from a distance."
           ></textarea>
           <div class="bg-[#F5F5F5] w-full h-[1px] my-5"></div>
@@ -35,18 +36,21 @@
           </p>
           <div class="flex flex-wrap items-start">
             <div
+              v-for="(file, index) in uploadedFiles"
+              :key="index"
               class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 mb-3"
             >
               <div
                 class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px]"
               >
                 <img
-                  src="/Images/Proof/s1.png"
+                  :src="file.preview"
                   alt=""
                   class="w-full object-cover h-full"
                 />
               </div>
               <p
+                @click="removeFile(index)"
                 class="hidden w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px] bg-[#00000060] absolute top-0 group-hover:flex items-center justify-center"
               >
                 <svg
@@ -122,7 +126,7 @@
               class="w-[105px] lg:w-[125px] relative group cursor-pointer mr-3 opacity-[0.5] hover:opacity-[1]"
             >
               <p
-                @click="uploadFileItem(item)"
+                @click="uploadFileItem"
                 class="w-[105px] lg:w-[125px] h-[105px] lg:h-[125px] overflow-hidden rounded-[18px] border border-[#121212] flex items-center justify-center"
               >
                 <svg
@@ -249,9 +253,10 @@
         </div>
         <div class="bg-[#F5F5F5] w-full h-[1px] my-5"></div>
         <button
+          @click="submit"
           class="mt-5 flex justify-center w-[90%] m-auto text-[16px] bg-[#121212] text-[#FFFFFF] rounded-[20px] min-w-[132px] p-[5px_20px] border border-[#121212]"
         >
-          <span class="hidden lg:block">Back to User Dashboard</span>
+          <span class="hidden lg:block">Submit</span>
           <span class="block lg:hidden">Submit</span>
         </button>
       </div>
@@ -267,6 +272,13 @@ export default {
       required: false,
     },
   },
+  data() {
+    return {
+      notes: "",
+      uploadedFiles: [],
+      errors: {},
+    };
+  },
   methods: {
     hireDesigner() {
       this.$router.push("/hire-designer");
@@ -276,6 +288,57 @@ export default {
     },
     closeModal() {
       this.$emit("close");
+    },
+    submit() {
+      let files = this.uploadedFiles.map((x) => x.file);
+      let data = {
+        images: files,
+        note: this.notes,
+      };
+      this.$emit("submit", data);
+    },
+    uploadFileItem() {
+      const fileInput = document.createElement("input");
+      fileInput.type = "file";
+      fileInput.accept = "image/*";
+      fileInput.multiple = true;
+
+      fileInput.onchange = (e) => {
+        const files = Array.from(e.target.files);
+
+        files.forEach((file) => {
+          // Check file size
+          //   if (file.size > this.maxFileSize) {
+          //     alert(`File ${file.name} is too large. Maximum size is 5MB`);
+          //     return;
+          //   }
+
+          // Check if file is an image
+          if (!file.type.startsWith("image/")) {
+            this.$toast.open({
+              message: this.$i18n.t("fileNotImageMessage"),
+              type: "error",
+            });
+            return;
+          }
+
+          // Create preview URL
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.uploadedFiles.push({
+              file: file,
+              name: file.name,
+              preview: e.target.result,
+            });
+          };
+          reader.readAsDataURL(file);
+        });
+      };
+
+      fileInput.click();
+    },
+    removeFile(index) {
+      this.uploadedFiles.splice(index, 1);
     },
   },
 };

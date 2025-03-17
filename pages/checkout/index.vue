@@ -1657,12 +1657,20 @@ export default {
       const place = this.autocompleteShipping.getPlace();
       if (!place.address_components) return;
 
+      let streetNumber = "";
+      let streetName = "";
       let city = "";
       let province = "";
       let postalCode = "";
 
       // Loop through address components
       place.address_components.forEach((component) => {
+        if (component.types.includes("street_number")) {
+          streetNumber = component.long_name; // Street Number
+        }
+        if (component.types.includes("route")) {
+          streetName = component.long_name; // Street Name
+        }
         if (component.types.includes("locality")) {
           city = component.long_name; // City
         }
@@ -1674,8 +1682,16 @@ export default {
         }
       });
 
+      // Determine the street value
+      if (streetNumber && streetName) {
+        this.addressData.street = `${streetNumber} ${streetName}`;
+      } else if (streetName) {
+        this.addressData.street = streetName;
+      } else {
+        this.addressData.street = place?.formatted_address.split(",")[0] || "";
+      }
+
       // Assign values to form fields
-      this.addressData.street = place.formatted_address;
       this.addressData.city = city;
       this.addressData.province = province;
       this.addressData.postal = postalCode;
@@ -1684,12 +1700,20 @@ export default {
       const place = this.autocompleteBilling.getPlace();
       if (!place.address_components) return;
 
+      let streetNumber = "";
+      let streetName = "";
       let city = "";
       let province = "";
       let postalCode = "";
 
       // Loop through address components
       place.address_components.forEach((component) => {
+        if (component.types.includes("street_number")) {
+          streetNumber = component.long_name; // Street Number
+        }
+        if (component.types.includes("route")) {
+          streetName = component.long_name; // Street Name
+        }
         if (component.types.includes("locality")) {
           city = component.long_name; // City
         }
@@ -1701,8 +1725,17 @@ export default {
         }
       });
 
+      // Determine the street value
+      if (streetNumber && streetName) {
+        this.billingAddressData.street = `${streetNumber} ${streetName}`;
+      } else if (streetName) {
+        this.billingAddressData.street = streetName;
+      } else {
+        this.billingAddressData.street =
+          place?.formatted_address.split(",")[0] || "";
+      }
+
       // Assign values to form fields
-      this.billingAddressData.street = place.formatted_address;
       this.billingAddressData.city = city;
       this.billingAddressData.province = province;
       this.billingAddressData.postal = postalCode;

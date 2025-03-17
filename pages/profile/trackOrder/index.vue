@@ -621,7 +621,7 @@
     </div>
 
     <!-- Feedback Section -->
-    <div class="hidden md:block">
+    <!-- <div class="hidden md:block">
       <h2 class="text-xl font-bold mb-4 pb-4">
         We would love to hear your feedback
       </h2>
@@ -665,7 +665,7 @@
           Sumbit
         </button>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
