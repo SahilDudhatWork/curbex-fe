@@ -26,7 +26,7 @@
             >
               <div class="flex items-center flex-wrap">
                 <div
-                  class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center w-fit p-[10px_20px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
+                  class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center w-fit p-[8px_20px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
                 >
                   <span
                     class="w-[13px] h-[13px] bg-[#FFFFFF] block rounded-[30px] mr-[10px]"
@@ -36,7 +36,7 @@
                   </p>
                 </div>
                 <div
-                  class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
+                  class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[13px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
                 >
                   <div class="flex items-center">
                     <span>
@@ -128,7 +128,7 @@
                       </svg>
                     </span>
                     <p class="p-[0px_10px] text-[14px]">
-                      {{ address.street }}
+                      {{ fullShippingAddress(address) }}
                     </p>
                   </div>
                   <!-- <span @click.stop="editAddress(address)">
@@ -418,7 +418,7 @@
             >
               <div class="flex items-center flex-wrap">
                 <div
-                  class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center w-fit p-[10px_20px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
+                  class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center w-fit p-[8px_20px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
                 >
                   <span
                     class="w-[13px] h-[13px] bg-[#FFFFFF] block rounded-[30px] mr-[10px]"
@@ -428,7 +428,7 @@
                   </p>
                 </div>
                 <div
-                  class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
+                  class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[13px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
                 >
                   <div class="flex items-center">
                     <span>
@@ -520,7 +520,7 @@
                       </svg>
                     </span>
                     <p class="p-[0px_10px] text-[14px]">
-                      {{ address.street }}
+                      {{ fullBillingAddress(address) }}
                     </p>
                   </div>
                 </div>
@@ -1564,6 +1564,20 @@ export default {
       setCartItemCount: "product/setCartItemCount",
       setCartItem: "product/setCartItem",
     }),
+    fullShippingAddress(shippingAddress) {
+      if (!shippingAddress) return "";
+
+      const { street, city, province, postal, country } = shippingAddress;
+
+      return `${street}, ${city}, ${province} ${postal}, ${country}`;
+    },
+    fullBillingAddress(billingAddress) {
+      if (!billingAddress) return "";
+
+      const { street, city, province, postal, country } = billingAddress;
+
+      return `${street}, ${city}, ${province} ${postal}, ${country}`;
+    },
     dropdownToggle() {
       this.showDropdown = !this.showDropdown;
       this.isNewAddress = false;

@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[35rem] space-y-8 w-full md:w-[90%] md:p-8">
+  <div class="w-full md:max-w-[35rem] space-y-8 md:w-[90%] md:p-8">
     <!-- Notifications Section -->
     <!-- <div>
         <h2 class="text-[18px] md:text-[20px] lg:text-[24px] font-semibold mb-6">Notifications</h2>
@@ -40,7 +40,7 @@
       <h2 class="text-[18px] md:text-[20px] lg:text-[24px] font-semibold mb-6">
         Password
       </h2>
-      <div class="space-y-4 max-w-[20rem]">
+      <div class="space-y-4 w-full md:max-w-[20rem]">
         <div class="relative">
           <label
             class="text-[#000000] text-[14px] md:text-[18px] font-Montserrat-Medium"
@@ -50,7 +50,7 @@
             :type="isCurrentPasswordVisible ? 'text' : 'password'"
             v-model="formData.oldPassword"
             :class="{ 'border-[red]': errors?.oldPassword }"
-            class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+            class="w-full mt-1 px-4 py-[0.40rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             placeholder="Password"
           />
           <span
@@ -59,7 +59,7 @@
             >{{ errors?.oldPassword }}</span
           >
           <div
-            class="absolute top-[42px] right-[13px] cursor-pointer"
+            class="absolute top-[35px] md:top-[42px] right-[13px] cursor-pointer"
             @click="togglePasswordVisibility('current')"
           >
             <span v-if="isCurrentPasswordVisible">
@@ -114,7 +114,7 @@
             :type="isNewPasswordVisible ? 'text' : 'password'"
             v-model="formData.password"
             :class="{ 'border-[red]': errors?.password }"
-            class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+            class="w-full mt-1 px-4 py-[0.40rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             placeholder="Password"
           />
           <span
@@ -123,7 +123,7 @@
             >{{ errors?.password }}</span
           >
           <div
-            class="absolute top-[42px] right-[13px] cursor-pointer"
+            class="absolute top-[35px] md:top-[42px] right-[13px] cursor-pointer"
             @click="togglePasswordVisibility('new')"
           >
             <span v-if="isNewPasswordVisible">
@@ -178,7 +178,7 @@
             :type="isConfirmPasswordVisible ? 'text' : 'password'"
             v-model="formData.confirmPassword"
             :class="{ 'border-[red]': errors?.confirmPassword }"
-            class="w-full mt-1 px-4 py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
+            class="w-full mt-1 px-4 py-[0.40rem] md:py-3 border border-[#121212] bg-[transparent] rounded-[8px] focus:outline-none focus:border-[#000000]"
             placeholder="Password"
           />
           <span
@@ -187,7 +187,7 @@
             >{{ errors?.confirmPassword }}</span
           >
           <div
-            class="absolute top-[42px] right-[13px] cursor-pointer"
+            class="absolute top-[35px] md:top-[42px] right-[13px] cursor-pointer"
             @click="togglePasswordVisibility('confirm')"
           >
             <span v-if="isConfirmPasswordVisible">

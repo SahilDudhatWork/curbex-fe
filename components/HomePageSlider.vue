@@ -22,10 +22,10 @@
     <Slide
       v-for="(image, index) in currentImages"
       :key="index"
-      class="h-[230px] lg:h-[483px] md:h-[503px]"
+      class="slider-h-lg-seaction h-[230px] lg:h-[483px] md:h-[503px]"
     >
       <div
-        class="h-[230px] lg:h-[483px] md:h-[503px] w-full bg-[length:100%_100%] bg-no-repeat sm:bg-cover"
+        class="slider-h-lg-seaction h-[230px] lg:h-[483px] md:h-[503px] w-full bg-[length:100%_100%] bg-no-repeat sm:bg-cover"
         :class="image.bgPosition"
         :style="{ backgroundImage: `url(${image.src})` }"
       ></div>
@@ -131,7 +131,7 @@ export default {
     z-index: 9;
   }
 }
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
   ::v-deep .VueCarousel-dot {
     background-color: #ffffff99 !important;
     padding: 2px !important;
@@ -144,7 +144,7 @@ export default {
     height: 30px;
   }
   ::v-deep .VueCarousel-navigation-prev svg,
-  ::v-deep .VueCarousel-navigation-next svg{
+  ::v-deep .VueCarousel-navigation-next svg {
     width: 100%;
     height: 100%;
   }

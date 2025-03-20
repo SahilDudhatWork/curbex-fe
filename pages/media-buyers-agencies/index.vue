@@ -3,12 +3,11 @@
     <div class="mx-6">
       <!--------------------- Hero ---------------------->
       <div class="container mx-auto mb-[3rem] md:mb-[6rem]">
-        <div class="pt-[2.25rem]">
-          <img
-            src="/Images/media-buyers-agencies/1.png"
-            alt=""
-            class="rounded-[20px] h-[206px] md:h-[461px] object-cover w-full"
-          />
+        <div class="pt-[1.25rem] md:pt-[2.25rem]">
+          <div
+            style="background-image: url(/Images/media-buyers-agencies/1.png)"
+            class="rounded-[20px] w-full h-[206px] md:h-[461px] bg-no-repeat bg-cover bg-[14%]"
+          ></div>
         </div>
       </div>
     </div>
@@ -20,21 +19,21 @@
       <div class="container mx-auto">
         <div class="flex justify-center">
           <h1
-            class="w-full md:w-fit text-[15px] sm:text-[30px] lg:text-[38px] text-white font-Montserrat-Bold bg-[#121212] py-[6px] px-8 rounded-full mt-[-51px] mb-[15px] sm:mt-[-63px] sm:mb-[8px] lg:mt-[-65px] lg:mb-[3px]"
+            class="w-fit md:w-fit text-center text-[15px] sm:text-[30px] lg:text-[38px] text-white font-Montserrat-Bold bg-[#121212] py-[6px] px-8 rounded-full mt-[-51px] mb-[15px] sm:mt-[-63px] sm:mb-[8px] lg:mt-[-65px] lg:mb-[3px]"
           >
             Media Buyers/ Agencies
           </h1>
         </div>
         <div class="flex justify-center mt-4 md:mt-10">
           <p
-            class="text-[#000000] font-[600] text-[18px] font-Montserrat-Medium md:text-[23px] md:max-w-[600px] lg:max-w-full lg:text-[30px] text-left md:text-center"
+            class="text-[#000000] font-[600] text-[18px] font-Montserrat-Medium md:text-[30px] md:max-w-[600px] lg:max-w-full text-left md:text-center"
           >
             Powerful Signage Solutions for Agencies & Media Buyers
           </p>
         </div>
         <div class="flex md:justify-center pt-[1rem] md:pt-0">
           <p
-            class="text-[#000000] font-Montserrat-Bold font-bold text-[18px] md:text-[23px] lg:text-[50px] md:pt-3 text-left md:text-center max-w-[300px] md:max-w-full"
+            class="text-[#000000] font-Montserrat-Bold font-bold text-[18px] md:text-[30px] lg:text-[50px] md:pt-3 text-left md:text-center max-w-[300px] md:max-w-full"
           >
             Because Being Noticed Is Kind of a Big Deal
           </p>
@@ -719,16 +718,25 @@ export default {
       ],
       faqs: [
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we place signage directly at the business location?",
           answer:
             "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "How do Curbex signs fit into multi-channel campaigns?",
           answer:
             "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we launch nationwide campaigns with Curbex signage?",
           answer:
             "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",

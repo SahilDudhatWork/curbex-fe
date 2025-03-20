@@ -676,19 +676,19 @@
               <button
                 v-if="markers && markers.length"
                 @click="productAddToCart"
-                class="bg-[#FFA900] text-[16px] md:text-[16px] text-center py-[11px] rounded-[7px] w-full lg:w-[49%] font-Montserrat-Medium mb-[10px]"
+                class="bg-[#FFA900] text-[16px] md:text-[16px] text-center py-[12px] rounded-[7px] w-full lg:w-[49%] font-Montserrat-Medium mb-[10px]"
               >
-                Add to cart
+                Continue to Cart
               </button>
               <button
                 v-if="markers && markers.length"
                 @click="productAddToCart"
-                class="bg-[#121212] text-[16px] md:text-[16px] text-white border-[1px] border-[#000000] w-full lg:w-[49%] rounded-[7px] py-[11px] mb-[10px]"
+                class="bg-[#121212] text-[16px] md:text-[16px] text-white text-center py-[12px] rounded-[7px] w-full lg:w-[49%] font-Montserrat-Medium mb-[10px]"
               >
                 Select Design Method
               </button>
               <button
-                class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[8px] mb-[20px]"
+                class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[6px] mb-[20px]"
                 @click="downloadFileItem"
               >
                 Download Artwork Specs
@@ -885,9 +885,9 @@
               <Slide
                 v-for="(item, index) in liveImages"
                 :key="index"
-                class="relative m-2"
+                class="relative m-2 rounded-[16px]"
               >
-                <div class="relative">
+                <div class="relative rounded-[16px] overflow-hidden">
                   <img :src="item.imageUrl" alt="" class="w-full" />
                 </div>
               </Slide>

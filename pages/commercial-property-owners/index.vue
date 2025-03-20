@@ -716,16 +716,24 @@ export default {
       ],
       faqs: [
         {
+          isOpen: false,
+          contentWidth: 0,
           question: "Can we launch nationwide campaigns with Curbex signage?",
           answer:
             "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "How do Curbex signs fit into multi-channel campaigns?",
           answer:
             "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we place signage directly at the business location?",
           answer:
             "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",

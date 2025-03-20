@@ -17,7 +17,7 @@
         v-for="(item, index) in filterProducts.records"
         :key="index"
         @click="viewProduct(item)"
-        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+        class="bg-[#F3F3F3] group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] rounded-[15px] hover:border-[#8D54FF]"
       >
         <p
           :class="
@@ -25,14 +25,14 @@
               ? 'bg-[#FFA900] lg:bg-[#FF364A]'
               : 'bg-[#FFFFF] lg:bg-[#FFFFF]'
           "
-          class="mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
+          class="mb-[-12px] lg:mb-[-15px] mt-[-11px] z-[2] relative p-[4px_15px] lg:p-[4px_23px] w-fit rounded-[30px_20px_20px_0px] text-[10px] lg:text-[12px] text-[#121212] lg:text-[#FFFFFF]"
         >
           <span class="" v-if="item.isTrending">Trending</span>
 
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[23px] relative overflow-hidden">
+        <div class="rounded-t-[14px] relative overflow-hidden">
           <img
             :src="
               item.heroImage
@@ -40,7 +40,7 @@
                 : '/Images/Product/product-1.png'
             "
             alt=""
-            class="rounded-t-[23px] transition-scale duration-300 group-hover:scale-110"
+            class="rounded-t-[14px] transition-scale duration-300 group-hover:scale-110"
           />
           <span
             @click="toggleFavorite(item)"
@@ -66,7 +66,7 @@
             </svg>
           </span>
         </div>
-        <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-3 lg:p-5">
+        <div class="bg-[#F3F3F3] rounded-b-[14px] p-2 md:p-3 lg:p-5">
           <p
             :class="item?.type === 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
             class="text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF] capitalize"

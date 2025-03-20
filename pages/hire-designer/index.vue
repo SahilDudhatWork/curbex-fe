@@ -12,7 +12,7 @@
               class="rounded-[20px] transition-opacity duration-300"
             />
             <span
-              class="border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[28px] md:w-[40px] h-[28px] md:h-[40px]  absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
+              class="border-2 bg-[#FCFCFC] border-[#F3F3F3] w-[28px] md:w-[40px] h-[28px] md:h-[40px] absolute top-[10px] right-[10px] rounded-full flex justify-center items-center pointer"
             >
               <svg
                 width="19"
@@ -400,7 +400,7 @@
           @click="productAddToCart"
           class="bg-[#FFA900] text-[#121212] rounded-[6px] w-full text-[18px] p-[9px]"
         >
-          Add to cart
+          Continue to Cart
         </button>
       </div>
     </div>

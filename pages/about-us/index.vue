@@ -14,11 +14,10 @@
           on innovative, affordable advertising and premium quality commercial
           signage products that deliver results!
         </p>
-        <img
-          src="/Images/about.png"
-          alt=""
-          class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px]"
-        />
+        <div
+          class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px] bg-no-repeat bg-[20%_48%] md:bg-[left_58%] bg-[cover]"
+          style="background-image: url(/Images/about.png)"
+        ></div>
       </section>
       <section class="mb-10">
         <h2
@@ -37,11 +36,10 @@
           take pride in offering high-quality, customizable mini billboards that
           meet the demands of both small businesses and national brands alike.
         </p>
-        <img
-          src="/Images/8.webp"
-          alt=""
-          class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px]"
-        />
+        <div
+          class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px] lg:h-[520px] bg-no-repeat bg-[20%_48%] md:bg-[left_58%] bg-[cover]"
+          style="background-image: url(/Images/8.webp)"
+        ></div>
       </section>
       <section class="mb-10">
         <h2
@@ -63,7 +61,7 @@
           to bringing your brand’s vision to life.
         </p>
         <div
-          class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px] bg-no-repeat bg-[100%_58%] bg-[cover]"
+          class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px] bg-no-repeat bg-[100%_48%] md:bg-[100%_58%] bg-[cover]"
           style="background-image: url(/Images/team-1.png)"
         ></div>
         <!-- <img src="/Images/team-1.png" alt="" class="w-full object-cover rounded-[20px] h-[227px] md:h-[420px]"> -->

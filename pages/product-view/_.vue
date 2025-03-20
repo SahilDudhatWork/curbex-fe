@@ -391,10 +391,10 @@
             class="flex flex-wrap justify-between border-b border-[#D5D5D5] mb-5"
           >
             <button
-              class="bg-[#FFA900] text-[16px] md:text-[18px] text-center py-[11px] rounded-[7px] w-full md:w-[49%] font-Montserrat-Medium mb-[20px]"
+              class="bg-[#FFA900] text-[16px] md:text-[18px] text-center py-[12px] rounded-[7px] w-full md:w-[49%] font-Montserrat-Medium mb-[20px]"
               @click="productAddToCart"
             >
-              Add to cart
+              Continue to Cart
             </button>
             <button
               @click="productAddToCart"
@@ -403,15 +403,20 @@
               Select Design Method
             </button>
             <button
-              class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[11px] mb-[20px]"
+              class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[6px] mb-[10px]"
               @click="downloadFileItem"
             >
               Download Artwork Specs
             </button>
+            <button
+              class="bg-[#ffffff] text-[12px] md:text-[14px] border-[1px] border-[#000000] w-full rounded-[7px] py-[6px] mb-[20px]"
+            >
+              Download Property Owner Permission Letter
+            </button>
           </div>
           <div class="flex flex-wrap justify-between">
             <div
-              class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
+              class="flex items-center w-[47%] md:w-fit md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
               <div
                 class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]"
@@ -458,7 +463,7 @@
               </div>
             </div>
             <div
-              class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
+              class="flex items-center w-[47%] md:w-fit md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
               <div
                 class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]"
@@ -490,7 +495,7 @@
               </div>
             </div>
             <div
-              class="flex items-center w-[47%] md:w-[30%] md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
+              class="flex items-center w-[47%] md:w-fit md:mr-[10px] border md:border-0 border-[#F5F5F5] p-2 md:p-0 m-[5px] md:m-0 rounded-[9px]"
             >
               <div
                 class="bg-[#DAC8FF] md:bg-[#F4F4F4] rounded-[6px] p-3 mr-[10px]"
@@ -694,16 +699,25 @@ export default {
       heroImage: null,
       faqs: [
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we place signage directly at the business location?",
           answer:
             "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "How do Curbex signs fit into multi-channel campaigns?",
           answer:
             "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we launch nationwide campaigns with Curbex signage?",
           answer:
             "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
@@ -877,5 +891,8 @@ export default {
 ::v-deep .slick-prev:before,
 ::v-deep .slick-next:before {
   color: #000000;
+}
+::v-deep .VueCarousel-wrapper {
+  border-radius: 0px !important;
 }
 </style>

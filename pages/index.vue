@@ -32,16 +32,14 @@
       class="container px-6 md:px-0 mx-auto lg:border-[2px] lg:border-[#F3F3F3] rounded-[20px] lg:bg-[#FFFFFF]"
     >
       <div class="lg:text-center text-[#121212] lg:bg-[#121212] rounded-[20px]">
-          <p
-            class="
-            bg-[#121212] md:p-[20px] px-6 text-[20px] md:text-[27px] lg:py-[3rem] lg:px-[2rem] text-[#FFFFFF] p-[18px_18px] rounded-[20px]
-            "
-          >
-            Curbside Express Advertising in your community. 
-            <span class="p-[6px] md:p-[0px] block md:hidden"></span>
-            
-            Help us create your customer journey
-          </p>
+        <p
+          class="bg-[#121212] md:p-[20px] px-6 text-[20px] md:text-[27px] lg:py-[3rem] lg:px-[2rem] text-[#FFFFFF] p-[18px_18px] rounded-[20px]"
+        >
+          Curbside Express Advertising in your community.
+          <span class="p-[6px] md:p-[0px] block md:hidden"></span>
+
+          Help us create your customer journey
+        </p>
       </div>
       <div
         class="md:p-[2.5rem_2rem_1rem] lg:p-[3rem] border-t border-b mt-[2rem] pt-[2rem] md:mt-[2.5rem] md:border-[2px] md:border-[#F3F3F3] md:bg-[#FFFFFF] lg:border-[0px] md:rounded-[20px]"
@@ -49,13 +47,14 @@
         <div
           class="flex flex-wrap justify-between items-center md:max-w-[768px] lg:max-w-full mx-auto"
         >
-          <NuxtLink
-            to="/small-business-franchise"
-            class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
+          <div
+            @click="goToPage('/small-business-franchise')"
+            class="group cursor-pointer w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
           >
             <video
               src="/Videos/1.mp4"
               autoplay
+              playsinline
               muted
               loop
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
@@ -65,15 +64,16 @@
             >
               Small Business & Franchise 
             </div>
-          </NuxtLink>
-          <NuxtLink
-            to="/government-non-profits"
-            class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
+          </div>
+          <div
+            @click="goToPage('/government-non-profits')"
+            class="group cursor-pointer w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
           >
             <video
               src="/Videos/2.mp4"
               autoplay
               muted
+              playsinline
               loop
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
@@ -82,15 +82,16 @@
             >
               Government & Non-Profit
             </div>
-          </NuxtLink>
-          <NuxtLink
-            to="/media-buyers-agencies"
-            class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
+          </div>
+          <div
+            @click="goToPage('/media-buyers-agencies')"
+            class="group cursor-pointer w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
           >
             <video
               src="/Videos/3.mp4"
               autoplay
               muted
+              playsinline
               loop
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
@@ -99,15 +100,16 @@
             >
               Media Buyers/ Agencies
             </div>
-          </NuxtLink>
-          <NuxtLink
-            to="/commercial-property-owners"
-            class="group w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
+          </div>
+          <div
+            @click="goToPage('/commercial-property-owners')"
+            class="group cursor-pointer w-full md:w-[48%] mb-[2rem] lg:mb-0 lg:w-[24%] overflow-hidden rounded-[25px] h-[137px] md:h-[215px] lg:h-[375px] relative md:hover:h-[420px] transition-all duration-300"
           >
             <video
               src="/Videos/4.mp4"
               autoplay
               muted
+              playsinline
               loop
               class="w-full md:h-[215px] lg:h-[420px] object-cover"
             ></video>
@@ -116,7 +118,7 @@
             >
               Commercial Property Owners
             </div>
-          </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -266,7 +268,11 @@ export default {
       retailProductData: "product/getRetailProductData",
     }),
   },
-  methods: {},
+  methods: {
+    async goToPage(path) {
+      this.$router.push(path);
+    },
+  },
   async mounted() {},
 };
 </script>
@@ -310,7 +316,7 @@ export default {
 }
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
   .text-changed {
-    font-size: 56px;
+    font-size: 53px;
   }
 }
 </style>

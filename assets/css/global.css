@@ -54,7 +54,7 @@ body{
 
 /* Add these new styles for the accordion */
 .accordion-open svg {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
 }
 
 svg {
@@ -100,6 +100,11 @@ svg {
         max-width: 96px;
     }
 }
+@media screen and (min-width:1024px) and (max-width:1366px) {
+    .slider-h-lg-seaction{
+        height: 343px;
+    }
+}
 @media screen and (min-width:1280px) and (max-width:1350px) {
     .container {
         padding-left: 2rem;
@@ -117,3 +122,4 @@ svg {
         padding-right: 2rem;
     }
 }
+

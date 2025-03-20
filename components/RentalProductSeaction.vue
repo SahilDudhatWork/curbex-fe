@@ -75,20 +75,20 @@
           class="flex items-end justify-between pb-[5px] md:pb-[0] lg:pb-[5px]"
         >
           <p
-            class="text-[20px] lg:text-[27px] text-[#121212] font-Montserrat-Medium font-bold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis"
+            class="text-[20px] lg:text-[30px] text-[#121212] font-Montserrat-Medium font-bold whitespace-nowrap max-w-[80%] w-full overflow-hidden text-ellipsis"
           >
             {{ product?.name }}
           </p>
           <div>
             <p class="text-[9px] lg:text-[13px] text-[#121212]">Per Month</p>
-            <p class="text-[20px] lg:text-[27px] text-[#121212] font-semibold">
+            <p class="text-[20px] lg:text-[30px] text-[#121212] font-semibold">
               ${{ product?.price }}
             </p>
           </div>
         </div>
         <p
           v-html="product.description"
-          class="text-[#121212] text-[13px] lg:text-[17px] description"
+          class="text-[#121212] text-[13px] lg:text-[19px] description"
         ></p>
       </div>
     </div>

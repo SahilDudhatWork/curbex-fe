@@ -72,16 +72,18 @@
 
         <div>
           <div class="mt-10 lg:grid md:grid grid-cols-2 gap-8">
-            <img
-              src="/Images/small-business-franchise/2.png"
-              alt=""
-              class="w-full mb-5 md:h-[305px] h-[206px] lg:h-[305px] object-cover rounded-[20px]"
-            />
-            <img
-              src="/Images/small-business-franchise/3.png"
-              alt=""
-              class="w-full mb-5 md:h-[305px] h-[206px] lg:h-[305px] object-cover rounded-[20px]"
-            />
+            <div
+              style="
+                background-image: url(/Images/small-business-franchise/2.png);
+              "
+              class="small-image-mode bg-no-repeat w-full mb-5 md:h-[305px] h-[206px] lg:h-[365px] bg-cover bg-[left_center] rounded-[20px]"
+            ></div>
+            <div
+              style="
+                background-image: url(/Images/small-business-franchise/3.png);
+              "
+              class="small-image-mode bg-no-repeat w-full mb-5 md:h-[305px] h-[206px] lg:h-[365px] bg-cover bg-[left_center] rounded-[20px]"
+            ></div>
           </div>
         </div>
       </div>
@@ -296,11 +298,15 @@
       </div>
 
       <div class="mt-14">
-        <img
+        <div
+          style="background-image: url(/Images/small-business-franchise/5.png)"
+          class="bg-no-repeat w-full mb-5 md:h-[305px] h-[206px] lg:h-[435px] bg-cover bg-[left_center] rounded-[20px]"
+        ></div>
+        <!-- <img
           src="/Images/small-business-franchise/4.png"
           alt=""
           class="w-full h-[182px] md:h-[340px] lg:h-auto object-cover rounded-[20px]"
-        />
+        /> -->
       </div>
 
       <div class="mt-20">
@@ -660,16 +666,25 @@ export default {
         // { question: "Can I customize my signage to match my brand?", answer: "Absolutely. We offer full customization options, including colors, logos, and messaging." },
         // { question: "What if I need help with installation?", answer: "Our team provides complete support from concept to installation to ensure everything is seamless." },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we place signage directly at the business location?",
           answer:
             "Absolutely. Placing signs near or at the point of purchase maximizes impact by reaching customers right when they’re ready to act.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "How do Curbex signs fit into multi-channel campaigns?",
           answer:
             "Our signs are perfect for reinforcing messages from digital, TV, and radio campaigns, ensuring your clients’ brands stay top of mind.",
         },
         {
+          isOpen: false,
+          contentWidth: 0,
+
           question: "Can we launch nationwide campaigns with Curbex signage?",
           answer:
             "Yes! Our signage solutions can be deployed across Canada, offering a consistent, high-quality presence nationwide.",
@@ -694,4 +709,15 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .small-image-mode {
+    height: 305px;
+  }
+}
+.small-image-mode {
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    height: 215px;
+  }
+}
+</style>

@@ -603,7 +603,7 @@
           class="bg-[#FFA900] text-[#121212] rounded-[6px] w-full text-[18px] p-[9px]"
           @click="productAddToCart"
         >
-          Add to cart
+          Continue to Cart
         </button>
       </div>
     </div>

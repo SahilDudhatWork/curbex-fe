@@ -10,16 +10,20 @@
     <div class="container mx-auto pt-[20px] px-6 md:px-0">
       <!-- Filter Section -->
       <div
-        class="flex items-center gap-2 lg:gap-4 mb-[1.5rem] md:mb-[2.5rem] flex-wrap"
+        class="flex items-center gap-2 lg:gap-4 mb-[1.5rem] md:mb-[2.5rem] justify-between flex-wrap md:flex-nowrap"
       >
-        <div class="flex items-center gap-2 lg:gap-4 flex-wrap">
+        <div
+          class="flex items-center gap-2 lg:gap-4 w-full lg:w-[50%] flex-wrap md:flex-nowrap"
+        >
           <!-- Product Type Filter -->
-          <div class="relative order-2 lg:order-1 z-10">
+          <div class="relative z-10 w-full md:w-fit order-2 md:order-1">
             <button
               @click="toggleProductTypeDropdown"
-              class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#121212] text-[#F3F3F3] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
+              class="min-w-[150px] flex items-center justify-between md:justify-normal w-full gap-2 px-3 py-[0.55rem] bg-[#121212] text-[#F3F3F3] md:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
             >
-              {{ selectedProductType || "Product type" }}
+              {{
+                selectedProductType == "Retail" ? "For Purchase" : "For Rent"
+              }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-4 h-4"
@@ -39,226 +43,192 @@
               v-if="isProductTypeOpen"
               class="bg-[#FFFFFF] p-[10px_15px] border border-[#C3C3C3] mt-[-33px] lg:mt-[-41px] rounded-[25px] absolute left-0 right-0 z-1 overflow-hidden opacity-0 transition-all openDropdown"
             >
+              <!-- @click="selectProductType(type)" -->
               <div
-                v-for="type in productTypes"
-                :key="type"
-                @click="selectProductType(type)"
+                @click="selectProductType"
                 class="py-2 text-[#121212] text-[10px] lg:text-[15px] cursor-pointer"
               >
-                {{ type }}
+                {{
+                  selectedProductType == "Retail" ? "For Rent" : "For Purchase"
+                }}
               </div>
             </div>
           </div>
-          <!-- Price Filter -->
-          <div class="relative order-3 lg:order-2">
-            <button
-              @click="togglePriceSort"
-              class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-            >
-              Price
+          <!-- Search Bar -->
+          <div
+            class="relative search-bar-section w-full max-w-full md:max-w-[393px] order-1 md:order-2"
+          >
+            <input
+              v-model="searchQuery"
+              @keyup="searchProduct()"
+              type="text"
+              placeholder="Search product"
+              class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[7px] border border-[#949494] bg-[transparent] rounded-[50px] lg:rounded-[50px] outline-[#8D54FF] focus:border-[#8D54FF]"
+            />
+            <span class="absolute right-[14px] top-[14px] lg:top-[13px]">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4"
-                viewBox="0 0 24 24"
+                width="21"
+                height="22"
+                viewBox="0 0 21 22"
                 fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M7 15l5 5 5-5" v-if="priceSort === 'desc'" />
-                <path d="M7 9l5-5 5 5" v-if="priceSort === 'asc'" />
-                <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!priceSort" />
-              </svg>
-            </button>
-          </div>
-          <div class="relative order-3 lg:order-2">
-            <button
-              @click="toggleNameSort"
-              class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-            >
-              Name
-              <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
               >
-                <path d="M7 15l5 5 5-5" v-if="nameSort === 'desc'" />
-                <path d="M7 9l5-5 5 5" v-if="nameSort === 'asc'" />
-                <path d="M7 15l5 5 5-5 M7 9l5-5 5 5" v-if="!nameSort" />
+                <path
+                  d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z"
+                  stroke="#949494"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  d="M15 14.6631L20 20.6631"
+                  stroke="#949494"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                />
               </svg>
-            </button>
+            </span>
           </div>
         </div>
-        <!-- Search Bar -->
 
-        <div class="relative order-4 lg:order-2 search-bar-section">
-          <input
-            v-model="searchQuery"
-            @keyup="searchProduct()"
-            type="text"
-            placeholder="Search product"
-            class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
-          />
-          <span class="absolute right-[14px] top-[14px] lg:top-[17px]">
+        <!-- Price Filter -->
+        <div class="flex items-center gap-3">
+          <button @click="handleSortData" class="flex items-center gap-2">
             <svg
-              width="21"
-              height="22"
-              viewBox="0 0 21 22"
+              v-if="sortOrder == 'desc'"
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z"
-                stroke="#949494"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
+              <rect
+                x="0.5"
+                y="0.5"
+                width="39"
+                height="39"
+                rx="19.5"
+                :fill="isPriceSelect || isNameSelect ? '#8D54FF' : '#121212'"
+                :stroke="isPriceSelect || isNameSelect ? '#8D54FF' : '#121212'"
               />
               <path
-                d="M15 14.6631L20 20.6631"
-                stroke="#949494"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
+                d="M9 15H15.5865"
+                stroke="white"
+                stroke-width="1.64663"
                 stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9 24.8828H20.5264"
+                stroke="white"
+                stroke-width="1.64663"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9 19.9414H17.2331"
+                stroke="white"
+                stroke-width="1.64663"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M26.587 16.6456V25.4716"
+                stroke="white"
+                stroke-width="1.64663"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M30.5098 21.5469L26.5871 25.4695L22.6644 21.5469"
+                stroke="white"
+                stroke-width="1.64663"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
-          </span>
+
+            <svg
+              v-else
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1_2)">
+                <path
+                  d="M39.5 20C39.5 9.23045 30.7696 0.5 20 0.5C9.23045 0.5 0.5 9.23045 0.5 20C0.5 30.7696 9.23045 39.5 20 39.5C30.7696 39.5 39.5 30.7696 39.5 20Z"
+                  :fill="isPriceSelect || isNameSelect ? '#8D54FF' : '#121212'"
+                  :stroke="
+                    isPriceSelect || isNameSelect ? '#8D54FF' : '#121212'
+                  "
+                />
+                <path
+                  d="M15.5865 24.8828L9 24.8828"
+                  stroke="white"
+                  stroke-width="1.64663"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20.5264 15L9 15"
+                  stroke="white"
+                  stroke-width="1.64663"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17.2331 19.9433L9 19.9433"
+                  stroke="white"
+                  stroke-width="1.64663"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M26.587 16.6456V25.4716"
+                  stroke="white"
+                  stroke-width="1.64663"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M22.6644 18.9226L26.5871 15L30.5098 18.9226"
+                  stroke="white"
+                  stroke-width="1.64663"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_2">
+                  <rect width="40" height="40" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <button
+            @click="togglePriceSort"
+            class="flex items-center gap-2 px-4 py-[0.50rem] bg-[#FFFFFF] border border-[#121212] text-[#121212] text-[15px] font-Montserrat-Medium rounded-[35px]"
+            :class="
+              isPriceSelect
+                ? 'border-[#8D54FF] border-[2px] text-[#8D54FF]'
+                : ''
+            "
+          >
+            Price
+          </button>
+          <button
+            @click="toggleNameSort"
+            class="flex items-center gap-2 px-4 py-[0.50rem] bg-[#FFFFFF] border border-[#121212] text-[#121212] text-[15px] font-Montserrat-Medium rounded-[35px]"
+            :class="
+              isNameSelect ? 'border-[#8D54FF] border-[2px] text-[#8D54FF]' : ''
+            "
+          >
+            Name
+          </button>
         </div>
-
-        <!-- Review Filter -->
-        <div class="relative order-4 lg:order-3 ml-auto flex items-center">
-          <!-- <button
-            @click="handleSort('isEvent')"
-            :class="isEvent ? 'border border-[#121212]' : ' '"
-            class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3"
-          >
-            Event & Trade Show
-          </button>
-          <button
-            @click="handleSort('isExterior')"
-            :class="isExterior ? 'border border-[#121212]' : ' '"
-            class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10 mr-3"
-          >
-            Exterior Promotions
-          </button>
-          <button
-            @click="handleSort('isInterior')"
-            :class="isInterior ? 'border border-[#121212]' : ' '"
-            class="flex items-center gap-2 px-3 lg:px-6 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] relative z-10"
-          >
-            Interior Promotions
-          </button> -->
-        </div>
-
-        <!-- Location Filter -->
-        <!-- <div class="relative order-5 lg:order-4">
-          <button
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-          >
-            Location
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-        </div> -->
-
-        <!-- Offer Filter -->
-        <!-- <div class="relative order-6 lg:order-5">
-          <button
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#F3F3F3] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-          >
-            Offer
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-        </div> -->
-
-        <!-- For Purchase Button -->
-        <!-- <div class="lg:ml-auto order-1 lg:order-6">
-          <button
-            class="flex items-center gap-2 px-3 lg:px-3 py-2 lg:py-[0.55rem] bg-[#FFA900] text-[#121212] text-[10px] lg:text-[15px] font-Montserrat-Medium rounded-[35px] hover:bg-gray-200"
-          >
-            For Purchase
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-        </div> -->
       </div>
-
-      <!-- Search Bar -->
-
-      <!-- <div class="mb-[3.5rem] relative">
-        <input
-          v-model="searchQuery"
-          @keyup="searchProduct()"
-          type="text"
-          placeholder="Search product"
-          class="w-full mt-1 p-[7px_15px] lg:px-4 lg:py-[11px] border border-[#949494] bg-[transparent] rounded-[25px] lg:rounded-[8px] focus:outline-none focus:border-[#000000]"
-        />
-        <span class="absolute right-[14px] top-[14px] lg:top-[17px]">
-          <svg
-            width="21"
-            height="22"
-            viewBox="0 0 21 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9.11133 1.33789C7.62797 1.33789 6.17792 1.77776 4.94455 2.60187C3.71119 3.42598 2.74989 4.59732 2.18223 5.96776C1.61458 7.33821 1.46605 8.84621 1.75544 10.3011C2.04483 11.7559 2.75914 13.0923 3.80803 14.1412C4.85692 15.1901 6.1933 15.9044 7.64815 16.1938C9.10301 16.4832 10.611 16.3346 11.9815 15.767C13.3519 15.1993 14.5232 14.238 15.3474 13.0047C16.1715 11.7713 16.6113 10.3212 16.6113 8.83789C16.6112 6.8488 15.821 4.94122 14.4145 3.53473C13.008 2.12823 11.1004 1.33802 9.11133 1.33789Z"
-              stroke="#949494"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-            />
-            <path
-              d="M15 14.6631L20 20.6631"
-              stroke="#949494"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-            />
-          </svg>
-        </span>
-      </div> -->
     </div>
 
     <div
@@ -267,7 +237,7 @@
       <div
         v-for="(item, key) in filterProducts.records"
         :key="key"
-        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+        class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[15px] hover:border-[#8D54FF]"
       >
         <p
           :class="
@@ -282,7 +252,7 @@
           <span class="" v-else-if="item.isBestSeller">Best Seller</span>
           <span class="" v-else>{{ "\u200B" }}</span>
         </p>
-        <div class="rounded-t-[23px] relative overflow-hidden">
+        <div class="rounded-t-[14px] relative overflow-hidden">
           <img
             :src="
               item.heroImage
@@ -290,7 +260,7 @@
                 : '/Images/Product/product-1.png'
             "
             alt=""
-            class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
+            class="rounded-t-[14px] transition-scale duration-300 group-hover:scale-110"
           />
           <span
             @click="toggleFavorite(item)"
@@ -316,7 +286,7 @@
             </svg>
           </span>
         </div>
-        <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-3 lg:p-5">
+        <div class="bg-[#F3F3F3] rounded-b-[14px] p-2 md:p-3 lg:p-5">
           <p
             :class="item?.type === 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
             class="text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#FFFFFF] capitalize"
@@ -438,6 +408,9 @@ export default {
   data() {
     return {
       searchQuery: "",
+      isPriceSelect: false,
+      isNameSelect: false,
+      sortOrder: "desc",
 
       pagination: {
         currentPage: 1,
@@ -445,13 +418,8 @@ export default {
         total: 0,
       },
       isProductTypeOpen: false,
-      selectedProductType: "",
+      selectedProductType: "Retail",
       productTypes: ["Rental", "Retail"],
-      priceSort: "", // '' for default, 'asc' for ascending, 'desc' for descending
-      nameSort: "", // '' for default, 'asc' for ascending, 'desc' for descending
-      isEvent: false,
-      isExterior: false,
-      isInterior: false,
     };
   },
 
@@ -519,6 +487,12 @@ export default {
       fetchProducts: "product/fetchProducts",
       toggleFavoriteProduct: "product/toggleFavoriteProduct",
     }),
+    async handleSortData() {
+      this.sortOrder = this.sortOrder === "desc" ? "asc" : "desc";
+      if (this.isNameSelect || this.isPriceSelect) {
+        this.getAllProducts();
+      }
+    },
     openProduct(product) {
       if (product.type == "retail") {
         this.$router.push(`/product-view/${product.id}`);
@@ -530,45 +504,23 @@ export default {
         }
       }
     },
-    handleSort(type) {
-      if (type == "isEvent") {
-        this.isEvent = !this.isEvent;
-      } else if (type == "isExterior") {
-        this.isExterior = !this.isExterior;
-      } else if (type == "isInterior") {
-        this.isInterior = !this.isInterior;
-      }
-    },
     toggleProductTypeDropdown() {
       this.isProductTypeOpen = !this.isProductTypeOpen;
     },
     togglePriceSort() {
-      this.nameSort = "";
-
-      if (!this.priceSort) {
-        this.priceSort = "asc";
-      } else if (this.priceSort === "asc") {
-        this.priceSort = "desc";
-      } else {
-        this.priceSort = "";
-      }
-      console.log(this.priceSort, "priceSort");
+      this.isNameSelect = false;
+      this.isPriceSelect = !this.isPriceSelect;
       this.getAllProducts();
     },
     toggleNameSort() {
-      this.priceSort = "";
-      if (!this.nameSort) {
-        this.nameSort = "asc";
-      } else if (this.nameSort === "asc") {
-        this.nameSort = "desc";
-      } else {
-        this.nameSort = "";
-      }
+      this.isPriceSelect = false;
+      this.isNameSelect = !this.isNameSelect;
       this.getAllProducts();
     },
 
-    selectProductType(type) {
+    selectProductType() {
       this.isProductTypeOpen = false;
+      let type = this.selectedProductType == "Rental" ? "Retail" : "Rental";
 
       if (this.selectedProductType == type) {
         return;
@@ -598,13 +550,13 @@ export default {
           };
         }
         // Add sorting based on priceSort
-        if (this.priceSort) {
+        if (this.isPriceSelect) {
           apiPayload.order = {
-            price: this.priceSort.toUpperCase(),
+            price: this.sortOrder.toUpperCase(),
           };
-        } else if (this.nameSort) {
+        } else if (this.isNameSelect) {
           apiPayload.order = {
-            name: this.nameSort.toUpperCase(),
+            name: this.sortOrder.toUpperCase(),
           };
         } else {
           apiPayload.order = {
@@ -666,20 +618,23 @@ export default {
   padding-top: 52px;
   opacity: 1;
 }
-.search-bar-section {
+/* .search-bar-section {
   width: calc(100% - 376px);
-}
+} */
 @media screen and (max-width: 1023px) {
   .openDropdown {
     padding-top: 35px;
   }
-  .search-bar-section {
+  /* .search-bar-section {
     width: calc(100% - 291px);
-  }
+  } */
 }
 @media screen and (max-width: 767px) {
-  .search-bar-section {
+  /* .search-bar-section {
     width: 100%;
-  }
+  } */
+}
+input:focus ~ span svg path {
+  stroke: #8d54ff;
 }
 </style>

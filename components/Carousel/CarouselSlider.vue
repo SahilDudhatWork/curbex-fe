@@ -14,7 +14,7 @@
         class="relative p-2"
       >
         <div
-          class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[24px] hover:border-[#8D54FF]"
+          class="group item transition-all duration-300 rent-produt border-2 border-[#F3F3F3] bg-[#F3F3F3] rounded-[15px] hover:border-[#8D54FF]"
         >
           <p
             :class="
@@ -34,18 +34,18 @@
           >
             <span class="hidden lg:block">Best Seller</span>
           </p> -->
-          <div class="rounded-t-[23px] relative overflow-hidden">
+          <div class="rounded-t-[14px] relative overflow-hidden">
             <img
               v-if="item.heroImage"
               :src="item.heroImage.imageUrl"
               alt=""
-              class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
+              class="rounded-t-[14px] transition-scale duration-300 group-hover:scale-110"
             />
             <img
               v-else
               src="/Images/Product/product-1.png"
               alt=""
-              class="rounded-t-[20px] transition-scale duration-300 group-hover:scale-110"
+              class="rounded-t-[14px] transition-scale duration-300 group-hover:scale-110"
             />
             <span
               @click="toggleFavorite(item)"
@@ -71,7 +71,7 @@
               </svg>
             </span>
           </div>
-          <div class="bg-[#F3F3F3] rounded-b-[23px] p-2 md:p-5 md:pb-[10px]">
+          <div class="bg-[#F3F3F3] rounded-b-[14px] p-2 md:p-5 md:pb-[10px]">
             <p
               :class="item?.type == 'rental' ? 'bg-[#DAC8FF]' : 'bg-[#FFEBC3]'"
               class="capitalize text-[10px] lg:text-[12px] text-[#121212] w-fit mt-[-22px] md:mt-[-28px] lg:mt-[-30px] relative mb-[10px] rounded-[5px] p-[1px_6px] border border-[#F5F5F5]"

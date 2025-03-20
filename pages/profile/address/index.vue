@@ -21,19 +21,19 @@
             class="flex items-center flex-wrap lg:flex-nowrap"
           >
             <div
-              class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center justify-center lg:justify-start w-fit p-[13px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
+              class="radio-section bg-[#E3E3E3] text-[#121212] flex items-center justify-center lg:justify-start w-fit p-[11px_25px] rounded-[60px_0px_0px_60px] border border-[#E3E3E3]"
             >
               <span
                 class="w-[13px] lg:w-[22px] h-[13px] lg:h-[22px] bg-[#FFFFFF] block rounded-[30px] mr-[10px] mb-[2px] lg:mb-0"
               ></span>
               <p
-                class="text-[14px] lg:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis max-w-[116px]"
+                class="text-[12px] lg:text-[16px] whitespace-nowrap overflow-hidden text-ellipsis max-w-[116px]"
               >
                 {{ address.city }}- {{ address.country }}
               </p>
             </div>
             <div
-              class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[13px_15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
+              class="address-details bg-[#FFFFFF] text-[#C3C3C3] flex item-center justify-between w-[75%] p-[11px_15px] rounded-[0px_60px_60px_0px] border border-[#E3E3E3]"
             >
               <span>
                 <svg
@@ -124,9 +124,9 @@
                 </svg>
               </span>
               <p
-                class="text-left w-full lg:w-auto lg:text-center p-[0px_10px] whitespace-nowrap max-w-[540px] overflow-hidden text-ellipsis"
+                class="text-[12px] lg:text-[16px] text-left w-full lg:w-auto lg:text-center p-[0px_10px] whitespace-nowrap max-w-[540px] overflow-hidden text-ellipsis"
               >
-                {{ address.street }}
+                {{ fullAddress(address) }}
               </p>
               <span @click.stop="editAddress(address)">
                 <svg
@@ -163,11 +163,14 @@
           </div>
           <p
             v-if="address.id == userProfile.defaultShippingAddressId"
-            class="text-[12px] p-[3px_2rem]"
+            class="text-[12px] p-[3px_2rem] text-center lg:text-left"
           >
             Default Address
           </p>
-          <p v-else class="hover-active text-[12px] p-[3px_2rem] opacity-0">
+          <p
+            v-else
+            class="hover-active text-[12px] p-[3px_2rem] opacity-0 text-center lg:text-left"
+          >
             Make it your Default Address
           </p>
         </div>
@@ -499,6 +502,13 @@ export default {
     handleMap() {
       this.isVisible = false;
     },
+    fullAddress(data) {
+      if (!data) return "";
+
+      const { street, city, province, postal, country } = data;
+
+      return `${street}, ${city}, ${province} ${postal}, ${country}`;
+    },
     async toggleGrid() {
       this.isGridVisible = !this.isGridVisible;
       this.formData = {};
@@ -742,6 +752,7 @@ export default {
   .radio-section {
     width: 100%;
     border-radius: 10px 10px 0 0;
+    padding: 8px 25px;
   }
   .address-details {
     width: 100%;
